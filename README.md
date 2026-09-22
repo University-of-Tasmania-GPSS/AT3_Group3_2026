@@ -5,19 +5,23 @@ KGG375 GIS Project (AT3) — Group 3, University of Tasmania
 ## Project Objectives
 
 This project develops a statewide screening model of karst groundwater
-vulnerability to agricultural land-use pressure across Tasmania's mapped
-karst areas, then validates the coarse statewide model against a locally
-detailed model for a selected study area (candidate: Smithton Syncline).
-The workflow combines a literature-justified weighted linear combination
-(WLC) vulnerability index with borehole-derived groundwater depth data,
-and evaluates how model resolution and scale affect vulnerability
-classification.
+vulnerability to agricultural land-use pressure across the whole of
+Tasmania's mapped karst areas, then validates the coarse statewide model
+against a locally detailed model for a selected verification area
+(TBC). The workflow combines a literature-justified weighted linear
+combination (WLC) vulnerability index with borehole-derived groundwater
+depth data, and evaluates how model resolution and scale affect
+vulnerability classification.
+
+Study extent: statewide (Tasmania) for the coarse screening model; one
+selected local area, to be decided, for the high-resolution verification
+model.
 
 Objectives:
 1. Build a statewide WLC-based karst vulnerability index at coarse
    resolution using publicly available Tasmanian geospatial data.
-2. Build a high-resolution local model for the selected study area,
-   incorporating additional borehole/groundwater depth data.
+2. Build a high-resolution local model for the selected verification
+   area, incorporating additional borehole/groundwater depth data.
 3. Compare the two models to evaluate how scale/resolution affects
    vulnerability classification (serving as both sensitivity analysis
    and informal validation).
@@ -26,8 +30,8 @@ Objectives:
 
 ## Group Members
 
-- Maggie ([student number]) — yume0612@gmail.com
-- Rachel Roberts ([student number])
+- Maggie Meng Li — UTas ID: 142410 — GitHub: [mags612](https://github.com/mags612) — yume0612@gmail.com
+- Rachel Elisabeth Roberts — UTas ID: 855396 — GitHub: [RachelElisabethR](https://github.com/RachelElisabethR)
 
 KGG375, University of Tasmania
 
@@ -102,17 +106,29 @@ Current contents:
   Karst Atlas v3, 2003; conservation assessment from 2005)
 - **LIST Groundwater Boreholes (statewide)** — borehole locations and
   attributes from the Groundwater Information Access Portal
-- **DEM** — LIST 25m statewide DEM, downloaded per-municipality (only
-  Burnie done so far — still need tiles for every municipality that
-  intersects the karst extent)
+- **DEM** — LIST 25m statewide DEM, per-municipality tiles, **all 29
+  municipalities downloaded (complete)**
 - **Geology** — Mineral Resources Tasmania geopackages at 1:25,000,
   1:250,000, and 1:500,000 scale, with QGIS symbology files
+- **Land use** — not yet downloaded; will be sourced from Digital Earth
+  Australia (DEA) Level-3 Land Cover (`ga_ls_landcover_class_cyear_3`),
+  using the same STAC-based access pattern as AT2 (see Data Sources
+  below for the pipeline)
 
 ## Data Sources
 
 - Tasmanian Karst Atlas v3.1 — sourced via Mineral Resources Tasmania / group access (not on public LISTdata Open Data)
 - CFEV Karst layer — LISTdata Open Data, DPIPWE Water and Marine Resources Division
 - Geology (1:25,000 / 1:250,000 / 1:500,000) — Mineral Resources Tasmania
-- LiDAR/25m DEM — LISTdata Open Data (per-municipality tiles)
-- Land use — DPIPWE Tasmanian Land Use layer / ABARES CLUM
+- LiDAR/25m DEM — LISTdata Open Data (per-municipality tiles, statewide)
+- Land use — Digital Earth Australia (DEA) Level-3 Land Cover
+  (`ga_ls_landcover_class_cyear_3`), accessed via the DEA STAC catalogue
+  (`https://explorer.dea.ga.gov.au/stac`) with `pystac_client` + `odc.stac`,
+  no authentication required (anonymous S3 access). Same access method as
+  used in AT2. **Note:** AT2's resampling/reclassification steps used
+  PyQGIS (`processing.run("gdal:warpreproject", ...)`), which the AT3
+  brief explicitly disallows ("modern geospatial stack, i.e. not
+  PyQGIS") — for this project, reproject/resample with
+  `rioxarray`/`xarray` (`.rio.reproject`, nearest-neighbour for
+  categorical data) and reclassify with `numpy`/`xarray` mapping instead.
 - Borehole groundwater data — Groundwater Information Access Portal / LISTdata Open Data
