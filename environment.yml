@@ -1,0 +1,23 @@
+name: karst-vulnerability
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - geopandas
+  - rasterio
+  - rioxarray
+  - numpy
+  - scipy
+  - scikit-learn
+  - scikit-image
+  - esda
+  - libpysal
+  - matplotlib
+  - plotly
+  - leafmap
+  - jupyterlab
+  - richdem
+  - whitebox
+  - pip
+  - pip:
+      - pykrige
