@@ -88,6 +88,8 @@ https://university-of-tasmania-gpss.github.io/AT3_Group3_2026/
 ├── conclusion.md       # take-home point(s)
 ├── reference.md         # references (APA 7th)
 ├── notebooks/            # analysis notebooks, run in numbered order
+│   ├── 00_bounding_boxes.ipynb   # Tasmania + Mole Creek study area boundaries (EPSG:7855)
+│   └── 01_setup_mole_creek.ipynb # Mole Creek karst/geology clip + statewide DEM build
 ├── src/                  # reusable Python functions (reclassification, WLC, interpolation, etc.)
 ├── meeting_minutes/       # weekly meeting minutes
 └── .github/workflows/deploy.yml   # auto-builds & publishes the book to GitHub Pages
