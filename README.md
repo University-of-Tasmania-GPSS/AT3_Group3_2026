@@ -4,29 +4,51 @@ KGG375 GIS Project (AT3) — Group 3, University of Tasmania
 
 ## Project Objectives
 
-This project develops a statewide screening model of karst groundwater
-vulnerability to agricultural land-use pressure across the whole of
-Tasmania's mapped karst areas, then validates the coarse statewide model
-against a locally detailed model for a selected verification area
-(TBC). The workflow combines a literature-justified weighted linear
-combination (WLC) vulnerability index with borehole-derived groundwater
-depth data, and evaluates how model resolution and scale affect
-vulnerability classification.
+This project builds a relative karst vulnerability/risk model for
+Tasmania by combining three genuinely distinct layers — **karst
+susceptibility**, **hydrological connectivity**, and **land-use
+pressure** — rather than one large weighted index over every available
+dataset. The method is prototyped and frozen at a local case-study area
+(**Mole Creek**) before being scaled up statewide, then the statewide
+and local results are compared to evaluate how scale/resolution affects
+the vulnerability pattern.
 
-Study extent: statewide (Tasmania) for the coarse screening model; one
-selected local area, to be decided, for the high-resolution verification
-model.
+Study extent: **Mole Creek** (local, high-resolution — used to develop
+and test the method first) and **statewide Tasmania** (coarse — the
+tested method applied at scale).
 
 Objectives:
-1. Build a statewide WLC-based karst vulnerability index at coarse
-   resolution using publicly available Tasmanian geospatial data.
-2. Build a high-resolution local model for the selected verification
-   area, incorporating additional borehole/groundwater depth data.
-3. Compare the two models to evaluate how scale/resolution affects
-   vulnerability classification (serving as both sensitivity analysis
-   and informal validation).
-4. Communicate the workflow and findings via a reproducible MyST/Jupyter
+1. Prototype the vulnerability model at Mole Creek: karst susceptibility
+   (Karst Atlas `Kcategory` + exposure type) → hydrological connectivity
+   (`Kproxcatch` + DEM-derived drainage) → land-use pressure (DEA land
+   cover) → combined relative vulnerability/risk.
+2. Freeze the method once it produces a geographically sensible result,
+   then apply the same workflow statewide at coarser resolution.
+3. Compare the statewide-coarse and Mole-Creek-detailed outputs for the
+   Mole Creek area to evaluate how scale/resolution affects
+   classification (this doubles as informal validation).
+4. Run a sensitivity analysis: alternative weight emphases, an optional
+   rainfall experiment (Karst Atlas `Kavrain`), and a land-use-change
+   comparison between the two available DEA time-slices.
+5. Use independent datasets (CFEV GDE springs, CFEV conservation value)
+   to validate and contextualise — not to construct — the vulnerability
+   score, then combine risk × conservation value into a management
+   priority matrix.
+6. Communicate the workflow and findings via a reproducible MyST/Jupyter
    Book.
+
+**Explicitly out of scope / optional-only:** borehole data (useful only
+if it turns out clean and well-covered at Mole Creek — not a
+fundamental model input, since depth/flow/position-accuracy filtering
+could become a project of its own); AHP (a small number of transparent,
+literature-justified weights are used instead, given only 3–4
+criteria); TGD/Karst Index Database cross-checks (time-permitting only).
+
+**Known limitation to state explicitly in the Discussion:** since the
+method is developed and tuned at Mole Creek before being frozen and
+applied statewide without re-tuning, results elsewhere in the state may
+reflect Mole Creek's specific geology/land-use mix rather than a
+truly general model.
 
 ## Group Members
 
@@ -114,6 +136,11 @@ Current contents:
   Australia (DEA) Level-3 Land Cover (`ga_ls_landcover_class_cyear_3`),
   using the same STAC-based access pattern as AT2 (see Data Sources
   below for the pipeline)
+- **CFEV Groundwater Dependent Ecosystems (springs)** — not yet
+  downloaded; needed for the validation step (used to check the model,
+  not to build it — see limitations note above on avoiding circularity)
+- **Mole Creek study area boundary** — needs to be sourced or digitised
+  (confirmed as the local case-study area)
 
 ## Data Sources
 
@@ -131,4 +158,24 @@ Current contents:
   PyQGIS") — for this project, reproject/resample with
   `rioxarray`/`xarray` (`.rio.reproject`, nearest-neighbour for
   categorical data) and reclassify with `numpy`/`xarray` mapping instead.
-- Borehole groundwater data — Groundwater Information Access Portal / LISTdata Open Data
+- Borehole groundwater data — Groundwater Information Access Portal / LISTdata Open Data (optional input, see Objectives)
+- CFEV Groundwater Dependent Ecosystems (springs) — LISTdata Open Data, DPIPWE Water and Marine Resources Division (validation only)
+
+## Workflow / Methodology Reference
+
+The full staged workflow (karst susceptibility → hydrological
+connectivity → land-use pressure → combined risk, developed at Mole
+Creek then scaled statewide, with sensitivity analysis and
+validation/context stages) is documented in detail in the group's
+"Revised workflow" notes. Key methodological decisions to remember:
+
+- Build/test at **Mole Creek first**, freeze the method, then apply
+  statewide — not the other way around.
+- Keep vector layers as vectors until something genuinely needs
+  rasterising.
+- Don't double-count: geology refines/checks the karst susceptibility
+  layer rather than contributing its own independent weighted score.
+- CFEV GDE springs and CFEV conservation value are validation/context
+  only — never inputs to the vulnerability score (avoids circularity).
+- Use a small number of transparent, justified weights rather than a
+  full AHP exercise.
