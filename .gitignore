@@ -27,3 +27,6 @@ Thumbs.db
 # Geospatial temp/sidecar files
 *.aux.xml
 *.tif.ovr
+
+# Local data (lives on OneDrive, not in git)
+data/
