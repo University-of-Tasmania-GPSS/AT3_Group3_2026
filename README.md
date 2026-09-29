@@ -120,29 +120,39 @@ bloating the git history. See "Data Access" below.
 ## Data Access
 
 Datasets are shared via a University of Tasmania OneDrive shared library
-folder ("AT3_initial_datasets"), not committed to this repository.
-Current contents:
+folder ("AT3_initial_datasets"), not committed to this repository. It's
+split into `Input_data/` (raw source datasets, below) and `Output_data/`
+(everything the notebooks generate — reprojected/clipped layers, rasters,
+final outputs). Notebooks read raw data via `AT3_DATA_DIR/Input_data/...`
+and write generated files to `AT3_DATA_DIR/Output_data/...`.
+
+Current `Input_data/` contents:
 
 - **Karst Atlas v3.1** — shapefile + geodatabase of mapped karst extent
   and carbonate features, with metadata/data dictionary (2003)
 - **LIST CFEV Karst (statewide)** — karst zone polygons with conservation
   value and management priority ratings (published 2015; geometry from
   Karst Atlas v3, 2003; conservation assessment from 2005)
+- **LIST CFEV Groundwater Dependent Ecosystems / springs (statewide)** —
+  sourced; needed for the Stage 10 validation step (used to check the
+  model, not to build it — see limitations note above on avoiding
+  circularity)
 - **LIST Groundwater Boreholes (statewide)** — borehole locations and
   attributes from the Groundwater Information Access Portal
 - **DEM** — LIST 25m statewide DEM, per-municipality tiles, **all 29
   municipalities downloaded (complete)**
-- **Geology** — Mineral Resources Tasmania geopackages at 1:25,000,
-  1:250,000, and 1:500,000 scale, with QGIS symbology files
+- **Geology** — Mineral Resources Tasmania geopackages (`geopackage/`) at
+  1:25,000, 1:250,000, and 1:500,000 scale, plus a raw shapefile version
+  (`geology25k/`) and QGIS symbology files
+- **Geoconservation site data** (`geosite_report_4_22-Sep-2026/`) —
+  sourced; candidate for the Stage 10 TGD/optional cross-check
+- **Tasmania state boundary** (`STE_2021_AUST_SHP_GDA2020/`) — ABS ASGS
+  boundary, used for the statewide study extent
 - **Land use** — not yet downloaded; will be sourced from Digital Earth
   Australia (DEA) Level-3 Land Cover (`ga_ls_landcover_class_cyear_3`),
   using the same STAC-based access pattern as AT2 (see Data Sources
   below for the pipeline)
-- **CFEV Groundwater Dependent Ecosystems (springs)** — not yet
-  downloaded; needed for the validation step (used to check the model,
-  not to build it — see limitations note above on avoiding circularity)
-- **Mole Creek study area boundary** — needs to be sourced or digitised
-  (confirmed as the local case-study area)
+- **Mole Creek study area boundary** — complete (`notebooks/00_bounding_boxes.ipynb`)
 
 ## Data Sources
 
