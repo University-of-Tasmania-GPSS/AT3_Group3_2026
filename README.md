@@ -17,6 +17,20 @@ Study extent: **Mole Creek** (local, high-resolution — used to develop
 and test the method first) and **statewide Tasmania** (coarse — the
 tested method applied at scale).
 
+**Mole Creek boundary note:** the Mole Creek study area is the union of
+the relevant Karst Atlas polygons, **buffered by 3 km**
+(`notebooks/00_bounding_boxes.ipynb`). The unbuffered union covers
+essentially 100% of its own area with karst/catchment features, leaving
+no surrounding land — found during Stage 3 development, when the
+hydrological connectivity layer came out saturated (every polygon
+scoring maximum) because there was no background left to score lower.
+The same problem would have broken Stage 5 (land-use pressure): the
+whole project asks whether *surrounding* land use pressures the karst,
+which needs land outside the karst polygons to carry that signal. A 3 km
+buffer is a pragmatic, documented choice, not a true watershed
+delineation — worth stating as a limitation in `methods.md` rather than
+presenting as a rigorously derived catchment boundary.
+
 Objectives:
 1. Prototype the vulnerability model at Mole Creek: karst susceptibility
    (Karst Atlas `Kcategory` + exposure type) → hydrological connectivity
