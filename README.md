@@ -162,10 +162,11 @@ Current `Input_data/` contents:
   sourced; candidate for the Stage 10 TGD/optional cross-check
 - **Tasmania state boundary** (`STE_2021_AUST_SHP_GDA2020/`) — ABS ASGS
   boundary, used for the statewide study extent
-- **Land use** — not yet downloaded; will be sourced from Digital Earth
-  Australia (DEA) Level-3 Land Cover (`ga_ls_landcover_class_cyear_3`),
-  using the same STAC-based access pattern as AT2 (see Data Sources
-  below for the pipeline)
+- **Land use** — complete for Mole Creek (`notebooks/05_landuse_pressure.ipynb`),
+  from Digital Earth Australia (DEA) Level-3 Land Cover
+  (`ga_ls_landcover_class_cyear_3`), fetched on demand via STAC (not a
+  static download — no local raw files to list here); statewide fetch
+  still outstanding (Stage 7)
 - **Mole Creek study area boundary** — complete (`notebooks/00_bounding_boxes.ipynb`)
 
 ## Data Sources
