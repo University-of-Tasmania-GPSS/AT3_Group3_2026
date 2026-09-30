@@ -68,9 +68,16 @@ def fetch_landuse_pressure(bbox_wgs84, year, template_path, target_crs="EPSG:785
         template_res = abs(dem_template.rio.resolution()[0])
         load_res = max(template_res, 30)
 
+        # Downsampling categorical data (e.g. statewide: 30m native -> 100m)
+        # needs majority/mode resampling, not nearest -- nearest just keeps
+        # one native pixel in ~11 and throws the other ten away, which can
+        # pick a non-dominant class. Only matters when actually downsampling;
+        # nearest is correct for Mole Creek's slight 30m->25m upsample.
+        load_resampling = "mode" if load_res > 30 else "nearest"
+
         land_cover = odc.stac.load(
             items, bands=["level3"], bbox=bbox_wgs84, crs=target_crs,
-            resolution=load_res, groupby="solar_day", resampling="nearest",
+            resolution=load_res, groupby="solar_day", resampling=load_resampling,
         )
         arr = land_cover["level3"]
         if "time" in arr.dims:

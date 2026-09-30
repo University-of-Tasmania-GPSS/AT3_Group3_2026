@@ -217,3 +217,77 @@ validation/context stages) is documented in detail in the group's
 - The multi-year land-use trend is a real annual time series (1988–2024
   at Mole Creek, ~5-year steps statewide), not a two-point comparison —
   confirmed feasible before committing to it, not assumed.
+- Karst scoring logic (Stages 2/3/7) lives in `src/karst.py`
+  (`add_karst_susceptibility()`, `add_connectivity()`), same reason as
+  the land-use module — was copy-pasted into three notebooks.
+
+## Fixes from an internal review (30 Sep)
+
+A structured review of Stages 2–8 found several issues worth recording
+here rather than letting them sit silently in commit history. Each was
+verified against the actual code and data before fixing (a few claims
+in the review didn't hold up, or were already fixed by an earlier
+commit — noted below too):
+
+**Real bugs, fixed:**
+- **Land-use pressure couldn't reach the karst it should affect.**
+  Risk = intrinsic vulnerability × pressure is a per-cell product;
+  catchment-only polygons have `karst_intensity`=0, so their
+  contribution to risk was always 0 however much high-pressure land
+  they contained. Measured: 26.8% of high-pressure cells at Mole Creek
+  were affected. Fixed with `aggregate_pressure_by_system()` in
+  `src/karst.py` — karst cells now use the mean pressure across their
+  whole named system (karst + its own catchment), not just the pixel's
+  own value. A simple mean, not flow-routed — stated as a limitation.
+- **`rasterize()` overlap order.** Overlapping polygons burn in draw
+  order (last wins), which can silently produce a wrong value.
+  Checked: no polygons with *different* values genuinely overlap in
+  area in the current data, so this wasn't live-broken — fixed anyway
+  (`rasterize_max()`, sorts ascending so the max value wins) since it's
+  a one-line fix for a real footgun.
+- **Statewide DEA land cover used nearest-neighbour when downsampling**
+  30m native data to 100m, keeping one pixel in ~11 rather than the
+  dominant class. Fixed: `mode` resampling when actually downsampling.
+- **Exposed and covered karst scored identically** (both "autogenic").
+  Revised: covered scores lower (EPIK's Protective Cover logic — a
+  non-karst cap reduces vulnerability, not neutral to it).
+- **Stage 6 and Stage 8 used different aggregation methods**
+  (mean-of-polygon-means vs. pooled-pixel-mean) for what was presented
+  as the same per-area statistic, and gave different numbers for the
+  same named area as a result. Standardised on pooled everywhere.
+- **Stage 8's r=0.91 / 95.6% agreement was computed over all cells**,
+  ~77% of which are 0 in both surfaces — agreeing on "nothing here"
+  inflates the headline. Now reports both, with the cells-where-
+  either-surface-is-nonzero version as the honest headline.
+- **02/03 overwrote the same Stage 1 output file in place** — each
+  stage now writes its own file (`karst_mc_susceptibility_EPSG7855.gpkg`,
+  `karst_mc_connectivity_EPSG7855.gpkg`), so re-running one stage can't
+  silently drop another's columns.
+- **02's carbonate string match** would also match a hypothetical
+  "non-carbonate" description (doesn't occur in the current data, fixed
+  anyway).
+- **Stage 7's `LABELS` list had "Very Low" twice**, hand-typed with an
+  assertion that only checked length, not correctness — replaced with
+  `classify_scores()`/`classify_continuous()` in `src/karst.py`, which
+  generate labels from whatever values actually occur.
+- **Karst scoring was copy-pasted into Stage 7**, not actually shared
+  from `src/karst.py` despite Stage 5's land-use fetch already being
+  properly shared — fixed, Stage 7 now imports both.
+- **Stage 3's `d8_pointer` call was dead code** — computed and never
+  used; `d8_flow_accumulation` reads the filled DEM directly. Removed.
+
+**Claims softened, not fixed as bugs (they were accurate about the
+model, just overstated as validation):**
+- Stage 6's "named areas rank sensibly" check is not independent —
+  risk is partly derived from `KCATEGORY`, the same field used to name
+  and rank the areas. It confirms the combination arithmetic behaves as
+  intended, not that the model is externally validated.
+- Stage 7's "cross-check" against Mole Creek isn't independent either —
+  Mole Creek is a subset of the same statewide computation with the
+  same data and formula, so agreement is partly expected by
+  construction, not a genuine replication.
+
+**Checked and found not to hold, or already fixed:**
+- The review's claim that Stage 7 doesn't import `fetch_landuse_pressure`
+  was against an earlier version — the refactor already fixed this
+  before the review.

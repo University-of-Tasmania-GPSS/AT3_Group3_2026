@@ -1,0 +1,236 @@
+"""Karst susceptibility and hydrological connectivity scoring, shared by
+notebooks 02, 03, and 07 -- extracted after review found the same logic had
+been copy-pasted into all three (making "frozen method" not actually true:
+a change made in one place wouldn't reach the others).
+
+All reclassification choices here are ordinal, not ratio, scores: a value
+of 4 means "more" than 2, not "twice as much".
+"""
+
+import geopandas as gpd
+import numpy as np
+from rasterio.features import rasterize
+
+# --- Stage 2: karst intensity -----------------------------------------------
+
+# KCATEGORY, per the Karst Atlas v3 Data Dictionary (Sharples 2003): A =
+# intensely karstified ... D = possibly partially karstified, 0 = not karst.
+CATEGORY_SCORE = {"A": 4, "B": 3, "C": 2, "D": 1, "0": 0}
+
+
+def classify_exposure_type(karst_gdf):
+    """Return exposed/covered/interstratal/non-karst per polygon, from
+    whichever of KEXPOSED/KCOVERED/KINTERSTR is non-zero (confirmed mutually
+    exclusive in the real data during Stage 2 development)."""
+    def _row_type(row):
+        if row["KEXPOSED"] != "0":
+            return "exposed"
+        if row["KCOVERED"] != "0":
+            return "covered"
+        if row["KINTERSTR"] != "0":
+            return "interstratal"
+        return "non-karst"
+    return karst_gdf.apply(_row_type, axis=1)
+
+
+EXPOSURE_CODE = {"non-karst": 0, "interstratal": 1, "covered": 2, "exposed": 3}
+
+
+def add_karst_susceptibility(karst_gdf):
+    """Add `karst_intensity`, `exposure_type`, and `exposure_code` (numeric
+    encoding of exposure_type, for rasterising/plotting) columns in place,
+    return the same GeoDataFrame for chaining."""
+    karst_gdf["karst_intensity"] = karst_gdf["KCATEGORY"].map(CATEGORY_SCORE)
+    karst_gdf["exposure_type"] = classify_exposure_type(karst_gdf)
+    karst_gdf["exposure_code"] = karst_gdf["exposure_type"].map(EXPOSURE_CODE)
+    return karst_gdf
+
+
+# --- Stage 3: hydrological connectivity -------------------------------------
+
+# Revised after review flagged exposed==covered==3 as an unjustified choice:
+# covered karst has a protective non-karst cap between the surface and the
+# karst itself. EPIK's Protective cover (P) factor -- discussed in this
+# project's own Framework section when EPIK/COP were compared and set aside
+# -- treats that cover as *reducing* vulnerability, not being neutral to it.
+# So: exposed keeps the maximum score (no buffering at all); covered is
+# still autogenic (it gets its own rainfall -- Data Dictionary confirms this)
+# but scored lower to reflect the buffering; interstratal is lower again,
+# since per the Data Dictionary it is NOT autogenic at all (its recharge
+# depends on an external catchment, i.e. KPROXCATCH, not direct rainfall).
+AUTOGENIC_SCORE = {"exposed": 3, "covered": 2, "interstratal": 1, "non-karst": 0}
+
+
+def add_connectivity(karst_gdf):
+    """Add `autogenic_score`, `proximal_score`, `distal_score`, and the
+    combined `connectivity` (max of the three) columns in place."""
+    karst_gdf["autogenic_score"] = karst_gdf["exposure_type"].map(AUTOGENIC_SCORE)
+    karst_gdf["proximal_score"] = np.where(karst_gdf["KPROXCATCH"] != "0", 3, 0)
+    karst_gdf["distal_score"] = np.where(karst_gdf["KDISTCATCH"].astype(str) != "0", 1, 0)
+    karst_gdf["connectivity"] = karst_gdf[
+        ["autogenic_score", "proximal_score", "distal_score"]
+    ].max(axis=1)
+    return karst_gdf
+
+
+# --- Shared: overlap-safe rasterisation -------------------------------------
+
+def rasterize_max(gdf, value_column, out_shape, transform, fill=0, dtype="uint8"):
+    """Rasterise `value_column`, with overlapping polygons resolved by
+    MAX rather than draw-order (`rasterio.features.rasterize` burns shapes
+    in the order given -- last one wins on overlap, which silently produces
+    wrong results if a low-value polygon happens to be drawn after a
+    high-value one it overlaps). Checked during review: no polygons with
+    *different* values genuinely overlap in area in the current Mole Creek
+    or statewide data, so this hasn't caused a wrong result yet -- but it's
+    one line to fix properly rather than rely on that continuing to hold.
+    """
+    ordered = gdf.sort_values(value_column)  # ascending: highest value drawn last, wins
+    return rasterize(
+        [(geom, val) for geom, val in zip(ordered.geometry, ordered[value_column])],
+        out_shape=out_shape, transform=transform, fill=fill, dtype=dtype,
+    )
+
+
+def load_karst_atlas(shapefile_path, target_crs):
+    """Load the Karst Atlas, reproject, and drop degenerate line/point
+    geometries that gpd.clip() can leave behind at a study-area boundary."""
+    karst = gpd.read_file(shapefile_path).to_crs(target_crs)
+    return karst[karst.geom_type.isin(["Polygon", "MultiPolygon"])].copy()
+
+
+# --- Stage 6/7: catchment-aggregated pressure -------------------------------
+
+def aggregate_pressure_by_system(karst_gdf, pressure_array, transform, pressure_nodata):
+    """Return a copy of `pressure_array` where every KARST cell (not
+    catchment-only cells) has been replaced with the MEAN pressure across its
+    whole named system -- the karst polygon(s) AND whichever catchment
+    polygons share the same KNAME.
+
+    Why: risk = intrinsic_vulnerability x pressure is a per-cell product, and
+    catchment-only polygons have karst_intensity=0, so their intrinsic
+    vulnerability -- and therefore their contribution to risk -- is always 0,
+    however much high-pressure land they contain. Checked during review:
+    26.8% of high-pressure cells at Mole Creek sat in zero-intensity
+    (catchment-only) polygons and were contributing nothing. This function
+    lets a catchment's land use reach the karst it actually drains into,
+    rather than only the pixel directly on top of the karst mattering.
+
+    Uses a MEAN over the named system, not the pixel's own value -- a simple,
+    transparent aggregation, not a flow-routed or distance-weighted one
+    (which would need more time than this project has); stated as a limit
+    in the docstring, not hidden.
+    """
+    effective = pressure_array.copy()
+    shape = pressure_array.shape
+
+    for _, group in karst_gdf.groupby("KNAME"):
+        karst_only = group[group["karst_intensity"] > 0]
+        if len(karst_only) == 0:
+            continue  # this named group has no actual karst cells to assign to
+
+        # Rasterize each group's own footprint to index pressure directly,
+        # rather than re-opening a file per named group (1677x statewide).
+        group_pixels_mask = rasterize(
+            [(g, 1) for g in group.geometry], out_shape=shape, transform=transform, fill=0, dtype="uint8"
+        )
+        group_vals = pressure_array[group_pixels_mask == 1]
+        group_vals = group_vals[group_vals != pressure_nodata]
+        if len(group_vals) == 0:
+            continue
+        group_mean_pressure = group_vals.mean()
+
+        karst_cells_mask = rasterize(
+            [(g, 1) for g in karst_only.geometry], out_shape=shape, transform=transform, fill=0, dtype="uint8"
+        )
+        effective[karst_cells_mask == 1] = group_mean_pressure
+
+    return effective
+
+
+# --- Shared: classify a combined score onto whatever distinct values occur -
+
+# Ordered vocabulary to draw labels from. Reserved for review-fixed reuse
+# across Stages 4, 6, and 7 -- previously each notebook hand-typed its own
+# label list, which produced an outright duplicate ("Very Low" twice) in
+# Stage 7, used "None" vs "Very Low" inconsistently for the same 0.0 value
+# between stages, and would silently mis-assign or drop values if the set of
+# distinct scores changed upstream (exactly what happened to Stage 4 when
+# Stage 3's connectivity scoring was revised: cells with the new 0.5/0.667
+# scores fell through a hardcoded 4-value dict and were wrongly left as
+# nodata).
+_CANONICAL_LABELS = [
+    "None", "Very Low", "Low", "Low-Moderate", "Moderate",
+    "Moderate-High", "High", "Very High", "Severe", "Extreme",
+]
+
+
+def classify_scores(score_array, valid_mask):
+    """Classify `score_array` directly on whatever distinct values actually
+    occur within `valid_mask` (not arbitrary quantile breaks -- these scores
+    are products of a handful of discrete ordinal inputs, so there are only
+    ever a few real combinations, and classifying on the actual values is
+    more meaningful than imposing bins on them).
+
+    Returns (class_array, present_values, labels): `class_array` is a uint8
+    raster where value i corresponds to present_values[i] and labels[i]
+    (255 = outside valid_mask); `present_values` is sorted ascending.
+    """
+    present = sorted(np.unique(score_array[valid_mask]))
+    n = len(present)
+
+    if n > len(_CANONICAL_LABELS):
+        labels = [f"Class {i} ({v:.3f})" for i, v in enumerate(present)]
+    else:
+        # Evenly spread across the vocabulary, always fixing "None" to the
+        # lowest value when it's exactly 0 (every stage's score is a product
+        # of factors that can be 0, so this always occurs in practice).
+        start = 1 if present[0] == 0 else 0
+        pool = _CANONICAL_LABELS[start:]
+        remaining = n - (1 if start == 1 else 0)
+        idxs, used = [], set()
+        for k in range(remaining):
+            target = round(k * (len(pool) - 1) / max(remaining - 1, 1))
+            while target in used and target < len(pool) - 1:
+                target += 1
+            used.add(target)
+            idxs.append(target)
+        labels = (["None"] if start == 1 else []) + [pool[i] for i in idxs]
+
+    class_array = np.full(score_array.shape, 255, dtype="uint8")
+    for i, val in enumerate(present):
+        class_array[valid_mask & np.isclose(score_array, val)] = i
+    return class_array, present, labels
+
+
+def classify_continuous(score_array, valid_mask, n_classes=5):
+    """Classify a near-continuous score (e.g. risk after catchment-aggregated
+    pressure, which is no longer a small set of discrete combinations the way
+    the raw per-pixel product was) into `n_classes` quantile bins over the
+    nonzero values, with exact 0 kept as its own class.
+
+    `classify_scores()` (above) is for genuinely discrete inputs -- use this
+    one once an aggregation step (like `aggregate_pressure_by_system`) turns
+    the score continuous; trying to classify on "every exact value present"
+    stops being meaningful once there can be hundreds of them.
+
+    Returns (class_array, edges, labels) -- edges are the quantile boundaries
+    used, for transparency.
+    """
+    vals = score_array[valid_mask]
+    nonzero = vals[vals > 0]
+    class_array = np.full(score_array.shape, 255, dtype="uint8")
+    class_array[valid_mask & (score_array == 0)] = 0
+
+    if len(nonzero) == 0:
+        return class_array, [0.0], ["None"]
+
+    quantile_points = np.linspace(0, 1, n_classes)  # n_classes-1 bins over the nonzero range
+    edges = np.unique(np.quantile(nonzero, quantile_points))
+    labels = ["None"] + _CANONICAL_LABELS[1:len(edges)]
+
+    bin_idx = np.digitize(score_array, edges[1:-1], right=True)  # 0..len(edges)-2 within nonzero range
+    for b in range(len(edges) - 1):
+        class_array[valid_mask & (score_array > 0) & (bin_idx == b)] = b + 1
+
+    return class_array, edges.tolist(), labels
