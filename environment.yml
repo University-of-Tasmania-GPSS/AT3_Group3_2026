@@ -1,4 +1,4 @@
-name: karst-vulnerability
+name: KGG375_AT3
 channels:
   - conda-forge
 dependencies:
