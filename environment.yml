@@ -4,6 +4,7 @@ channels:
 dependencies:
   - python=3.11
   - geopandas
+  - pandas
   - rasterio
   - rioxarray
   - numpy
@@ -16,8 +17,9 @@ dependencies:
   - plotly
   - leafmap
   - jupyterlab
-  - richdem
   - whitebox
   - pip
   - pip:
+      - pystac-client
+      - odc-stac
       - pykrige
