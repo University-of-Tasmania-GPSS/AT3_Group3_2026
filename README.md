@@ -120,11 +120,11 @@ bloating the git history. See "Data Access" below.
 2. Create the conda environment:
    ```bash
    conda env create -f environment.yml
-   conda activate karst-vulnerability
+   conda activate KGG375_AT3
    ```
 3. Request access to the shared OneDrive data folder (see "Data Access"
-   below) and update the data path at the top of `notebooks/01_data_prep.ipynb`
-   to point to your local copy.
+   below), copy `.env.example` to `.env`, and set `AT3_DATA_DIR` to your
+   local path to that folder.
 4. Run the notebooks in `notebooks/` in numbered order.
 5. Build the book locally:
    ```bash
