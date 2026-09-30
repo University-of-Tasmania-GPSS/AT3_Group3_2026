@@ -43,7 +43,12 @@ Objectives:
    classification (this doubles as informal validation).
 4. Run a sensitivity analysis: alternative weight emphases, an optional
    rainfall experiment (Karst Atlas `Kavrain`), and a land-use-change
-   comparison between the two available DEA time-slices.
+   trend — confirmed feasible as a full **annual time series (1988–2024,
+   37 years)**, not just a 2010-vs-2020 snapshot (DEA Level-3 land cover
+   has real data for every one of those years at Mole Creek; each fetch
+   is cheap, a few seconds per year). Mole Creek gets the full 37-year
+   series; statewide is sampled at ~5-year intervals to keep the
+   statewide fetch manageable.
 5. Use independent datasets (CFEV GDE springs, CFEV conservation value)
    to validate and contextualise — not to construct — the vulnerability
    score, then combine risk × conservation value into a management
@@ -206,3 +211,9 @@ validation/context stages) is documented in detail in the group's
   only — never inputs to the vulnerability score (avoids circularity).
 - Use a small number of transparent, justified weights rather than a
   full AHP exercise.
+- DEA land-use fetch/reclassify logic lives in `src/landuse.py`
+  (`fetch_landuse_pressure()`), shared by Stages 5, 7, and 9 — not
+  copy-pasted per notebook.
+- The multi-year land-use trend is a real annual time series (1988–2024
+  at Mole Creek, ~5-year steps statewide), not a two-point comparison —
+  confirmed feasible before committing to it, not assumed.
