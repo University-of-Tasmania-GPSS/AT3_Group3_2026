@@ -41,14 +41,19 @@ Objectives:
 3. Compare the statewide-coarse and Mole-Creek-detailed outputs for the
    Mole Creek area to evaluate how scale/resolution affects
    classification (this doubles as informal validation).
-4. Run a sensitivity analysis: alternative weight emphases, an optional
-   rainfall experiment (Karst Atlas `Kavrain`), and a land-use-change
-   trend — confirmed feasible as a full **annual time series (1988–2024,
-   37 years)**, not just a 2010-vs-2020 snapshot (DEA Level-3 land cover
-   has real data for every one of those years at Mole Creek; each fetch
-   is cheap, a few seconds per year). Mole Creek gets the full 37-year
-   series; statewide is sampled at ~5-year intervals to keep the
-   statewide fetch manageable.
+4. **Done — Stage 9** (`notebooks/09_sensitivity_analysis.ipynb`):
+   alternative weight emphases, a rainfall experiment (`KAVRAIN`), and
+   the multi-year land-use trend (full 37-year annual series at Mole
+   Creek, 1988–2024, ~1s/year; 5-year steps statewide). Consistent
+   finding across all three: the broad risk pattern is robust
+   (r > 0.97 against baseline in every case), but the **top-ranked
+   named area is not** — it flips under pressure-emphasis and under the
+   rainfall experiment. The land-use trend is genuinely non-monotonic
+   (a U-shape, 1988→~2010 low→2024), not the steady increase the
+   earlier 2010-vs-2020 snapshot implied — and the same U-shape shows
+   up independently statewide, which is itself flagged as possibly a
+   DEA product artefact rather than confirmed as a real land-management
+   signal, worth checking before leaning on it.
 5. Use independent datasets (CFEV GDE springs, CFEV conservation value)
    to validate and contextualise — not to construct — the vulnerability
    score, then combine risk × conservation value into a management
