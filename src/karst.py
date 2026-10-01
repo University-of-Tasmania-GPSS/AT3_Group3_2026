@@ -101,11 +101,31 @@ def load_karst_atlas(shapefile_path, target_crs):
 
 # --- Stage 6/7: catchment-aggregated pressure -------------------------------
 
-def aggregate_pressure_by_system(karst_gdf, pressure_array, transform, pressure_nodata):
+def _spatial_clusters(geometries, max_gap_m):
+    """Split `geometries` into spatially-connected clusters -- two geometries
+    are in the same cluster if they're within `max_gap_m` of each other
+    (touching/overlapping counts). Returns an int array of cluster labels,
+    same length as `geometries`.
+    """
+    n = len(geometries)
+    if n <= 1:
+        return np.zeros(n, dtype=int)
+    from scipy.sparse import lil_matrix
+    from scipy.sparse.csgraph import connected_components
+    adj = lil_matrix((n, n), dtype=bool)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if geometries[i].distance(geometries[j]) <= max_gap_m:
+                adj[i, j] = True
+    _, labels = connected_components(adj, directed=False)
+    return labels
+
+
+def aggregate_pressure_by_system(karst_gdf, pressure_array, transform, pressure_nodata, max_gap_m=1000):
     """Return a copy of `pressure_array` where every KARST cell (not
     catchment-only cells) has been replaced with the MEAN pressure across its
     whole named system -- the karst polygon(s) AND whichever catchment
-    polygons share the same KNAME.
+    polygons share the same `KNAME` *and are spatially connected* to it.
 
     Why: risk = intrinsic_vulnerability x pressure is a per-cell product, and
     catchment-only polygons have karst_intensity=0, so their intrinsic
@@ -116,21 +136,60 @@ def aggregate_pressure_by_system(karst_gdf, pressure_array, transform, pressure_
     lets a catchment's land use reach the karst it actually drains into,
     rather than only the pixel directly on top of the karst mattering.
 
-    Uses a MEAN over the named system, not the pixel's own value -- a simple,
-    transparent aggregation, not a flow-routed or distance-weighted one
-    (which would need more time than this project has); stated as a limit
-    in the docstring, not hidden.
+    Two problems found in a second review pass of the first version, both
+    fixed here:
+    - `KNAME` is blank/null for 454 of 2601 statewide features (5 at Mole
+      Creek). A plain `groupby("KNAME")` silently drops NaN groups, so those
+      polygons got no aggregation at all rather than an explicit fallback.
+      Fixed: blank-name polygons are each treated as their own single-feature
+      system (no cross-polygon pooling for them, but explicit, not silent).
+    - Some `KNAME` values are shared by genuinely unrelated, widely-separated
+      polygons -- "Several" (3 polygons up to 233km apart) and "Various" (2
+      polygons 104km apart) are placeholder labels, not real system names;
+      even a real name like "Trowutta-Sumac" turned out to have a few
+      polygons several km from the main cluster. Pooling pressure across
+      polygons that don't actually share a catchment would be wrong. Fixed:
+      within each `KNAME` group, only polygons within `max_gap_m` of each
+      other (chained transitively) are pooled together. Checked before
+      picking 1000m: "Mole Creek" (73 polygons spanning 37km) stays one
+      connected system even at 500m, because it's a genuinely contiguous
+      chain; "Several"/"Various" split into singletons at any threshold
+      tested, because they're never actually close together.
+
+    Still uses a MEAN over each system, not the pixel's own value -- a
+    simple, transparent aggregation, not a flow-routed or distance-weighted
+    one (which would need more time than this project has). One real
+    consequence worth stating in `discussion.md`, not just this docstring:
+    every karst cell in a system now gets the *same* pressure value, so
+    within-system spatial variation in land use is gone -- the resulting
+    risk maps are patchier by system than by the underlying land use.
     """
     effective = pressure_array.copy()
     shape = pressure_array.shape
 
-    for _, group in karst_gdf.groupby("KNAME"):
+    # Blank/null KNAME -> each polygon is its own system (explicit, not a
+    # silent groupby-drop). Real names get spatial-cluster splitting below.
+    karst_gdf = karst_gdf.copy()
+    blank = karst_gdf["KNAME"].isna() | (karst_gdf["KNAME"].astype(str).str.strip() == "")
+    karst_gdf.loc[blank, "_group_key"] = [f"__unnamed_{i}" for i in karst_gdf.index[blank]]
+    karst_gdf.loc[~blank, "_group_key"] = karst_gdf.loc[~blank, "KNAME"]
+
+    systems = []  # list of (geometries, karst_only_subframe)
+    for _, name_group in karst_gdf.groupby("_group_key"):
+        if len(name_group) <= 1:
+            systems.append(name_group)
+            continue
+        labels = _spatial_clusters(list(name_group.geometry), max_gap_m)
+        for cluster_id in np.unique(labels):
+            systems.append(name_group.iloc[labels == cluster_id])
+
+    for group in systems:
         karst_only = group[group["karst_intensity"] > 0]
         if len(karst_only) == 0:
-            continue  # this named group has no actual karst cells to assign to
+            continue  # this system has no actual karst cells to assign to
 
-        # Rasterize each group's own footprint to index pressure directly,
-        # rather than re-opening a file per named group (1677x statewide).
+        # Rasterize each system's own footprint to index pressure directly,
+        # rather than re-opening a file per system (hundreds of times statewide).
         group_pixels_mask = rasterize(
             [(g, 1) for g in group.geometry], out_shape=shape, transform=transform, fill=0, dtype="uint8"
         )
