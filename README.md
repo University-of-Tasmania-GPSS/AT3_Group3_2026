@@ -42,22 +42,49 @@ Objectives:
    Mole Creek area to evaluate how scale/resolution affects
    classification (this doubles as informal validation).
 4. **Done — Stage 9** (`notebooks/09_sensitivity_analysis.ipynb`):
-   alternative weight emphases, a rainfall experiment (`KAVRAIN`), and
-   the multi-year land-use trend (full 37-year annual series at Mole
-   Creek, 1988–2024, ~1s/year; 5-year steps statewide). Consistent
-   finding across all three: the broad risk pattern is robust
-   (r > 0.97 against baseline in every case), but the **top-ranked
-   named area is not** — it flips under pressure-emphasis and under the
-   rainfall experiment. The land-use trend is genuinely non-monotonic
-   (a U-shape, 1988→~2010 low→2024), not the steady increase the
-   earlier 2010-vs-2020 snapshot implied — and the same U-shape shows
-   up independently statewide, which is itself flagged as possibly a
-   DEA product artefact rather than confirmed as a real land-management
-   signal, worth checking before leaning on it.
-5. Use independent datasets (CFEV GDE springs, CFEV conservation value)
-   to validate and contextualise — not to construct — the vulnerability
-   score, then combine risk × conservation value into a management
-   priority matrix.
+   alternative weight emphases, a rainfall experiment (`KAVRAIN`), the
+   multi-year land-use trend (full 37-year annual series at Mole
+   Creek, 1988–2024; 5-year steps statewide), and — the single largest
+   sensitivity found, added after a second review pass flagged it as
+   untested — the catchment-aggregation choice itself (pressure
+   aggregated across a named system's catchment vs. used as raw
+   per-pixel values). That choice swamps everything else tested: r≈0.10
+   (nonzero-restricted) against the frozen method, vs. r>0.94 for every
+   weight/rainfall variant. Weight emphasis and rainfall both produce
+   real but secondary shifts in the top-ranked named area (the rainfall
+   flip is itself substantially explained by min-max normalisation
+   landing on the dataset's exact min/max-rainfall polygons, not a clean
+   independent rainfall effect — shown transparently in the notebook).
+   The land-use trend is genuinely non-monotonic (a U-shape, 1988→~2010
+   low→2024), clearer when measured on karst cells specifically rather
+   than the whole study area, and the same U-shape appears independently
+   statewide — flagged as possibly a shared DEA product artefact rather
+   than confirmed as two real land-management signals.
+5. **Done — Stage 10** (`notebooks/10_validation_context.ipynb`):
+   CFEV GDE springs used to check (never to construct) the model.
+   **Revised after a second review pass corrected three problems with
+   the original check** (null distribution built from the whole raster
+   rather than karst cells only; tested against final risk, which is
+   confounded by land-use pressure, rather than intrinsic
+   susceptibility×connectivity; and 112 statewide GDE points cluster
+   into only ~25 distinct named systems — treating each point as an
+   independent sample overstated the evidence). **The corrected result
+   reverses the original headline claim**: Mole Creek's 37 GDE points
+   are all nearest to a single named system, so no p-value can honestly
+   be attached there; statewide, the corrected system-level test puts
+   GDE systems at roughly the 0.1st percentile of the karst-only null —
+   below typical karst, not dramatically above it. The original "3.6×/
+   11.5×, p<0.0001" result was mostly detecting that karst scores higher
+   than non-karst, which the model guarantees by construction, not
+   validating the connectivity score specifically. CFEV conservation
+   value combined into a risk × conservation priority matrix — the
+   gradient is real but nearly flat (mean risk 0.218/0.239/0.277 for
+   M/H/VH) and the **51 statewide named systems** flagged as high-risk
+   and high/VH conservation value (after filtering out polygons with
+   under 10 valid pixels) should be read as a ranking tool, not a
+   precise statistic — the count depends on an arbitrary tertile split.
+   TGD/KID cross-checks (optional, time-permitting per the scope doc)
+   were not built — time went to the Book content instead (see below).
 6. Communicate the workflow and findings via a reproducible MyST/Jupyter
    Book.
 
@@ -156,11 +183,16 @@ Current `Input_data/` contents:
   and carbonate features, with metadata/data dictionary (2003)
 - **LIST CFEV Karst (statewide)** — karst zone polygons with conservation
   value and management priority ratings (published 2015; geometry from
-  Karst Atlas v3, 2003; conservation assessment from 2005)
+  Karst Atlas v3, 2003; conservation assessment from 2005). **Used in
+  Stage 10** for the risk × conservation value priority matrix — field
+  `KT_ICV` (Integrated Conservation Value: M/H/VH). Note: different
+  polygon boundaries from the Karst Atlas used everywhere else in this
+  project (confirmed: "Mole Creek" splits into "Mole Creek 1-4" here) —
+  joined by spatial overlay, not by name.
 - **LIST CFEV Groundwater Dependent Ecosystems / springs (statewide)** —
-  sourced; needed for the Stage 10 validation step (used to check the
-  model, not to build it — see limitations note above on avoiding
-  circularity)
+  **used in Stage 10** for hydrological validation (never to build the
+  model — see limitations note above on avoiding circularity). 115
+  points statewide, 37 within Mole Creek.
 - **LIST Groundwater Boreholes (statewide)** — borehole locations and
   attributes from the Groundwater Information Access Portal
 - **DEM** — LIST 25m statewide DEM, per-municipality tiles, **all 29
@@ -169,7 +201,9 @@ Current `Input_data/` contents:
   1:25,000, 1:250,000, and 1:500,000 scale, plus a raw shapefile version
   (`geology25k/`) and QGIS symbology files
 - **Geoconservation site data** (`geosite_report_4_22-Sep-2026/`) —
-  sourced; candidate for the Stage 10 TGD/optional cross-check
+  sourced but not used; the TGD/optional cross-check it was for wasn't
+  built in Stage 10 (deprioritised in favour of finishing the Book
+  content — see Stage 10 note above)
 - **Tasmania state boundary** (`STE_2021_AUST_SHP_GDA2020/`) — ABS ASGS
   boundary, used for the statewide study extent
 - **Land use** — complete for both Mole Creek (`notebooks/05_landuse_pressure.ipynb`)
