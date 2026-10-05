@@ -65,6 +65,9 @@ def add_connectivity(karst_gdf):
     """Add `autogenic_score`, `proximal_score`, `distal_score`, and the
     combined `connectivity` (max of the three) columns in place."""
     karst_gdf["autogenic_score"] = karst_gdf["exposure_type"].map(AUTOGENIC_SCORE)
+    # KPROXCATCH holds letters (A-D) or "0", so it always reads as text. KDISTCATCH
+    # holds only 0/1/2, so a re-export could read it as numbers; the str cast keeps
+    # the comparison with "0" valid either way.
     karst_gdf["proximal_score"] = np.where(karst_gdf["KPROXCATCH"] != "0", 3, 0)
     karst_gdf["distal_score"] = np.where(karst_gdf["KDISTCATCH"].astype(str) != "0", 1, 0)
     karst_gdf["connectivity"] = karst_gdf[
@@ -262,34 +265,20 @@ def classify_scores(score_array, valid_mask):
     return class_array, present, labels
 
 
-def classify_continuous(score_array, valid_mask, n_classes=5):
-    """Classify a near-continuous score (e.g. risk after catchment-aggregated
-    pressure, which is no longer a small set of discrete combinations the way
-    the raw per-pixel product was) into `n_classes` quantile bins over the
-    nonzero values, with exact 0 kept as its own class.
+RISK_EDGES = (0.2, 0.4, 0.6, 0.8)
+RISK_LABELS = ["None", "Very Low", "Low", "Moderate", "High", "Very High"]
 
-    `classify_scores()` (above) is for genuinely discrete inputs -- use this
-    one once an aggregation step (like `aggregate_pressure_by_system`) turns
-    the score continuous; trying to classify on "every exact value present"
-    stops being meaningful once there can be hundreds of them.
 
-    Returns (class_array, edges, labels) -- edges are the quantile boundaries
-    used, for transparency.
+def classify_fixed(score_array, valid_mask, edges=RISK_EDGES, labels=RISK_LABELS):
+    """Classify a 0-1 score into fixed, equal-width classes, with exact 0 kept as
+    its own "None" class. Because the edges are absolute, the same label means the
+    same score range wherever it is used (Mole Creek and statewide), and a class
+    stays empty if no cell reaches it.
+
+    Returns (class_array, edges, labels); class 0 is "None", 255 is outside `valid_mask`.
     """
-    vals = score_array[valid_mask]
-    nonzero = vals[vals > 0]
     class_array = np.full(score_array.shape, 255, dtype="uint8")
     class_array[valid_mask & (score_array == 0)] = 0
-
-    if len(nonzero) == 0:
-        return class_array, [0.0], ["None"]
-
-    quantile_points = np.linspace(0, 1, n_classes)  # n_classes-1 bins over the nonzero range
-    edges = np.unique(np.quantile(nonzero, quantile_points))
-    labels = ["None"] + _CANONICAL_LABELS[1:len(edges)]
-
-    bin_idx = np.digitize(score_array, edges[1:-1], right=True)  # 0..len(edges)-2 within nonzero range
-    for b in range(len(edges) - 1):
-        class_array[valid_mask & (score_array > 0) & (bin_idx == b)] = b + 1
-
-    return class_array, edges.tolist(), labels
+    nonzero = valid_mask & (score_array > 0)
+    class_array[nonzero] = np.digitize(score_array[nonzero], edges, right=True) + 1
+    return class_array, list(edges), list(labels)

@@ -25,7 +25,7 @@ DEA_COLLECTION = "ga_ls_landcover_class_cyear_3"
 PRESSURE_RECLASS = {111: 3, 112: 1, 124: 1, 215: 3, 216: 1, 220: 0}
 
 
-def fetch_landuse_pressure(bbox_wgs84, year, template_path, target_crs="EPSG:7855"):
+def fetch_landuse_pressure(bbox_wgs84, year, template_path, target_crs="EPSG:7855", reclass=None):
     """Fetch DEA Level-3 land cover for `year`, reclassify to a 0-3 land-use
     pressure scale, and align to the raster grid at `template_path`.
 
@@ -42,6 +42,9 @@ def fetch_landuse_pressure(bbox_wgs84, year, template_path, target_crs="EPSG:785
     target_crs : str
         CRS to load the data in before aligning (should match template_path's
         CRS; EPSG:7855 throughout this project).
+    reclass : dict, optional
+        Level-3 class code -> pressure score. Defaults to `PRESSURE_RECLASS`; pass
+        another mapping to test an alternative scoring scheme (Stage 9).
 
     Returns
     -------
@@ -84,7 +87,7 @@ def fetch_landuse_pressure(bbox_wgs84, year, template_path, target_crs="EPSG:785
             arr = arr.isel(time=0)
 
         pressure = np.full(arr.shape, 255, dtype="uint8")
-        for code_val, score in PRESSURE_RECLASS.items():
+        for code_val, score in (PRESSURE_RECLASS if reclass is None else reclass).items():
             pressure[arr.values == code_val] = score
         pressure_da = arr.copy(data=pressure).rio.write_nodata(255)
 

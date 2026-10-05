@@ -15,6 +15,7 @@ dependencies:
   - libpysal
   - matplotlib
   - plotly
+  - contextily
   - leafmap
   - jupyterlab
   - whitebox
