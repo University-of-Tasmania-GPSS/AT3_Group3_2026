@@ -31,5 +31,5 @@ Thumbs.db
 # Local data (lives on OneDrive, not in git)
 data/
 
-# Whitebox tools binaries
-WhiteboxTools_win_amd64
+# Local WhiteboxTools executable — not tracked in Git
+WhiteboxTools_win_amd64/
