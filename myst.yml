@@ -10,9 +10,9 @@ project:
   # TOC fixed by hand: was auto-generated alphabetically and wrongly
   # included README.md (a repo file, not a book chapter). Ordered to match
   # the brief's own suggested structure (motivation -> methods -> findings
-  # -> hurdles -> take-home -> references). All chapter files except
-  # index.md are still empty -- writing them is a separate, substantial
-  # task, not something to improvise here.
+  # -> hurdles -> take-home -> references). index.md, methods.md,
+  # results.md and discussion.md are written; introduction.md and
+  # conclusion.md are still stubs.
   toc:
     - file: index.md
     - file: introduction.md

@@ -1,4 +1,5 @@
-"""Watercourse and slope inputs for connectivity v2 (experimental).
+"""Watercourse and slope inputs, shared by the frozen method (slope_risk_multiplier, Stages 6-7)
+and connectivity v2 (experimental: watercourses, D8 routing, the polygon-level slope factor).
 
 Watercourses come from the LIST hydrolines (one folder per council). Only natural
 watercourses are used: the layer also holds shorelines, connectors through water bodies,
@@ -60,19 +61,16 @@ def add_d8_connectivity(karst_gdf, d8_csv_path, score_col="hydrological_connecti
     0-3 scale `add_connectivity`/`add_connectivity_v2` use for the other signals, so it can be
     combined with them via `max()`.
 
-    IMPORTANT SCOPE LIMIT: Rachel's routing currently covers only the 66 "core" target polygons
-    in the Mole Creek focus (Mole Creek, Meander - Western Creek, Mole Creek (Chudleigh Hill) --
-    confirmed this session to be exactly `in_mole_creek_focus()`'s selection), not the statewide
-    karst. Polygons outside that set get NaN here, not 0 -- 0 would wrongly imply "checked, no
-    connectivity" rather than "not yet routed". Any max() combination must account for that NaN
-    (e.g. `np.fmax` with the other 0-3 signals, which already ignores NaN, or an explicit
-    not-yet-covered mask) rather than silently treating an unrouted polygon as the worst case.
+    Scope limit: Rachel's routing covers only the 66 "core" target polygons in the Mole Creek
+    focus (exactly `in_mole_creek_focus()`'s selection), not the statewide karst. Polygons
+    outside that set get NaN here, not 0 -- 0 would wrongly imply "checked, no connectivity"
+    rather than "not yet routed". Any combination must handle that NaN explicitly (e.g.
+    `np.fmax`, which already ignores it) rather than treating an unrouted polygon as worst case.
 
-    Checked this session: this D8 score is empirically uncorrelated with the existing polygon
-    mean-slope factor used in `add_connectivity_v2` (Spearman rho approx -0.02 to -0.18, n=66,
-    not significant) -- it measures catchment extent/routing topology, not terrain steepness, so
-    combining it with the slope-scaled catchment signals is not expected to double-count the same
-    physical information.
+    This D8 score is empirically uncorrelated with the polygon mean-slope factor used in
+    `add_connectivity_v2` (Spearman rho approx -0.02 to -0.18, n=66, not significant) -- it
+    measures catchment extent/routing topology, not terrain steepness, so combining the two is
+    not expected to double-count the same information.
 
     Returns the same GeoDataFrame with `d8_score` (0-3, NaN outside the routed set) added in place.
     """
@@ -81,6 +79,35 @@ def add_d8_connectivity(karst_gdf, d8_csv_path, score_col="hydrological_connecti
     karst_gdf = karst_gdf.merge(d8, on="OBJECTID", how="left")
     karst_gdf[out_col] = (karst_gdf["_jenks_class"] - 1) / (max_class - 1) * 3.0
     return karst_gdf.drop(columns="_jenks_class")
+
+
+def slope_degrees(dem, nodata, cell_size):
+    """Slope in degrees from a DEM array, via a simple finite-difference gradient."""
+    z = np.where(dem == nodata, np.nan, dem.astype(float))
+    dzdy, dzdx = np.gradient(z, cell_size)
+    return np.degrees(np.arctan(np.hypot(dzdx, dzdy)))
+
+
+def slope_risk_multiplier(slope_deg, ref_deg=30.0, min_factor=0.5):
+    """0.5-1 multiplier on the frozen risk from slope, steeper = more vulnerable (the direction
+    connectivity v2's own internal slope scaling already assumes, kept for consistency; the
+    literature does not settle the sign -- see discussion.md).
+
+    Scaled by `ref_deg` (30 degrees reaches the full factor of 1; only a small share of mapped
+    karst is this steep) and floored at `min_factor` rather than 0: flat ground is not
+    automatically zero-risk the way zero susceptibility, connectivity or pressure legitimately
+    is, so slope must not be able to zero out an otherwise highly vulnerable, well-connected,
+    highly-pressured cell just because it happens to be flat.
+
+    A handful of cells next to DEM nodata (coastline, mosaic edges) get a NaN slope from
+    `slope_degrees`' finite-difference gradient, not because the terrain is unusual but
+    because the gradient itself is undefined there. Those cells get the neutral factor (1.0,
+    no attenuation) rather than NaN, so a missing slope estimate cannot silently zero out an
+    otherwise valid risk cell the way propagating NaN through the product would.
+    """
+    s = np.clip(slope_deg / ref_deg, 0, 1)
+    factor = min_factor + (1 - min_factor) * s
+    return np.where(np.isnan(slope_deg), 1.0, factor)
 
 
 def mean_slope_by_polygon(gdf, slope_deg, transform):

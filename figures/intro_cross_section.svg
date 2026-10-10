@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" role="img" aria-labelledby="t d">
+  <title id="t">How rain on the land reaches karst groundwater</title>
+  <desc id="d">Cross-section of karst. Rain falls on forest and a cleared paddock, runs into a sinkhole, travels through a cave passage in limestone below the water table and emerges at a spring. Three numbered labels mark the three ingredients of the index: the rock, how directly water gets in, and what is on the land.</desc>
+  <defs>
+    <clipPath id="ground-clip">
+      <path d="M0,170 C60,160 100,138 150,140 C210,142 260,172 310,176 L440,180 L476,182 L506,238 L536,182 L640,186 C700,190 760,222 820,246 L960,254 L960,500 L0,500 Z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="960" height="500" fill="#f4f7f8"/>
+
+  <!-- rain -->
+  <g stroke="#2a6fb0" stroke-width="2.5" stroke-linecap="round" opacity="0.75">
+    <path d="M70,18 l-9,30 M150,10 l-9,30 M230,22 l-9,30 M310,8 l-9,30 M390,20 l-9,30 M470,10 l-9,30 M550,22 l-9,30 M630,8 l-9,30 M710,20 l-9,30"/>
+    <path d="M110,62 l-9,30 M190,56 l-9,30 M270,66 l-9,30 M350,54 l-9,30 M430,64 l-9,30 M510,56 l-9,30 M590,66 l-9,30 M670,54 l-9,30"/>
+  </g>
+  <text x="760" y="40" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#2a6fb0" font-weight="700">Rain</text>
+
+  <!-- limestone -->
+  <path d="M0,170 C60,160 100,138 150,140 C210,142 260,172 310,176 L440,180 L476,182 L506,238 L536,182 L640,186 C700,190 760,222 820,246 L960,254 L960,500 L0,500 Z" fill="#dcd2bd"/>
+
+  <g clip-path="url(#ground-clip)">
+    <!-- water-saturated zone -->
+    <path d="M0,376 C300,376 520,364 820,246 L960,254 L960,500 L0,500 Z" fill="#2a6fb0" opacity="0.18"/>
+    <!-- rock texture -->
+    <g stroke="#b9a98a" stroke-width="2" stroke-linecap="round" opacity="0.8">
+      <path d="M40,230 h46 M130,262 h38 M210,214 h52 M60,318 h50 M160,336 h44 M250,290 h40 M300,234 h46 M360,262 h38 M90,420 h56 M230,410 h48 M330,330 h44 M600,258 h44 M660,300 h40 M720,340 h52 M610,420 h58 M420,420 h50 M780,300 h38"/>
+    </g>
+  </g>
+
+  <!-- water table -->
+  <path d="M0,376 C300,376 520,364 820,246" fill="none" stroke="#2a6fb0" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <text x="18" y="398" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#2a6fb0" font-style="italic">groundwater (water table)</text>
+
+  <!-- cave passage -->
+  <path id="conduit" d="M506,238 C506,290 470,306 484,346 C498,380 620,378 716,326 C766,298 796,272 822,248" fill="none" stroke="#2a6fb0" stroke-width="12" stroke-linecap="round" opacity="0.9"/>
+  <path d="M506,238 C506,290 470,306 484,346 C498,380 620,378 716,326 C766,298 796,272 822,248" fill="none" stroke="#f4f7f8" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- contaminant travelling with the water -->
+  <path d="M410,172 L476,182 L506,238 C506,290 470,306 484,346 C498,380 620,378 716,326 C766,298 796,272 822,248" fill="none" stroke="#b5434e" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 13"/>
+
+  <!-- soil band and land cover -->
+  <path d="M0,170 C60,160 100,138 150,140 C210,142 260,172 310,176" fill="none" stroke="#7f6a4a" stroke-width="12" stroke-linecap="round"/>
+  <path d="M310,176 L440,180 L476,182" fill="none" stroke="#c7a23f" stroke-width="12" stroke-linecap="round"/>
+  <path d="M536,182 L640,186 C700,190 760,222 820,246 L960,254" fill="none" stroke="#7f6a4a" stroke-width="12" stroke-linecap="round"/>
+  <path d="M476,182 L506,238 L536,182" fill="none" stroke="#7f6a4a" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- trees -->
+  <g fill="#3d6b3a">
+    <path d="M40,150 l12,-34 l12,34 z M78,142 l12,-38 l12,38 z M118,132 l12,-38 l12,38 z M160,130 l12,-36 l12,36 z M200,138 l12,-34 l12,34 z M246,152 l12,-34 l12,34 z"/>
+    <path d="M586,176 l12,-32 l12,32 z M626,178 l12,-34 l12,34 z M668,184 l12,-34 l12,34 z M708,196 l12,-34 l12,34 z"/>
+  </g>
+  <!-- paddock fence posts -->
+  <g stroke="#6b5420" stroke-width="3" stroke-linecap="round">
+    <path d="M330,176 v-16 M370,178 v-16 M410,180 v-16"/>
+  </g>
+  <path d="M330,164 L410,166" stroke="#6b5420" stroke-width="2"/>
+
+  <!-- spring -->
+  <ellipse cx="826" cy="246" rx="18" ry="9" fill="#2a6fb0"/>
+  <path d="M840,248 C880,252 900,262 940,262" fill="none" stroke="#2a6fb0" stroke-width="7" stroke-linecap="round"/>
+  <text x="808" y="226" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#1b4f80" text-anchor="middle">Spring</text>
+
+  <!-- ground labels -->
+  <text x="150" y="214" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#2f5a2d" font-weight="700" text-anchor="middle">Forest</text>
+  <text x="372" y="146" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#7a5f12" font-weight="700" text-anchor="middle">Cleared paddock</text>
+  <text x="506" y="262" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#1b4f80" font-weight="700" text-anchor="end" dx="-18">Sinkhole</text>
+  <text x="610" y="404" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#1b4f80" font-weight="700" text-anchor="middle">Cave passage</text>
+
+  <!-- the three ingredients -->
+  <g font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700">
+    <circle cx="70" cy="456" r="15" fill="#b9822f"/><text x="70" y="462" text-anchor="middle" fill="#fff">1</text>
+    <text x="96" y="462" fill="#3a2d12">How karstified is the rock?</text>
+
+    <circle cx="470" cy="456" r="15" fill="#2a6fb0"/><text x="470" y="462" text-anchor="middle" fill="#fff">2</text>
+    <text x="496" y="462" fill="#14395e">How directly does water get in?</text>
+
+    <circle cx="860" cy="456" r="0" fill="none"/>
+  </g>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="700">
+    <circle cx="546" cy="114" r="15" fill="#b5434e"/><text x="546" y="120" text-anchor="middle" fill="#fff">3</text>
+    <text x="572" y="120" fill="#6c1f28">What is on the land?</text>
+  </g>
+  <!-- leader lines -->
+  <g stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M70,441 C70,400 110,300 150,262" stroke="#b9822f"/>
+    <path d="M470,441 C470,420 500,330 506,290" stroke="#2a6fb0"/>
+    <path d="M540,128 C520,150 450,166 420,170" stroke="#b5434e"/>
+  </g>
+</svg>

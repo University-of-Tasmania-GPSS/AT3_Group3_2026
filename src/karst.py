@@ -1,7 +1,5 @@
 """Karst susceptibility and hydrological connectivity scoring, shared by
-notebooks 02, 03, and 07 -- extracted after review found the same logic had
-been copy-pasted into all three (making "frozen method" not actually true:
-a change made in one place wouldn't reach the others).
+notebooks 02, 03, and 07 so the frozen method stays identical across them.
 
 All reclassification choices here are ordinal, not ratio, scores: a value
 of 4 means "more" than 2, not "twice as much".
@@ -20,8 +18,8 @@ CATEGORY_SCORE = {"A": 4, "B": 3, "C": 2, "D": 1, "0": 0}
 
 def classify_exposure_type(karst_gdf):
     """Return exposed/covered/interstratal/non-karst per polygon, from
-    whichever of KEXPOSED/KCOVERED/KINTERSTR is non-zero (confirmed mutually
-    exclusive in the real data during Stage 2 development)."""
+    whichever of KEXPOSED/KCOVERED/KINTERSTR is non-zero (mutually
+    exclusive in the data)."""
     def _row_type(row):
         if row["KEXPOSED"] != "0":
             return "exposed"
@@ -48,16 +46,14 @@ def add_karst_susceptibility(karst_gdf):
 
 # --- Stage 3: hydrological connectivity -------------------------------------
 
-# Revised after review flagged exposed==covered==3 as an unjustified choice:
-# covered karst has a protective non-karst cap between the surface and the
-# karst itself. EPIK's Protective cover (P) factor -- discussed in this
-# project's own Framework section when EPIK/COP were compared and set aside
-# -- treats that cover as *reducing* vulnerability, not being neutral to it.
-# So: exposed keeps the maximum score (no buffering at all); covered is
-# still autogenic (it gets its own rainfall -- Data Dictionary confirms this)
-# but scored lower to reflect the buffering; interstratal is lower again,
-# since per the Data Dictionary it is NOT autogenic at all (its recharge
-# depends on an external catchment, i.e. KPROXCATCH, not direct rainfall).
+# Covered karst has a protective non-karst cap between the surface and the
+# karst itself; EPIK's Protective Cover (P) factor treats that cover as
+# *reducing* vulnerability, not neutral. So: exposed keeps the maximum score
+# (no buffering); covered is still autogenic (it gets its own rainfall, per
+# the Data Dictionary) but scored lower for the buffering; interstratal is
+# lower again since, per the Data Dictionary, it is not autogenic at all --
+# its recharge depends on an external catchment (KPROXCATCH), not direct
+# rainfall.
 AUTOGENIC_SCORE = {"exposed": 3, "covered": 2, "interstratal": 1, "non-karst": 0}
 
 
@@ -79,15 +75,9 @@ def add_connectivity(karst_gdf):
 # --- Shared: overlap-safe rasterisation -------------------------------------
 
 def rasterize_max(gdf, value_column, out_shape, transform, fill=0, dtype="uint8"):
-    """Rasterise `value_column`, with overlapping polygons resolved by
-    MAX rather than draw-order (`rasterio.features.rasterize` burns shapes
-    in the order given -- last one wins on overlap, which silently produces
-    wrong results if a low-value polygon happens to be drawn after a
-    high-value one it overlaps). Checked during review: no polygons with
-    *different* values genuinely overlap in area in the current Mole Creek
-    or statewide data, so this hasn't caused a wrong result yet -- but it's
-    one line to fix properly rather than rely on that continuing to hold.
-    """
+    """Rasterise `value_column`, with overlapping polygons resolved by MAX
+    rather than draw order (`rasterio.features.rasterize` burns shapes in
+    the order given, so the last one wins on overlap)."""
     ordered = gdf.sort_values(value_column)  # ascending: highest value drawn last, wins
     return rasterize(
         [(geom, val) for geom, val in zip(ordered.geometry, ordered[value_column])],
@@ -131,41 +121,30 @@ def aggregate_pressure_by_system(karst_gdf, pressure_array, transform, pressure_
     polygons share the same `KNAME` *and are spatially connected* to it.
 
     Why: risk = intrinsic_vulnerability x pressure is a per-cell product, and
-    catchment-only polygons have karst_intensity=0, so their intrinsic
-    vulnerability -- and therefore their contribution to risk -- is always 0,
-    however much high-pressure land they contain. Checked during review:
-    26.8% of high-pressure cells at Mole Creek sat in zero-intensity
-    (catchment-only) polygons and were contributing nothing. This function
+    catchment-only polygons have karst_intensity=0, so their contribution to
+    risk is always 0, however much high-pressure land they contain -- 26.8%
+    of high-pressure cells at Mole Creek were lost this way. This function
     lets a catchment's land use reach the karst it actually drains into,
     rather than only the pixel directly on top of the karst mattering.
 
-    Two problems found in a second review pass of the first version, both
-    fixed here:
-    - `KNAME` is blank/null for 454 of 2601 statewide features (5 at Mole
-      Creek). A plain `groupby("KNAME")` silently drops NaN groups, so those
-      polygons got no aggregation at all rather than an explicit fallback.
-      Fixed: blank-name polygons are each treated as their own single-feature
-      system (no cross-polygon pooling for them, but explicit, not silent).
-    - Some `KNAME` values are shared by genuinely unrelated, widely-separated
-      polygons -- "Several" (3 polygons up to 233km apart) and "Various" (2
-      polygons 104km apart) are placeholder labels, not real system names;
-      even a real name like "Trowutta-Sumac" turned out to have a few
-      polygons several km from the main cluster. Pooling pressure across
-      polygons that don't actually share a catchment would be wrong. Fixed:
-      within each `KNAME` group, only polygons within `max_gap_m` of each
-      other (chained transitively) are pooled together. Checked before
-      picking 1000m: "Mole Creek" (73 polygons spanning 37km) stays one
-      connected system even at 500m, because it's a genuinely contiguous
-      chain; "Several"/"Various" split into singletons at any threshold
-      tested, because they're never actually close together.
+    Two `KNAME` issues are handled explicitly:
+    - It is blank/null for 454 of 2601 statewide features (5 at Mole Creek);
+      a plain `groupby("KNAME")` would silently drop these. Each blank-name
+      polygon is instead treated as its own single-feature system.
+    - Some names are shared by unrelated, widely-separated polygons --
+      "Several" (3 polygons up to 233 km apart) and "Various" (2 polygons
+      104 km apart) are placeholder labels, not real system names; even a
+      real name like "Trowutta-Sumac" has outlying polygons several km from
+      its main cluster. So within each `KNAME` group, only polygons within
+      `max_gap_m` of each other (chained transitively) are pooled. At
+      `max_gap_m=1000`, "Mole Creek" (73 polygons spanning 37 km) stays one
+      connected system, while "Several"/"Various" split into singletons, as
+      they should.
 
-    Still uses a MEAN over each system, not the pixel's own value -- a
-    simple, transparent aggregation, not a flow-routed or distance-weighted
-    one (which would need more time than this project has). One real
-    consequence worth stating in `discussion.md`, not just this docstring:
-    every karst cell in a system now gets the *same* pressure value, so
-    within-system spatial variation in land use is gone -- the resulting
-    risk maps are patchier by system than by the underlying land use.
+    Uses a MEAN over each system, not the pixel's own value -- simple and
+    transparent, not flow-routed or distance-weighted. Consequence: every
+    karst cell in a system gets the *same* pressure value, so within-system
+    spatial variation in land use is gone (see `discussion.md`).
     """
     effective = pressure_array.copy()
     shape = pressure_array.shape
@@ -212,15 +191,9 @@ def aggregate_pressure_by_system(karst_gdf, pressure_array, transform, pressure_
 
 # --- Shared: classify a combined score onto whatever distinct values occur -
 
-# Ordered vocabulary to draw labels from. Reserved for review-fixed reuse
-# across Stages 4, 6, and 7 -- previously each notebook hand-typed its own
-# label list, which produced an outright duplicate ("Very Low" twice) in
-# Stage 7, used "None" vs "Very Low" inconsistently for the same 0.0 value
-# between stages, and would silently mis-assign or drop values if the set of
-# distinct scores changed upstream (exactly what happened to Stage 4 when
-# Stage 3's connectivity scoring was revised: cells with the new 0.5/0.667
-# scores fell through a hardcoded 4-value dict and were wrongly left as
-# nodata).
+# Ordered vocabulary to draw labels from, shared across Stages 4, 6 and 7 so
+# a given score always gets the same label and new distinct values upstream
+# can't silently fall through a hardcoded label list.
 _CANONICAL_LABELS = [
     "None", "Very Low", "Low", "Low-Moderate", "Moderate",
     "Moderate-High", "High", "Very High", "Severe", "Extreme",

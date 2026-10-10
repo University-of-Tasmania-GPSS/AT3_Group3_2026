@@ -12,12 +12,15 @@ flowchart LR
     B["<b>2. Connectivity</b><br/>How directly can<br/>surface water get in?<br/><i>Karst Atlas</i>"] --> I
     I(["<b>Intrinsic<br/>vulnerability</b><br/>= S × C"]) --> R
     C["<b>3. Pressure</b><br/>What is happening<br/>on the land?<br/><i>DEA land cover</i>"] --> R
-    R(["<b>Relative risk</b><br/>= S × C × P"])
+    D["<b>4. Slope</b><br/>Does runoff<br/>concentrate or soak in?<br/><i>DEM</i>"] --> R
+    R(["<b>Relative risk</b><br/>= S × C × P × Slope"])
 ```
 
 **Why multiply?** A score of zero on any ingredient should mean zero risk:
 no karst, no route for water, or nothing on the land to cause harm. Adding
-would let a high score on one ingredient hide a zero on another.
+would let a high score on one ingredient hide a zero on another. Slope is
+the one exception: it is a 0.5-1 multiplier, because flat ground is not
+automatically zero-risk the way no karst or no pressure legitimately is.
 
 ## Build small, then go big
 
@@ -66,10 +69,11 @@ Connectivity at Mole Creek. Most of the area scores 3 (exposed karst or proximal
 A second version adds a slope-scaled catchment signal, a 50 m buffer
 around mapped watercourses, and (at Mole Creek) a D8 flow-routing score
 from the `connectivity-hydlines` branch. It validates almost as well as
-the frozen version (r=0.93 Mole Creek, r=0.99 statewide against the
-frozen risk) and resolves more finely (31 distinct values statewide
+the frozen version (r=0.83 Mole Creek, r=0.92 statewide against the
+frozen risk, without stacking the slope factor on top of its own slope
+scoring) and resolves more finely (31 distinct values statewide
 against 7), but the D8 addition currently changes very little under the
-`max()` combination rule used here — see `README.md`'s two-version
+`max()` combination rule used here; see `README.md`'s two-version
 section. Not yet the default.
 :::
 
@@ -127,11 +131,11 @@ DEA Level 3 cannot separate managed plantation from natural vegetation
 and counts lightly grazed pasture as natural. A second version scores
 the finer LIST land-use layer (121 classes, 0-10) instead
 (`notebooks/05b_landuse_pressure_list.ipynb`). It agrees closely with
-DEA at Mole Creek (r=0.99) but diverges more statewide (r=0.86,
-named-area rank correlation 0.73), mainly because 28% of cells DEA
+DEA at Mole Creek (r=0.99) but diverges more statewide (r=0.82,
+named-area rank correlation 0.70), mainly because 28% of cells DEA
 calls "natural vegetation" are modified pasture in LIST and 10.5% are
 plantation. Mean risk roughly halves under LIST, because natural land
-scores 1/10 instead of 1/3 — a scale effect, not a ranking one. Not yet
+scores 1/10 instead of 1/3, a scale effect, not a ranking one. Not yet
 the default; see `README.md`'s two-version section for the full 2×2
 comparison against connectivity v2.
 :::
@@ -140,8 +144,14 @@ comparison against connectivity v2.
 
 Susceptibility (0 to 4) and connectivity (0 to 3) are each divided by their
 maximum so that neither dominates because of its scale, then multiplied to give
-**intrinsic vulnerability**. Multiplying by pressure gives
-**relative risk**. Risk runs from 0 to 1 and is sorted into fixed
+**intrinsic vulnerability**. Multiplying by pressure gives relative risk
+before slope; a final multiplier for slope (0.5 at flat ground, rising to
+1.0 at 30° and steeper, steeper scored as more vulnerable) gives
+**relative risk**. This direction is a stated judgement, not a settled one:
+published karst vulnerability indices disagree on whether steep or gentle
+ground is riskier (see the Introduction), and an earlier sensitivity check
+found the opposite direction fits the Mole Creek data about as well.
+Risk runs from 0 to 1 and is sorted into fixed
 classes of width 0.2: *Very Low*, *Low*, *Moderate*, *High* and *Very High*,
 with 0 shown as *None*. The edges are absolute, so a label means the same
 score at Mole Creek and statewide, and a class stays empty if no cell reaches it.
@@ -222,39 +232,23 @@ dataset is ever an input to the model.
 Risk against conservation value, used to rank systems for management. Findings are in Results.
 ```
 
-## What the method cannot see
-
-- **Forestry and pasture.** DEA Level 3 cannot separate managed plantations
-  from natural vegetation, and it counts lightly grazed pasture as natural
-  (Geoscience Australia, n.d.), so both score low. Much of the farmland behind
-  the Mole Creek evidence is dairy and grazing land (Eberhard & Houshold, 2002),
-  which DEA may count as natural. At Mole Creek, 636 ha of
-  plantation was established above Parsons' Spring from 1995 and the spring has
-  been intermittent since 2001 (Hunter et al., 2008). That is a recharge
-  effect, not the pollution pressure scored here, so it is missed either way.
-- **Background chemistry.** Water chemistry varies with the lithology of the
-  non-karst catchment independently of land use (Eberhard & Houshold, 2002), so
-  validating the pressure score against monitoring data would need to control
-  for it.
-- **Pressure scores are assumptions.** Their direction is supported but their
-  values are not, so the sensitivity analysis tests alternatives.
-- **Pressure is a proxy.** Land cover shows what is on the land, not how much
-  pollutant is applied.
-- **Boundary.** The 3 km buffer is a pragmatic choice, not a watershed
-  delineation.
-- **Mole Creek bias.** The method was tuned at Mole Creek, so statewide
-  results may reflect its geology and land-use mix.
-
 ## Reproducibility
 
-The pipeline is eleven notebooks, run in order, sharing code in `src/`. Raw data
+The pipeline is 15 notebooks, run in numbered order, sharing code in `src/`
+(`05b` and `09b` run alongside `05` and `09` as their v2 counterparts; there
+is no Stage 11 or Stage 12). Two further `03alt*` notebooks hold Rachel's D8
+flow-routing development on the `connectivity-hydlines` branch and are not
+part of the numbered run; Stage 13 reads their output directly. Raw data
 stays in a shared folder, every output is regenerated by the notebooks, and
 `environment.yml` pins the conda environment.
 
 The steps, in order:
 
-1. Study areas and setup
-2. Susceptibility, connectivity and intrinsic vulnerability
-3. Land-use pressure and relative risk
-4. Statewide run and scale comparison
-5. Sensitivity and validation
+1. Study areas and setup (00–01)
+2. Susceptibility, connectivity and intrinsic vulnerability (02–04)
+3. Land-use pressure and relative risk, v1 (DEA) and v2 (LIST) (05, 05b, 06)
+4. Statewide run and scale comparison (07–08)
+5. Sensitivity and validation (09, 10)
+6. Connectivity v2 (slope, watercourses, D8 routing) and the
+   connectivity-x-land-use comparison (13, 09b)
+7. Alternative risk structures: weighted sum and a clean EPIK replication (14)

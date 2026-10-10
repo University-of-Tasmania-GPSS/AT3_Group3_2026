@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="t d">
+  <title id="t">The project in four steps</title>
+  <desc id="d">A winding stream passes four stops: build the index at Mole Creek, freeze it and scale it to Tasmania, swap the land-use data between DEA and LIST, then test the choices and report honestly.</desc>
+  <rect width="960" height="340" fill="#f4f7f8"/>
+  <path d="M20,180 C60,170 80,170 120,170 C220,170 260,140 360,140 C460,140 500,200 600,200 C700,200 740,150 840,150 C890,150 920,160 944,172" fill="none" stroke="#2a6fb0" stroke-width="12" stroke-linecap="round" opacity="0.35"/>
+  <path d="M20,180 C60,170 80,170 120,170 C220,170 260,140 360,140 C460,140 500,200 600,200 C700,200 740,150 840,150 C890,150 920,160 944,172" fill="none" stroke="#2a6fb0" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 10"/>
+
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle">
+    <circle cx="120" cy="170" r="20" fill="#14606a"/><text x="120" y="177" font-size="20" font-weight="700" fill="#fff">1</text>
+    <text x="120" y="232" font-size="19" font-weight="700" fill="#14395e">Build</text>
+    <text x="120" y="256" font-size="15" fill="#33454a">Susceptibility, connectivity</text>
+    <text x="120" y="276" font-size="15" fill="#33454a">and pressure at Mole Creek,</text>
+    <text x="120" y="296" font-size="15" fill="#33454a">checked against springs</text>
+
+    <circle cx="360" cy="140" r="20" fill="#14606a"/><text x="360" y="147" font-size="20" font-weight="700" fill="#fff">2</text>
+    <text x="360" y="32" font-size="19" font-weight="700" fill="#14395e">Freeze and scale</text>
+    <text x="360" y="56" font-size="15" fill="#33454a">Apply the frozen method to</text>
+    <text x="360" y="76" font-size="15" fill="#33454a">all of Tasmania: does one karst</text>
+    <text x="360" y="96" font-size="15" fill="#33454a">system stand in for the rest?</text>
+
+    <circle cx="600" cy="200" r="20" fill="#14606a"/><text x="600" y="207" font-size="20" font-weight="700" fill="#fff">3</text>
+    <text x="600" y="262" font-size="19" font-weight="700" fill="#14395e">Swap the data</text>
+    <text x="600" y="286" font-size="15" fill="#33454a">Land use from DEA and from</text>
+    <text x="600" y="306" font-size="15" fill="#33454a">LIST: how much does the answer</text>
+    <text x="600" y="326" font-size="15" fill="#33454a">depend on the data?</text>
+
+    <circle cx="840" cy="150" r="20" fill="#14606a"/><text x="840" y="157" font-size="20" font-weight="700" fill="#fff">4</text>
+    <text x="840" y="42" font-size="19" font-weight="700" fill="#14395e">Test and report</text>
+    <text x="840" y="66" font-size="15" fill="#33454a">Compare our choices with the</text>
+    <text x="840" y="86" font-size="15" fill="#33454a">literature and say where we</text>
+    <text x="840" y="106" font-size="15" fill="#33454a">differ</text>
+  </g>
+</svg>
