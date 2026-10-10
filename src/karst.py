@@ -1,5 +1,5 @@
-"""Karst susceptibility and hydrological connectivity scoring, shared by
-notebooks 02, 03, and 07 so the frozen method stays identical across them.
+"""Karst susceptibility and hydrological connectivity scoring, pressure aggregation and risk
+classification, shared by the notebooks so the frozen method stays identical across them.
 
 All reclassification choices here are ordinal, not ratio, scores: a value
 of 4 means "more" than 2, not "twice as much".
@@ -146,7 +146,7 @@ def aggregate_pressure_by_system(karst_gdf, pressure_array, transform, pressure_
     karst cell in a system gets the *same* pressure value, so within-system
     spatial variation in land use is gone (see `discussion.md`).
     """
-    effective = pressure_array.copy()
+    effective = pressure_array.astype(float)  # float: a uint8 input would truncate the system mean
     shape = pressure_array.shape
 
     # Blank/null KNAME -> each polygon is its own system (explicit, not a

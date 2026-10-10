@@ -2,7 +2,7 @@
 
 *Where could a spill, a fertiliser run-off or a bad land-use decision reach
 Tasmania's groundwater fastest? We answer by scoring every map cell on three
-questions and multiplying the answers.*
+questions, multiplying the answers, and adjusting the result for slope.*
 
 ## The approach
 
@@ -32,9 +32,12 @@ compared fairly.
 Both use one coordinate system (GDA2020 / MGA55, EPSG:7855). The Mole Creek
 study area is the Karst Atlas polygons plus a **3 km buffer**. Without
 the buffer there is no surrounding land, so connectivity saturates and land
-use has nothing outside the karst to measure.
+use has nothing outside the karst to measure. The buffer also contains
+neighbouring karst (Lorinna, Stockers Plain, Quamby Brook, Golden Valley).
+That karst is context only: every Mole Creek result in this book is reported
+for the Mole Creek karst itself.
 
-## The three ingredients, mapped at Mole Creek
+## The four ingredients, mapped at Mole Creek
 
 ### 1. Susceptibility: how karstified is the rock?
 
@@ -66,15 +69,12 @@ Connectivity at Mole Creek. Most of the area scores 3 (exposed karst or proximal
 ```
 
 :::{dropdown} A second connectivity version (v2)
-A second version adds a slope-scaled catchment signal, a 50 m buffer
-around mapped watercourses, and (at Mole Creek) a D8 flow-routing score
-from the `connectivity-hydlines` branch. It validates almost as well as
-the frozen version (r=0.83 Mole Creek, r=0.92 statewide against the
-frozen risk, without stacking the slope factor on top of its own slope
-scoring) and resolves more finely (31 distinct values statewide
-against 7), but the D8 addition currently changes very little under the
-`max()` combination rule used here; see `README.md`'s two-version
-section. Not yet the default.
+Version 2 adds three things to the highest-of-three rule (`notebooks/13_connectivity_v2.ipynb`):
+- a **mapped-watercourse signal**, a 50 m buffer around natural streams scored by stream size (major stream or river 3, stream-sized tributary 2, minor tributary 1);
+- a **slope scaling** on the catchment signals, from 0.5 on flat catchments to 1 at 15° or steeper, so steeper catchments count for more;
+- at Mole Creek only, a **D8 flow-routing score**: for each karst polygon, the number of cells that drain to it, classed by Jenks natural breaks. It was computed on a 2 m DEM (`03alt2`) and again on the 25 m DEM (`03alt3`), and the 25 m result is the one used.
+
+Because v2 puts slope inside connectivity, it is compared with the frozen version on equal slope terms. It is not the default. Its effect is in Results.
 :::
 
 ### 3. Pressure: what is on the land?
@@ -127,120 +127,60 @@ captured by connectivity, so scoring it again here would count it twice.
 :::
 
 :::{dropdown} A second pressure version (LIST land-use, v2)
-DEA Level 3 cannot separate managed plantation from natural vegetation
-and counts lightly grazed pasture as natural. A second version scores
-the finer LIST land-use layer (121 classes, 0-10) instead
-(`notebooks/05b_landuse_pressure_list.ipynb`). It agrees closely with
-DEA at Mole Creek (r=0.99) but diverges more statewide (r=0.82,
-named-area rank correlation 0.70), mainly because 28% of cells DEA
-calls "natural vegetation" are modified pasture in LIST and 10.5% are
-plantation. Mean risk roughly halves under LIST, because natural land
-scores 1/10 instead of 1/3, a scale effect, not a ranking one. Not yet
-the default; see `README.md`'s two-version section for the full 2×2
-comparison against connectivity v2.
+DEA Level 3 cannot separate managed plantation from natural vegetation and
+counts lightly grazed pasture as natural. The second version scores the finer
+LIST land-use layer (121 classes) on a 0-10 scale instead
+(`notebooks/05b_landuse_pressure_list.ipynb`). Classes are scored by the LIST
+primary-group hierarchy, from conservation land (1) up to intensive uses
+such as feedlots, effluent ponds and waste (10), with plantation forestry
+and modified pasture at 6. These values are expert judgement, like the DEA
+scores. It is not the default. Its effect is in Results.
 :::
+
+### 4. Slope: does runoff concentrate or soak in?
+
+Slope comes from the DEM (25 m at Mole Creek, 100 m statewide). It enters as a **multiplier from 0.5 to 1**: 0.5 on flat ground, rising in a straight line to 1.0 at 30° or steeper. Steeper ground is scored as more vulnerable, on the reasoning that runoff concentrates and runs towards sinkholes instead of soaking in where it falls. Published karst indices disagree on the sign (see the Introduction), so this direction is a judgement, and we tested the opposite direction.
+
+The floor of 0.5 is deliberate. Flat ground is not automatically safe the way "no karst" or "no pressure" is, so slope may lower risk but never zero it. Most karst is gentle, so most cells sit near 0.5 (Results shows what that does to the risk scale). Slope is taken from each run's own DEM, so the 100 m statewide run sees smoother, gentler slopes than the 25 m local run.
+
+```{figure} figures/slope_factor_mole_creek.png
+:alt: Map of the slope multiplier on the Mole Creek karst, from 0.5 on flat ground to 1.0 on steep ground. Most of the karst is close to 0.5.
+
+The slope multiplier on the Mole Creek karst. Most of the karst is gentle, so most cells sit near 0.5, and only the steep margins reach 1.0.
+```
 
 ## Putting it together
 
 Susceptibility (0 to 4) and connectivity (0 to 3) are each divided by their
 maximum so that neither dominates because of its scale, then multiplied to give
-**intrinsic vulnerability**. Multiplying by pressure gives relative risk
-before slope; a final multiplier for slope (0.5 at flat ground, rising to
-1.0 at 30° and steeper, steeper scored as more vulnerable) gives
-**relative risk**. This direction is a stated judgement, not a settled one:
-published karst vulnerability indices disagree on whether steep or gentle
-ground is riskier (see the Introduction), and an earlier sensitivity check
-found the opposite direction fits the Mole Creek data about as well.
-Risk runs from 0 to 1 and is sorted into fixed
+**intrinsic vulnerability**. Multiplying by pressure and then by the slope
+multiplier gives **relative risk**. Risk runs from 0 to 1 and is sorted into fixed
 classes of width 0.2: *Very Low*, *Low*, *Moderate*, *High* and *Very High*,
 with 0 shown as *None*. The edges are absolute, so a label means the same
 score at Mole Creek and statewide, and a class stays empty if no cell reaches it.
 
-::::{tab-set}
-:::{tab-item} Classed
-```{figure} figures/risk_mole_creek.png
-:alt: Map of relative karst vulnerability under land-use pressure at Mole Creek, 2020, in fixed classes.
-
-Relative risk at Mole Creek, 2020, in fixed classes. No area reaches High or Very High (the hatched classes), so the highest class present is Moderate.
-```
-:::
-:::{tab-item} Continuous
-```{figure} figures/risk_mole_creek_continuous.png
-:alt: Map of relative karst vulnerability at Mole Creek, 2020, on a continuous 0 to 1 colour scale with numbered named areas.
-
-The same score on a continuous 0 to 1 scale. The numbered areas are listed in the key with their mean risk.
-```
-:::
-::::
-
 ## Scaling up to Tasmania
 
-The same code (`src/karst.py`, `src/landuse.py`) runs statewide at 100 m, with the same fixed classes and 0 to 1 scale.
-
-::::{tab-set}
-:::{tab-item} Classed
-```{figure} figures/risk_statewide.png
-:alt: Map of statewide relative karst vulnerability under land-use pressure for Tasmania, in fixed classes.
-
-Relative risk across Tasmania, using the method as frozen at Mole Creek.
-```
-:::
-:::{tab-item} Continuous
-```{figure} figures/risk_statewide_continuous.png
-:alt: Map of statewide relative karst vulnerability for Tasmania on a continuous 0 to 1 colour scale.
-
-The same score on a continuous 0 to 1 scale.
-```
-:::
-::::
-
-To see what the coarser grid costs, we compare the two surfaces over
-Mole Creek.
-
-```{figure} figures/compare_scales.png
-:alt: Three stacked maps of Mole Creek risk: the local 25 m run, the statewide run resampled to 25 m, and the difference between them.
-
-Mole Creek risk from the local 25 m run (top) and the statewide 100 m run resampled to the same grid (middle), both on the fixed 0 to 1 scale. The bottom map shows local minus coarse; cells with no difference are transparent.
-```
+The same code (`src/karst.py`, `src/landuse.py`, `src/hydro.py`) runs statewide at 100 m, with the same fixed classes and 0 to 1 scale. To see what the coarser grid costs, we resample the statewide result onto the Mole Creek grid and compare the two surfaces over the Mole Creek karst.
 
 ## How we tested it
 
-::::{grid} 1 1 3 3
-:::{card}
-**Scale**
-
-Does the 100 m statewide run reproduce the 25 m local pattern?
-:::
-:::{card}
-**Sensitivity**
-
-What if we change the weights, add rainfall, use a different year, or change
-how pressure is aggregated? Aggregation matters most, and the broad pattern
-holds for weights and rainfall.
-:::
-:::{card}
-**Independent data**
-
-Do mapped springs and conservation values line up with the scores? Neither
-dataset is ever an input to the model.
-:::
-::::
-
-```{figure} figures/priority_matrix.png
-:alt: Management priority matrix of relative risk against conservation value.
-
-Risk against conservation value, used to rank systems for management. Findings are in Results.
-```
+- **Scale.** Does the 100 m statewide run reproduce the 25 m local pattern?
+- **Sensitivity.** What if we change the weights, use a different year, change how pressure is aggregated, or swap the land-use or connectivity inputs?
+- **Structure.** What if the ingredients were added with weights instead of multiplied?
+- **Independent data.** Do mapped springs and conservation values line up with the scores? Neither dataset is ever an input to the model.
 
 ## Reproducibility
 
 The pipeline is 15 notebooks, run in numbered order, sharing code in `src/`
 (`05b` and `09b` run alongside `05` and `09` as their v2 counterparts; there
-is no Stage 11 or Stage 12). Two further `03alt*` notebooks hold Rachel's D8
-flow-routing development on the `connectivity-hydlines` branch and are not
-part of the numbered run; Stage 13 reads their output directly. Raw data
-stays in a shared folder, every output is regenerated by the notebooks, and
-`environment.yml` pins the conda environment.
+is no Stage 11 or Stage 12). Two further notebooks, `03alt2` (2 m DEM) and
+`03alt3` (25 m DEM), run the D8 flow-routing on the `connectivity-hydlines`
+branch. They are not part of the numbered run: the 2 m run is too large to
+repeat, so its outputs are shared, and Stage 13 reads the 25 m output and
+checks it against the 2 m one. Raw data stays in a shared folder, every other
+output is regenerated by the notebooks, and `environment.yml` pins the conda
+environment.
 
 The steps, in order:
 

@@ -59,7 +59,7 @@ def fetch_landuse_pressure(bbox_wgs84, year, template_path, target_crs="EPSG:785
         another mapping to test an alternative scoring scheme (Stage 9).
     cache_dir : str or Path, optional
         If given, the raw (unreclassified) Level-3 class raster for this
-        template+year is cached under `cache_dir` (same pattern as AT2:
+        template+year is cached under `cache_dir` (
         download once, keep the raw file, reuse it for every later run and
         reclass variant). A cache hit needs no network access at all. The
         cache key is `{template filename stem}_{year}_level3.tif`, since in
