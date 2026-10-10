@@ -20,6 +20,7 @@ project:
     - file: results.md
     - file: discussion.md
     - file: conclusion.md
+    - file: notebooks/15_interactive_map.ipynb
     - file: reference.md
 
 site:
