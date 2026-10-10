@@ -6,6 +6,8 @@ extracted here after the third notebook needed it, to stop it drifting
 into three slightly-different copies.
 """
 
+import time
+
 import numpy as np
 import odc.stac
 import pystac_client
@@ -14,6 +16,17 @@ from rasterio.enums import Resampling
 
 DEA_STAC_URL = "https://explorer.dea.ga.gov.au/stac"
 DEA_COLLECTION = "ga_ls_landcover_class_cyear_3"
+
+
+def _with_retry(fn, tries=6, wait_s=20):
+    """The DEA STAC service intermittently answers 503; retry with a growing pause."""
+    for attempt in range(tries):
+        try:
+            return fn()
+        except pystac_client.exceptions.APIError:
+            if attempt == tries - 1:
+                raise
+            time.sleep(wait_s * (attempt + 1))
 
 # Level-3 class -> pressure score (0=None, 1=Low, 3=High).
 # Checked against real data before finalising this table, not just AT2's
@@ -52,14 +65,14 @@ def fetch_landuse_pressure(bbox_wgs84, year, template_path, target_crs="EPSG:785
         2D uint8 array aligned to the template grid. 255 = nodata (no DEA
         coverage, or the DEA "no data" class).
     """
-    catalog = pystac_client.Client.open(DEA_STAC_URL)
+    catalog = _with_retry(lambda: pystac_client.Client.open(DEA_STAC_URL))
     odc.stac.configure_rio(cloud_defaults=True, aws={"aws_unsigned": True})
 
     search = catalog.search(
         collections=[DEA_COLLECTION], bbox=bbox_wgs84,
         datetime=f"{year}-01-01/{year}-12-31",
     )
-    items = list(search.items())
+    items = _with_retry(lambda: list(search.items()))
     if not items:
         raise ValueError(f"No DEA Level-3 land cover items found for {year} over {bbox_wgs84}")
 

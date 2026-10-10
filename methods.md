@@ -59,8 +59,19 @@ Connectivity is the highest of three scores:
 ```{figure} figures/connectivity.png
 :alt: Map of Mole Creek hydrological connectivity.
 
-Connectivity at Mole Creek. Most of the area scores 3 (exposed karst or proximal catchment). A flow-accumulation channel network from the 25 m DEM is checked against it but is not part of the score.
+Connectivity at Mole Creek. Most of the area scores 3 (exposed karst or proximal catchment).
 ```
+
+:::{dropdown} A second connectivity version (v2)
+A second version adds a slope-scaled catchment signal, a 50 m buffer
+around mapped watercourses, and (at Mole Creek) a D8 flow-routing score
+from the `connectivity-hydlines` branch. It validates almost as well as
+the frozen version (r=0.93 Mole Creek, r=0.99 statewide against the
+frozen risk) and resolves more finely (31 distinct values statewide
+against 7), but the D8 addition currently changes very little under the
+`max()` combination rule used here — see `README.md`'s two-version
+section. Not yet the default.
+:::
 
 ### 3. Pressure: what is on the land?
 
@@ -109,6 +120,20 @@ do not merge unrelated systems.
 :::{dropdown} Why is bare ground scored low?
 It is a natural surface with no pollutant source on it. Fast runoff is already
 captured by connectivity, so scoring it again here would count it twice.
+:::
+
+:::{dropdown} A second pressure version (LIST land-use, v2)
+DEA Level 3 cannot separate managed plantation from natural vegetation
+and counts lightly grazed pasture as natural. A second version scores
+the finer LIST land-use layer (121 classes, 0-10) instead
+(`notebooks/05b_landuse_pressure_list.ipynb`). It agrees closely with
+DEA at Mole Creek (r=0.99) but diverges more statewide (r=0.86,
+named-area rank correlation 0.73), mainly because 28% of cells DEA
+calls "natural vegetation" are modified pasture in LIST and 10.5% are
+plantation. Mean risk roughly halves under LIST, because natural land
+scores 1/10 instead of 1/3 — a scale effect, not a ranking one. Not yet
+the default; see `README.md`'s two-version section for the full 2×2
+comparison against connectivity v2.
 :::
 
 ## Putting it together

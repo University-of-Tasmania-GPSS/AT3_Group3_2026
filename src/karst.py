@@ -282,3 +282,45 @@ def classify_fixed(score_array, valid_mask, edges=RISK_EDGES, labels=RISK_LABELS
     nonzero = valid_mask & (score_array > 0)
     class_array[nonzero] = np.digitize(score_array[nonzero], edges, right=True) + 1
     return class_array, list(edges), list(labels)
+
+
+# --- Mole Creek focus --------------------------------------------------------
+
+def in_mole_creek_focus(karst_gdf):
+    """True for polygons that belong to the Mole Creek systems (the same selection
+    Stage 0 buffers). The 3 km buffer also contains neighbouring systems such as
+    Lorinna and Stockers Plain, which are context only."""
+    names = karst_gdf["KNAME"].fillna("").astype(str)
+    return names.str.contains("Mole Creek") | (names == "Meander - Western Creek")
+
+
+def mole_creek_focus_mask(karst_gdf, shape, transform):
+    """Boolean raster of the Mole Creek karst itself (karst_intensity > 0 polygons in
+    the Mole Creek systems), on the grid given by `shape` and `transform`."""
+    sel = karst_gdf[in_mole_creek_focus(karst_gdf) & (karst_gdf["karst_intensity"] > 0)]
+    burned = rasterize([(g, 1) for g in sel.geometry], out_shape=shape, transform=transform,
+                       fill=0, dtype="uint8")
+    return burned == 1
+
+
+# --- Connectivity v2 (experimental) ------------------------------------------
+
+def add_connectivity_v2(karst_gdf, mean_slope_deg, slope_ref_deg=15.0, min_factor=0.5):
+    """Polygon-level connectivity with slope folded in (`add_connectivity` must have run first).
+
+    A slope factor in [min_factor, 1] scales the catchment-derived signals (proximal and
+    distal) by the polygon's mean slope, because steeper catchments deliver runoff more
+    readily. The autogenic signal (exposed / covered / interstratal) is not slope-scaled.
+    A polygon with no slope value is left unscaled. The watercourse signal is cell-level and
+    is combined with this at raster stage (see `hydro.watercourse_raster`).
+    """
+    s = np.clip(np.asarray(mean_slope_deg, float) / slope_ref_deg, 0, 1)
+    factor = np.where(np.isnan(s), 1.0, min_factor + (1 - min_factor) * np.nan_to_num(s))
+    karst_gdf["mean_slope_deg"] = mean_slope_deg
+    karst_gdf["slope_factor"] = factor
+    karst_gdf["proximal_score_v2"] = karst_gdf["proximal_score"] * factor
+    karst_gdf["distal_score_v2"] = karst_gdf["distal_score"] * factor
+    karst_gdf["connectivity_v2"] = karst_gdf[
+        ["autogenic_score", "proximal_score_v2", "distal_score_v2"]
+    ].max(axis=1)
+    return karst_gdf
