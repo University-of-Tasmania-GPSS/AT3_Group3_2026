@@ -10,9 +10,6 @@ from karst import rasterize_max
 
 NAMES = ["Susceptibility", "Exposure", "Catchment", "Watercourse", "Slope", "Rainfall"]
 W_EQUAL = dict.fromkeys(NAMES, 1.0)
-# A rough analogue of EPIK's 3:1:3:2 (epikarst ~ susceptibility, protective cover ~ exposure,
-# infiltration ~ catchment, karst network ~ watercourse), with slope and rainfall at 1.
-W_EXPERT = {"Susceptibility": 3, "Exposure": 1, "Catchment": 3, "Watercourse": 2, "Slope": 1, "Rainfall": 1}
 SLOPE_REF_DEG = 15.0
 
 

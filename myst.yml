@@ -21,6 +21,9 @@ project:
     - file: discussion.md
     - file: conclusion.md
     - file: notebooks/15_interactive_map.ipynb
+      hidden: true
+    - file: notebooks/16_which_choices_matter.ipynb
+      hidden: true
     - file: reference.md
 
 site:

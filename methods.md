@@ -101,7 +101,7 @@ captured by connectivity, so scoring it again here would count it twice.
 
 ### 4. Slope: does runoff concentrate or soak in?
 
-Slope comes from the DEM (25 m at Mole Creek, 100 m statewide). It enters as a **multiplier from 0.5 to 1**: 0.5 on flat ground, rising in a straight line to 1.0 at 30 degrees or steeper. Steeper ground is scored as more vulnerable, on the reasoning that runoff concentrates and runs towards sinkholes instead of soaking in where it falls. The floor of 0.5 is deliberate. Flat ground is not automatically safe the way "no karst" or "no pressure" is, so slope may lower risk but never zero it. Slope is taken from each run's own DEM, so the 100 m statewide run sees smoother, gentler slopes than the 25 m local run. The sign and the ceiling are judgements, tested under *Sensitivity* below.
+Slope comes from the DEM (25 m at Mole Creek, 100 m statewide). It enters as a **multiplier from 0.5 to 1**: 0.5 on flat ground, rising in a straight line to 1.0 at 30 degrees or steeper. Steeper ground is scored as more vulnerable, on the reasoning that runoff concentrates and runs towards sinkholes instead of soaking in where it falls. The floor of 0.5 is deliberate. Flat ground is not automatically safe the way "no karst" or "no pressure" is, so slope may lower risk but never zero it. Slope is taken from each run's own DEM, so the 100 m statewide run sees smoother, gentler slopes than the 25 m local run. The sign and the ceiling are judgements, tested as part of the method test below.
 
 ```{figure} figures/slope_factor_mole_creek.png
 :alt: Map of the slope multiplier on the Mole Creek karst, from 0.5 on flat ground to 1.0 on steep ground. Most of the karst is close to 0.5.
@@ -141,17 +141,29 @@ Both EPIK and COP multiply their factors, while methods such as DRASTIC add weig
 | Structure | How the ingredients combine | Inputs |
 |---|---|---|
 | **Product (main)** | S × C × P × slope | The four ingredients above |
-| Same inputs, S and C summed | (w_S S + w_C C) / (w_S + w_C) × P × slope, S:C weights 1:1, 2:1 and 1:2 | The same four |
 | Same inputs, all summed | A weighted sum of S, C, P and slope, zero off the karst; equal weights and 3:3:2:1 | The same four |
-| Six-input weighted sum | Equal and expert weights over susceptibility, exposure, catchment flags, watercourse, slope and rainfall, then × P | Six inputs, closer to a literature-style index |
+| Six-input weighted sum | Equal weights over susceptibility, exposure, catchment flags, watercourse, slope and rainfall, then × P | Six inputs, closer to a literature-style index |
 | EPIK and COP replications | EPIK's 3:1:3:2 weights over its four analogues; COP's O × C × P product | Each method's own factors |
 
-Keeping the inputs the same in the first three rows separates the effect of structure from the effect of data.
+Keeping the inputs the same in the first two rows separates the effect of structure from the effect of data.
 
 :::{embed} #structure-slider
 :::
 
 *The main product (left) against the four ingredients added with equal weights (right), Mole Creek. The two are on different scales (the sum scores 0.4 to 0.6, the product mostly under 0.2), so each map is split into fifths of its own karst cells: the colours show where each map ranks a cell, not how large its score is.*
+
+#### How slope enters
+
+Slope is part of the method too. Published rules differ, and COP (Vías et al., 2006) gives slope two signs, so we run our rule against COP's and against lower ceilings (`notebooks/09_sensitivity_analysis.ipynb`, section 9.7):
+
+| Rule | Direction | Form |
+|---|---|---|
+| Ours (main) | Steeper = higher | Continuous, 0.5 to 1 at 30 degrees |
+| Lower ceilings | Steeper = higher | Continuous, reaching 1 at 20, 15 or 10 degrees |
+| COP Scenario 1 (water draining to a swallow hole) | Steeper = higher | Four classes at 8%, 31% and 76% slope (4.6, 17.2 and 37.2 degrees) |
+| COP Scenario 2 (diffuse recharge on the karst itself) | Flatter = higher, because runoff on steep ground leaves the karst | The same four classes, reversed |
+
+COP's vegetation split is dropped because pressure already scores land cover.
 
 ## Scaling up to Tasmania
 
@@ -161,7 +173,7 @@ The same code (`src/karst.py`, `src/landuse.py`, `src/hydro.py`) runs statewide 
 
 - **Scale.** Does the 100 m statewide run reproduce the 25 m local pattern, and does routing on a 2 m DEM change the Mole Creek map?
 - **Data.** Does swapping DEA for LIST land use change the map?
-- **Method.** Does adding weighted scores instead of multiplying them change the map, and does it change how well springs line up with the scores?
+- **Method.** Does adding weighted scores instead of multiplying them, or a different slope rule, change the map, and does it change how well springs line up with the scores?
 - **Independent data.** Do mapped springs and conservation values line up with the scores? Neither dataset is ever an input to the model.
 
 ## Sensitivity: the judgement calls
@@ -170,21 +182,12 @@ The three tests above vary the choices the Introduction names. The model also re
 
 | Judgement | Main choice | What we varied |
 |---|---|---|
-| Slope sign and ceiling | Steeper = higher, reaching 1 at 30 degrees | Ceilings of 20, 15 and 10 degrees; COP's two scenarios (below) |
 | Catchment averaging of pressure | Mean over each named system, polygons within 1 km chained | No averaging; other distance thresholds |
 | Weights | Equal (each ingredient to the power 1) | Each ingredient doubled in turn |
 | Pressure scores | 0, 1 and 3 for DEA | Natural land at 0; a milder 1:2 contrast |
 | Rainfall | Not used | A 0.5 to 1 modifier from the Atlas rainfall field |
 
-COP (Vías et al., 2006) gives slope two signs, which is why the sign is worth testing:
-
-| Rule | Direction | Form |
-|---|---|---|
-| Ours (main) | Steeper = higher | Continuous, 0.5 to 1 at 30 degrees |
-| COP Scenario 1 (water draining to a swallow hole) | Steeper = higher | Four classes at 8%, 31% and 76% slope (4.6, 17.2 and 37.2 degrees) |
-| COP Scenario 2 (diffuse recharge on the karst itself) | Flatter = higher, because runoff on steep ground leaves the karst | The same four classes, reversed |
-
-COP's vegetation split is dropped because pressure already scores land cover. Every test, and these judgement calls, is scored on one measure in `notebooks/16_which_choices_matter.ipynb`: the rank correlation with the main map over the mapped karst. The land-cover year is not a sensitivity. It is a change to track, and the final map is drawn for 2020.
+Every test, and these judgement calls, is scored on one measure in `notebooks/16_which_choices_matter.ipynb`: the rank correlation with the main map over the mapped karst. The land-cover year is not a sensitivity. It is a change to track, and the final map is drawn for 2020.
 
 ## Reproducibility
 

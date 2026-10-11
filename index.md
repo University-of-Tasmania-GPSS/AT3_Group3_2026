@@ -4,14 +4,12 @@ This book presents a GIS project assessing relative karst groundwater vulnerabil
 
 The workflow is developed first at Mole Creek and then applied across Tasmania at a coarser scale. Comparing the local and statewide results helps show how scale and resolution affect the patterns identified.
 
-::::{div}
-:class: col-page
+```{figure} figures/risk_statewide.png
+:alt: Map of Tasmania showing relative karst risk in five classes from Very Low to Very High, with the highest classes in the north-west and the south-west.
+:width: 520px
+:align: center
 
-:::{embed} #risk-map
-:::
-
-::::
-
-*Relative karst risk across Tasmania, 2020. Click a karst system for its details. Grey land has no karst mapped, which is not the same as low risk. Use the buttons to jump to Mole Creek.*
+Relative karst risk across Tasmania, 2020. Grey land has no karst mapped, which is not the same as low risk. The interactive map is on the Results page.
+```
 
 Use the navigation menu to explore the project background, methods, results, discussion, and conclusions.
