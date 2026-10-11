@@ -2,9 +2,10 @@
 title: Introduction
 ---
 
+
 # The ground that swallows rain
 
-**If a contaminant spilled on Tasmanian karst today, which areas would be most vulnerable and how could we tell?**
+** How vulnerable is karst and its groundwater to land use change or contaminants? **
 
 ```{figure} figures/Croesus.jpg
 :alt: Inside a limestone cave at Mole Creek, Tasmania.
@@ -19,8 +20,8 @@ Most landscapes filter water as it moves through soil and rock. Karst can do the
 
 Water entering through a sinkhole can bypass much of the filtration and attenuation that occurs in soil and porous material before reaching a cave, spring or aquifer. At Mole Creek, surface run-off is captured quickly by openings in the rock and passes through conduits with little cleaning (Eberhard & Houshold, 2002). Whatever the water picks up on the way goes with it.
 
-```{figure} figures/intro_cross_section.svg
-:alt: Cross-section of karst. Rain falls on forest and a cleared paddock, runs into a sinkhole, travels through a cave passage below the water table and emerges at a spring. Three numbered labels mark the rock, how directly water gets in, and what is on the land.
+```{figure} figures/intro_cross_section2.svg
+:alt: Cross-section of karst. Rain falls on forest and a cleared paddock, runs into a sinkhole with dead cow in it, travels through a cave passage below the water table and emerges at a spring. Three numbered labels mark the rock, how directly water gets in, and what is on the land.
 :width: 100%
 
 Water enters at a sinkhole and leaves at a spring. Anything it picks up on the way (red dots) travels with it. The three numbers are the three questions our index asks of every map cell. *Diagram drawn by Claude (Anthropic, generative AI) from the authors' description and checked by the authors.*
@@ -28,7 +29,7 @@ Water enters at a sinkhole and leaves at a spring. Anything it picks up on the w
 
 ## Small, scattered, easy to overlook
 
-There are about 4,100 km² karst mapped in Tasmani, covers 6% of the state, in patches from the north-west to the south. It is a small share of the land, but it carries the springs and wet ecosystems that depend on it.
+There is about 4,100 km² of karst mapped in Tasmania, which covers 6% of the state, in patches from the north-west to the south. It is a small share of the land, but it carries the springs and wet ecosystems that depend on it.
 
 We start at Mole Creek, a well-studied karst area in northern Tasmania where caves, sinkholes and active land use bring the problem into focus. What happens on the land above matters here: what falls on the surface can enter the karst below.
 
