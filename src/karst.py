@@ -313,9 +313,10 @@ def classify_scores(score_array, valid_mask):
 
 
 # Fixed class edges for the 0-1 risk score. The score is a product of four terms that are each below 1,
-# so it rarely exceeds 0.5 (even a strong cell scores about 0.2), and equal 0.05-wide classes spread it
-# over the range it actually reaches; 0.2-wide classes put almost every cell in the first.
-RISK_EDGES = (0.05, 0.10, 0.15, 0.20)
+# so it rarely exceeds 0.5. With LIST land-use pressure (0-10, natural land scores 1/10) a strong cell
+# scores about 0.12, so equal 0.03-wide classes spread it over the range it actually reaches; 0.2-wide
+# classes put almost every cell in the first.
+RISK_EDGES = (0.03, 0.06, 0.09, 0.12)
 RISK_LABELS = ["None", "Very Low", "Low", "Moderate", "High", "Very High"]
 
 

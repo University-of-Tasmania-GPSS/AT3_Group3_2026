@@ -1,55 +1,79 @@
 # Results
 
-*Which choices change the map, and by how much?*
+## Which choices move it
+
+:::{embed} #choices-chart
+:::
+
+*How far each choice moves the map: 1 = same ordering of the karst, lower = bigger change.*
+
+:::{dropdown} Table of change: every choice
+
+| Group | Choice | Mole Creek (25 m) | Tasmania (100 m) |
+|---|---|---|---|
+| Scale | Routing on a 2 m DEM | 0.99 | – |
+| Scale | 100 m grid instead of 25 m | 0.82 | – |
+| Data | DEA 2020 land cover instead of LIST 2021 land use | 0.99 | 0.85 |
+| Method | Six-input weighted sum | 0.41 | 0.82 |
+| Method | COP slope direction (flatter = higher) | 0.59 | 0.95 |
+| Method | All four ingredients summed | 0.94 | 0.71 |
+| Method | Slope ceiling of 10 degrees | 0.97 | 0.99 |
+
+*Rank correlation with the main map over the mapped karst: 1 = same ordering, lower = bigger change.*
+
+:::
+
+:::{dropdown} Scale: 2 m, 25 m and 100 m
+
+| Choice | Mole Creek (25 m) | Tasmania (100 m) |
+|---|---|---|
+| Routing on a 2 m DEM | 0.99 | – |
+| 100 m grid instead of 25 m | 0.82 | – |
+
+:::
+
+:::{dropdown} Data: LIST and DEA land use
+
+| Choice | Mole Creek (25 m) | Tasmania (100 m) |
+|---|---|---|
+| DEA 2020 land cover instead of LIST 2021 land use | 0.99 | 0.85 |
+
+:::
+
+:::{dropdown} Method: multiply or add, and the slope rule
+
+| Choice | Mole Creek (25 m) | Tasmania (100 m) |
+|---|---|---|
+| All four ingredients summed | 0.94 | 0.71 |
+| Six-input weighted sum | 0.41 | 0.82 |
+| COP slope direction (flatter = higher) | 0.59 | 0.95 |
+| Slope ceiling of 10 degrees | 0.97 | 0.99 |
+
+:::
+
 
 ## The map
 
 :::{embed} #risk-map-compact
 :::
 
-*Relative karst risk across Tasmania, with land cover for 2020. Click a karst system for its score, and use the buttons to jump to Mole Creek. Grey land has no karst mapped.*
+*Relative karst risk across Tasmania, with LIST land use for 2021. Grey land has no karst mapped.*
 
-## Which choices move it
+## Which systems rank highest
 
-:::{embed} #choices-chart
-:::
+Statewide, mean risk per named karst system (100 m). Only the 260 systems with at least 20 cells are ranked.
 
-*How far each choice moves the map: 1 = same ordering of the karst, lower = bigger change. Hover for the values.*
-
-| Choice | Test | Mole Creek (25 m) | Tasmania (100 m) |
-|---|---|---|---|
-| No catchment averaging of pressure | Other | 0.30 | 0.83 |
-| Six-input weighted sum | Method | 0.38 | 0.51 |
-| COP slope direction (flatter = higher) | Method | 0.61 | 0.87 |
-| 100 m grid instead of 25 m | Scale | 0.83 | – |
-| LIST land use | Data | 0.99 | 0.85 |
-| All four ingredients summed | Method | 0.94 | 0.89 |
-| Slope ceiling of 10 degrees | Method | 0.98 | 0.97 |
-| Connectivity weighted double | Other | 0.97 | 0.97 |
-| Routing on a 2 m DEM | Scale | 0.99 | – |
-
-- **Scale.** A 2 m DEM gives almost the same map as 25 m (0.99). The coarser 100 m grid moves it more (0.83).
-- **Data.** LIST land use barely moves Mole Creek (0.99) and moves the state more (0.85).
-- **Method.** Adding the ingredients keeps most of the ordering (0.89 to 0.94) but puts every cell in the top class. The six-input weighted sum changes it most (0.38 and 0.51), and COP's slope direction moves Mole Creek more than the state (0.61 and 0.87).
-- **Judgement calls.** Averaging pressure over a system matters most (0.30 at Mole Creek).
-- **Springs.** Mapped springs sit in higher-scoring karst (about the 96th percentile), a weak check because springs mark where water leaves.
-
-:::{dropdown} Scale: 2 m, 25 m and 100 m
-…
-:::
-
-:::{dropdown} Data: DEA and LIST land use
-…
-:::
-
-:::{dropdown} Method: multiply or add, and the slope rule
-…
-:::
-
-:::{dropdown} Other judgement calls
-…
-:::
-
-:::{dropdown} Springs check
-…
-:::
+| Rank | System | Atlas category | Mean risk | Cells |
+|---|---|---|---|---|
+| 1 | Gunns Plains | A | 0.187 | 2,998 |
+| 2 | Nabageena | B | 0.186 | 103 |
+| 3 | Flowery Gully | A | 0.168 | 120 |
+| 4 | Doctors Rocks | B | 0.164 | 71 |
+| 5 | Fairview (Redpa) (1 & 2) | B | 0.164 | 94 |
+| 6 | Wynyard | C | 0.158 | 173 |
+| 7 | Lower Black River - South Forest | B | 0.158 | 614 |
+| 8 | Savage River Mine | B | 0.153 | 26 |
+| 9 | Stockers Plain (Muddy Ck; Golden Vly) | B | 0.152 | 34 |
+| 10 | Melrose-Paloona (Eugenana) | C | 0.141 | 258 |
+| 28 | Mole Creek | A and B | 0.097 | 24,260 |
+| 65 | Meander - Western Creek | D | 0.055 | 1,507 |
