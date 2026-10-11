@@ -23,7 +23,7 @@ The logic of the project is to test how scale, data and method choices change th
 
 ## The four ingredients, mapped at Mole Creek
 
-### 1. Susceptibility: how karstified is the rock?
+### 1. Susceptibility: how karstified is the rock and how much cover does the karst have?
 
 Each Karst Atlas polygon carries a category from **A** (most intensely
 karstified) to **D**, scored 4 to 1, with 0 for no karst.
@@ -34,9 +34,9 @@ karstified) to **D**, scored 4 to 1, with 0 for no karst.
 Top, karst intensity (Kcategory score 0 to 4, with A highest). Bottom, whether the karst is exposed, covered by other rock, or interstratal.
 ```
 
-### 2. Connectivity: how much water drains in? 
+### 2. Connectivity: how much water potentially reaches each polygon? 
 
-We route water across the DEM with **D8 flow routing** (WhiteboxTools) and count, for each karst polygon, how many DEM cells drain into it, per cell of the polygon itself. 
+We used the D8 direction map created during the flow accumulation calculation to trace up the hill from each karst polygon to count how many cells could potentially get water to the polygon **D8 flow routing** (WhiteboxTools) and count, for each karst polygon, how many DEM cells drain into it, per cell of the polygon itself. 
 
 ```{figure} figures/steps_to_find_connectivity_susceptibility_classes.gif
 :alt: Two maps of Mole Creek: karst intensity from 0 to 4 and exposure type.
