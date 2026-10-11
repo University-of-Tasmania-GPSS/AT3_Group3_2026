@@ -36,7 +36,13 @@ Top, karst intensity (Kcategory score 0 to 4, with A highest). Bottom, whether t
 
 ### 2. Connectivity: how much water drains in? 
 
-We route water across the DEM with **D8 flow routing** (WhiteboxTools) and count, for each karst polygon, how many DEM cells drain into it, per cell of the polygon itself. [PLACEHOLDER: gif]
+We route water across the DEM with **D8 flow routing** (WhiteboxTools) and count, for each karst polygon, how many DEM cells drain into it, per cell of the polygon itself. 
+
+```{figure} figures/steps_to_find_connectivity_susceptibility_classes.gif
+:alt: Two maps of Mole Creek: karst intensity from 0 to 4 and exposure type.
+Top, karst intensity (Kcategory score 0 to 4, with A highest). Bottom, whether the karst is exposed, covered by other rock, or interstratal.
+```
+
 Karst low in a large catchment receives more water than karst on a divide. The ratio is classed in **powers of ten**: class 1 is a ratio of up to 1 (little more than the polygon's own ground drains in), class 2 is 1 to 10, class 3 is 10 to 100, and class 4 is over 100 (hundreds of times its own area, as for karst low in a big catchment). The four classes are rescaled to 0 to 3. Each step is ten times the last, which suits a ratio that runs from 0 to over 100,000. The edges are the same at every resolution, so a class means the same ratio at 2 m, 25 m and 100 m, and no single large catchment sets the scale.
 
 Routing depends on the DEM, so connectivity is where resolution enters the project:
@@ -50,9 +56,9 @@ Routing depends on the DEM, so connectivity is where resolution enters the proje
 The 2 m run is too large to repeat for the state, so it is compared with the 25 m run at Mole Creek, and the 100 m run is compared with both on the polygons they share (`notebooks/13_connectivity_resolution.ipynb`). The Karst Atlas flags were our first connectivity score (the highest of exposure type, proximal catchment and distal catchment). They are archived (`notebooks/archive/`) and survive as a fallback for polygons too small for a 100 m cell and as a check on the routing.
 
 ```{figure} figures/scale_resolution_mole_creek.png
-:alt: Six maps of a 5.5 by 4 km part of the Mole Creek karst. The top row shows the D8 connectivity class of each polygon when water is routed on a 2 m, 25 m and 100 m DEM; the bottom row shows the resulting relative risk. The 2 m and 25 m maps are close; the 100 m map is blocky.
+:alt: Three maps of a 5.5 by 4 km part of the Mole Creek karst showing the D8 connectivity class of each polygon when water is routed on a 2 m, 25 m and 100 m DEM. Most polygons keep the same class at all three resolutions.
 
-The same ground at three resolutions. Top: D8 connectivity class of each karst polygon. Bottom: relative risk when connectivity comes from each routing.
+The same ground at three resolutions: the D8 connectivity class of each karst polygon when water is routed on a 2 m, 25 m and 100 m DEM.
 ```
 
 ### 3. Pressure: what is on the land? 
