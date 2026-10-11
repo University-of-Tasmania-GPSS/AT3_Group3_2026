@@ -28,9 +28,9 @@ Water enters at a sinkhole and leaves at a spring. Anything it picks up on the w
 
 ## Small, scattered, easy to overlook
 
-Mapped karst covers 6% of Tasmania, about 4,100 km², in patches from the north-west to the south. It is a small share of the land, but it carries the springs and wet ecosystems that depend on it.
+There are about 4,100 km² karst mapped in Tasmani, covers 6% of the state, in patches from the north-west to the south. It is a small share of the land, but it carries the springs and wet ecosystems that depend on it.
 
-We start at Mole Creek in the north: well studied, full of caves, and actively farmed. What is on the land above matters here.
+We start at Mole Creek, a well-studied karst area in northern Tasmania where caves, sinkholes and active land use bring the problem into focus. What happens on the land above matters here: what falls on the surface can enter the karst below.
 
 ```{figure} figures/tasmania_karst_locator.png
 :alt: Map of Tasmania showing scattered mapped karst and the Mole Creek study area highlighted.
@@ -40,7 +40,9 @@ We start at Mole Creek in the north: well studied, full of caves, and actively f
 Mapped karst is scattered across just 6% of Tasmania. Mole Creek, an actively farmed karst area in the north, is this project's study site.
 ```
 
-## Why nobody agrees on the answer
+## What exactly are we calling vulnerability?
+
+Karst vulnerability is the ease with which something at the surface can enter and move through the groundwater system. It depends on both the landscape and the pathways that connect the surface to groundwater. Because those factors vary across a landscape, vulnerability is commonly represented as a spatial index: several characteristics are mapped, scored and combined to produce a relative measure of vulnerability.
 
 **Method:** A systematic review of karst vulnerability methods highlights scale and parameter transferability as key dimensions separating them (Iván & Mádl-Szőnyi, 2017). Tested against real tracer data, EPIK and COP disagree, and EPIK tends to overestimate vulnerability (Ravbar & Goldscheider, 2009).
 
@@ -48,11 +50,10 @@ Mapped karst is scattered across just 6% of Tasmania. Mole Creek, an actively fa
 
 **Data:** Data scarcity is itself a core limitation of karst vulnerability mapping (Ollivier et al., 2019). Free statewide land cover (DEA) cannot tell a pine plantation from native forest. Tasmania's own LIST layer can, but it is a heavier, Tasmania-only dataset.
 
-So the useful question is not "which index is right?" but **which choices change the answer, and by how much?**
 
 ## What we set out to do
 
-**Build a karst vulnerability index that can scale from one cave system to the whole state, then test how different inputs and combination methods change the result.**
+**Test how different inputs and combination methods change the result, then use those findings to build a karst vulnerability index that can scale from local to statewide.**
 
 ```{figure} figures/intro_aims_path.svg
 :alt: A winding stream passes four stops: build at Mole Creek, freeze and scale to Tasmania, swap the land-use data between DEA and LIST, then test and report.

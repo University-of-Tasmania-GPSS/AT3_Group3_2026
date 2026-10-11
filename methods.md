@@ -1,12 +1,5 @@
 # Methods
 
-*Where could a spill, a fertiliser run-off or a bad land-use decision reach
-Tasmania's groundwater fastest? We answer by scoring every map cell on three
-questions, multiplying the answers, and adjusting the result for slope. Each of
-the questions from the Introduction gets one test: **scale** (the connectivity
-routing), **data** (the land-use layer) and **method** (how the ingredients are
-combined).*
-
 ## The approach
 
 ```{mermaid}
@@ -21,10 +14,12 @@ flowchart LR
 
 ## Build small, then go big
 
-We built and tuned the method at **Mole Creek**, a well-known karst area in
-northern Tasmania, on a 25 m grid, and then froze it and ran it across **all
-of Tasmania** at 100 m. Both use one coordinate system (GDA2020 / MGA55, EPSG:7855). The Mole Creek
+We built and tuned the method at Mole Creek, a well-known karst area in
+northern Tasmania, on a 25 m grid, and then froze it and ran it across all
+of Tasmania at 100 m. Both use one coordinate system (GDA2020 / MGA55, EPSG:7855). The Mole Creek
 study area is the Karst Atlas polygons plus a 3 km buffer. 
+
+The logic of the project is to test how scale, data and method choices change the map and then use the most defensible combination. In practice we built and froze the method at Mole Creek first, so some choices (the equation, the scores) began as judgement calls, and the tests then checked them.
 
 ## The four ingredients, mapped at Mole Creek
 
