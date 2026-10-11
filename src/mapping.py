@@ -24,10 +24,10 @@ BASEMAP = providers.Esri.WorldTopoMap
 
 # Risk classes (None + 5): "None" is transparent; the rest run light -> dark so the
 # order survives greyscale and red-green colour blindness (magma_r; the range is wide so
-# neighbouring classes stay at least ~14 lightness units apart). The two highest classes
-# are also hatched.
+# neighbouring classes stay at least ~14 lightness units apart). The highest class
+# is also hatched.
 RISK_COLOURS = plt.cm.magma_r(np.linspace(0.10, 0.92, 6))
-HATCHED_FROM = 4
+HATCHED_FROM = 5
 RISK_COLOURS[0, 3] = 0
 RISK_CMAP = ListedColormap(RISK_COLOURS)
 
@@ -100,7 +100,7 @@ def add_attribution(ax):
 
 
 def plot_risk(ax, risk_class, transform, nodata=255, alpha=0.78, hatch="///"):
-    """Draw a classified risk raster (0 = None ... 5 = Very High). The High and Very High
+    """Draw a classified risk raster (0 = None ... 5 = Very High). The Very High
     classes are hatched as well as coloured, so they stay distinct in greyscale and with
     colour blindness."""
     height, width = risk_class.shape

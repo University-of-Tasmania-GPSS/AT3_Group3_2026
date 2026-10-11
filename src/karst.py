@@ -72,6 +72,80 @@ def add_connectivity(karst_gdf):
     return karst_gdf
 
 
+# Class edges for the main D8 connectivity score: powers of ten of the ratio of upstream cells to polygon
+# cells (class 1: up to 1, 2: 1-10, 3: 10-100, 4: over 100). Fixed, so a class means the same ratio at every scale.
+D8_DECADE_EDGES = (1, 10, 100)
+# Edges of an earlier five-class scheme, kept for the archived notebooks.
+D8_LOG_EDGES = (1, 3, 10, 30)
+
+
+def log1p_classes(ratio, n_classes=4):
+    """Classes 1..n_classes for D8 ratios, from equal-width intervals in log1p space.
+
+    The range runs from the lowest to the highest finite ratio, so each run's breaks follow its own data
+    (`log1p` keeps a zero ratio). Returns (classes, ratio_edges): NaN class where the ratio is not finite,
+    and the n_classes + 1 interval edges converted back to ratio units.
+    """
+    ratio = np.asarray(ratio, float)
+    ok = np.isfinite(ratio)
+    log_values = np.log1p(ratio[ok])
+    log_edges = np.linspace(log_values.min(), log_values.max(), n_classes + 1)
+    classes = np.full(ratio.shape, np.nan)
+    classes[ok] = np.clip(np.digitize(log_values, log_edges[1:-1]) + 1, 1, n_classes)
+    return classes, np.expm1(log_edges)
+
+
+def add_connectivity_d8(karst_gdf, counts_csv, scheme="decades", n_classes=4, edges=None, unrouted="atlas"):
+    """Replace the Atlas connectivity with D8 flow-routing connectivity (`add_connectivity` must have run first).
+
+    The D8 signal is `upstream_cells_per_target_cell` from the routing notebooks (03alt3 at 25 m, 03-100m at
+    100 m): how many DEM cells drain into each karst polygon, per cell of the polygon. It is classed and
+    rescaled to the same 0-3 scale as the Atlas score, so later stages can keep reading `connectivity`. The
+    scores are fractional (e.g. 3 * 2/4), so rasterise them with a float dtype, not `rasterize_max`'s default.
+
+    scheme: "decades" (main) classes the ratio at fixed powers of ten (`D8_DECADE_EDGES`: up to 1, 1-10,
+        10-100, over 100); "log1p" splits log1p(ratio) into `n_classes` equal-width intervals between the lowest
+        and highest ratio of the routed polygons (edges follow each run's data; see `log1p_classes`); "log"
+        uses the older five-class edges `D8_LOG_EDGES`. Pass `edges` to override the edges of "decades" or "log".
+    unrouted: polygons with no raster cell at this resolution (small polygons at 100 m) have no ratio.
+        "atlas" keeps their Atlas score, "zero" sets 0.
+
+    Columns added: `connectivity_atlas` (the Atlas score, kept as the fallback and for checks), `d8_ratio`,
+    `d8_class` (1..n, NaN if unrouted) and `connectivity_source` ("d8", "atlas" or "none"); `connectivity` is
+    overwritten, and the ratio edges are stored in `karst_gdf.attrs["d8_ratio_edges"]`. Returns the same GeoDataFrame.
+    """
+    import pandas as pd
+
+    d8 = pd.read_csv(counts_csv)[["target_objectid", "upstream_cells_per_target_cell", "target_raster_cells"]]
+    d8 = d8.drop_duplicates("target_objectid").rename(
+        columns={"target_objectid": "OBJECTID", "upstream_cells_per_target_cell": "ratio_in",
+                 "target_raster_cells": "cells_in"})
+    merged = karst_gdf[["OBJECTID"]].merge(d8, on="OBJECTID", how="left")
+    ratio = merged["ratio_in"].to_numpy(float)
+    routed = np.isfinite(ratio) & (merged["cells_in"].fillna(0).to_numpy() > 0)
+
+    if scheme in ("decades", "log"):
+        use = edges if edges is not None else (D8_DECADE_EDGES if scheme == "decades" else D8_LOG_EDGES)
+        classes = np.digitize(ratio, use, right=True) + 1
+        n, ratio_edges = len(use) + 1, np.asarray(use, float)
+    elif scheme == "log1p":
+        classes, ratio_edges = log1p_classes(np.where(routed, ratio, np.nan), n_classes)
+        n = n_classes
+    else:
+        raise ValueError(f"scheme must be 'decades', 'log1p' or 'log', not {scheme!r}")
+
+    d8_class = np.where(routed, classes, np.nan)
+    atlas = karst_gdf["connectivity"].to_numpy(float)
+    karst_gdf["connectivity_atlas"] = atlas
+    karst_gdf["d8_ratio"] = np.where(routed, ratio, np.nan)
+    karst_gdf["d8_class"] = d8_class
+    fallback = atlas if unrouted == "atlas" else 0.0
+    karst_gdf["connectivity"] = np.where(routed, 3.0 * d8_class / n, fallback)
+    karst_gdf["connectivity_source"] = np.where(routed, "d8", "atlas" if unrouted == "atlas" else "none")
+    karst_gdf.attrs["d8_ratio_edges"] = ratio_edges
+    return karst_gdf
+
+
 # --- Shared: overlap-safe rasterisation -------------------------------------
 
 def rasterize_max(gdf, value_column, out_shape, transform, fill=0, dtype="uint8"):
@@ -238,12 +312,15 @@ def classify_scores(score_array, valid_mask):
     return class_array, present, labels
 
 
-RISK_EDGES = (0.2, 0.4, 0.6, 0.8)
+# Fixed class edges for the 0-1 risk score. The score is a product of four terms that are each below 1,
+# so it rarely exceeds 0.5 (even a strong cell scores about 0.2), and equal 0.05-wide classes spread it
+# over the range it actually reaches; 0.2-wide classes put almost every cell in the first.
+RISK_EDGES = (0.05, 0.10, 0.15, 0.20)
 RISK_LABELS = ["None", "Very Low", "Low", "Moderate", "High", "Very High"]
 
 
 def classify_fixed(score_array, valid_mask, edges=RISK_EDGES, labels=RISK_LABELS):
-    """Classify a 0-1 score into fixed, equal-width classes, with exact 0 kept as
+    """Classify a 0-1 score into fixed classes at `edges`, with exact 0 kept as
     its own "None" class. Because the edges are absolute, the same label means the
     same score range wherever it is used (Mole Creek and statewide), and a class
     stays empty if no cell reaches it.
