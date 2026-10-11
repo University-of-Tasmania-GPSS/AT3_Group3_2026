@@ -9,7 +9,7 @@ title: Introduction
 
 ```{figure} figures/Croesus.jpg
 :alt: Inside a limestone cave at Mole Creek, Tasmania.
-:width: 100%
+:width: 70%
 
 Rachel inside a cave at Mole Creek.
 ```

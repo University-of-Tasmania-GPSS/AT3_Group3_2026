@@ -4,7 +4,7 @@
 
 ```{mermaid}
 flowchart LR
-    A["<b>1. Susceptibility</b><br/>How karstified<br/>is the rock?<br/>"] --> I
+    A["<b>1. Susceptibility</b><br/>How karstified<br/> times how covered<br> is the rock?<br/>"] --> I
     B["<b>2. Connectivity</b><br/>How much water<br/>drains in?<br/>"] --> I
     I(["<b>Intrinsic<br/>vulnerability</b><br/>= S × C"]) --> R
     C["<b>3. Pressure</b><br/>What is happening<br/>on the land?<br/>"] --> R
@@ -36,14 +36,16 @@ Top, karst intensity (Kcategory score 0 to 4, with A highest). Bottom, whether t
 
 ### 2. Connectivity: how much water potentially reaches each polygon? 
 
-We used the D8 direction map created during the flow accumulation calculation to trace up the hill from each karst polygon to count how many cells could potentially get water to the polygon **D8 flow routing** (WhiteboxTools) and count, for each karst polygon, how many DEM cells drain into it, per cell of the polygon itself. 
+We used the D8 direction map created during the flow accumulation calculation to trace up the hill from each karst polygon and count how many cells could potentially contribute their water to the polygon **D8 flow routing** (WhiteboxTools). All cells on the way to the top of the catchment were counted including the polygon's own cells, except for interstratal karst as it is not considered to receive the rain falling on it itself. 
 
 ```{figure} figures/steps_to_find_connectivity_susceptibility_classes.gif
 :alt: Two maps of Mole Creek: karst intensity from 0 to 4 and exposure type.
-Top, karst intensity (Kcategory score 0 to 4, with A highest). Bottom, whether the karst is exposed, covered by other rock, or interstratal.
+Stages of caculating the hydrological connectivity susceptibility. The gif starts with the DEM.
 ```
 
-Karst low in a large catchment receives more water than karst on a divide. The ratio is classed in **powers of ten**: class 1 is a ratio of up to 1 (little more than the polygon's own ground drains in), class 2 is 1 to 10, class 3 is 10 to 100, and class 4 is over 100 (hundreds of times its own area, as for karst low in a big catchment). The four classes are rescaled to 0 to 3. Each step is ten times the last, which suits a ratio that runs from 0 to over 100,000. The edges are the same at every resolution, so a class means the same ratio at 2 m, 25 m and 100 m, and no single large catchment sets the scale.
+Doing a standard flow accumulation often doesn’t work very well for karst because it fills in the sink which in karst can be actual sink holes, but catchment area, which it effectively measures, can be used as an input. There are other flow accumulation methods that retain the sinks and work better for highly porous karst from Whitebox and RichDEM but we had a time limitation. 
+
+Karst lower in a large catchment receives more water than karst on a divide. The ratio is classed in **powers of ten**: class 1 is a ratio of up to 1 (little more than the polygon's own ground drains in), class 2 is 1 to 10, class 3 is 10 to 100, and class 4 is over 100 (hundreds of times its own area, as for karst low in a big catchment). The four classes are rescaled to 0 to 3. Each step is ten times the last, which suits a ratio that runs from 0 to over 100,000. The edges are the same at every resolution, so a class means the same ratio at 2 m, 25 m and 100 m, and no single large catchment sets the scale.
 
 Routing depends on the DEM, so connectivity is where resolution enters the project:
 
