@@ -74,14 +74,13 @@ cleaning (Eberhard & Houshold, 2002). What is on the land therefore matters, and
 | Scale | 0, 1 or 3 | 0 to 10 |
 | Sees | Cultivated against natural cover, for any year | Plantation forestry, irrigated pasture, intensive animal production, mining and waste |
 | Misses | Cannot separate managed plantation from native forest, and counts lightly grazed pasture as natural | A single year, and a heavier Tasmania-only dataset |
-| Notebooks | `05` | `05b` |
 
-The score for every class in both layers is listed under *Putting it together*.
+The main map uses **LIST land use**: it is Tasmania's own source and records what the land is used for, not only what covers it. DEA is kept as a tested alternative.
 
 :::{embed} #pressure-slider
 :::
 
-*Land-use pressure at Mole Creek in 2021. Drag the divider to compare DEA land cover (left) with the LIST land-use matrix (right). Each layer is drawn as a share of its own maximum score, so darker means higher pressure within that layer.*
+*Land-use pressure at Mole Creek in 2021. Natural land is left clear, and each layer darkens from there up to its own maximum score, so darker means higher pressure within that layer.*
 
 :::{dropdown} Why average pressure across a whole catchment?
 Pressure on the sinkhole cell itself says little, because the water arriving
@@ -115,9 +114,9 @@ Susceptibility (0 to 4) and connectivity (0 to 3) are each divided by their
 maximum so that neither dominates because of its scale, then multiplied to give
 **intrinsic vulnerability**. Multiplying by pressure and then by the slope
 multiplier gives **relative risk**. Risk is a product of four terms that are each
-below 1, so it rarely exceeds 0.5 (a strong cell scores about 0.2). It is sorted into fixed
-classes at 0.05, 0.10, 0.15 and 0.20: *Very Low* (up to 0.05), *Low*, *Moderate*, *High* and
-*Very High* (above 0.20), with 0 shown as *None*. The edges are absolute, so a label means the same
+below 1, so it rarely exceeds 0.5 (a strong cell scores about 0.12 with LIST pressure). It is sorted into fixed
+classes at 0.03, 0.06, 0.09 and 0.12: *Very Low* (up to 0.03), *Low*, *Moderate*, *High* and
+*Very High* (above 0.12), with 0 shown as *None*. The edges are absolute, so a label means the same
 score at Mole Creek and statewide, and a class stays empty if no cell reaches it.
 
 ### The scores in one place
@@ -128,10 +127,10 @@ Every ingredient is scaled to 0 to 1 before it enters the equation:
 |---|---|---|
 | Susceptibility (S) | Karst Atlas category A to D scored 4 to 1, 0 for no karst | divided by 4 |
 | Connectivity (C) | Four D8 log classes, scaled to 0 to 3 | divided by 3 |
-| Pressure (P) | water 0, natural 1, cultivated or built-up 3 | divided by 3 |
+| Pressure (P) | LIST land-use matrix, 0 to 10: conservation and natural land 1, plantation forestry 6, intensive uses up to 10 | divided by 10 |
 | Slope | Multiplier from 0.5 (flat) to 1 (30 degrees or steeper) | used as it is |
 
-The land-use scores are expert judgement in both versions, set out below.
+The land-use scores are expert judgement in both versions (DEA classes in `05`, the LIST matrix in `src/landuse_list.py`).
 
 ### How the ingredients combine 
 
@@ -150,7 +149,7 @@ Keeping the inputs the same in the first two rows separates the effect of struct
 :::{embed} #structure-slider
 :::
 
-*The main product (left) against the four ingredients added with equal weights (right), Mole Creek. The two are on different scales (the sum scores 0.4 to 0.6, the product mostly under 0.2), so each map is split into fifths of its own karst cells: the colours show where each map ranks a cell, not how large its score is.*
+*The main product (left) against the four ingredients added with equal weights (right), Mole Creek. The two are on different scales (the sum scores 0.4 to 0.6, the product mostly under 0.12), so each map is split into fifths of its own karst cells: the colours show where each map ranks a cell, not how large its score is.*
 
 #### How slope enters
 
@@ -172,11 +171,11 @@ The same code (`src/karst.py`, `src/landuse.py`, `src/hydro.py`) runs statewide 
 ## How we tested it
 
 - **Scale.** Does the 100 m statewide run reproduce the 25 m local pattern, and does routing on a 2 m DEM change the Mole Creek map?
-- **Data.** Does swapping DEA for LIST land use change the map?
+- **Data.** Does swapping LIST land use for DEA land cover change the map?
 - **Method.** Does adding weighted scores instead of multiplying them, or a different slope rule, change the map, and does it change how well springs line up with the scores?
 - **Independent data.** Do mapped springs and conservation values line up with the scores? Neither dataset is ever an input to the model.
 
-## Sensitivity: the judgement calls
+## Sensitivity
 
 The three tests above vary the choices the Introduction names. The model also rests on smaller judgement calls, and each is run once against the main map (`notebooks/09_sensitivity_analysis.ipynb`):
 
@@ -184,15 +183,15 @@ The three tests above vary the choices the Introduction names. The model also re
 |---|---|---|
 | Catchment averaging of pressure | Mean over each named system, polygons within 1 km chained | No averaging; other distance thresholds |
 | Weights | Equal (each ingredient to the power 1) | Each ingredient doubled in turn |
-| Pressure scores | 0, 1 and 3 for DEA | Natural land at 0; a milder 1:2 contrast |
+| Pressure scores | LIST matrix, 0 to 10 | For the DEA version: natural land at 0; a milder 1:2 contrast |
 | Rainfall | Not used | A 0.5 to 1 modifier from the Atlas rainfall field |
 
-Every test, and these judgement calls, is scored on one measure in `notebooks/16_which_choices_matter.ipynb`: the rank correlation with the main map over the mapped karst. The land-cover year is not a sensitivity. It is a change to track, and the final map is drawn for 2020.
+Every test, and these judgement calls, is scored on one measure in `notebooks/16_which_choices_matter.ipynb`: the rank correlation with the main map over the mapped karst. The land-cover year is not a sensitivity. It is a change to track, and the final map uses 2021 land use.
 
 ## Reproducibility
 
 The pipeline is 16 notebooks, run in numbered order, sharing code in `src/`
-(`05b` runs alongside `05` as its LIST counterpart; there is no Stage 11 or
+(`05b` builds the LIST pressure layer that Stage 6 uses, and `05` is the DEA alternative; there is no Stage 11 or
 Stage 12, and the retired Atlas connectivity comparisons are in `notebooks/archive/`). Three further notebooks run the D8
 flow-routing that feeds the connectivity score: `03alt3` (25 m DEM) for
 Mole Creek, `03-100m-hydrological-connectivity` (100 m DEM) for all of
@@ -207,7 +206,7 @@ The steps, in order:
 
 1. Study areas and setup (00–01)
 2. Susceptibility, connectivity and intrinsic vulnerability (02–04)
-3. Land-use pressure and relative risk, v1 (DEA) and v2 (LIST) (05, 05b, 06)
+3. Land-use pressure, DEA (05) and LIST (05b), and relative risk (06)
 4. Statewide run and scale comparison (07–08)
 5. Sensitivity and validation (09, 10)
 6. Connectivity across resolution, springs test and the Atlas check (13)

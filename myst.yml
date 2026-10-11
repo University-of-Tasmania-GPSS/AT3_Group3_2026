@@ -28,6 +28,7 @@ project:
 
 site:
   template: book-theme
-  # options:
+  options:
+    style: custom.css
   #   favicon: favicon.ico
   #   logo: site_logo.png

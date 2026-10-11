@@ -1,0 +1,8 @@
+/* Hide the "Source: Stage N" bar the theme adds above embedded notebook outputs */
+.myst-jp-output-deco-light,
+.myst-jp-output-deco-dark,
+[class*="myst-jp-output-deco"] { display: none !important; }
+
+/* Big centred tagline (conclusion page) */
+.tagline { text-align: center; font-size: clamp(0.95rem, 2.1vw, 1.75rem); font-weight: 800; line-height: 1.25; margin: 2rem 0; white-space: nowrap; }
+.tagline p { font-size: inherit; font-weight: inherit; }

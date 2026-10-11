@@ -5,7 +5,7 @@ title: Introduction
 
 # The ground that swallows rain
 
-** How vulnerable is karst and its groundwater to land use change or contaminants? **
+**How vulnerable is karst and its groundwater to land use change or contaminants?**
 
 ```{figure} figures/Croesus.jpg
 :alt: Inside a limestone cave at Mole Creek, Tasmania.
@@ -20,7 +20,7 @@ Most landscapes filter water as it moves through soil and rock. Karst can do the
 
 Water entering through a sinkhole can bypass much of the filtration and attenuation that occurs in soil and porous material before reaching a cave, spring or aquifer. At Mole Creek, surface run-off is captured quickly by openings in the rock and passes through conduits with little cleaning (Eberhard & Houshold, 2002). Whatever the water picks up on the way goes with it.
 
-```{figure} figures/intro_cross_section2.svg
+```{figure} figures/karst_cross_section2.svg
 :alt: Cross-section of karst. Rain falls on forest and a cleared paddock, runs into a sinkhole with dead cow in it, travels through a cave passage below the water table and emerges at a spring. Three numbered labels mark the rock, how directly water gets in, and what is on the land.
 :width: 100%
 

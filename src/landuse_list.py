@@ -54,3 +54,6 @@ def pressure_raster(gdf, mapping, shape, transform):
     gdf = gdf.copy()
     gdf["score"] = gdf["lu_code"].map(lambda c: lookup_score(c, mapping)).astype("float32")
     return rasterize_max(gdf, "score", shape, transform, fill=-1, dtype="float32")
+
+
+LIST_TOP = float(max(MATRIX.values()))   # matrix is scored 0-10; divide by this to put pressure on 0-1
