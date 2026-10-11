@@ -19,6 +19,7 @@ dependencies:
   - leafmap
   - jupyterlab
   - whitebox
+  - numba
   - pip
   - pip:
       - pystac-client

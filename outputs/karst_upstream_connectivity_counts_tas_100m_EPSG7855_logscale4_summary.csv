@@ -1,0 +1,6 @@
+vulnerability_class,vulnerability_score,ratio_interval_lower,ratio_interval_upper,observed_ratio_min,observed_ratio_max,polygon_count
+Class 1,1,0.0,18.27034508402506,0.0,18.25,1111
+Class 2,2,18.27034508402506,370.34619965740876,18.33333333333333,361.0,319
+Class 3,3,370.34619965740876,7154.969413039537,371.5,7086.0,89
+Class 4,4,7154.969413039537,137897.0000000001,7315.5,137897.0,26
+No data,,,,,,132
