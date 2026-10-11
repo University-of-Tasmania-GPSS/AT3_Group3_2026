@@ -1,0 +1,1678 @@
+target_objectid,karst_name,karst_category,karst_intensity,KINTERSTR,is_interstratal,target_raster_cells,target_cells_excluded_from_total,upstream_cell_count,upstream_cells_per_target_cell,upstream_area_m2,cell_area_m2,hydrological_connectivity_vulnerability_score_logscale,hydrological_connectivity_vulnerability_class_logscale
+296,Monument,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+298,Monument,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+299,Monument,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+301,Monument,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+303,Monument,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+304,Monument,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+457,Martha Lavinia,B,3,0,False,178,0,639,3.5898876404494384,6390000.0,10000.0,1,Class 1
+458,Martha Lavinia,B,3,0,False,267,0,2175,8.146067415730338,21750000.0,10000.0,1,Class 1
+460,Fraser River,B,3,0,False,2589,0,23391,9.034762456546927,233910000.0,10000.0,1,Class 1
+461,Blowhole,B,3,0,False,20,0,882,44.1,8820000.0,10000.0,2,Class 2
+462,Blowhole,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+467,Palana - Limestone Bay,B,3,0,False,9,0,18,2.0,180000.0,10000.0,1,Class 1
+468,Palana - Limestone Bay,B,3,0,False,40,0,79,1.975,790000.0,10000.0,1,Class 1
+469,Palana - Limestone Bay,B,3,0,False,11,0,28,2.5454545454545454,280000.0,10000.0,1,Class 1
+470,Palana - Limestone Bay,B,3,0,False,545,0,3391,6.222018348623854,33910000.0,10000.0,1,Class 1
+473,Killiecrankie,B,3,0,False,844,0,1927,2.2831753554502368,19270000.0,10000.0,1,Class 1
+477,Boat Harbour Beach,B,3,0,False,25,0,28,1.12,280000.0,10000.0,1,Class 1
+478,Boat Harbour Beach,B,3,0,False,154,0,1739,11.292207792207792,17390000.0,10000.0,1,Class 1
+481,West End,B,3,0,False,146,0,604,4.136986301369863,6040000.0,10000.0,1,Class 1
+483,Wingaroo,B,3,0,False,252,0,5628,22.33333333333333,56280000.0,10000.0,2,Class 2
+484,Wingaroo,B,3,0,False,257,0,5822,22.65369649805448,58220000.0,10000.0,2,Class 2
+490,Emita - Memana (1),B,3,0,False,4210,0,6203,1.473396674584323,62030000.0,10000.0,1,Class 1
+492,Emita - Memana (2),B,3,0,False,7502,0,13765,1.8348440415889096,137650000.0,10000.0,1,Class 1
+498,Lackrana,B,3,0,False,3321,0,16962,5.107497741644083,169620000.0,10000.0,1,Class 1
+499,Lackrana,B,3,0,False,168,0,489,2.9107142857142856,4890000.0,10000.0,1,Class 1
+500,Lackrana,B,3,0,False,71,0,6437,90.66197183098592,64370000.0,10000.0,2,Class 2
+501,Lackrana,B,3,0,False,110,0,2721,24.73636363636364,27210000.0,10000.0,2,Class 2
+502,Vinegar Hill,B,3,0,False,9,0,311,34.55555555555556,3110000.0,10000.0,2,Class 2
+505,Phoques,B,3,0,False,5849,0,17557,3.0017096939647803,175570000.0,10000.0,1,Class 1
+510,Ranga,B,3,0,False,28,0,76,2.7142857142857144,760000.0,10000.0,1,Class 1
+511,Ranga,B,3,0,False,1330,0,3004,2.258646616541353,30040000.0,10000.0,1,Class 1
+512,Ranga,B,3,0,False,32,0,46,1.4375,460000.0,10000.0,1,Class 1
+513,Ranga,B,3,0,False,128,0,2328,18.1875,23280000.0,10000.0,1,Class 1
+516,Trousers Point (Fotheringate Bay),B,3,0,False,23,0,28,1.2173913043478262,280000.0,10000.0,1,Class 1
+517,Trousers Point (Fotheringate Bay),B,3,0,False,22,0,22,1.0,220000.0,10000.0,1,Class 1
+520,Thunder and Lightning,B,3,0,False,1417,0,6752,4.76499647141849,67520000.0,10000.0,1,Class 1
+522,Puncheon,B,3,0,False,132,0,139,1.053030303030303,1390000.0,10000.0,1,Class 1
+524,Whistler-Porky,B,3,0,False,6154,0,18311,2.9754631134221645,183110000.0,10000.0,1,Class 1
+527,Ettrick,B,3,0,False,42,0,44,1.0476190476190477,440000.0,10000.0,1,Class 1
+528,Ettrick,B,3,0,False,5420,0,11426,2.108118081180812,114260000.0,10000.0,1,Class 1
+531,Seal Rocks,B,3,0,False,129,0,274,2.124031007751938,2740000.0,10000.0,1,Class 1
+532,Seal Rocks,B,3,0,False,7,0,14,2.0,140000.0,10000.0,1,Class 1
+533,Seal Rocks,B,3,0,False,132,0,326,2.4696969696969697,3260000.0,10000.0,1,Class 1
+535,Stokes - Red Hut,B,3,0,False,9,0,9,1.0,90000.0,10000.0,1,Class 1
+536,Stokes - Red Hut,B,3,0,False,1499,0,10001,6.671781187458306,100010000.0,10000.0,1,Class 1
+538,Mt Stanley Creek,B,3,0,False,14,0,899,64.21428571428571,8990000.0,10000.0,2,Class 2
+539,Grassy,C,2,0,False,0,0,0,,0.0,10000.0,,No data
+540,City of Melbourne Bay,C,2,0,False,15,0,84,5.6,840000.0,10000.0,1,Class 1
+542,McRae Hills,B,3,0,False,13,0,53,4.076923076923077,530000.0,10000.0,1,Class 1
+543,McRae Hills,B,3,0,False,3,0,25,8.333333333333334,250000.0,10000.0,1,Class 1
+547,Palmers,D,1,0,False,220,0,445,2.022727272727273,4450000.0,10000.0,1,Class 1
+548,Palmers,D,1,0,False,1448,0,10616,7.331491712707182,106160000.0,10000.0,1,Class 1
+549,Palmers,D,1,0,False,52,0,149,2.8653846153846154,1490000.0,10000.0,1,Class 1
+550,Mitford Hills,D,1,0,False,32,0,89,2.78125,890000.0,10000.0,1,Class 1
+551,Mitford Hills,D,1,0,False,242,0,1002,4.140495867768595,10020000.0,10000.0,1,Class 1
+553,Boomers Bottom,D,1,0,False,10,0,367,36.7,3670000.0,10000.0,2,Class 2
+554,Boomers Bottom,D,1,0,False,5,0,7,1.4,70000.0,10000.0,1,Class 1
+555,Boomers Bottom,D,1,0,False,19,0,132,6.947368421052632,1320000.0,10000.0,1,Class 1
+556,Boomers Bottom,D,1,0,False,20,0,41,2.05,410000.0,10000.0,1,Class 1
+557,Boomers Bottom,D,1,0,False,86,0,519,6.034883720930233,5190000.0,10000.0,1,Class 1
+558,Lymestone Creek - Barra Barra,D,1,0,False,198,0,1458,7.363636363636363,14580000.0,10000.0,1,Class 1
+559,Lymestone Creek - Barra Barra,D,1,0,False,128,0,603,4.7109375,6030000.0,10000.0,1,Class 1
+560,Lymestone Creek - Barra Barra,D,1,0,False,79,0,335,4.2405063291139244,3350000.0,10000.0,1,Class 1
+561,Lymestone Creek - Barra Barra,D,1,0,False,24,0,25,1.0416666666666667,250000.0,10000.0,1,Class 1
+562,Lymestone Creek - Barra Barra,D,1,0,False,77,0,664,8.623376623376624,6640000.0,10000.0,1,Class 1
+563,Lymestone Creek - Barra Barra,D,1,0,False,28,0,28,1.0,280000.0,10000.0,1,Class 1
+564,Lymestone Creek - Barra Barra,D,1,0,False,59,0,332,5.627118644067797,3320000.0,10000.0,1,Class 1
+565,Lymestone Creek - Barra Barra,D,1,0,False,134,0,1307,9.75373134328358,13070000.0,10000.0,1,Class 1
+566,Lymestone Creek - Barra Barra,D,1,0,False,38,0,102,2.6842105263157894,1020000.0,10000.0,1,Class 1
+567,Lymestone Creek - Barra Barra,D,1,0,False,33,0,295,8.93939393939394,2950000.0,10000.0,1,Class 1
+568,Lymestone Creek - Barra Barra,D,1,0,False,139,0,782,5.625899280575539,7820000.0,10000.0,1,Class 1
+569,Lymestone Creek - Barra Barra,D,1,0,False,149,0,503,3.3758389261744965,5030000.0,10000.0,1,Class 1
+570,Lymestone Creek - Barra Barra,D,1,0,False,32,0,59,1.84375,590000.0,10000.0,1,Class 1
+571,Lymestone Creek - Barra Barra,D,1,0,False,120,0,207,1.725,2070000.0,10000.0,1,Class 1
+572,Lymestone Creek - Barra Barra,D,1,0,False,441,0,1045,2.369614512471655,10450000.0,10000.0,1,Class 1
+574,Micks Creek,D,1,0,False,26,0,2918,112.23076923076924,29180000.0,10000.0,2,Class 2
+576,Sugarloaf Spur,D,1,0,False,19,0,26,1.368421052631579,260000.0,10000.0,1,Class 1
+577,Sugarloaf Spur,D,1,0,False,132,0,702,5.318181818181818,7020000.0,10000.0,1,Class 1
+579,Port Sorell,C,2,0,False,12,0,22,1.8333333333333333,220000.0,10000.0,1,Class 1
+580,Port Sorell,C,2,0,False,2,0,14,7.0,140000.0,10000.0,1,Class 1
+582,Bald Tier,B,3,0,False,3,0,3,1.0,30000.0,10000.0,1,Class 1
+583,Stewarts Road,B,3,B,True,3,3,5,1.6666666666666667,50000.0,10000.0,1,Class 1
+586,Flowery Gully,A,4,0,False,120,0,248,2.066666666666667,2480000.0,10000.0,1,Class 1
+588,Beaconsfield,B,3,0,False,156,0,1443,9.25,14430000.0,10000.0,1,Class 1
+589,Beaconsfield,B,3,0,False,84,0,4055,48.273809523809526,40550000.0,10000.0,2,Class 2
+590,Beaconsfield,B,3,0,False,10,0,3885,388.5,38850000.0,10000.0,3,Class 3
+591,Beaconsfield,B,3,0,False,7,0,8,1.1428571428571428,80000.0,10000.0,1,Class 1
+592,Beaconsfield,B,3,0,False,4,0,50,12.5,500000.0,10000.0,1,Class 1
+593,Middle Arm,D,1,0,False,3,0,4,1.3333333333333333,40000.0,10000.0,1,Class 1
+595,West Arm Creek,D,1,0,False,8,0,4882,610.25,48820000.0,10000.0,3,Class 3
+598,East Tower - Byatts Razorback,C,2,0,False,34,0,191,5.617647058823529,1910000.0,10000.0,1,Class 1
+599,East Tower - Byatts Razorback,C,2,0,False,41,0,96,2.341463414634146,960000.0,10000.0,1,Class 1
+600,East Tower - Byatts Razorback,C,2,0,False,3,0,17,5.666666666666667,170000.0,10000.0,1,Class 1
+601,East Tower - Byatts Razorback,C,2,0,False,86,0,400,4.651162790697675,4000000.0,10000.0,1,Class 1
+602,East Tower - Byatts Razorback,C,2,0,False,56,0,250,4.464285714285714,2500000.0,10000.0,1,Class 1
+603,East Tower - Byatts Razorback,C,2,0,False,10,0,18,1.8,180000.0,10000.0,1,Class 1
+604,East Tower - Byatts Razorback,C,2,0,False,21,0,77,3.6666666666666665,770000.0,10000.0,1,Class 1
+607,Burnt Gully Creek,C,2,0,False,9,0,9,1.0,90000.0,10000.0,1,Class 1
+608,Burnt Gully Creek,C,2,0,False,270,0,401,1.4851851851851852,4010000.0,10000.0,1,Class 1
+611,Castle Carey Rivulet,D,1,0,False,16,0,51,3.1875,510000.0,10000.0,1,Class 1
+612,Castle Carey Rivulet,D,1,0,False,6,0,12,2.0,120000.0,10000.0,1,Class 1
+613,Castle Carey Rivulet,D,1,0,False,4,0,58,14.5,580000.0,10000.0,1,Class 1
+614,Castle Carey Rivulet,D,1,0,False,7,0,21,3.0,210000.0,10000.0,1,Class 1
+615,Castle Carey Rivulet,D,1,0,False,81,0,599,7.395061728395062,5990000.0,10000.0,1,Class 1
+616,Castle Carey Rivulet,D,1,0,False,12,0,27,2.25,270000.0,10000.0,1,Class 1
+617,Ben Lomond Rivulet,C,2,0,False,2,0,8,4.0,80000.0,10000.0,1,Class 1
+618,Ben Lomond Rivulet,C,2,0,False,3,0,135,45.0,1350000.0,10000.0,2,Class 2
+619,Ben Lomond Rivulet,C,2,0,False,97,0,2632,27.1340206185567,26320000.0,10000.0,2,Class 2
+621,Devils Gully,C,2,0,False,4,0,1558,389.5,15580000.0,10000.0,3,Class 3
+622,Fingal,C,2,0,False,87,0,348,4.0,3480000.0,10000.0,1,Class 1
+623,Fingal,C,2,0,False,4,0,145,36.25,1450000.0,10000.0,2,Class 2
+624,Fingal,C,2,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+625,Fingal,C,2,0,False,104,0,993,9.548076923076923,9930000.0,10000.0,1,Class 1
+626,Fingal,C,2,0,False,23,0,67,2.9130434782608696,670000.0,10000.0,1,Class 1
+627,Fingal,C,2,0,False,56,0,205,3.6607142857142856,2050000.0,10000.0,1,Class 1
+630,Meander - Western Creek,D,1,0,False,1507,0,27252,18.0836098208361,272520000.0,10000.0,1,Class 1
+631,Killymoon - Kooringa,C,2,0,False,459,0,22513,49.0479302832244,225130000.0,10000.0,2,Class 2
+632,Killymoon - Kooringa,C,2,0,False,39,0,291,7.461538461538462,2910000.0,10000.0,1,Class 1
+633,Killymoon - Kooringa,C,2,0,False,10,0,748,74.8,7480000.0,10000.0,2,Class 2
+634,Killymoon - Kooringa,C,2,0,False,52,0,489,9.403846153846152,4890000.0,10000.0,1,Class 1
+635,Killymoon - Kooringa,C,2,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+636,Killymoon - Kooringa,C,2,0,False,1,0,7,7.0,70000.0,10000.0,1,Class 1
+637,Killymoon - Kooringa,C,2,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+638,Killymoon - Kooringa,C,2,0,False,0,0,0,,0.0,10000.0,,No data
+639,Killymoon - Kooringa,C,2,0,False,2,0,38,19.0,380000.0,10000.0,2,Class 2
+640,Killymoon - Kooringa,C,2,0,False,3,0,271,90.33333333333331,2710000.0,10000.0,2,Class 2
+641,Silkstone - Durham,C,2,0,False,237,0,16628,70.16033755274262,166280000.0,10000.0,2,Class 2
+643,Silkstone - Durham,C,2,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+644,Silkstone - Durham,C,2,0,False,195,0,540,2.769230769230769,5400000.0,10000.0,1,Class 1
+645,Silkstone - Durham,C,2,0,False,17,0,75,4.411764705882353,750000.0,10000.0,1,Class 1
+646,Silkstone - Durham,C,2,0,False,933,0,2260,2.422293676312969,22600000.0,10000.0,1,Class 1
+648,German Town - Dublin Town,C,2,0,False,17,0,52,3.0588235294117645,520000.0,10000.0,1,Class 1
+649,German Town - Dublin Town,C,2,0,False,19,0,30,1.5789473684210529,300000.0,10000.0,1,Class 1
+650,German Town - Dublin Town,C,2,0,False,17,0,68,4.0,680000.0,10000.0,1,Class 1
+651,German Town - Dublin Town,C,2,0,False,65,0,195,3.0,1950000.0,10000.0,1,Class 1
+652,German Town - Dublin Town,C,2,0,False,8,0,34,4.25,340000.0,10000.0,1,Class 1
+653,German Town - Dublin Town,C,2,0,False,4,0,96,24.0,960000.0,10000.0,2,Class 2
+654,German Town - Dublin Town,C,2,0,False,2,0,8,4.0,80000.0,10000.0,1,Class 1
+655,German Town - Dublin Town,C,2,0,False,61,0,330,5.409836065573771,3300000.0,10000.0,1,Class 1
+656,German Town - Dublin Town,C,2,0,False,2,0,4,2.0,40000.0,10000.0,1,Class 1
+657,German Town - Dublin Town,C,2,0,False,27,0,144,5.333333333333333,1440000.0,10000.0,1,Class 1
+658,German Town - Dublin Town,C,2,0,False,95,0,744,7.831578947368421,7440000.0,10000.0,1,Class 1
+659,German Town - Dublin Town,C,2,0,False,3,0,3,1.0,30000.0,10000.0,1,Class 1
+660,German Town - Dublin Town,C,2,0,False,8,0,17,2.125,170000.0,10000.0,1,Class 1
+661,German Town - Dublin Town,C,2,0,False,11,0,81,7.363636363636363,810000.0,10000.0,1,Class 1
+663,St Patricks Head,C,2,0,False,21,0,32,1.5238095238095235,320000.0,10000.0,1,Class 1
+664,Gray - Mt Elephant,B,3,0,False,100,0,670,6.7,6700000.0,10000.0,1,Class 1
+667,Gray - Mt Elephant,B,3,0,False,4,0,20,5.0,200000.0,10000.0,1,Class 1
+668,Gray - Mt Elephant,B,3,0,False,423,0,1266,2.99290780141844,12660000.0,10000.0,1,Class 1
+669,Gray - Mt Elephant,B,3,0,False,182,0,592,3.2527472527472527,5920000.0,10000.0,1,Class 1
+673,Dalmayne,C,2,0,False,98,0,793,8.091836734693878,7930000.0,10000.0,1,Class 1
+674,Dalmayne,C,2,0,False,57,0,127,2.2280701754385963,1270000.0,10000.0,1,Class 1
+675,Dalmayne,C,2,0,False,4,0,248,62.0,2480000.0,10000.0,2,Class 2
+676,Dalmayne,C,2,0,False,99,0,515,5.202020202020202,5150000.0,10000.0,1,Class 1
+677,Dalmayne,C,2,0,False,1,0,13,13.0,130000.0,10000.0,1,Class 1
+678,Dalmayne,C,2,0,False,1,0,19,19.0,190000.0,10000.0,2,Class 2
+679,Dalmayne,C,2,0,False,2,0,50,25.0,500000.0,10000.0,2,Class 2
+680,Dalmayne,C,2,0,False,2,0,13,6.5,130000.0,10000.0,1,Class 1
+682,St Pauls Dome,C,2,0,False,67,0,97,1.4477611940298507,970000.0,10000.0,1,Class 1
+683,St Pauls Dome,C,2,0,False,104,0,291,2.798076923076923,2910000.0,10000.0,1,Class 1
+684,St Pauls Dome,C,2,0,False,57,0,91,1.5964912280701755,910000.0,10000.0,1,Class 1
+685,St Pauls Dome,C,2,0,False,23,0,176,7.6521739130434785,1760000.0,10000.0,1,Class 1
+686,St Pauls Dome,C,2,0,False,2,0,7,3.5,70000.0,10000.0,1,Class 1
+687,St Pauls Dome,C,2,0,False,12,0,42,3.5,420000.0,10000.0,1,Class 1
+688,St Pauls Dome,C,2,0,False,2,0,46,23.0,460000.0,10000.0,2,Class 2
+689,St Pauls Dome,C,2,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+690,St Pauls Dome,C,2,0,False,87,0,415,4.770114942528736,4150000.0,10000.0,1,Class 1
+691,St Pauls Dome,C,2,0,False,9,0,9,1.0,90000.0,10000.0,1,Class 1
+692,St Pauls Dome,C,2,0,False,57,0,166,2.912280701754386,1660000.0,10000.0,1,Class 1
+693,St Pauls Dome,C,2,0,False,4,0,4,1.0,40000.0,10000.0,1,Class 1
+694,St Pauls Dome,C,2,0,False,11,0,13,1.181818181818182,130000.0,10000.0,1,Class 1
+695,St Pauls Dome,C,2,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+696,St Pauls Dome,C,2,0,False,15,0,323,21.53333333333333,3230000.0,10000.0,2,Class 2
+697,St Pauls Dome,C,2,0,False,4,0,70,17.5,700000.0,10000.0,1,Class 1
+698,St Pauls Dome,C,2,0,False,220,0,729,3.3136363636363635,7290000.0,10000.0,1,Class 1
+699,St Pauls Dome,C,2,0,False,9,0,567,63.0,5670000.0,10000.0,2,Class 2
+700,St Pauls Dome,C,2,0,False,1,0,60,60.0,600000.0,10000.0,2,Class 2
+701,St Pauls Dome,C,2,0,False,1,0,99,99.0,990000.0,10000.0,2,Class 2
+702,St Pauls Dome,C,2,0,False,2,0,73,36.5,730000.0,10000.0,2,Class 2
+703,St Pauls Dome,C,2,0,False,35,0,113,3.2285714285714286,1130000.0,10000.0,1,Class 1
+704,Brookstead,C,2,0,False,3,0,3,1.0,30000.0,10000.0,1,Class 1
+705,Brookstead,C,2,0,False,18,0,27,1.5,270000.0,10000.0,1,Class 1
+706,Brookstead,C,2,0,False,3,0,3,1.0,30000.0,10000.0,1,Class 1
+707,Brookstead,C,2,0,False,18,0,113,6.277777777777778,1130000.0,10000.0,1,Class 1
+708,Brookstead,C,2,0,False,6,0,10,1.6666666666666667,100000.0,10000.0,1,Class 1
+709,Brookstead,C,2,0,False,7,0,15,2.142857142857143,150000.0,10000.0,1,Class 1
+710,Brookstead,C,2,0,False,2,0,5,2.5,50000.0,10000.0,1,Class 1
+711,Hockeys Creek,C,2,0,False,83,0,283,3.409638554216868,2830000.0,10000.0,1,Class 1
+713,Hockeys Creek,C,2,0,False,70,0,333,4.757142857142857,3330000.0,10000.0,1,Class 1
+714,Hockeys Creek,C,2,0,False,2,0,7,3.5,70000.0,10000.0,1,Class 1
+715,Hockeys Creek,C,2,0,False,8,0,11,1.375,110000.0,10000.0,1,Class 1
+716,Hockeys Creek,C,2,0,False,0,0,0,,0.0,10000.0,,No data
+717,Hockeys Creek,C,2,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+718,Hockeys Creek,C,2,0,False,2,0,7,3.5,70000.0,10000.0,1,Class 1
+720,Royal George,C,2,0,False,2,0,11,5.5,110000.0,10000.0,1,Class 1
+721,Royal George,C,2,0,False,3,0,7,2.333333333333333,70000.0,10000.0,1,Class 1
+722,Royal George,C,2,0,False,12,0,20,1.6666666666666667,200000.0,10000.0,1,Class 1
+723,Royal George,C,2,0,False,3,0,8,2.6666666666666665,80000.0,10000.0,1,Class 1
+724,Royal George,C,2,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+725,Royal George,C,2,0,False,4,0,4,1.0,40000.0,10000.0,1,Class 1
+726,Royal George,C,2,0,False,8,0,339,42.375,3390000.0,10000.0,2,Class 2
+728,Spear Hill,D,1,0,False,50,0,231,4.62,2310000.0,10000.0,1,Class 1
+731,Brushy Hill Creek,C,2,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+732,Brushy Hill Creek,C,2,0,False,42,0,121,2.880952380952381,1210000.0,10000.0,1,Class 1
+733,Brushy Hill Creek,C,2,0,False,8,0,8,1.0,80000.0,10000.0,1,Class 1
+734,Brushy Hill Creek,C,2,0,False,2,0,30,15.0,300000.0,10000.0,1,Class 1
+735,Brushy Hill Creek,C,2,0,False,12,0,236,19.666666666666668,2360000.0,10000.0,2,Class 2
+736,Brushy Hill Creek,C,2,0,False,6,0,19,3.1666666666666665,190000.0,10000.0,1,Class 1
+737,Brushy Hill Creek,C,2,0,False,28,0,113,4.035714285714286,1130000.0,10000.0,1,Class 1
+738,Brushy Hill Creek,C,2,0,False,8,0,8,1.0,80000.0,10000.0,1,Class 1
+739,Brushy Hill Creek,C,2,0,False,4,0,4,1.0,40000.0,10000.0,1,Class 1
+740,Brushy Hill Creek,C,2,0,False,49,0,160,3.26530612244898,1600000.0,10000.0,1,Class 1
+741,Friendly Beaches (Mt Peter),C,2,0,False,156,0,159,1.0192307692307692,1590000.0,10000.0,1,Class 1
+746,Lilydale - Patersonia,C,2,0,False,66,0,156,2.363636363636364,1560000.0,10000.0,1,Class 1
+747,Lilydale - Patersonia,C,2,0,False,14,0,38,2.7142857142857144,380000.0,10000.0,1,Class 1
+748,Lilydale - Patersonia,C,2,0,False,321,0,3810,11.869158878504672,38100000.0,10000.0,1,Class 1
+749,Lilydale - Patersonia,C,2,0,False,12,0,25,2.083333333333333,250000.0,10000.0,1,Class 1
+750,Lilydale - Patersonia,C,2,0,False,800,0,2795,3.49375,27950000.0,10000.0,1,Class 1
+751,Lilydale - Patersonia,C,2,0,False,448,0,3407,7.604910714285714,34070000.0,10000.0,1,Class 1
+752,Lilydale - Patersonia,C,2,0,False,26,0,38,1.4615384615384617,380000.0,10000.0,1,Class 1
+753,Lilydale - Patersonia,C,2,0,False,362,0,1106,3.0552486187845305,11060000.0,10000.0,1,Class 1
+754,Lilydale - Patersonia,C,2,0,False,9,0,16,1.7777777777777777,160000.0,10000.0,1,Class 1
+755,Lilydale - Patersonia,C,2,0,False,4,0,1216,304.0,12160000.0,10000.0,2,Class 2
+756,Lilydale - Patersonia,C,2,0,False,167,0,201,1.2035928143712575,2010000.0,10000.0,1,Class 1
+757,Lilydale - Patersonia,C,2,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+758,Lilydale - Patersonia,C,2,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+759,Lilydale - Patersonia,C,2,0,False,854,0,7857,9.20023419203747,78570000.0,10000.0,1,Class 1
+760,Lilydale - Patersonia,C,2,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+761,Lilydale - Patersonia,C,2,0,False,596,0,1258,2.110738255033557,12580000.0,10000.0,1,Class 1
+762,Lilydale - Patersonia,C,2,0,False,1236,0,2729,2.207928802588997,27290000.0,10000.0,1,Class 1
+763,Lilydale - Patersonia,C,2,0,False,21,0,485,23.09523809523809,4850000.0,10000.0,2,Class 2
+764,Lilydale - Patersonia,C,2,0,False,10,0,99,9.9,990000.0,10000.0,1,Class 1
+765,Lilydale - Patersonia,C,2,0,False,4,0,5,1.25,50000.0,10000.0,1,Class 1
+766,Lilydale - Patersonia,C,2,0,False,3,0,3,1.0,30000.0,10000.0,1,Class 1
+767,Lilydale - Patersonia,C,2,0,False,5,0,5,1.0,50000.0,10000.0,1,Class 1
+776,Mt Barrow,C,2,0,False,2,0,18,9.0,180000.0,10000.0,1,Class 1
+777,Mt Barrow,C,2,0,False,40,0,248,6.2,2480000.0,10000.0,1,Class 1
+778,Mt Barrow,C,2,0,False,15,0,428,28.53333333333333,4280000.0,10000.0,2,Class 2
+779,Mt Barrow,C,2,0,False,61,0,223,3.6557377049180326,2230000.0,10000.0,1,Class 1
+780,Mt Barrow,C,2,0,False,204,0,860,4.215686274509804,8600000.0,10000.0,1,Class 1
+781,Mt Barrow,C,2,0,False,3,0,9,3.0,90000.0,10000.0,1,Class 1
+782,Mt Barrow,C,2,0,False,48,0,254,5.291666666666667,2540000.0,10000.0,1,Class 1
+783,Mt Barrow,C,2,0,False,6,0,14,2.333333333333333,140000.0,10000.0,1,Class 1
+784,Mt Barrow,C,2,0,False,272,0,974,3.5808823529411766,9740000.0,10000.0,1,Class 1
+785,Mt Barrow,C,2,0,False,261,0,490,1.8773946360153255,4900000.0,10000.0,1,Class 1
+787,Cape Portland,C,2,0,False,0,0,0,,0.0,10000.0,,No data
+789,Stockers Plain (Muddy Ck; Golden Vly),B,3,0,False,30,0,350,11.666666666666666,3500000.0,10000.0,1,Class 1
+790,Stockers Plain (Muddy Ck; Golden Vly),B,3,0,False,4,0,129,32.25,1290000.0,10000.0,2,Class 2
+791,Golden Valley,D,1,0,False,36,0,205,5.694444444444445,2050000.0,10000.0,1,Class 1
+792,Golden Valley,D,1,0,False,93,0,319,3.4301075268817205,3190000.0,10000.0,1,Class 1
+795,Lower Quamby Brook (Golden Valley),B,3,0,False,2,0,422,211.0,4220000.0,10000.0,2,Class 2
+796,Quamby Brook,D,1,0,False,84,0,1605,19.107142857142858,16050000.0,10000.0,2,Class 2
+799,Liffey,D,1,0,False,55,0,193,3.5090909090909093,1930000.0,10000.0,1,Class 1
+800,Liffey,D,1,0,False,71,0,305,4.295774647887324,3050000.0,10000.0,1,Class 1
+801,Liffey,D,1,0,False,25,0,71,2.84,710000.0,10000.0,1,Class 1
+802,Liffey,D,1,0,False,36,0,798,22.166666666666668,7980000.0,10000.0,2,Class 2
+803,Liffey,D,1,0,False,520,0,1657,3.1865384615384613,16570000.0,10000.0,1,Class 1
+804,Grim-Trefoil,B,3,0,False,11,0,19,1.7272727272727273,190000.0,10000.0,1,Class 1
+805,Sawards Creek,B,3,0,False,180,0,1316,7.311111111111111,13160000.0,10000.0,1,Class 1
+806,Sawards Creek,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+807,Sawards Creek,B,3,0,False,1,0,4,4.0,40000.0,10000.0,1,Class 1
+808,Sawards Creek,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+809,Fairview (Redpa) (1 & 2),B,3,0,False,86,0,2359,27.430232558139537,23590000.0,10000.0,2,Class 2
+810,Fairview (Redpa) (1 & 2),B,3,0,False,3,0,3,1.0,30000.0,10000.0,1,Class 1
+811,Fairview (Redpa) (1 & 2),B,3,0,False,1,0,13,13.0,130000.0,10000.0,1,Class 1
+812,Fairview (Redpa) (1 & 2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+813,Fairview (Redpa) (1 & 2),B,3,0,False,4,0,4,1.0,40000.0,10000.0,1,Class 1
+814,Fairview (Redpa) (2),B,3,0,False,11,0,27,2.4545454545454546,270000.0,10000.0,1,Class 1
+815,Fairview (Redpa) (2),B,3,0,False,150,0,303,2.02,3030000.0,10000.0,1,Class 1
+816,Fairview (Redpa) (2),B,3,B,True,4,4,0,0.0,0.0,10000.0,1,Class 1
+817,Fairview (Redpa) (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+818,Fairview (Redpa) (2),B,3,0,False,1,0,34,34.0,340000.0,10000.0,2,Class 2
+819,Fairview (Redpa) (2),B,3,0,False,41,0,47,1.146341463414634,470000.0,10000.0,1,Class 1
+823,Dismal Swamp,C,2,0,False,602,0,1132,1.8803986710963456,11320000.0,10000.0,1,Class 1
+824,Brittons Swamp,B,3,0,False,1,0,9,9.0,90000.0,10000.0,1,Class 1
+825,Brittons Swamp,B,3,0,False,1,0,1476,1476.0,14760000.0,10000.0,3,Class 3
+826,Brittons Swamp,B,3,0,False,1,0,9,9.0,90000.0,10000.0,1,Class 1
+827,Brittons Swamp,B,3,0,False,1,0,6,6.0,60000.0,10000.0,1,Class 1
+828,Brittons Swamp,B,3,0,False,1277,0,2300,1.8010963194988254,23000000.0,10000.0,1,Class 1
+829,Temma,C,2,0,False,5,0,23,4.6,230000.0,10000.0,1,Class 1
+830,Salmon - Blackwater (1),B,3,0,False,9,0,3810,423.3333333333333,38100000.0,10000.0,3,Class 3
+831,Salmon - Blackwater (1),B,3,0,False,1,0,4,4.0,40000.0,10000.0,1,Class 1
+832,Salmon - Blackwater (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+833,Salmon - Blackwater (1),B,3,0,False,1,0,5,5.0,50000.0,10000.0,1,Class 1
+834,Salmon - Blackwater (1),B,3,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+835,Salmon - Blackwater (1),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+836,Salmon - Blackwater (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+837,Salmon - Blackwater (1),B,3,0,False,5,0,5,1.0,50000.0,10000.0,1,Class 1
+838,Salmon - Blackwater (1),B,3,0,False,7,0,7,1.0,70000.0,10000.0,1,Class 1
+839,Salmon - Blackwater (1),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+840,Salmon - Blackwater (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+841,Salmon - Blackwater (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+842,Salmon - Blackwater (1),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+843,Salmon - Blackwater (1),B,3,0,False,3,0,72,24.0,720000.0,10000.0,2,Class 2
+844,Salmon - Blackwater (1),B,3,0,False,156,0,6957,44.59615384615385,69570000.0,10000.0,2,Class 2
+845,Salmon - Blackwater (1),B,3,0,False,328,0,4181,12.746951219512194,41810000.0,10000.0,1,Class 1
+846,Salmon - Blackwater (1),B,3,0,False,20,0,67,3.35,670000.0,10000.0,1,Class 1
+847,Salmon - Blackwater (1),B,3,0,False,241,0,890,3.6929460580912874,8900000.0,10000.0,1,Class 1
+848,Salmon - Blackwater (1),B,3,0,False,98,0,177,1.806122448979592,1770000.0,10000.0,1,Class 1
+849,Salmon - Blackwater (1),B,3,0,False,5,0,9,1.8,90000.0,10000.0,1,Class 1
+850,Salmon - Blackwater (1),B,3,0,False,6,0,205,34.166666666666664,2050000.0,10000.0,2,Class 2
+851,Salmon - Blackwater (1),B,3,0,False,10,0,6952,695.2,69520000.0,10000.0,3,Class 3
+852,Salmon - Blackwater (1),B,3,0,False,5,0,17,3.4,170000.0,10000.0,1,Class 1
+853,Salmon - Blackwater (1),B,3,0,False,8,0,26,3.25,260000.0,10000.0,1,Class 1
+854,Salmon - Blackwater (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+855,Salmon - Blackwater (1),B,3,0,False,23,0,64,2.782608695652174,640000.0,10000.0,1,Class 1
+856,Salmon - Blackwater (1),B,3,0,False,9,0,12,1.3333333333333333,120000.0,10000.0,1,Class 1
+857,Salmon - Blackwater (1),B,3,0,False,72,0,73,1.0138888888888888,730000.0,10000.0,1,Class 1
+858,Salmon - Blackwater (2),B,3,B,True,35,35,0,0.0,0.0,10000.0,1,Class 1
+859,Salmon - Blackwater (2),B,3,0,False,10,0,1041,104.1,10410000.0,10000.0,2,Class 2
+860,Salmon - Blackwater (2),B,3,0,False,1,0,670,670.0,6700000.0,10000.0,3,Class 3
+861,Salmon - Blackwater (2),B,3,0,False,1,0,135,135.0,1350000.0,10000.0,2,Class 2
+862,Salmon - Blackwater (2),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+863,Salmon - Blackwater (2),B,3,0,False,46,0,299,6.5,2990000.0,10000.0,1,Class 1
+864,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+865,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+866,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+867,Salmon - Blackwater (2),B,3,0,False,1,0,639,639.0,6390000.0,10000.0,3,Class 3
+868,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+869,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+870,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+871,Salmon - Blackwater (2),B,3,0,False,3,0,3,1.0,30000.0,10000.0,1,Class 1
+872,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+873,Salmon - Blackwater (2),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+874,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+875,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+876,Salmon - Blackwater (2),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+877,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+878,Salmon - Blackwater (2),B,3,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+879,Salmon - Blackwater (2),B,3,0,False,1,0,334,334.0,3340000.0,10000.0,2,Class 2
+880,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+881,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+882,Salmon - Blackwater (2),B,3,0,False,1,0,5,5.0,50000.0,10000.0,1,Class 1
+883,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+884,Salmon - Blackwater (2),B,3,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
+885,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+886,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+887,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+888,Salmon - Blackwater (2),B,3,0,False,1,0,56,56.0,560000.0,10000.0,2,Class 2
+889,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+890,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+891,Salmon - Blackwater (2),B,3,0,False,2,0,10,5.0,100000.0,10000.0,1,Class 1
+892,Salmon - Blackwater (2),B,3,0,False,4,0,27,6.75,270000.0,10000.0,1,Class 1
+893,Salmon - Blackwater (2),B,3,0,False,1,0,7,7.0,70000.0,10000.0,1,Class 1
+894,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+895,Salmon - Blackwater (2),B,3,0,False,11,0,969,88.0909090909091,9690000.0,10000.0,2,Class 2
+896,Salmon - Blackwater (2),B,3,0,False,1,0,9,9.0,90000.0,10000.0,1,Class 1
+897,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+898,Salmon - Blackwater (2),B,3,0,False,1,0,91,91.0,910000.0,10000.0,2,Class 2
+899,Salmon - Blackwater (2),B,3,0,False,5,0,40,8.0,400000.0,10000.0,1,Class 1
+900,Salmon - Blackwater (2),B,3,0,False,6,0,421,70.16666666666667,4210000.0,10000.0,2,Class 2
+901,Salmon - Blackwater (2),B,3,0,False,1,0,5,5.0,50000.0,10000.0,1,Class 1
+902,Salmon - Blackwater (2),B,3,0,False,1,0,15,15.0,150000.0,10000.0,1,Class 1
+903,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+904,Salmon - Blackwater (2),B,3,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+905,Salmon - Blackwater (2),B,3,0,False,1,0,221,221.0,2210000.0,10000.0,2,Class 2
+906,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+907,Salmon - Blackwater (2),B,3,0,False,1,0,4,4.0,40000.0,10000.0,1,Class 1
+908,Salmon - Blackwater (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+909,Salmon - Blackwater (2),B,3,0,False,1,0,22,22.0,220000.0,10000.0,2,Class 2
+910,Salmon - Blackwater (2),B,3,0,False,1,0,7,7.0,70000.0,10000.0,1,Class 1
+911,Salmon - Blackwater (2),B,3,0,False,1,0,116,116.0,1160000.0,10000.0,2,Class 2
+912,Salmon - Blackwater (2),B,3,0,False,24,0,4061,169.20833333333334,40610000.0,10000.0,2,Class 2
+913,Salmon - Blackwater (2),B,3,0,False,5,0,80,16.0,800000.0,10000.0,1,Class 1
+914,Salmon - Blackwater (2),B,3,0,False,117,0,907,7.752136752136752,9070000.0,10000.0,1,Class 1
+915,Salmon - Blackwater (2),B,3,0,False,323,0,1184,3.6656346749226008,11840000.0,10000.0,1,Class 1
+916,Salmon - Blackwater (2),B,3,0,False,2867,0,10723,3.740146494593652,107230000.0,10000.0,1,Class 1
+917,Balfour (1),B,3,B,True,0,0,0,,0.0,10000.0,,No data
+918,Balfour (1),B,3,0,False,76,0,443,5.828947368421052,4430000.0,10000.0,1,Class 1
+919,Balfour (2),B,3,B,True,3,3,0,0.0,0.0,10000.0,1,Class 1
+920,Balfour (2),B,3,B,True,25,25,7,0.28,70000.0,10000.0,1,Class 1
+921,Balfour (2),B,3,0,False,11,0,71,6.454545454545454,710000.0,10000.0,1,Class 1
+922,Balfour (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+923,Balfour (2),B,3,0,False,1,0,130,130.0,1300000.0,10000.0,2,Class 2
+924,Balfour (2),B,3,0,False,3,0,129,43.0,1290000.0,10000.0,2,Class 2
+925,Balfour (2),B,3,0,False,462,0,1122,2.4285714285714284,11220000.0,10000.0,1,Class 1
+926,Roger River - Ekberg,B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+927,Roger River - Ekberg,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+928,Roger River - Ekberg,B,3,0,False,1,0,4,4.0,40000.0,10000.0,1,Class 1
+929,Roger River - Ekberg,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+930,Roger River - Ekberg,B,3,0,False,13,0,278,21.384615384615383,2780000.0,10000.0,2,Class 2
+931,Roger River - Ekberg,B,3,0,False,7,0,184,26.285714285714285,1840000.0,10000.0,2,Class 2
+932,Roger River - Ekberg,B,3,0,False,1,0,7086,7086.0,70860000.0,10000.0,3,Class 3
+933,Roger River - Ekberg,B,3,0,False,1,0,9,9.0,90000.0,10000.0,1,Class 1
+934,Roger River - Ekberg,B,3,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+935,Roger River - Ekberg,B,3,0,False,24,0,46,1.9166666666666667,460000.0,10000.0,1,Class 1
+936,Roger River - Ekberg,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+937,Roger River - Ekberg,B,3,0,False,31,0,1483,47.83870967741935,14830000.0,10000.0,2,Class 2
+938,Roger River - Ekberg,B,3,0,False,19,0,1318,69.36842105263158,13180000.0,10000.0,2,Class 2
+939,Roger River - Ekberg,B,3,B,True,12,12,24,2.0,240000.0,10000.0,1,Class 1
+940,Roger River - Ekberg,B,3,0,False,5704,0,184279,32.30697755960729,1842790000.0,10000.0,2,Class 2
+941,Wedge Creek,B,3,0,False,2,0,613,306.5,6130000.0,10000.0,2,Class 2
+943,Bluff Point,C,2,0,False,3,0,15,5.0,150000.0,10000.0,1,Class 1
+944,Lyons Bend,B,3,0,False,2,0,10,5.0,100000.0,10000.0,1,Class 1
+946,Lyons River,B,3,0,False,185,0,2765,14.945945945945946,27650000.0,10000.0,1,Class 1
+947,Keith River,C,2,0,False,2,0,16,8.0,160000.0,10000.0,1,Class 1
+948,Keith River,C,2,0,False,1,0,186,186.0,1860000.0,10000.0,2,Class 2
+949,Keith River,C,2,0,False,0,0,0,,0.0,10000.0,,No data
+950,Keith River,C,2,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+951,Keith River,C,2,0,False,3,0,3,1.0,30000.0,10000.0,1,Class 1
+952,Keith River,C,2,0,False,3,0,11,3.6666666666666665,110000.0,10000.0,1,Class 1
+953,Keith River,C,2,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+954,Keith River,C,2,0,False,2,0,7695,3847.5,76950000.0,10000.0,3,Class 3
+956,Keith River,C,2,0,False,6,0,69,11.5,690000.0,10000.0,1,Class 1
+957,Keith River,C,2,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+958,Keith River,C,2,0,False,0,0,0,,0.0,10000.0,,No data
+960,Cann Creek,C,2,0,False,27,0,1284,47.55555555555556,12840000.0,10000.0,2,Class 2
+961,Hellyer - Heazlewood,D,1,0,False,9150,0,72070,7.876502732240437,720700000.0,10000.0,1,Class 1
+962,Hellyer - Heazlewood,D,1,0,False,5307,0,10540,1.986056152251743,105400000.0,10000.0,1,Class 1
+963,Mt Bischoff,D,1,0,False,1687,0,9215,5.46235921754594,92150000.0,10000.0,1,Class 1
+964,Trowutta - Sumac,B,3,0,False,23,0,350,15.217391304347826,3500000.0,10000.0,1,Class 1
+965,Trowutta - Sumac,B,3,0,False,125,0,239,1.912,2390000.0,10000.0,1,Class 1
+966,Trowutta-Sumac,B,3,0,False,80,0,336,4.2,3360000.0,10000.0,1,Class 1
+967,Trowutta-Sumac,B,3,0,False,9,0,153961,17106.777777777777,1539610000.0,10000.0,4,Class 4
+968,Trowutta-Sumac,B,3,0,False,4,0,36,9.0,360000.0,10000.0,1,Class 1
+969,Trowutta-Sumac,B,3,0,False,1,0,56,56.0,560000.0,10000.0,2,Class 2
+970,Trowutta-Sumac,B,3,0,False,2,0,4,2.0,40000.0,10000.0,1,Class 1
+971,Trowutta-Sumac,B,3,0,False,2,0,5,2.5,50000.0,10000.0,1,Class 1
+972,Trowutta-Sumac,B,3,0,False,1,0,21,21.0,210000.0,10000.0,2,Class 2
+973,Trowutta-Sumac,B,3,0,False,18,0,398,22.11111111111111,3980000.0,10000.0,2,Class 2
+974,Trowutta-Sumac,B,3,0,False,1,0,24,24.0,240000.0,10000.0,2,Class 2
+975,Trowutta-Sumac,B,3,0,False,2,0,18,9.0,180000.0,10000.0,1,Class 1
+976,Trowutta-Sumac,B,3,0,False,1,0,43,43.0,430000.0,10000.0,2,Class 2
+977,Trowutta-Sumac,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+978,Trowutta-Sumac,B,3,0,False,22,0,7199,327.22727272727275,71990000.0,10000.0,2,Class 2
+979,Trowutta-Sumac,B,3,0,False,3,0,8593,2864.333333333333,85930000.0,10000.0,3,Class 3
+980,Trowutta-Sumac,B,3,0,False,2,0,3,1.5,30000.0,10000.0,1,Class 1
+981,Trowutta-Sumac,B,3,0,False,1,0,26,26.0,260000.0,10000.0,2,Class 2
+982,Trowutta-Sumac,B,3,0,False,9,0,8775,975.0,87750000.0,10000.0,3,Class 3
+983,Trowutta-Sumac,B,3,0,False,166,0,7654,46.10843373493976,76540000.0,10000.0,2,Class 2
+984,Trowutta-Sumac,B,3,0,False,31,0,19932,642.9677419354839,199320000.0,10000.0,3,Class 3
+985,Trowutta-Sumac,B,3,0,False,361,0,571,1.5817174515235457,5710000.0,10000.0,1,Class 1
+986,Trowutta-Sumac,B,3,0,False,175,0,187,1.0685714285714285,1870000.0,10000.0,1,Class 1
+987,Trowutta-Sumac,B,3,0,False,17,0,81,4.764705882352941,810000.0,10000.0,1,Class 1
+988,Trowutta-Sumac,B,3,0,False,266,0,158551,596.0563909774436,1585510000.0,10000.0,3,Class 3
+989,Trowutta-Sumac,B,3,0,False,176,0,153332,871.2045454545455,1533320000.0,10000.0,3,Class 3
+990,Trowutta-Sumac,B,3,0,False,380,0,704,1.8526315789473684,7040000.0,10000.0,1,Class 1
+991,Trowutta-Sumac,B,3,0,False,5,0,158376,31675.2,1583760000.0,10000.0,4,Class 4
+992,Trowutta-Sumac,B,3,0,False,2,0,4291,2145.5,42910000.0,10000.0,3,Class 3
+993,Trowutta-Sumac,B,3,0,False,237,0,537,2.2658227848101267,5370000.0,10000.0,1,Class 1
+994,Trowutta-Sumac,B,3,0,False,352,0,740,2.102272727272727,7400000.0,10000.0,1,Class 1
+995,Trowutta-Sumac,B,3,0,False,7,0,7,1.0,70000.0,10000.0,1,Class 1
+996,Trowutta-Sumac,B,3,0,False,9,0,25,2.7777777777777777,250000.0,10000.0,1,Class 1
+997,Trowutta-Sumac,B,3,0,False,49,0,6630,135.30612244897958,66300000.0,10000.0,2,Class 2
+998,Trowutta-Sumac,B,3,0,False,1350,0,22930,16.985185185185184,229300000.0,10000.0,1,Class 1
+999,Trowutta-Sumac,B,3,0,False,5953,0,159251,26.75138585587099,1592510000.0,10000.0,2,Class 2
+1000,Trowutta-Sumac,B,3,0,False,25,0,19660,786.4,196600000.0,10000.0,3,Class 3
+1001,Trowutta-Sumac,B,3,0,False,489,0,21402,43.76687116564417,214020000.0,10000.0,2,Class 2
+1002,Trowutta-Sumac,B,3,0,False,190,0,747,3.931578947368421,7470000.0,10000.0,1,Class 1
+1003,Trowutta-Sumac,B,3,0,False,55,0,5671,103.10909090909092,56710000.0,10000.0,2,Class 2
+1004,Trowutta-Sumac,B,3,0,False,55,0,6769,123.07272727272728,67690000.0,10000.0,2,Class 2
+1005,Trowutta-Sumac,B,3,0,False,22,0,317,14.409090909090908,3170000.0,10000.0,1,Class 1
+1006,Farnhams Creek (Christmas Hills),C,2,C,True,4,4,27,6.75,270000.0,10000.0,1,Class 1
+1007,Farnhams Creek (Christmas Hills),C,2,C,True,3,3,1,0.3333333333333333,10000.0,10000.0,1,Class 1
+1008,Welcome River (1),B,3,0,False,153,0,1708,11.163398692810455,17080000.0,10000.0,1,Class 1
+1009,Welcome River (1),B,3,0,False,29,0,127,4.379310344827586,1270000.0,10000.0,1,Class 1
+1010,Welcome River (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1011,Welcome River (1),B,3,0,False,405,0,36631,90.44691358024691,366310000.0,10000.0,2,Class 2
+1012,Welcome River (1),B,3,0,False,188,0,1010,5.372340425531915,10100000.0,10000.0,1,Class 1
+1013,Welcome River (1),B,3,0,False,4,0,84,21.0,840000.0,10000.0,2,Class 2
+1014,Welcome River (1) / Mt Cameron West (2),B,3,0,False,10,0,10,1.0,100000.0,10000.0,1,Class 1
+1015,Welcome River (1) / Port Hills,B,3,0,False,2,0,5,2.5,50000.0,10000.0,1,Class 1
+1016,Welcome River (2),B,3,0,False,10,0,197,19.7,1970000.0,10000.0,2,Class 2
+1017,Welcome River (2),B,3,0,False,7666,0,38840,5.066527524132534,388400000.0,10000.0,1,Class 1
+1018,Welcome River (2),B,3,0,False,2489,0,12097,4.860184813177983,120970000.0,10000.0,1,Class 1
+1019,Welcome River (2),B,3,0,False,2,0,53,26.5,530000.0,10000.0,2,Class 2
+1020,Welcome River (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1021,Welcome River (2),B,3,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+1022,Duck River (1),B,3,0,False,5,0,7,1.4,70000.0,10000.0,1,Class 1
+1023,Duck River (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1024,Duck River (1),B,3,0,False,1,0,31545,31545.0,315450000.0,10000.0,4,Class 4
+1025,Duck River (1),B,3,0,False,2,0,5,2.5,50000.0,10000.0,1,Class 1
+1026,Duck River (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1027,Duck River (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1028,Duck River (1),B,3,0,False,1,0,85,85.0,850000.0,10000.0,2,Class 2
+1029,Duck River (1),B,3,0,False,7,0,49,7.0,490000.0,10000.0,1,Class 1
+1030,Duck River (1),B,3,0,False,3,0,791,263.6666666666667,7910000.0,10000.0,2,Class 2
+1031,Duck River (1),B,3,0,False,3,0,14,4.666666666666667,140000.0,10000.0,1,Class 1
+1032,Duck River (1),B,3,0,False,1,0,39410,39410.0,394100000.0,10000.0,4,Class 4
+1033,Duck River (1),B,3,0,False,1,0,11,11.0,110000.0,10000.0,1,Class 1
+1034,Duck River (1),B,3,0,False,8,0,9,1.125,90000.0,10000.0,1,Class 1
+1035,Duck River (1),B,3,0,False,13441,0,42136,3.1348857971877093,421360000.0,10000.0,1,Class 1
+1036,Duck River (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1037,Duck River (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1038,Irishtown - Sedgy Creek (1),B,3,0,False,2,0,13,6.5,130000.0,10000.0,1,Class 1
+1039,Irishtown - Sedgy Creek (1),B,3,0,False,1,0,12,12.0,120000.0,10000.0,1,Class 1
+1040,Irishtown - Sedgy Creek (1),B,3,0,False,2,0,3,1.5,30000.0,10000.0,1,Class 1
+1041,Irishtown - Sedgy Creek (1),B,3,0,False,2,0,6,3.0,60000.0,10000.0,1,Class 1
+1042,Irishtown - Sedgy Creek (1),B,3,0,False,7,0,7,1.0,70000.0,10000.0,1,Class 1
+1043,Irishtown - Sedgy Creek (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1044,Irishtown - Sedgy Creek (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1045,Irishtown - Sedgy Creek (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1046,Irishtown - Sedgy Creek (1),B,3,0,False,2,0,3,1.5,30000.0,10000.0,1,Class 1
+1047,Irishtown - Sedgy Creek (1),B,3,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
+1048,Irishtown - Sedgy Creek (1),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1049,Irishtown - Sedgy Creek (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1050,Irishtown - Sedgy Creek (1),B,3,0,False,6,0,27,4.5,270000.0,10000.0,1,Class 1
+1051,Irishtown - Sedgy Creek (1),B,3,0,False,1,0,7,7.0,70000.0,10000.0,1,Class 1
+1052,Irishtown - Sedgy Creek (1),B,3,0,False,2,0,3247,1623.5,32470000.0,10000.0,3,Class 3
+1053,Irishtown - Sedgy Creek (1),B,3,0,False,27,0,1011,37.44444444444444,10110000.0,10000.0,2,Class 2
+1054,Irishtown - Sedgy Creek (1),B,3,0,False,169,0,366,2.165680473372781,3660000.0,10000.0,1,Class 1
+1055,Irishtown - Sedgy Creek (1),B,3,0,False,6,0,22,3.6666666666666665,220000.0,10000.0,1,Class 1
+1056,Irishtown - Sedgy Creek (1),B,3,0,False,24,0,25,1.0416666666666667,250000.0,10000.0,1,Class 1
+1057,Irishtown - Sedgy Creek (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1058,Irishtown - Sedgy Creek (1),B,3,0,False,2,0,51,25.5,510000.0,10000.0,2,Class 2
+1059,Irishtown - Sedgy Creek (1),B,3,0,False,1,0,13,13.0,130000.0,10000.0,1,Class 1
+1060,Irishtown - Sedgy Creek (1),B,3,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
+1061,Irishtown - Sedgy Creek (1),B,3,0,False,1,0,4,4.0,40000.0,10000.0,1,Class 1
+1062,Irishtown - Sedgy Creek (1),B,3,0,False,3,0,199,66.33333333333333,1990000.0,10000.0,2,Class 2
+1063,Irishtown - Sedgy Creek (1),B,3,0,False,3,0,790,263.3333333333333,7900000.0,10000.0,2,Class 2
+1064,Irishtown - Sedgy Creek (1),B,3,0,False,1,0,99,99.0,990000.0,10000.0,2,Class 2
+1065,Irishtown - Sedgy Creek (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1066,Irishtown - Sedgy Creek (1),B,3,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+1067,Irishtown - Sedgy Creek (1),B,3,0,False,2,0,73,36.5,730000.0,10000.0,2,Class 2
+1068,Irishtown - Sedgy Creek (1),B,3,0,False,5,0,45,9.0,450000.0,10000.0,1,Class 1
+1069,Irishtown - Sedgy Creek (1),B,3,0,False,13,0,43,3.3076923076923075,430000.0,10000.0,1,Class 1
+1070,Irishtown - Sedgy Creek (1),B,3,0,False,2,0,16,8.0,160000.0,10000.0,1,Class 1
+1071,Irishtown - Sedgy Creek (1),B,3,0,False,5,0,14,2.8,140000.0,10000.0,1,Class 1
+1072,Irishtown - Sedgy Creek (1),B,3,0,False,4,0,32,8.0,320000.0,10000.0,1,Class 1
+1073,Irishtown - Sedgy Creek (1),B,3,0,False,2948,0,11944,4.051560379918589,119440000.0,10000.0,1,Class 1
+1074,Irishtown - Sedgy Creek (2),B,3,0,False,106,0,917,8.650943396226415,9170000.0,10000.0,1,Class 1
+1075,Irishtown - Sedgy Creek (3),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1076,Irishtown - Sedgy Creek (3),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1077,Irishtown - Sedgy Creek (3),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1078,Irishtown - Sedgy Creek (3),B,3,0,False,1,0,37,37.0,370000.0,10000.0,2,Class 2
+1079,Irishtown - Sedgy Creek (3),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1080,Irishtown - Sedgy Creek (3),B,3,0,False,6,0,1278,213.0,12780000.0,10000.0,2,Class 2
+1081,Irishtown - Sedgy Creek (3),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1082,Irishtown - Sedgy Creek (3),B,3,0,False,3,0,20,6.666666666666667,200000.0,10000.0,1,Class 1
+1083,Nabageena,B,3,0,False,80,0,1037,12.9625,10370000.0,10000.0,1,Class 1
+1084,Nabageena,B,3,0,False,5,0,7,1.4,70000.0,10000.0,1,Class 1
+1085,Nabageena,B,3,0,False,7,0,1020,145.71428571428572,10200000.0,10000.0,2,Class 2
+1086,Nabageena,B,3,0,False,3,0,18,6.0,180000.0,10000.0,1,Class 1
+1087,Nabageena,B,3,0,False,8,0,14,1.75,140000.0,10000.0,1,Class 1
+1089,Wet Cave Point - Rocky Cape,D,1,0,False,13,0,47,3.615384615384616,470000.0,10000.0,1,Class 1
+1090,Wet Cave Point - Rocky Cape,D,1,0,False,2,0,3,1.5,30000.0,10000.0,1,Class 1
+1091,Wet Cave Point - Rocky Cape,D,1,0,False,57,0,125,2.192982456140351,1250000.0,10000.0,1,Class 1
+1092,Sisters Hills,D,1,0,False,24,0,691,28.791666666666668,6910000.0,10000.0,2,Class 2
+1093,Sisters Hills,D,1,0,False,149,0,2391,16.046979865771814,23910000.0,10000.0,1,Class 1
+1094,Sisters Hills,D,1,0,False,401,0,3523,8.785536159600998,35230000.0,10000.0,1,Class 1
+1095,Sisters Hills,D,1,0,False,84,0,379,4.511904761904762,3790000.0,10000.0,1,Class 1
+1096,Alarm - Detention,D,1,0,False,222,0,2401,10.815315315315315,24010000.0,10000.0,1,Class 1
+1097,Alarm - Detention,D,1,0,False,866,0,6373,7.359122401847575,63730000.0,10000.0,1,Class 1
+1098,Wynyard,C,2,0,False,59,0,41578,704.7118644067797,415780000.0,10000.0,3,Class 3
+1099,Wynyard,C,2,0,False,24,0,41198,1716.5833333333333,411980000.0,10000.0,3,Class 3
+1100,Wynyard,C,2,0,False,7,0,349,49.85714285714285,3490000.0,10000.0,2,Class 2
+1101,Wynyard,C,2,0,False,87,0,45733,525.6666666666666,457330000.0,10000.0,3,Class 3
+1102,Myalla,D,1,0,False,22,0,488,22.181818181818183,4880000.0,10000.0,2,Class 2
+1108,Flowerdale,D,1,0,False,66,0,15827,239.8030303030303,158270000.0,10000.0,2,Class 2
+1109,Flowerdale,D,1,0,False,37,0,16314,440.9189189189189,163140000.0,10000.0,3,Class 3
+1110,Flowerdale,D,1,0,False,3951,0,29029,7.347253859782334,290290000.0,10000.0,1,Class 1
+1111,Montagu River (1),B,3,0,False,3,0,46,15.333333333333334,460000.0,10000.0,1,Class 1
+1112,Montagu River (1),B,3,0,False,1,0,61,61.0,610000.0,10000.0,2,Class 2
+1113,Montagu River (1),B,3,0,False,4,0,16,4.0,160000.0,10000.0,1,Class 1
+1114,Montagu River (1),B,3,0,False,5,0,6,1.2,60000.0,10000.0,1,Class 1
+1115,Montagu River (1),B,3,0,False,2,0,7,3.5,70000.0,10000.0,1,Class 1
+1116,Montagu River (1),B,3,0,False,2,0,18,9.0,180000.0,10000.0,1,Class 1
+1117,Montagu River (1),B,3,0,False,2,0,5,2.5,50000.0,10000.0,1,Class 1
+1118,Montagu River (1),B,3,0,False,2,0,256,128.0,2560000.0,10000.0,2,Class 2
+1119,Montagu River (1),B,3,0,False,2,0,14,7.0,140000.0,10000.0,1,Class 1
+1120,Montagu River (1),B,3,0,False,1,0,7,7.0,70000.0,10000.0,1,Class 1
+1121,Montagu River (1),B,3,0,False,2,0,20,10.0,200000.0,10000.0,1,Class 1
+1122,Montagu River (1),B,3,0,False,16,0,84,5.25,840000.0,10000.0,1,Class 1
+1123,Montagu River (1),B,3,0,False,2,0,93,46.5,930000.0,10000.0,2,Class 2
+1124,Montagu River (1),B,3,0,False,1,0,7,7.0,70000.0,10000.0,1,Class 1
+1125,Montagu River (1),B,3,0,False,10,0,118,11.8,1180000.0,10000.0,1,Class 1
+1126,Montagu River (1),B,3,0,False,1,0,321,321.0,3210000.0,10000.0,2,Class 2
+1127,Montagu River (1),B,3,0,False,2,0,200,100.0,2000000.0,10000.0,2,Class 2
+1128,Montagu River (1),B,3,0,False,2,0,91,45.5,910000.0,10000.0,2,Class 2
+1129,Montagu River (1),B,3,0,False,2,0,103,51.5,1030000.0,10000.0,2,Class 2
+1130,Montagu River (1),B,3,0,False,4,0,203881,50970.25,2038810000.0,10000.0,4,Class 4
+1131,Montagu River (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1132,Montagu River (1),B,3,0,False,2,0,203993,101996.5,2039930000.0,10000.0,4,Class 4
+1133,Montagu River (1),B,3,0,False,2,0,202,101.0,2020000.0,10000.0,2,Class 2
+1134,Montagu River (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1135,Montagu River (1),B,3,0,False,1,0,9,9.0,90000.0,10000.0,1,Class 1
+1136,Montagu River (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1137,Montagu River (1),B,3,0,False,1,0,11,11.0,110000.0,10000.0,1,Class 1
+1138,Montagu River (1),B,3,0,False,1,0,11,11.0,110000.0,10000.0,1,Class 1
+1139,Montagu River (1),B,3,0,False,23,0,259,11.26086956521739,2590000.0,10000.0,1,Class 1
+1140,Montagu River (1),B,3,0,False,9,0,184879,20542.11111111111,1848790000.0,10000.0,4,Class 4
+1141,Montagu River (1),B,3,0,False,2,0,8,4.0,80000.0,10000.0,1,Class 1
+1143,Montagu River (1),B,3,0,False,2,0,196489,98244.5,1964890000.0,10000.0,4,Class 4
+1144,Montagu River (1),B,3,0,False,8,0,196583,24572.875,1965830000.0,10000.0,4,Class 4
+1145,Montagu River (1),B,3,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
+1146,Montagu River (1),B,3,0,False,15845,0,207507,13.096055538024611,2075070000.0,10000.0,1,Class 1
+1147,Montagu River (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1149,Doctors Rocks,B,3,0,False,71,0,314,4.422535211267606,3140000.0,10000.0,1,Class 1
+1152,Kara (Hampshire),C,2,0,False,32,0,63,1.96875,630000.0,10000.0,1,Class 1
+1153,Kara (Hampshire),C,2,0,False,6,0,7,1.1666666666666667,70000.0,10000.0,1,Class 1
+1154,Kara (Hampshire),C,2,0,False,55,0,143,2.6,1430000.0,10000.0,1,Class 1
+1155,Kara (Hampshire),C,2,0,False,2,0,6316,3158.0,63160000.0,10000.0,3,Class 3
+1156,Kara (Hampshire),C,2,0,False,1,0,9,9.0,90000.0,10000.0,1,Class 1
+1157,Kara (Hampshire),C,2,0,False,2369,0,6911,2.9172646686365558,69110000.0,10000.0,1,Class 1
+1158,Kara (Hampshire),C,2,0,False,2,0,4,2.0,40000.0,10000.0,1,Class 1
+1159,Kara (Hampshire),C,2,0,False,30,0,967,32.233333333333334,9670000.0,10000.0,2,Class 2
+1160,Kara (Hampshire),C,2,0,False,2,0,1006,503.0,10060000.0,10000.0,3,Class 3
+1161,Kara (Hampshire),C,2,0,False,63,0,332,5.26984126984127,3320000.0,10000.0,1,Class 1
+1162,Kara (Hampshire),C,2,0,False,2,0,340,170.0,3400000.0,10000.0,2,Class 2
+1163,Kara (Hampshire),C,2,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1164,Kara (Hampshire),C,2,0,False,8,0,16,2.0,160000.0,10000.0,1,Class 1
+1165,Kara (Hampshire),C,2,0,False,2,0,259,129.5,2590000.0,10000.0,2,Class 2
+1167,Redwater Creek,B,3,0,False,4,0,723,180.75,7230000.0,10000.0,2,Class 2
+1169,Gunns Plains,A,4,0,False,3,0,14,4.666666666666667,140000.0,10000.0,1,Class 1
+1170,Gunns Plains,A,4,0,False,12,0,15,1.25,150000.0,10000.0,1,Class 1
+1171,Gunns Plains,A,4,0,False,1975,0,48398,24.505316455696203,483980000.0,10000.0,2,Class 2
+1172,Gunns Plains,A,4,0,False,46,0,85,1.8478260869565215,850000.0,10000.0,1,Class 1
+1173,Gunns Plains,A,4,0,False,133,0,632,4.7518796992481205,6320000.0,10000.0,1,Class 1
+1174,Gunns Plains,A,4,0,False,10,0,79,7.9,790000.0,10000.0,1,Class 1
+1175,Gunns Plains,A,4,0,False,96,0,408,4.25,4080000.0,10000.0,1,Class 1
+1176,Gunns Plains,A,4,0,False,26,0,90,3.4615384615384617,900000.0,10000.0,1,Class 1
+1177,Gunns Plains,A,4,0,False,8,0,23,2.875,230000.0,10000.0,1,Class 1
+1178,Gunns Plains,A,4,0,False,6,0,11,1.8333333333333333,110000.0,10000.0,1,Class 1
+1179,Gunns Plains,A,4,0,False,81,0,1065,13.148148148148149,10650000.0,10000.0,1,Class 1
+1180,Gunns Plains,A,4,0,False,554,0,40361,72.85379061371842,403610000.0,10000.0,2,Class 2
+1181,Gunns Plains,A,4,0,False,2,0,43661,21830.5,436610000.0,10000.0,4,Class 4
+1182,Gunns Plains,A,4,0,False,23,0,24,1.0434782608695652,240000.0,10000.0,1,Class 1
+1183,Gunns Plains,A,4,0,False,8,0,9,1.125,90000.0,10000.0,1,Class 1
+1184,Gunns Plains,A,4,0,False,2,0,3,1.5,30000.0,10000.0,1,Class 1
+1185,Gunns Plains,A,4,0,False,13,0,62,4.769230769230769,620000.0,10000.0,1,Class 1
+1186,Upper Leven,C,2,0,False,3,0,18692,6230.666666666667,186920000.0,10000.0,3,Class 3
+1187,Loongana,A,4,0,False,282,0,25567,90.66312056737588,255670000.0,10000.0,2,Class 2
+1193,Loongana,A,4,0,False,303,0,33414,110.27722772277228,334140000.0,10000.0,2,Class 2
+1194,Loongana,A,4,0,False,0,0,0,,0.0,10000.0,,No data
+1195,Loongana,A,4,0,False,42,0,137,3.261904761904762,1370000.0,10000.0,1,Class 1
+1196,Loongana,A,4,0,False,2,0,6,3.0,60000.0,10000.0,1,Class 1
+1197,Loongana,A,4,0,False,49,0,170,3.4693877551020407,1700000.0,10000.0,1,Class 1
+1198,Loongana,A,4,0,False,3,0,965,321.6666666666667,9650000.0,10000.0,2,Class 2
+1199,Loongana,A,4,0,False,20,0,241,12.05,2410000.0,10000.0,1,Class 1
+1200,Loongana,A,4,0,False,1,0,5,5.0,50000.0,10000.0,1,Class 1
+1201,Loongana,A,4,0,False,0,0,0,,0.0,10000.0,,No data
+1202,Loongana,A,4,0,False,0,0,0,,0.0,10000.0,,No data
+1203,Loongana,A,4,0,False,116,0,27756,239.27586206896552,277560000.0,10000.0,2,Class 2
+1204,Loongana,A,4,0,False,2,0,3,1.5,30000.0,10000.0,1,Class 1
+1205,Loongana,A,4,0,False,194,0,33689,173.65463917525773,336890000.0,10000.0,2,Class 2
+1206,Loongana,A,4,0,False,169,0,1118,6.615384615384615,11180000.0,10000.0,1,Class 1
+1207,Loongana,A,4,0,False,115,0,861,7.48695652173913,8610000.0,10000.0,1,Class 1
+1209,Vale of Belvoir,A,4,0,False,19,0,19,1.0,190000.0,10000.0,1,Class 1
+1210,Vale of Belvoir,A,4,0,False,183,0,3214,17.562841530054644,32140000.0,10000.0,1,Class 1
+1211,Vale of Belvoir,A,4,0,False,104,0,1489,14.317307692307692,14890000.0,10000.0,1,Class 1
+1212,Vale of Belvoir,A,4,0,False,33,0,2901,87.9090909090909,29010000.0,10000.0,2,Class 2
+1213,Vale of Belvoir,A,4,0,False,188,0,345,1.8351063829787235,3450000.0,10000.0,1,Class 1
+1214,Vale of Belvoir,A,4,0,False,17,0,48,2.823529411764706,480000.0,10000.0,1,Class 1
+1215,Vale of Belvoir,A,4,0,False,4,0,11,2.75,110000.0,10000.0,1,Class 1
+1216,Vale of Belvoir,A,4,0,False,348,0,3204,9.20689655172414,32040000.0,10000.0,1,Class 1
+1220,Lorinna,B,3,0,False,2,0,35,17.5,350000.0,10000.0,1,Class 1
+1221,Lorinna,B,3,0,False,72,0,761,10.569444444444445,7610000.0,10000.0,1,Class 1
+1222,Lorinna,B,3,0,False,4,0,1137,284.25,11370000.0,10000.0,2,Class 2
+1223,Lorinna,B,3,0,False,7,0,8,1.1428571428571428,80000.0,10000.0,1,Class 1
+1224,Lorinna,B,3,0,False,55,0,54705,994.6363636363636,547050000.0,10000.0,3,Class 3
+1225,Lorinna,B,3,0,False,29,0,56256,1939.8620689655168,562560000.0,10000.0,3,Class 3
+1228,Mole Creek,B,3,0,False,6258,0,38235,6.109779482262704,382350000.0,10000.0,1,Class 1
+1229,Mole Creek,B,3,0,False,15,0,34,2.2666666666666666,340000.0,10000.0,1,Class 1
+1230,Mole Creek,B,3,0,False,8,0,17,2.125,170000.0,10000.0,1,Class 1
+1231,Mole Creek,B,3,0,False,48,0,90,1.875,900000.0,10000.0,1,Class 1
+1233,Mole Creek,B,3,B,True,106,106,0,0.0,0.0,10000.0,1,Class 1
+1234,Mole Creek,B,3,B,True,741,741,110,0.1484480431848853,1100000.0,10000.0,1,Class 1
+1235,Mole Creek,B,3,B,True,16,16,24,1.5,240000.0,10000.0,1,Class 1
+1236,Mole Creek,B,3,B,True,202,202,389,1.9257425742574257,3890000.0,10000.0,1,Class 1
+1237,Mole Creek,A,4,0,False,4,0,278,69.5,2780000.0,10000.0,2,Class 2
+1238,Mole Creek,B,3,0,False,14,0,26,1.8571428571428568,260000.0,10000.0,1,Class 1
+1239,Mole Creek,B,3,0,False,2,0,3,1.5,30000.0,10000.0,1,Class 1
+1240,Mole Creek,B,3,0,False,22,0,79,3.590909090909091,790000.0,10000.0,1,Class 1
+1241,Mole Creek,B,3,0,False,7,0,28,4.0,280000.0,10000.0,1,Class 1
+1242,Mole Creek,B,3,0,False,12,0,85,7.083333333333333,850000.0,10000.0,1,Class 1
+1243,Mole Creek,B,3,0,False,6,0,7,1.1666666666666667,70000.0,10000.0,1,Class 1
+1244,Mole Creek,B,3,0,False,7,0,16,2.2857142857142856,160000.0,10000.0,1,Class 1
+1245,Mole Creek,B,3,0,False,12,0,42,3.5,420000.0,10000.0,1,Class 1
+1246,Mole Creek,B,3,0,False,10,0,13,1.3,130000.0,10000.0,1,Class 1
+1247,Mole Creek,B,3,0,False,5,0,6735,1347.0,67350000.0,10000.0,3,Class 3
+1248,Mole Creek,A,4,A,True,52,52,321,6.173076923076923,3210000.0,10000.0,1,Class 1
+1249,Mole Creek,A,4,A,True,250,250,4,0.016,40000.0,10000.0,1,Class 1
+1250,Mole Creek,A,4,A,True,43,43,0,0.0,0.0,10000.0,1,Class 1
+1251,Mole Creek,A,4,A,True,25,25,0,0.0,0.0,10000.0,1,Class 1
+1252,Mole Creek,A,4,A,True,73,73,0,0.0,0.0,10000.0,1,Class 1
+1253,Mole Creek,B,3,B,True,732,732,101,0.1379781420765027,1010000.0,10000.0,1,Class 1
+1259,Mole Creek,A,4,0,False,17,0,122,7.176470588235294,1220000.0,10000.0,1,Class 1
+1260,Mole Creek,A,4,0,False,4,0,2551,637.75,25510000.0,10000.0,3,Class 3
+1261,Mole Creek,A,4,0,False,4,0,13,3.25,130000.0,10000.0,1,Class 1
+1262,Mole Creek,A,4,0,False,304,0,4226,13.901315789473683,42260000.0,10000.0,1,Class 1
+1263,Mole Creek,A,4,0,False,50,0,114,2.28,1140000.0,10000.0,1,Class 1
+1264,Mole Creek,A,4,0,False,307,0,78635,256.1400651465798,786350000.0,10000.0,2,Class 2
+1265,Mole Creek,A,4,0,False,88,0,122,1.3863636363636365,1220000.0,10000.0,1,Class 1
+1266,Mole Creek,A,4,0,False,189,0,99390,525.8730158730159,993900000.0,10000.0,3,Class 3
+1267,Mole Creek,A,4,0,False,7829,0,109059,13.930131562140758,1090590000.0,10000.0,1,Class 1
+1268,Mole Creek,A,4,0,False,22,0,54,2.4545454545454546,540000.0,10000.0,1,Class 1
+1269,Mole Creek,A,4,0,False,17,0,281,16.529411764705884,2810000.0,10000.0,1,Class 1
+1270,Mole Creek,A,4,0,False,62,0,1429,23.048387096774192,14290000.0,10000.0,2,Class 2
+1271,Mole Creek,A,4,0,False,8,0,8,1.0,80000.0,10000.0,1,Class 1
+1272,Mole Creek,A,4,0,False,237,0,721,3.042194092827004,7210000.0,10000.0,1,Class 1
+1273,Mole Creek,A,4,0,False,406,0,2777,6.8399014778325125,27770000.0,10000.0,1,Class 1
+1274,Mole Creek,A,4,0,False,6,0,24,4.0,240000.0,10000.0,1,Class 1
+1275,Mole Creek,A,4,0,False,6,0,15,2.5,150000.0,10000.0,1,Class 1
+1276,Mole Creek,A,4,0,False,4,0,23,5.75,230000.0,10000.0,1,Class 1
+1277,Mole Creek,A,4,0,False,33,0,37,1.121212121212121,370000.0,10000.0,1,Class 1
+1278,Mole Creek,A,4,0,False,3,0,15,5.0,150000.0,10000.0,1,Class 1
+1279,Mole Creek,A,4,0,False,5,0,5,1.0,50000.0,10000.0,1,Class 1
+1280,Mole Creek,A,4,0,False,4,0,6,1.5,60000.0,10000.0,1,Class 1
+1281,Mole Creek,A,4,0,False,68,0,280,4.117647058823529,2800000.0,10000.0,1,Class 1
+1282,Mole Creek,A,4,0,False,47,0,193,4.1063829787234045,1930000.0,10000.0,1,Class 1
+1283,Mole Creek,A,4,0,False,4,0,264,66.0,2640000.0,10000.0,2,Class 2
+1284,Mole Creek,A,4,0,False,16,0,359,22.4375,3590000.0,10000.0,2,Class 2
+1285,Mole Creek,A,4,0,False,56,0,110,1.9642857142857144,1100000.0,10000.0,1,Class 1
+1286,Mole Creek,A,4,0,False,8,0,10,1.25,100000.0,10000.0,1,Class 1
+1287,Mole Creek,A,4,0,False,740,0,2794,3.775675675675676,27940000.0,10000.0,1,Class 1
+1288,Mole Creek,A,4,0,False,112,0,168,1.5,1680000.0,10000.0,1,Class 1
+1289,Mole Creek,A,4,0,False,13,0,37,2.8461538461538463,370000.0,10000.0,1,Class 1
+1290,Mole Creek,A,4,0,False,27,0,129,4.777777777777778,1290000.0,10000.0,1,Class 1
+1291,Mole Creek,A,4,0,False,284,0,2222,7.823943661971831,22220000.0,10000.0,1,Class 1
+1292,Mole Creek,A,4,0,False,858,0,76040,88.62470862470863,760400000.0,10000.0,2,Class 2
+1293,Mole Creek,A,4,0,False,2313,0,6082,2.6294855166450497,60820000.0,10000.0,1,Class 1
+1294,Mole Creek,A,4,0,False,298,0,4221,14.164429530201344,42210000.0,10000.0,1,Class 1
+1295,Mole Creek,A,4,0,False,55,0,55,1.0,550000.0,10000.0,1,Class 1
+1296,Mole Creek,A,4,0,False,797,0,99200,124.46675031367629,992000000.0,10000.0,2,Class 2
+1297,Mole Creek,A,4,0,False,289,0,891,3.083044982698962,8910000.0,10000.0,1,Class 1
+1298,Mole Creek (Chudleigh Hill),A,4,0,False,13,0,44,3.3846153846153846,440000.0,10000.0,1,Class 1
+1301,Lower Lea River,D,1,0,False,1,0,8,8.0,80000.0,10000.0,1,Class 1
+1302,Lower Lea River,D,1,0,False,3,0,28,9.333333333333334,280000.0,10000.0,1,Class 1
+1303,Lower Lea River,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+1304,Lower Lea River,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+1305,Lower Lea River,D,1,0,False,5,0,5469,1093.8,54690000.0,10000.0,3,Class 3
+1306,Jims Plain,B,3,0,False,1410,0,2838,2.0127659574468084,28380000.0,10000.0,1,Class 1
+1307,Jims Plain,B,3,0,False,4,0,10,2.5,100000.0,10000.0,1,Class 1
+1308,Jims Plain,B,3,0,False,3,0,20,6.666666666666667,200000.0,10000.0,1,Class 1
+1309,Jims Plain,B,3,0,False,7,0,7,1.0,70000.0,10000.0,1,Class 1
+1310,Jims Plain,B,3,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
+1312,Moina,C,2,0,False,22,0,279,12.681818181818182,2790000.0,10000.0,1,Class 1
+1313,Moina,C,2,0,False,22,0,50,2.272727272727273,500000.0,10000.0,1,Class 1
+1314,Moina,C,2,0,False,3,0,105,35.0,1050000.0,10000.0,2,Class 2
+1315,Moina,C,2,0,False,29,0,230,7.931034482758621,2300000.0,10000.0,1,Class 1
+1317,Moina,C,2,0,False,121,0,8092,66.87603305785125,80920000.0,10000.0,2,Class 2
+1318,Bell Creek,C,2,0,False,13,0,285,21.923076923076923,2850000.0,10000.0,2,Class 2
+1319,Tin Spur Creek,C,2,0,False,3,0,367,122.33333333333331,3670000.0,10000.0,2,Class 2
+1320,Claude Creek,C,2,0,False,5,0,718,143.6,7180000.0,10000.0,2,Class 2
+1322,Wilmot River,C,2,0,False,7,0,17348,2478.285714285714,173480000.0,10000.0,3,Class 3
+1323,Wilmot River,C,2,0,False,8,0,17581,2197.625,175810000.0,10000.0,3,Class 3
+1324,Wilmot River,C,2,0,False,3,0,5,1.6666666666666667,50000.0,10000.0,1,Class 1
+1326,Kimberley,D,1,0,False,1217,0,154417,126.88331963845522,1544170000.0,10000.0,2,Class 2
+1327,Kimberley,D,1,0,False,52,0,775,14.903846153846152,7750000.0,10000.0,1,Class 1
+1330,Railton,C,2,0,False,1007,0,4385,4.354518371400198,43850000.0,10000.0,1,Class 1
+1331,Railton,C,2,0,False,19,0,74,3.8947368421052633,740000.0,10000.0,1,Class 1
+1332,Railton,C,2,0,False,4,0,5,1.25,50000.0,10000.0,1,Class 1
+1333,Railton,C,2,0,False,7,0,144,20.571428571428573,1440000.0,10000.0,2,Class 2
+1334,Railton,C,2,0,False,3,0,22,7.333333333333333,220000.0,10000.0,1,Class 1
+1335,Railton,C,2,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1336,Railton,C,2,0,False,3,0,17,5.666666666666667,170000.0,10000.0,1,Class 1
+1337,Railton,C,2,0,False,4,0,59,14.75,590000.0,10000.0,1,Class 1
+1338,Melrose-Paloona (Eugenana),C,2,0,False,25,0,1827,73.08,18270000.0,10000.0,2,Class 2
+1339,Melrose-Paloona (Eugenana),C,2,0,False,104,0,11529,110.85576923076924,115290000.0,10000.0,2,Class 2
+1342,Melrose-Paloona (Eugenana),C,2,0,False,12,0,1097,91.41666666666669,10970000.0,10000.0,2,Class 2
+1343,Melrose-Paloona (Eugenana),C,2,0,False,32,0,1280,40.0,12800000.0,10000.0,2,Class 2
+1344,Melrose-Paloona (Eugenana),C,2,0,False,36,0,46,1.2777777777777777,460000.0,10000.0,1,Class 1
+1345,Melrose-Paloona (Eugenana),C,2,0,False,6,0,209,34.833333333333336,2090000.0,10000.0,2,Class 2
+1346,Melrose-Paloona (Eugenana),C,2,0,False,10,0,14,1.4,140000.0,10000.0,1,Class 1
+1347,Melrose-Paloona (Eugenana),C,2,0,False,19,0,57,3.0,570000.0,10000.0,1,Class 1
+1348,Melrose-Paloona (Eugenana),C,2,0,False,14,0,188,13.428571428571429,1880000.0,10000.0,1,Class 1
+1349,Folly Hill,D,1,0,False,275,0,94421,343.34909090909093,944210000.0,10000.0,2,Class 2
+1352,Roger River Hills,D,1,0,False,6,0,48,8.0,480000.0,10000.0,1,Class 1
+1353,Roger River Hills,D,1,0,False,6,0,6,1.0,60000.0,10000.0,1,Class 1
+1354,Roger River Hills,D,1,0,False,1,0,1159,1159.0,11590000.0,10000.0,3,Class 3
+1355,Roger River Hills,D,1,0,False,24,0,1196,49.833333333333336,11960000.0,10000.0,2,Class 2
+1356,Roger River Hills,D,1,0,False,450,0,1043,2.3177777777777777,10430000.0,10000.0,1,Class 1
+1357,Roger River Hills,D,1,0,False,15,0,768,51.2,7680000.0,10000.0,2,Class 2
+1358,Roger River Hills,D,1,0,False,182,0,1581,8.686813186813186,15810000.0,10000.0,1,Class 1
+1359,Roger River Hills,D,1,0,False,7,0,13,1.8571428571428568,130000.0,10000.0,1,Class 1
+1360,Roger River Hills,D,1,0,False,216,0,837,3.875,8370000.0,10000.0,1,Class 1
+1361,Roger River Hills,D,1,0,False,11,0,21610,1964.5454545454545,216100000.0,10000.0,3,Class 3
+1362,Roger River Hills,D,1,0,False,4,0,295,73.75,2950000.0,10000.0,2,Class 2
+1363,Roger River Hills,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+1364,Roger River Hills,D,1,0,False,2,0,60,30.0,600000.0,10000.0,2,Class 2
+1365,Roger River Hills,D,1,0,False,96,0,574,5.979166666666667,5740000.0,10000.0,1,Class 1
+1366,Roger River Hills,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+1367,Roger River Hills,D,1,0,False,1850,0,4972,2.687567567567568,49720000.0,10000.0,1,Class 1
+1368,Roger River Hills,D,1,0,False,15,0,158738,10582.533333333333,1587380000.0,10000.0,4,Class 4
+1369,Roger River Hills,D,1,0,False,62,0,19795,319.2741935483871,197950000.0,10000.0,2,Class 2
+1370,Roger River Hills,D,1,0,False,334,0,44682,133.77844311377245,446820000.0,10000.0,2,Class 2
+1371,Roger River Hills,D,1,0,False,1,0,6,6.0,60000.0,10000.0,1,Class 1
+1372,Roger River Hills,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+1373,Roger River Hills,D,1,0,False,15,0,131,8.733333333333333,1310000.0,10000.0,1,Class 1
+1374,Roger River Hills,D,1,0,False,37,0,1767,47.75675675675676,17670000.0,10000.0,2,Class 2
+1375,Roger River Hills,D,1,0,False,9,0,6477,719.6666666666666,64770000.0,10000.0,3,Class 3
+1376,Upper Harcus River Plain,B,3,0,False,1621,0,3543,2.18568784700802,35430000.0,10000.0,1,Class 1
+1377,Upper Harcus River Plain,B,3,0,False,7,0,92,13.142857142857142,920000.0,10000.0,1,Class 1
+1378,Upper Harcus River Plain,B,3,0,False,2,0,257,128.5,2570000.0,10000.0,2,Class 2
+1379,Upper Harcus River Plain,B,3,0,False,4,0,1119,279.75,11190000.0,10000.0,2,Class 2
+1380,Upper Harcus River Plain,B,3,0,False,15,0,750,50.0,7500000.0,10000.0,2,Class 2
+1381,Upper Harcus River Plain,B,3,0,False,16,0,1411,88.1875,14110000.0,10000.0,2,Class 2
+1382,Upper Harcus River Plain,B,3,0,False,9,0,1107,123.0,11070000.0,10000.0,2,Class 2
+1383,Upper Harcus River Plain,B,3,0,False,15,0,636,42.4,6360000.0,10000.0,2,Class 2
+1384,Upper Harcus River Plain,B,3,0,False,13,0,123,9.461538461538462,1230000.0,10000.0,1,Class 1
+1385,Upper Harcus River Plain,B,3,0,False,3,0,3,1.0,30000.0,10000.0,1,Class 1
+1387,Rapid River,B,3,0,False,72,0,5795,80.48611111111111,57950000.0,10000.0,2,Class 2
+1388,Robbins Island (1),B,3,0,False,236,0,683,2.8940677966101696,6830000.0,10000.0,1,Class 1
+1389,Robbins Island (1),B,3,0,False,23,0,129,5.608695652173913,1290000.0,10000.0,1,Class 1
+1390,Robbins Island (1),B,3,0,False,140,0,698,4.985714285714286,6980000.0,10000.0,1,Class 1
+1391,Robbins Island (1),B,3,0,False,333,0,1011,3.036036036036036,10110000.0,10000.0,1,Class 1
+1392,Robbins Island (1),B,3,0,False,103,0,241,2.3398058252427183,2410000.0,10000.0,1,Class 1
+1393,Robbins Island (2),B,3,0,False,753,0,2880,3.824701195219124,28800000.0,10000.0,1,Class 1
+1394,Rebecca Creek,C,2,0,False,36,0,86,2.388888888888889,860000.0,10000.0,1,Class 1
+1395,Rebecca Creek,C,2,0,False,51,0,209,4.098039215686274,2090000.0,10000.0,1,Class 1
+1396,Rebecca Creek,C,2,C,True,53,53,128,2.4150943396226414,1280000.0,10000.0,1,Class 1
+1397,Mt Cameron West (1),B,3,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+1398,Mt Cameron West (1),B,3,0,False,2,0,37,18.5,370000.0,10000.0,2,Class 2
+1400,Mt Cameron West (2),B,3,0,False,2,0,7,3.5,70000.0,10000.0,1,Class 1
+1401,Mt Cameron West (2),B,3,0,False,5,0,6,1.2,60000.0,10000.0,1,Class 1
+1402,Mt Cameron West (2),B,3,0,False,25,0,28,1.12,280000.0,10000.0,1,Class 1
+1404,Three Mile Sand (Marrawah Beach),B,3,0,False,11,0,336,30.545454545454547,3360000.0,10000.0,2,Class 2
+1405,Three Mile Sand (Marrawah Beach),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1406,Three Mile Sand (Marrawah Beach),B,3,0,False,8,0,146,18.25,1460000.0,10000.0,1,Class 1
+1408,Port Hills,B,3,0,False,4,0,69,17.25,690000.0,10000.0,1,Class 1
+1409,Port Hills,B,3,0,False,57,0,110,1.9298245614035088,1100000.0,10000.0,1,Class 1
+1410,Needles-Mueller,B,3,0,False,18,0,30,1.6666666666666667,300000.0,10000.0,1,Class 1
+1411,Needles-Mueller,B,3,0,False,126,0,681,5.404761904761905,6810000.0,10000.0,1,Class 1
+1412,Needles-Mueller,B,3,0,False,120,0,354,2.95,3540000.0,10000.0,1,Class 1
+1413,Needles-Mueller,B,3,0,False,14,0,50,3.571428571428572,500000.0,10000.0,1,Class 1
+1417,Needles-Mueller,B,3,0,False,367,0,607,1.6539509536784742,6070000.0,10000.0,1,Class 1
+1418,Needles-Mueller,B,3,0,False,239,0,974,4.075313807531381,9740000.0,10000.0,1,Class 1
+1423,Glovers Bluff,B,3,0,False,24,0,39,1.625,390000.0,10000.0,1,Class 1
+1424,Glovers Bluff,B,3,0,False,25,0,39460,1578.4,394600000.0,10000.0,3,Class 3
+1425,Glovers Bluff,B,3,0,False,20,0,272,13.6,2720000.0,10000.0,1,Class 1
+1426,Glovers Bluff,B,3,0,False,101,0,39640,392.4752475247525,396400000.0,10000.0,3,Class 3
+1427,Glovers Bluff,B,3,0,False,3,0,39436,13145.333333333334,394360000.0,10000.0,4,Class 4
+1428,Glovers Bluff,B,3,0,False,57,0,739,12.964912280701755,7390000.0,10000.0,1,Class 1
+1429,Glovers Bluff,B,3,0,False,5,0,5,1.0,50000.0,10000.0,1,Class 1
+1430,Glovers Bluff,B,3,0,False,61,0,136,2.2295081967213117,1360000.0,10000.0,1,Class 1
+1431,Glovers Bluff,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+1432,Cook Creek (Abrotonella),A,4,0,False,200,0,463,2.315,4630000.0,10000.0,1,Class 1
+1433,Cook Creek (Abrotonella),A,4,0,False,34,0,590,17.352941176470587,5900000.0,10000.0,1,Class 1
+1435,Cook Creek (Abrotonella),A,4,0,False,708,0,2536,3.5819209039548023,25360000.0,10000.0,1,Class 1
+1436,Picton River,B,3,0,False,715,0,42704,59.72587412587413,427040000.0,10000.0,2,Class 2
+1437,Lake Sydney,A,4,0,False,65,0,352,5.415384615384616,3520000.0,10000.0,1,Class 1
+1438,Roberts River (South Boomerang),A,4,0,False,2362,0,16111,6.820914479254869,161110000.0,10000.0,1,Class 1
+1441,Hastings,A,4,A,True,170,170,93,0.5470588235294118,930000.0,10000.0,1,Class 1
+1442,Hastings,A,4,0,False,386,0,1463,3.790155440414508,14630000.0,10000.0,1,Class 1
+1443,Duckhole Valley - Adamson,B,3,0,False,319,0,1435,4.498432601880878,14350000.0,10000.0,1,Class 1
+1446,Duckhole Valley - Adamson,A,4,A,True,145,145,62,0.4275862068965517,620000.0,10000.0,1,Class 1
+1448,"Lune Plains (North Lune, Mesa-Gleichenia",B,3,0,False,1285,0,10908,8.488715953307393,109080000.0,10000.0,1,Class 1
+1451,Marble Hill - D'Entrecasteaux,B,3,0,False,2306,0,6858,2.9739809193408497,68580000.0,10000.0,1,Class 1
+1455,Marble Hill - D'Entrecasteaux,A,4,A,True,115,115,2,0.017391304347826,20000.0,10000.0,1,Class 1
+1456,Marble Hill - D'Entrecasteaux,A,4,0,False,1216,0,3496,2.875,34960000.0,10000.0,1,Class 1
+1458,Catamaran River,B,3,0,False,366,0,4025,10.997267759562842,40250000.0,10000.0,1,Class 1
+1460,South Cape Rivulet,B,3,0,False,247,0,3566,14.437246963562751,35660000.0,10000.0,1,Class 1
+1461,Tim Shea,B,3,0,False,10,0,16,1.6,160000.0,10000.0,1,Class 1
+1462,Tim Shea,B,3,0,False,55,0,207,3.763636363636364,2070000.0,10000.0,1,Class 1
+1463,Tim Shea,B,3,0,False,8,0,24,3.0,240000.0,10000.0,1,Class 1
+1465,Tim Shea,B,3,0,False,4,0,23,5.75,230000.0,10000.0,1,Class 1
+1466,Tim Shea,B,3,0,False,82,0,111,1.353658536585366,1110000.0,10000.0,1,Class 1
+1468,Variety Bay,D,1,0,False,120,0,178,1.4833333333333334,1780000.0,10000.0,1,Class 1
+1469,Harts Hill,C,2,0,False,7,0,7,1.0,70000.0,10000.0,1,Class 1
+1471,Silver Hill,C,2,0,False,0,0,0,,0.0,10000.0,,No data
+1473,Cascades,C,2,0,False,5,0,9,1.8,90000.0,10000.0,1,Class 1
+1474,Cascades,C,2,0,False,4,0,7,1.75,70000.0,10000.0,1,Class 1
+1475,Cascades,C,2,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+1476,West Hobart,D,1,0,False,5,0,56,11.2,560000.0,10000.0,1,Class 1
+1477,Geilston Bay,B,3,0,False,2,0,149,74.5,1490000.0,10000.0,2,Class 2
+1478,Glenorchy,C,2,0,False,15,0,32,2.1333333333333333,320000.0,10000.0,1,Class 1
+1479,Glenorchy,C,2,0,False,20,0,52,2.6,520000.0,10000.0,1,Class 1
+1480,Glenorchy,C,2,0,False,31,0,148,4.774193548387097,1480000.0,10000.0,1,Class 1
+1481,Glenorchy,C,2,0,False,5,0,44,8.8,440000.0,10000.0,1,Class 1
+1482,Glenorchy,C,2,0,False,6,0,7,1.1666666666666667,70000.0,10000.0,1,Class 1
+1486,Glenlusk (Collinsvale/Berriedale),C,2,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+1487,Glenlusk (Collinsvale/Berriedale),C,2,0,False,2,0,21,10.5,210000.0,10000.0,1,Class 1
+1488,Glenlusk (Collinsvale/Berriedale),C,2,0,False,12,0,12,1.0,120000.0,10000.0,1,Class 1
+1489,Glenlusk (Collinsvale/Berriedale),C,2,0,False,21,0,61,2.9047619047619047,610000.0,10000.0,1,Class 1
+1490,Glenlusk (Collinsvale/Berriedale),C,2,0,False,3,0,4,1.3333333333333333,40000.0,10000.0,1,Class 1
+1491,Glenlusk (Collinsvale/Berriedale),C,2,0,False,4,0,4,1.0,40000.0,10000.0,1,Class 1
+1492,Glenlusk (Collinsvale/Berriedale),C,2,0,False,14,0,18,1.2857142857142858,180000.0,10000.0,1,Class 1
+1493,Glenlusk (Collinsvale/Berriedale),C,2,0,False,14,0,33,2.357142857142857,330000.0,10000.0,1,Class 1
+1494,Glenlusk (Collinsvale/Berriedale),C,2,0,False,8,0,8,1.0,80000.0,10000.0,1,Class 1
+1495,Glenlusk (Collinsvale/Berriedale),C,2,0,False,18,0,54,3.0,540000.0,10000.0,1,Class 1
+1496,Glenlusk (Collinsvale/Berriedale),C,2,0,False,23,0,55,2.391304347826087,550000.0,10000.0,1,Class 1
+1497,Glenlusk (Collinsvale/Berriedale),C,2,0,False,2,0,6,3.0,60000.0,10000.0,1,Class 1
+1499,Granton - Claremont,C,2,0,False,3,0,55,18.33333333333333,550000.0,10000.0,2,Class 2
+1500,Granton - Claremont,C,2,0,False,7,0,202,28.857142857142858,2020000.0,10000.0,2,Class 2
+1501,Granton - Claremont,C,2,0,False,7,0,281,40.142857142857146,2810000.0,10000.0,2,Class 2
+1502,Granton - Claremont,C,2,0,False,5,0,97,19.4,970000.0,10000.0,2,Class 2
+1503,Granton - Claremont,C,2,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
+1504,Granton - Claremont,C,2,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+1505,Granton - Claremont,C,2,0,False,7,0,268,38.285714285714285,2680000.0,10000.0,2,Class 2
+1506,Granton - Claremont,C,2,0,False,2,0,6,3.0,60000.0,10000.0,1,Class 1
+1507,Granton - Claremont,C,2,0,False,15,0,73,4.866666666666666,730000.0,10000.0,1,Class 1
+1508,Granton - Claremont,C,2,0,False,116,0,1010,8.706896551724139,10100000.0,10000.0,1,Class 1
+1510,Lachlan,C,2,0,False,11,0,4161,378.27272727272725,41610000.0,10000.0,3,Class 3
+1511,Junee - Florentine,A,4,0,False,86,0,464,5.395348837209302,4640000.0,10000.0,1,Class 1
+1512,Junee - Florentine,A,4,0,False,57,0,355,6.228070175438597,3550000.0,10000.0,1,Class 1
+1513,Junee - Florentine,A,4,0,False,364,0,1265,3.4752747252747254,12650000.0,10000.0,1,Class 1
+1514,Junee - Florentine,A,4,0,False,241,0,425,1.7634854771784232,4250000.0,10000.0,1,Class 1
+1515,Junee - Florentine,A,4,0,False,33,0,51,1.5454545454545454,510000.0,10000.0,1,Class 1
+1516,Junee - Florentine,A,4,0,False,18,0,122,6.777777777777778,1220000.0,10000.0,1,Class 1
+1517,Junee - Florentine,A,4,0,False,601,0,1122,1.8668885191347755,11220000.0,10000.0,1,Class 1
+1518,Junee - Florentine,A,4,0,False,13,0,103,7.923076923076923,1030000.0,10000.0,1,Class 1
+1519,Junee - Florentine,A,4,0,False,176,0,8209,46.64204545454545,82090000.0,10000.0,2,Class 2
+1520,Junee - Florentine,A,4,0,False,75,0,334,4.453333333333333,3340000.0,10000.0,1,Class 1
+1521,Junee - Florentine,A,4,0,False,181,0,15807,87.33149171270718,158070000.0,10000.0,2,Class 2
+1522,Junee - Florentine,A,4,0,False,2,0,13,6.5,130000.0,10000.0,1,Class 1
+1523,Junee - Florentine,A,4,0,False,3,0,9,3.0,90000.0,10000.0,1,Class 1
+1524,Junee - Florentine,A,4,0,False,58,0,518,8.931034482758621,5180000.0,10000.0,1,Class 1
+1525,Junee - Florentine,A,4,0,False,15,0,90,6.0,900000.0,10000.0,1,Class 1
+1526,Junee - Florentine,A,4,0,False,4,0,22,5.5,220000.0,10000.0,1,Class 1
+1527,Junee - Florentine,A,4,0,False,10,0,10,1.0,100000.0,10000.0,1,Class 1
+1528,Junee - Florentine,A,4,0,False,4,0,66,16.5,660000.0,10000.0,1,Class 1
+1529,Junee - Florentine,A,4,0,False,8,0,8,1.0,80000.0,10000.0,1,Class 1
+1530,Junee - Florentine,A,4,0,False,6,0,70,11.666666666666666,700000.0,10000.0,1,Class 1
+1534,Junee - Florentine,A,4,A,True,888,888,1253,1.411036036036036,12530000.0,10000.0,1,Class 1
+1535,Junee - Florentine,A,4,0,False,1870,0,15577,8.329946524064171,155770000.0,10000.0,1,Class 1
+1536,Junee - Florentine,A,4,0,False,1652,0,35561,21.526029055690078,355610000.0,10000.0,2,Class 2
+1537,Junee - Florentine,A,4,0,False,174,0,714,4.103448275862069,7140000.0,10000.0,1,Class 1
+1538,Junee - Florentine,A,4,0,False,1973,0,28363,14.375570197668525,283630000.0,10000.0,1,Class 1
+1539,Junee - Florentine,A,4,0,False,72,0,711,9.875,7110000.0,10000.0,1,Class 1
+1540,Junee - Florentine,A,4,0,False,717,0,2120,2.9567642956764297,21200000.0,10000.0,1,Class 1
+1541,Junee - Florentine,A,4,0,False,698,0,1285,1.840974212034384,12850000.0,10000.0,1,Class 1
+1542,Junee - Florentine,A,4,0,False,12,0,35,2.9166666666666665,350000.0,10000.0,1,Class 1
+1543,Junee - Florentine,A,4,0,False,67,0,67,1.0,670000.0,10000.0,1,Class 1
+1544,Junee - Florentine,A,4,0,False,51,0,140,2.7450980392156863,1400000.0,10000.0,1,Class 1
+1545,Junee - Florentine,A,4,0,False,295,0,732,2.48135593220339,7320000.0,10000.0,1,Class 1
+1546,Junee - Florentine,A,4,0,False,22,0,22,1.0,220000.0,10000.0,1,Class 1
+1547,Junee - Florentine,A,4,0,False,8285,0,29915,3.610742305371153,299150000.0,10000.0,1,Class 1
+1548,Junee - Florentine,A,4,0,False,41,0,120,2.926829268292683,1200000.0,10000.0,1,Class 1
+1549,Junee - Florentine,A,4,0,False,516,0,1649,3.195736434108527,16490000.0,10000.0,1,Class 1
+1550,Junee - Florentine,A,4,0,False,378,0,498,1.3174603174603174,4980000.0,10000.0,1,Class 1
+1552,Mikes Creek,C,2,0,False,11,0,96,8.727272727272727,960000.0,10000.0,1,Class 1
+1555,Dromedary,C,2,0,False,109,0,392,3.596330275229358,3920000.0,10000.0,1,Class 1
+1556,Dromedary,C,2,0,False,15,0,125,8.333333333333334,1250000.0,10000.0,1,Class 1
+1557,Dromedary,C,2,0,False,470,0,1536,3.2680851063829786,15360000.0,10000.0,1,Class 1
+1559,White Kangaroo Rivulet,D,1,0,False,5,0,16,3.2,160000.0,10000.0,1,Class 1
+1560,White Kangaroo Rivulet,D,1,0,False,4,0,20,5.0,200000.0,10000.0,1,Class 1
+1561,White Kangaroo Rivulet,D,1,0,False,42,0,4222,100.52380952380952,42220000.0,10000.0,2,Class 2
+1562,White Kangaroo Rivulet,D,1,0,False,63,0,3970,63.01587301587302,39700000.0,10000.0,2,Class 2
+1564,Lime Kiln Spur,D,1,0,False,1,0,244,244.0,2440000.0,10000.0,2,Class 2
+1565,Lime Kiln Spur,D,1,0,False,2,0,8,4.0,80000.0,10000.0,1,Class 1
+1566,Lime Kiln Spur,D,1,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1567,Lime Kiln Spur,D,1,0,False,4,0,6,1.5,60000.0,10000.0,1,Class 1
+1568,Lime Kiln Spur,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+1569,Lime Kiln Spur,D,1,0,False,2,0,42090,21045.0,420900000.0,10000.0,4,Class 4
+1570,Lime Kiln Spur,D,1,0,False,4,0,17,4.25,170000.0,10000.0,1,Class 1
+1571,Lime Kiln Spur,D,1,0,False,2,0,5,2.5,50000.0,10000.0,1,Class 1
+1572,Lime Kiln Spur,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+1573,Lime Kiln Spur,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+1574,Lime Kiln Spur,D,1,0,False,4,0,5,1.25,50000.0,10000.0,1,Class 1
+1575,Lime Kiln Spur,D,1,0,False,52,0,338,6.5,3380000.0,10000.0,1,Class 1
+1576,Lime Kiln Spur,D,1,0,False,17,0,17,1.0,170000.0,10000.0,1,Class 1
+1577,Lime Kiln Spur,D,1,0,False,16,0,683,42.6875,6830000.0,10000.0,2,Class 2
+1579,Rough Hills,C,2,0,False,2,0,7,3.5,70000.0,10000.0,1,Class 1
+1580,Rough Hills,C,2,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1581,Rough Hills,C,2,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+1582,Rough Hills,C,2,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1583,Rough Hills,C,2,0,False,1,0,15,15.0,150000.0,10000.0,1,Class 1
+1584,Rough Hills,C,2,0,False,1,0,25,25.0,250000.0,10000.0,2,Class 2
+1586,Tunnack,C,2,0,False,28,0,1814,64.78571428571429,18140000.0,10000.0,2,Class 2
+1587,Tunnack,C,2,0,False,37,0,104,2.810810810810811,1040000.0,10000.0,1,Class 1
+1589,Pawleena,D,1,0,False,33,0,462,14.0,4620000.0,10000.0,1,Class 1
+1590,Pawleena,D,1,0,False,249,0,417,1.6746987951807228,4170000.0,10000.0,1,Class 1
+1591,Sorell Rivulet,C,2,0,False,7,0,27,3.857142857142857,270000.0,10000.0,1,Class 1
+1594,Mt Elizabeth,C,2,0,False,9,0,15,1.6666666666666667,150000.0,10000.0,1,Class 1
+1595,Mt Elizabeth,C,2,0,False,6,0,19,3.1666666666666665,190000.0,10000.0,1,Class 1
+1596,Mt Elizabeth,C,2,0,False,3,0,189,63.0,1890000.0,10000.0,2,Class 2
+1598,Watsons Hill,D,1,0,False,4,0,4,1.0,40000.0,10000.0,1,Class 1
+1599,Watsons Hill,D,1,0,False,5,0,5,1.0,50000.0,10000.0,1,Class 1
+1600,Watsons Hill,D,1,0,False,3,0,13,4.333333333333333,130000.0,10000.0,1,Class 1
+1601,Watsons Hill,D,1,0,False,4,0,15,3.75,150000.0,10000.0,1,Class 1
+1602,Watsons Hill,D,1,0,False,2,0,5,2.5,50000.0,10000.0,1,Class 1
+1603,Watsons Hill,D,1,0,False,3,0,6,2.0,60000.0,10000.0,1,Class 1
+1604,Watsons Hill,D,1,0,False,3,0,6,2.0,60000.0,10000.0,1,Class 1
+1605,Watsons Hill,D,1,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1607,Fourteen Mile Creek,B,3,0,False,16,0,54,3.375,540000.0,10000.0,1,Class 1
+1608,Iron Creek Bay,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+1610,Cape Paul Lamanon,C,2,0,False,14,0,16,1.1428571428571428,160000.0,10000.0,1,Class 1
+1611,Cape Paul Lamanon,C,2,0,False,4,0,21,5.25,210000.0,10000.0,1,Class 1
+1612,Cape Paul Lamanon,C,2,0,False,13,0,21,1.6153846153846154,210000.0,10000.0,1,Class 1
+1614,Deep Glen,C,2,0,False,778,0,1236,1.588688946015424,12360000.0,10000.0,1,Class 1
+1616,Calverts Hill,C,2,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+1618,Maria South,C,2,0,False,105,0,126,1.2,1260000.0,10000.0,1,Class 1
+1619,Whalers Cove (Reidle Bay),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1621,Maria North,C,2,0,False,6,0,8,1.3333333333333333,80000.0,10000.0,1,Class 1
+1622,Maria North,C,2,0,False,88,0,218,2.477272727272727,2180000.0,10000.0,1,Class 1
+1623,Maria North,C,2,0,False,636,0,1724,2.710691823899371,17240000.0,10000.0,1,Class 1
+1624,Maria North,C,2,0,False,5,0,28,5.6,280000.0,10000.0,1,Class 1
+1625,Maria North,C,2,0,False,37,0,49,1.3243243243243243,490000.0,10000.0,1,Class 1
+1626,Maria North,C,2,0,False,182,0,592,3.2527472527472527,5920000.0,10000.0,1,Class 1
+1627,Pine Hill,B,3,0,False,256,0,3364,13.140625,33640000.0,10000.0,1,Class 1
+1628,Pine Hill,B,3,0,False,44,0,102,2.3181818181818183,1020000.0,10000.0,1,Class 1
+1629,Pine Hill,B,3,0,False,22,0,25,1.1363636363636365,250000.0,10000.0,1,Class 1
+1630,Pine Hill,B,3,0,False,32,0,32,1.0,320000.0,10000.0,1,Class 1
+1631,Pine Hill,B,3,0,False,7,0,7,1.0,70000.0,10000.0,1,Class 1
+1633,Risbys Basin (Pillinger Creek),A,4,0,False,148,0,807,5.452702702702703,8070000.0,10000.0,1,Class 1
+1634,Risbys Basin (Pillinger Creek),A,4,0,False,426,0,10174,23.88262910798122,101740000.0,10000.0,2,Class 2
+1645,Jubilee-Styx (Jubilee Ridge) (1),B,3,0,False,8,0,4961,620.125,49610000.0,10000.0,3,Class 3
+1646,Jubilee-Styx (Jubilee Ridge) (1),B,3,0,False,1945,0,11361,5.841131105398458,113610000.0,10000.0,1,Class 1
+1647,Jubilee-Styx (Jubilee Ridge) (1),B,3,0,False,584,0,1643,2.8133561643835616,16430000.0,10000.0,1,Class 1
+1651,Jubilee-Styx (Jubilee Ridge) (1),B,3,0,False,68,0,187,2.75,1870000.0,10000.0,1,Class 1
+1653,Jubilee-Styx (Jubilee Ridge) (1),B,3,0,False,2,0,3,1.5,30000.0,10000.0,1,Class 1
+1656,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,27,0,105,3.888888888888889,1050000.0,10000.0,1,Class 1
+1657,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,41,0,2026,49.41463414634146,20260000.0,10000.0,2,Class 2
+1658,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,20,0,2234,111.7,22340000.0,10000.0,2,Class 2
+1659,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,23,0,132,5.739130434782608,1320000.0,10000.0,1,Class 1
+1660,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,23,0,235,10.217391304347826,2350000.0,10000.0,1,Class 1
+1661,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,4,0,1486,371.5,14860000.0,10000.0,3,Class 3
+1662,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,481,0,1819,3.7817047817047817,18190000.0,10000.0,1,Class 1
+1663,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,90,0,182,2.022222222222222,1820000.0,10000.0,1,Class 1
+1664,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,1046,0,1545,1.477055449330784,15450000.0,10000.0,1,Class 1
+1672,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,40,0,56,1.4,560000.0,10000.0,1,Class 1
+1673,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,15,0,190,12.666666666666666,1900000.0,10000.0,1,Class 1
+1674,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,31,0,40,1.2903225806451613,400000.0,10000.0,1,Class 1
+1675,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,340,0,428,1.258823529411765,4280000.0,10000.0,1,Class 1
+1676,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,31,0,31,1.0,310000.0,10000.0,1,Class 1
+1677,Jubilee-Styx (Jubilee Ridge) (2),C,2,0,False,18,0,59,3.2777777777777777,590000.0,10000.0,1,Class 1
+1679,Andromeda,D,1,0,False,14,0,249,17.785714285714285,2490000.0,10000.0,1,Class 1
+1681,Little Denison River,C,2,0,False,62,0,382,6.161290322580645,3820000.0,10000.0,1,Class 1
+1686,Point Hibbs - Hibbs Bay (1),B,3,0,False,51,0,158,3.0980392156862746,1580000.0,10000.0,1,Class 1
+1687,Point Hibbs - Hibbs Bay (2),B,3,0,False,153,0,308,2.013071895424837,3080000.0,10000.0,1,Class 1
+1688,Guy Fawkes Creek,C,2,0,False,2,0,23,11.5,230000.0,10000.0,1,Class 1
+1689,Lower Gordon,A,4,0,False,57,0,3098,54.35087719298246,30980000.0,10000.0,2,Class 2
+1690,Lower Gordon,A,4,0,False,116,0,430210,3708.706896551724,4302100000.0,10000.0,3,Class 3
+1691,Lower Gordon,A,4,0,False,6,0,25,4.166666666666667,250000.0,10000.0,1,Class 1
+1692,Lower Gordon,A,4,0,False,183,0,428839,2343.382513661202,4288390000.0,10000.0,3,Class 3
+1693,Lower Gordon,A,4,0,False,8,0,110,13.75,1100000.0,10000.0,1,Class 1
+1694,Lower Gordon,A,4,0,False,2047,0,434436,212.2305813385442,4344360000.0,10000.0,2,Class 2
+1695,Eagle Creek,A,4,0,False,13,0,24,1.8461538461538465,240000.0,10000.0,1,Class 1
+1696,Eagle Creek,A,4,0,False,453,0,9046,19.969094922737305,90460000.0,10000.0,2,Class 2
+1697,Eagle Creek,A,4,0,False,292,0,1696,5.808219178082192,16960000.0,10000.0,1,Class 1
+1698,Spence River,A,4,0,False,269,0,2169,8.063197026022305,21690000.0,10000.0,1,Class 1
+1699,Wright River,A,4,0,False,98,0,1050,10.714285714285714,10500000.0,10000.0,1,Class 1
+1700,Wright River,A,4,0,False,19,0,751,39.526315789473685,7510000.0,10000.0,2,Class 2
+1701,Upper Andrew River,A,4,0,False,268,0,7537,28.12313432835821,75370000.0,10000.0,2,Class 2
+1702,Lower Andrew River,A,4,0,False,621,0,15264,24.57971014492753,152640000.0,10000.0,2,Class 2
+1703,Franklin River,A,4,0,False,1256,0,158903,126.51512738853503,1589030000.0,10000.0,2,Class 2
+1704,South Balaclava (1),A,4,0,False,99,0,163,1.6464646464646464,1630000.0,10000.0,1,Class 1
+1705,South Balaclava (1),A,4,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1706,South Balaclava (1),A,4,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+1708,South Balaclava (1),A,4,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+1709,South Balaclava (2),D,1,0,False,34,0,38,1.1176470588235294,380000.0,10000.0,1,Class 1
+1710,South Balaclava (2),D,1,0,False,107,0,264,2.467289719626168,2640000.0,10000.0,1,Class 1
+1711,South Balaclava (2),D,1,0,False,58,0,406,7.0,4060000.0,10000.0,1,Class 1
+1712,South Balaclava (2),D,1,0,False,94,0,206,2.191489361702128,2060000.0,10000.0,1,Class 1
+1715,Cardigan River,A,4,0,False,60,0,227,3.783333333333333,2270000.0,10000.0,1,Class 1
+1717,Timbertop Creek,B,3,0,False,20,0,37,1.85,370000.0,10000.0,1,Class 1
+1718,Timbertop Creek,B,3,0,False,428,0,3370,7.873831775700935,33700000.0,10000.0,1,Class 1
+1719,Timbertop Creek,B,3,0,False,605,0,4359,7.20495867768595,43590000.0,10000.0,1,Class 1
+1720,East Inkerman,B,3,0,False,5,0,13,2.6,130000.0,10000.0,1,Class 1
+1721,East Inkerman,B,3,0,False,28,0,103,3.678571428571429,1030000.0,10000.0,1,Class 1
+1723,Alma River (Plain of the Mists),B,3,0,False,125,0,2181,17.448,21810000.0,10000.0,1,Class 1
+1728,Mt Mary - Flat Bluff,D,1,0,False,33,0,163,4.9393939393939394,1630000.0,10000.0,1,Class 1
+1729,Mt Mary - Flat Bluff,D,1,0,False,36,0,127,3.5277777777777777,1270000.0,10000.0,1,Class 1
+1730,Mt Mary - Flat Bluff,D,1,0,False,57,0,149,2.6140350877192984,1490000.0,10000.0,1,Class 1
+1731,Mt Mary - Flat Bluff,D,1,0,False,26,0,100,3.8461538461538463,1000000.0,10000.0,1,Class 1
+1732,Mt Mary - Flat Bluff,D,1,0,False,14,0,34,2.4285714285714284,340000.0,10000.0,1,Class 1
+1733,Mt Mary - Flat Bluff,D,1,0,False,22,0,35,1.5909090909090908,350000.0,10000.0,1,Class 1
+1734,Mt Mary - Flat Bluff,D,1,0,False,70,0,744,10.628571428571428,7440000.0,10000.0,1,Class 1
+1735,Mt Mary - Flat Bluff,D,1,0,False,64,0,416,6.5,4160000.0,10000.0,1,Class 1
+1737,Junction Peak,A,4,0,False,24,0,18806,783.5833333333334,188060000.0,10000.0,3,Class 3
+1740,Franklin Hills,D,1,0,False,148,0,472,3.189189189189189,4720000.0,10000.0,1,Class 1
+1741,Franklin Hills,D,1,0,False,2,0,9,4.5,90000.0,10000.0,1,Class 1
+1742,Franklin Hills,D,1,0,False,6,0,6,1.0,60000.0,10000.0,1,Class 1
+1743,Franklin Hills,D,1,0,False,10,0,139,13.9,1390000.0,10000.0,1,Class 1
+1744,Franklin Hills,D,1,0,False,9,0,37,4.111111111111111,370000.0,10000.0,1,Class 1
+1745,Franklin Hills,D,1,0,False,514,0,587,1.142023346303502,5870000.0,10000.0,1,Class 1
+1747,Frenchmans,C,2,0,False,9,0,9,1.0,90000.0,10000.0,1,Class 1
+1748,Frenchmans,C,2,0,False,23,0,30,1.3043478260869563,300000.0,10000.0,1,Class 1
+1749,Frenchmans,C,2,0,False,117,0,370,3.1623931623931623,3700000.0,10000.0,1,Class 1
+1750,Frenchmans,C,2,0,False,13,0,576,44.30769230769231,5760000.0,10000.0,2,Class 2
+1751,Frenchmans,C,2,0,False,196,0,226,1.153061224489796,2260000.0,10000.0,1,Class 1
+1752,Lightning Plains,A,4,0,False,1111,0,5349,4.814581458145814,53490000.0,10000.0,1,Class 1
+1753,Lightning Plains,A,4,0,False,52,0,599,11.51923076923077,5990000.0,10000.0,1,Class 1
+1754,Lightning Plains,A,4,0,False,68,0,74,1.088235294117647,740000.0,10000.0,1,Class 1
+1755,Lightning Plains,A,4,0,False,77,0,191,2.4805194805194803,1910000.0,10000.0,1,Class 1
+1756,Lightning Plains,A,4,0,False,20,0,393,19.65,3930000.0,10000.0,2,Class 2
+1757,Lightning Plains,A,4,0,False,216,0,466,2.1574074074074074,4660000.0,10000.0,1,Class 1
+1758,Lightning Plains,A,4,0,False,131,0,155,1.183206106870229,1550000.0,10000.0,1,Class 1
+1759,Lightning Plains,A,4,0,False,41,0,2412,58.829268292682926,24120000.0,10000.0,2,Class 2
+1760,Lightning Plains,A,4,0,False,11,0,2444,222.1818181818182,24440000.0,10000.0,2,Class 2
+1761,Acheron River,A,4,0,False,140,0,240,1.7142857142857142,2400000.0,10000.0,1,Class 1
+1762,Acheron River,A,4,0,False,107,0,1093,10.214953271028037,10930000.0,10000.0,1,Class 1
+1763,Goodwins Creek,A,4,0,False,639,0,44273,69.2848200312989,442730000.0,10000.0,2,Class 2
+1764,South Loddon,A,4,0,False,142,0,152,1.0704225352112675,1520000.0,10000.0,1,Class 1
+1765,High Rocky Point,C,2,0,False,4,0,4,1.0,40000.0,10000.0,1,Class 1
+1766,High Rocky Point,C,2,0,False,3,0,3,1.0,30000.0,10000.0,1,Class 1
+1767,Jane Goldfields,B,3,0,False,827,0,11164,13.499395405078598,111640000.0,10000.0,1,Class 1
+1768,Jane Goldfields,B,3,0,False,309,0,8826,28.563106796116504,88260000.0,10000.0,2,Class 2
+1769,Jane Goldfields,B,3,0,False,134,0,1483,11.067164179104475,14830000.0,10000.0,1,Class 1
+1770,Jane Goldfields,B,3,0,False,44,0,8000,181.8181818181818,80000000.0,10000.0,2,Class 2
+1771,Jane Goldfields,B,3,0,False,66,0,129,1.9545454545454544,1290000.0,10000.0,1,Class 1
+1772,Jane Goldfields,B,3,0,False,808,0,20660,25.56930693069307,206600000.0,10000.0,2,Class 2
+1773,Jane Goldfields,B,3,0,False,106,0,8678,81.86792452830188,86780000.0,10000.0,2,Class 2
+1774,Staff Hill,B,3,0,False,270,0,7157,26.50740740740741,71570000.0,10000.0,2,Class 2
+1775,Staff Hill,B,3,0,False,103,0,7343,71.29126213592232,73430000.0,10000.0,2,Class 2
+1776,Scotchfire Creek,B,3,0,False,284,0,32361,113.94718309859157,323610000.0,10000.0,2,Class 2
+1777,Scotchfire Creek,B,3,0,False,141,0,32680,231.77304964539007,326800000.0,10000.0,2,Class 2
+1778,Scotchfire Creek,B,3,0,False,146,0,495,3.3904109589041096,4950000.0,10000.0,1,Class 1
+1779,Surveyor - Jane,B,3,0,False,119,0,36161,303.873949579832,361610000.0,10000.0,2,Class 2
+1780,Surveyor - Jane,B,3,0,False,461,0,34967,75.85032537960954,349670000.0,10000.0,2,Class 2
+1781,Upper Ridge Creek (Upper Peak Creek),B,3,0,False,134,0,874,6.522388059701493,8740000.0,10000.0,1,Class 1
+1783,West Maxwell - Algonkian,A,4,0,False,832,0,14466,17.38701923076923,144660000.0,10000.0,1,Class 1
+1784,West Maxwell - Algonkian,A,4,0,False,18,0,285,15.833333333333334,2850000.0,10000.0,1,Class 1
+1785,West Maxwell - Algonkian,A,4,0,False,209,0,1271,6.08133971291866,12710000.0,10000.0,1,Class 1
+1786,West Maxwell - Algonkian,A,4,0,False,81,0,130,1.6049382716049383,1300000.0,10000.0,1,Class 1
+1787,West Maxwell - Algonkian,A,4,0,False,25,0,573,22.92,5730000.0,10000.0,2,Class 2
+1788,West Maxwell - Algonkian,A,4,0,False,1805,0,10634,5.891412742382271,106340000.0,10000.0,1,Class 1
+1789,East Maxwell - Algonkian,A,4,0,False,752,0,5345,7.107712765957447,53450000.0,10000.0,1,Class 1
+1790,East Maxwell - Algonkian,A,4,0,False,1514,0,37561,24.809114927344783,375610000.0,10000.0,2,Class 2
+1791,East Maxwell - Algonkian,A,4,0,False,25,0,1165,46.6,11650000.0,10000.0,2,Class 2
+1792,East Maxwell - Algonkian,A,4,0,False,77,0,786,10.207792207792208,7860000.0,10000.0,1,Class 1
+1793,East Maxwell - Algonkian,A,4,0,False,1126,0,8292,7.364120781527531,82920000.0,10000.0,1,Class 1
+1794,East Maxwell - Algonkian,A,4,0,False,1564,0,9050,5.786445012787723,90500000.0,10000.0,1,Class 1
+1795,Lower Maxwell,A,4,0,False,361,0,22924,63.501385041551245,229240000.0,10000.0,2,Class 2
+1796,Lower Maxwell,A,4,0,False,917,0,19326,21.075245365321702,193260000.0,10000.0,2,Class 2
+1797,Lower Maxwell,A,4,0,False,750,0,22131,29.508,221310000.0,10000.0,2,Class 2
+1798,Gordon - Sprent,A,4,0,False,32,0,54,1.6875,540000.0,10000.0,1,Class 1
+1799,Gordon - Sprent,A,4,0,False,3047,0,419369,137.63340991138824,4193690000.0,10000.0,2,Class 2
+1800,Butler Rivulet,A,4,0,False,303,0,2073,6.841584158415841,20730000.0,10000.0,1,Class 1
+1801,Iron Creek - Varna Bay (1),B,3,0,False,118,0,525,4.4491525423728815,5250000.0,10000.0,1,Class 1
+1804,Iron Creek - Varna Bay (2),B,3,0,False,21,0,596,28.38095238095238,5960000.0,10000.0,2,Class 2
+1805,Iron Creek - Varna Bay (2),B,3,0,False,1062,0,2210,2.080979284369115,22100000.0,10000.0,1,Class 1
+1806,Lower Olga,A,4,0,False,16,0,29,1.8125,290000.0,10000.0,1,Class 1
+1807,Lower Olga,A,4,0,False,605,0,16305,26.950413223140497,163050000.0,10000.0,2,Class 2
+1808,Lower Olga,A,4,0,False,290,0,16473,56.80344827586207,164730000.0,10000.0,2,Class 2
+1809,Middle Olga,A,4,0,False,90,0,623,6.922222222222223,6230000.0,10000.0,1,Class 1
+1810,Hardwood-Davey,A,4,0,False,15653,0,55965,3.575352967482272,559650000.0,10000.0,1,Class 1
+1811,Hardwood-Davey,A,4,0,False,37,0,15414,416.5945945945946,154140000.0,10000.0,3,Class 3
+1812,Nicholls Range,A,4,0,False,472,0,216878,459.4872881355933,2168780000.0,10000.0,3,Class 3
+1813,Giblin River,B,3,0,False,6506,0,30006,4.612050415001537,300060000.0,10000.0,1,Class 1
+1814,Giblin River,B,3,0,False,106,0,1072,10.11320754716981,10720000.0,10000.0,1,Class 1
+1816,Lower Cracroft,B,3,0,False,631,0,17573,27.84944532488114,175730000.0,10000.0,2,Class 2
+1817,Arthur - Huon,B,3,0,False,3,0,5,1.6666666666666667,50000.0,10000.0,1,Class 1
+1818,Arthur - Huon,B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1819,Huon Plains,B,3,B,True,1,1,28,28.0,280000.0,10000.0,2,Class 2
+1820,Scotts Peak,A,4,0,False,326,0,72575,222.62269938650303,725750000.0,10000.0,2,Class 2
+1823,Scotts Peak,A,4,0,False,55,0,72442,1317.1272727272728,724420000.0,10000.0,3,Class 3
+1825,Modder River,B,3,0,False,171,0,2479,14.497076023391813,24790000.0,10000.0,1,Class 1
+1826,Mt Anne - Upper Weld (1),A,4,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+1827,Mt Anne - Upper Weld (1),A,4,0,False,6,0,8,1.3333333333333333,80000.0,10000.0,1,Class 1
+1828,Mt Anne - Upper Weld (1),A,4,0,False,54,0,1958,36.25925925925926,19580000.0,10000.0,2,Class 2
+1829,Mt Anne - Upper Weld (1),A,4,0,False,731,0,7882,10.78248974008208,78820000.0,10000.0,1,Class 1
+1830,Mt Anne - Upper Weld (1),A,4,0,False,19,0,21,1.105263157894737,210000.0,10000.0,1,Class 1
+1831,Mt Anne - Upper Weld (1),A,4,0,False,7,0,25012,3573.1428571428573,250120000.0,10000.0,3,Class 3
+1832,Mt Anne - Upper Weld (1),A,4,0,False,1,0,5521,5521.0,55210000.0,10000.0,3,Class 3
+1833,Mt Anne - Upper Weld (1),A,4,0,False,1,0,6201,6201.0,62010000.0,10000.0,3,Class 3
+1834,Mt Anne - Upper Weld (1),A,4,0,False,59,0,15395,260.93220338983053,153950000.0,10000.0,2,Class 2
+1835,Mt Anne - Upper Weld (1),A,4,0,False,10,0,114,11.4,1140000.0,10000.0,1,Class 1
+1836,Mt Anne - Upper Weld (1),A,4,0,False,25,0,166,6.64,1660000.0,10000.0,1,Class 1
+1842,Mt Anne - Upper Weld (1),A,4,0,False,1978,0,27247,13.775025278058646,272470000.0,10000.0,1,Class 1
+1843,Mt Anne - Upper Weld (1),A,4,0,False,727,0,5560,7.64786795048143,55600000.0,10000.0,1,Class 1
+1844,Mt Anne - Upper Weld (1),A,4,0,False,493,0,1553,3.150101419878296,15530000.0,10000.0,1,Class 1
+1845,Mt Anne - Upper Weld (1),A,4,0,False,53,0,24975,471.2264150943397,249750000.0,10000.0,3,Class 3
+1846,Mt Anne - Upper Weld (1),A,4,0,False,51,0,529,10.372549019607844,5290000.0,10000.0,1,Class 1
+1847,Mt Anne - Upper Weld (1),A,4,0,False,1200,0,2721,2.2675,27210000.0,10000.0,1,Class 1
+1848,Mt Anne - Upper Weld (1),A,4,0,False,10,0,501,50.1,5010000.0,10000.0,2,Class 2
+1849,Mt Anne - Upper Weld (1),A,4,0,False,333,0,1718,5.15915915915916,17180000.0,10000.0,1,Class 1
+1850,Mt Anne - Upper Weld (1),A,4,0,False,3,0,415,138.33333333333334,4150000.0,10000.0,2,Class 2
+1851,Mt Anne - Upper Weld (1),A,4,0,False,11,0,52,4.727272727272728,520000.0,10000.0,1,Class 1
+1852,Mt Anne - Upper Weld (1),A,4,0,False,119,0,503,4.226890756302521,5030000.0,10000.0,1,Class 1
+1853,Mt Anne - Upper Weld (1),A,4,0,False,33,0,36,1.0909090909090908,360000.0,10000.0,1,Class 1
+1854,Mt Anne - Upper Weld (1),A,4,0,False,2,0,26,13.0,260000.0,10000.0,1,Class 1
+1855,Mt Anne - Upper Weld (1),A,4,0,False,4,0,13,3.25,130000.0,10000.0,1,Class 1
+1856,Mt Anne - Upper Weld (1),A,4,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+1863,Mt Anne - Upper Weld (1),A,4,0,False,3,0,19,6.333333333333333,190000.0,10000.0,1,Class 1
+1864,Mt Anne - Upper Weld (1),A,4,0,False,0,0,0,,0.0,10000.0,,No data
+1865,Mt Anne - Upper Weld (1),A,4,0,False,252,0,1302,5.166666666666667,13020000.0,10000.0,1,Class 1
+1866,Mt Anne - Upper Weld (1),A,4,0,False,785,0,1395,1.7770700636942676,13950000.0,10000.0,1,Class 1
+1867,Mt Anne - Upper Weld (1),A,4,0,False,6535,0,12745,1.95026778882938,127450000.0,10000.0,1,Class 1
+1869,Mt Anne - Upper Weld (2),C,2,0,False,105,0,344,3.276190476190476,3440000.0,10000.0,1,Class 1
+1870,Mt Anne - Upper Weld (2),C,2,0,False,4,0,13,3.25,130000.0,10000.0,1,Class 1
+1871,Mt Anne - Upper Weld (2),C,2,0,False,11,0,72,6.545454545454546,720000.0,10000.0,1,Class 1
+1872,Mt Anne - Upper Weld (2),C,2,0,False,42,0,89,2.119047619047619,890000.0,10000.0,1,Class 1
+1874,Mt Anne - Upper Weld (2),C,2,0,False,7,0,410,58.57142857142857,4100000.0,10000.0,2,Class 2
+1875,Mt Anne - Upper Weld (2),C,2,0,False,81,0,411,5.074074074074074,4110000.0,10000.0,1,Class 1
+1876,Mt Anne - Upper Weld (2),C,2,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1877,Mt Anne - Upper Weld (2),C,2,0,False,1,0,5,5.0,50000.0,10000.0,1,Class 1
+1878,Mt Anne - Upper Weld (2),C,2,0,False,9,0,12,1.3333333333333333,120000.0,10000.0,1,Class 1
+1879,Mt Anne - Upper Weld (2),C,2,0,False,34,0,45,1.3235294117647058,450000.0,10000.0,1,Class 1
+1880,Mt Anne - Upper Weld (2),C,2,0,False,20,0,53,2.65,530000.0,10000.0,1,Class 1
+1881,Mt Anne - Upper Weld (2),C,2,0,False,17,0,25,1.4705882352941178,250000.0,10000.0,1,Class 1
+1882,Mt Anne - Upper Weld (2),C,2,0,False,25,0,92,3.68,920000.0,10000.0,1,Class 1
+1883,Mt Anne - Upper Weld (2),C,2,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1885,Mt Anne - Upper Weld (2),C,2,0,False,535,0,995,1.8598130841121496,9950000.0,10000.0,1,Class 1
+1886,Mt Anne - Upper Weld (3),D,1,0,False,8,0,384,48.0,3840000.0,10000.0,2,Class 2
+1887,Mt Anne - Upper Weld (3),D,1,0,False,137,0,1889,13.788321167883211,18890000.0,10000.0,1,Class 1
+1888,Mt Anne - Upper Weld (3),D,1,0,False,244,0,717,2.9385245901639343,7170000.0,10000.0,1,Class 1
+1889,Mt Anne - Upper Weld (3),D,1,0,False,309,0,5124,16.58252427184466,51240000.0,10000.0,1,Class 1
+1890,Mt Anne - Upper Weld (3),D,1,0,False,1670,0,4327,2.5910179640718565,43270000.0,10000.0,1,Class 1
+1891,Mt Anne - Upper Weld (3),D,1,0,False,41,0,75,1.829268292682927,750000.0,10000.0,1,Class 1
+1892,Mt Anne - Upper Weld (3),D,1,0,False,88,0,390,4.431818181818182,3900000.0,10000.0,1,Class 1
+1893,Mt Anne - Upper Weld (3),D,1,0,False,330,0,2060,6.242424242424242,20600000.0,10000.0,1,Class 1
+1894,Mt Anne - Upper Weld (3),D,1,0,False,395,0,1725,4.367088607594937,17250000.0,10000.0,1,Class 1
+1895,Mt Anne - Upper Weld (3),D,1,0,False,1880,0,6779,3.605851063829787,67790000.0,10000.0,1,Class 1
+1902,Mt Anne - Upper Weld (3),D,1,0,False,72,0,360,5.0,3600000.0,10000.0,1,Class 1
+1903,Mt Anne - Upper Weld (3),D,1,0,False,56,0,242,4.321428571428571,2420000.0,10000.0,1,Class 1
+1904,Mt Anne - Upper Weld (3),D,1,0,False,137,0,600,4.37956204379562,6000000.0,10000.0,1,Class 1
+1905,Mt Anne - Upper Weld (3),D,1,0,False,84,0,243,2.892857142857143,2430000.0,10000.0,1,Class 1
+1906,Mt Anne - Upper Weld (3),D,1,0,False,89,0,108,1.2134831460674158,1080000.0,10000.0,1,Class 1
+1907,Mt Anne - Upper Weld (3),D,1,0,False,855,0,1585,1.8538011695906436,15850000.0,10000.0,1,Class 1
+1908,Mt Anne - Upper Weld (3),D,1,0,False,602,0,916,1.521594684385382,9160000.0,10000.0,1,Class 1
+1909,Mt Anne - Upper Weld (3),D,1,0,False,11,0,12,1.0909090909090908,120000.0,10000.0,1,Class 1
+1910,Mt Anne - Upper Weld (3),D,1,0,False,108,0,125,1.1574074074074074,1250000.0,10000.0,1,Class 1
+1911,Mt Anne - Upper Weld (3),D,1,0,False,64,0,72,1.125,720000.0,10000.0,1,Class 1
+1912,Mt Anne - Upper Weld (3),D,1,0,False,149,0,965,6.476510067114094,9650000.0,10000.0,1,Class 1
+1913,Mt Anne - Upper Weld (3),D,1,0,False,779,0,1180,1.514762516046213,11800000.0,10000.0,1,Class 1
+1914,Mt Anne - Upper Weld (3),D,1,0,False,114,0,160,1.4035087719298245,1600000.0,10000.0,1,Class 1
+1917,Boyd River,B,3,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+1918,Boyd River,B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1921,Mc Partlan,D,1,0,False,96,0,109,1.1354166666666667,1090000.0,10000.0,1,Class 1
+1922,Mc Partlan,D,1,0,False,3,0,3,1.0,30000.0,10000.0,1,Class 1
+1923,Mc Partlan,D,1,0,False,79,0,295,3.734177215189873,2950000.0,10000.0,1,Class 1
+1924,Mc Partlan,D,1,0,False,20,0,26,1.3,260000.0,10000.0,1,Class 1
+1925,Mc Partlan,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+1926,Mc Partlan,D,1,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+1927,Mc Partlan,D,1,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+1928,Mc Partlan,D,1,0,False,3,0,258,86.0,2580000.0,10000.0,2,Class 2
+1929,Mc Partlan,D,1,0,False,194,0,3919,20.201030927835053,39190000.0,10000.0,2,Class 2
+1930,Mc Partlan,D,1,0,False,21,0,62,2.952380952380953,620000.0,10000.0,1,Class 1
+1931,Mc Partlan,D,1,0,False,44,0,112,2.5454545454545454,1120000.0,10000.0,1,Class 1
+1932,Mc Partlan,D,1,0,False,1,0,40,40.0,400000.0,10000.0,2,Class 2
+1933,Mc Partlan,D,1,0,False,2,0,108,54.0,1080000.0,10000.0,2,Class 2
+1935,Adamsfield,A,4,0,False,1744,0,5501,3.154243119266055,55010000.0,10000.0,1,Class 1
+1936,Adamsfield,A,4,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1937,Adamsfield,A,4,0,False,0,0,0,,0.0,10000.0,,No data
+1938,Adamsfield,A,4,0,False,5,0,36,7.2,360000.0,10000.0,1,Class 1
+1939,Vale of Rasselas,A,4,0,False,51,0,52,1.0196078431372548,520000.0,10000.0,1,Class 1
+1940,Vale of Rasselas,A,4,0,False,43,0,64,1.4883720930232558,640000.0,10000.0,1,Class 1
+1941,Vale of Rasselas,A,4,0,False,715,0,10285,14.384615384615383,102850000.0,10000.0,1,Class 1
+1945,Vale of Rasselas,A,4,0,False,8309,0,46027,5.539415092068841,460270000.0,10000.0,1,Class 1
+1946,Vale of Rasselas,A,4,0,False,1,0,82,82.0,820000.0,10000.0,2,Class 2
+1947,Vale of Rasselas,A,4,0,False,69,0,69,1.0,690000.0,10000.0,1,Class 1
+1948,Vale of Rasselas,A,4,0,False,1,0,38,38.0,380000.0,10000.0,2,Class 2
+1949,Vale of Rasselas,A,4,0,False,2,0,42709,21354.5,427090000.0,10000.0,4,Class 4
+1950,Vale of Rasselas,A,4,0,False,2,0,40153,20076.5,401530000.0,10000.0,4,Class 4
+1951,Vale of Rasselas,A,4,0,False,1,0,18,18.0,180000.0,10000.0,1,Class 1
+1952,Vale of Rasselas,A,4,0,False,4,0,36732,9183.0,367320000.0,10000.0,4,Class 4
+1953,Vale of Rasselas,A,4,0,False,2,0,9,4.5,90000.0,10000.0,1,Class 1
+1954,Vale of Rasselas,A,4,0,False,4,0,1395,348.75,13950000.0,10000.0,2,Class 2
+1955,Pearce,C,2,0,False,2,0,3,1.5,30000.0,10000.0,1,Class 1
+1956,Pokana,D,1,0,False,5,0,33,6.6,330000.0,10000.0,1,Class 1
+1957,Pokana,D,1,0,False,11,0,48,4.363636363636363,480000.0,10000.0,1,Class 1
+1958,Pokana,D,1,0,False,192,0,1006,5.239583333333333,10060000.0,10000.0,1,Class 1
+1959,Pokana,D,1,0,False,161,0,2403,14.925465838509316,24030000.0,10000.0,1,Class 1
+1960,Pokana,D,1,0,False,2,0,15,7.5,150000.0,10000.0,1,Class 1
+1962,Gell River,D,1,0,False,10,0,347,34.7,3470000.0,10000.0,2,Class 2
+1963,Gell River,D,1,0,False,29,0,30,1.0344827586206895,300000.0,10000.0,1,Class 1
+1964,Gell River,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+1965,Gell River,D,1,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+1966,Gell River,D,1,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+1967,Gell River,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+1968,Gell River,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+1969,Gell River,D,1,0,False,172,0,1110,6.453488372093023,11100000.0,10000.0,1,Class 1
+1970,Gell River,D,1,0,False,70,0,254,3.628571428571429,2540000.0,10000.0,1,Class 1
+1971,Upper Erebus Rivulet,B,3,0,False,204,0,4173,20.455882352941178,41730000.0,10000.0,2,Class 2
+1972,Upper Erebus Rivulet,B,3,0,False,142,0,4122,29.028169014084508,41220000.0,10000.0,2,Class 2
+1973,Everlasting Hills,A,4,0,False,712,0,3101,4.355337078651686,31010000.0,10000.0,1,Class 1
+1974,Everlasting Hills,A,4,0,False,105,0,195,1.8571428571428568,1950000.0,10000.0,1,Class 1
+1975,Birthday Bay - Nielson Creek,B,3,0,False,25,0,187,7.48,1870000.0,10000.0,1,Class 1
+1976,Birthday Bay - Nielson Creek,B,3,0,False,418,0,4692,11.22488038277512,46920000.0,10000.0,1,Class 1
+1977,Birthday Bay - Nielson Creek,B,3,0,False,7,0,48,6.857142857142857,480000.0,10000.0,1,Class 1
+1978,Birthday Bay - Nielson Creek,B,3,0,False,8,0,14,1.75,140000.0,10000.0,1,Class 1
+1979,Erebus - Denison,A,4,0,False,524,0,569,1.0858778625954195,5690000.0,10000.0,1,Class 1
+1980,Erebus - Denison,A,4,0,False,120,0,131,1.0916666666666666,1310000.0,10000.0,1,Class 1
+1981,Upper Loddon,A,4,0,False,220,0,254,1.1545454545454543,2540000.0,10000.0,1,Class 1
+1982,Mount Ronald Cross,A,4,0,False,442,0,3825,8.653846153846153,38250000.0,10000.0,1,Class 1
+1983,Carbonate Creek,B,3,0,False,265,0,16071,60.64528301886792,160710000.0,10000.0,2,Class 2
+1984,Carbonate Creek,B,3,0,False,1,0,15919,15919.0,159190000.0,10000.0,4,Class 4
+1985,Carbonate Creek,B,3,0,False,40,0,15917,397.925,159170000.0,10000.0,3,Class 3
+1986,Carbonate Creek,B,3,0,False,1,0,4,4.0,40000.0,10000.0,1,Class 1
+1987,Wombat Glen,D,1,0,False,3,0,9,3.0,90000.0,10000.0,1,Class 1
+1988,Mt Gell (Cheyne Range),B,3,0,False,124,0,213,1.717741935483871,2130000.0,10000.0,1,Class 1
+1989,Mt Weld (Fairyland),A,4,0,False,0,0,0,,0.0,10000.0,,No data
+1990,Mt Weld (Fairyland),A,4,0,False,0,0,0,,0.0,10000.0,,No data
+1991,Mt Weld (Fairyland),A,4,0,False,0,0,0,,0.0,10000.0,,No data
+1992,Mt Weld (Fairyland),A,4,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+1993,Mt Weld (Fairyland),A,4,0,False,0,0,0,,0.0,10000.0,,No data
+1994,Mt Weld (Fairyland),A,4,0,False,1,0,13,13.0,130000.0,10000.0,1,Class 1
+1996,Mt Weld (Fairyland),A,4,0,False,37,0,30063,812.5135135135135,300630000.0,10000.0,3,Class 3
+1997,Mt Weld (Fairyland),A,4,0,False,595,0,32706,54.96806722689075,327060000.0,10000.0,2,Class 2
+1998,Mt Weld (Fairyland),A,4,0,False,67,0,214,3.194029850746269,2140000.0,10000.0,1,Class 1
+1999,Mt Weld (Fairyland),A,4,0,False,235,0,315,1.3404255319148937,3150000.0,10000.0,1,Class 1
+2000,Mt Weld (Fairyland),A,4,0,False,270,0,30450,112.77777777777776,304500000.0,10000.0,2,Class 2
+2001,Mt Weld (Fairyland),A,4,0,False,341,0,27507,80.66568914956012,275070000.0,10000.0,2,Class 2
+2005,Riveaux,A,4,0,False,278,0,140997,507.1834532374101,1409970000.0,10000.0,3,Class 3
+2006,Riveaux,A,4,0,False,28,0,155,5.535714285714286,1550000.0,10000.0,1,Class 1
+2007,Riveaux,A,4,0,False,3,0,94,31.33333333333333,940000.0,10000.0,2,Class 2
+2008,Riveaux,A,4,0,False,0,0,0,,0.0,10000.0,,No data
+2009,Riveaux,A,4,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+2011,Manuka Creek - Blakes Opening,B,3,0,False,852,0,138980,163.12206572769952,1389800000.0,10000.0,2,Class 2
+2012,Manuka Creek - Blakes Opening,B,3,0,False,455,0,1610,3.5384615384615383,16100000.0,10000.0,1,Class 1
+2013,Manuka Creek - Blakes Opening,B,3,0,False,61,0,563,9.229508196721312,5630000.0,10000.0,1,Class 1
+2014,Manuka Creek - Blakes Opening,B,3,0,False,21,0,25,1.1904761904761905,250000.0,10000.0,1,Class 1
+2015,Manuka Creek - Blakes Opening,B,3,0,False,33,0,45,1.3636363636363635,450000.0,10000.0,1,Class 1
+2016,Manuka Creek - Blakes Opening,B,3,0,False,2,0,11,5.5,110000.0,10000.0,1,Class 1
+2017,Manuka Creek - Blakes Opening,B,3,0,False,480,0,136166,283.6791666666667,1361660000.0,10000.0,2,Class 2
+2021,Manuka Creek - Blakes Opening,B,3,0,False,1,0,137897,137897.0,1378970000.0,10000.0,4,Class 4
+2022,Manuka Creek - Blakes Opening,B,3,0,False,3,0,19,6.333333333333333,190000.0,10000.0,1,Class 1
+2023,Manuka Creek - Blakes Opening,B,3,0,False,696,0,1629,2.3405172413793105,16290000.0,10000.0,1,Class 1
+2024,Cracroft,A,4,0,False,439,0,1757,4.002277904328018,17570000.0,10000.0,1,Class 1
+2025,Cracroft,A,4,0,False,447,0,2510,5.615212527964206,25100000.0,10000.0,1,Class 1
+2026,Cracroft,A,4,0,False,865,0,1269,1.4670520231213873,12690000.0,10000.0,1,Class 1
+2027,Albina Bay,B,3,0,False,36,0,138,3.8333333333333335,1380000.0,10000.0,1,Class 1
+2028,Albina Bay,B,3,0,False,16,0,73,4.5625,730000.0,10000.0,1,Class 1
+2029,Albina Bay,B,3,0,False,2,0,1055,527.5,10550000.0,10000.0,3,Class 3
+2030,Albina Bay,B,3,0,False,24,0,953,39.708333333333336,9530000.0,10000.0,2,Class 2
+2031,Albina Bay,B,3,0,False,2,0,14,7.0,140000.0,10000.0,1,Class 1
+2033,Forest Hills,A,4,0,False,464,0,4061,8.752155172413794,40610000.0,10000.0,1,Class 1
+2034,Vanishing Falls,A,4,0,False,160,0,4697,29.35625,46970000.0,10000.0,2,Class 2
+2035,Vanishing Falls,A,4,0,False,655,0,2136,3.261068702290076,21360000.0,10000.0,1,Class 1
+2036,Precipitous Bluff,A,4,0,False,3922,0,25657,6.541815400305967,256570000.0,10000.0,1,Class 1
+2037,Precipitous Bluff,A,4,0,False,2582,0,10784,4.176607281177382,107840000.0,10000.0,1,Class 1
+2038,South Pindars,A,4,0,False,3,0,81,27.0,810000.0,10000.0,2,Class 2
+2039,Prion Beach (Point Cecil),A,4,0,False,34,0,1177,34.61764705882353,11770000.0,10000.0,2,Class 2
+2041,Rocky Boat - Point Vivian,B,3,0,False,7,0,7,1.0,70000.0,10000.0,1,Class 1
+2042,Rocky Boat - Point Vivian,B,3,0,False,3,0,7,2.333333333333333,70000.0,10000.0,1,Class 1
+2043,Surprise Bay,A,4,0,False,67,0,2963,44.223880597014926,29630000.0,10000.0,2,Class 2
+2044,Surprise Bay,A,4,0,False,130,0,156,1.2,1560000.0,10000.0,1,Class 1
+2045,Ile du Golfe,A,4,0,False,56,0,57,1.0178571428571428,570000.0,10000.0,1,Class 1
+2047,Lagoon Creek,B,3,0,False,53,0,1380,26.0377358490566,13800000.0,10000.0,2,Class 2
+2051,Lagoon Creek,B,3,0,False,259,0,1229,4.745173745173745,12290000.0,10000.0,1,Class 1
+2052,Lagoon Creek,B,3,0,False,1,0,23,23.0,230000.0,10000.0,2,Class 2
+2053,Lagoon Creek,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2054,Lagoon Creek,B,3,0,False,2,0,14,7.0,140000.0,10000.0,1,Class 1
+2056,Liberty Creek,B,3,0,False,3,0,41,13.666666666666666,410000.0,10000.0,1,Class 1
+2057,Liberty Creek,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2060,Savage River Mine,B,3,0,False,16,0,54,3.375,540000.0,10000.0,1,Class 1
+2061,Savage River Mine,B,3,0,False,10,0,10,1.0,100000.0,10000.0,1,Class 1
+2065,"Mt Cripps (Mt Mayday, Mackintosh)",A,4,0,False,346,0,10976,31.72254335260116,109760000.0,10000.0,2,Class 2
+2066,"Mt Cripps (Mt Mayday, Mackintosh)",A,4,0,False,28,0,177,6.321428571428571,1770000.0,10000.0,1,Class 1
+2067,"Mt Cripps (Mt Mayday, Mackintosh)",A,4,0,False,61,0,4498,73.73770491803279,44980000.0,10000.0,2,Class 2
+2068,"Mt Cripps (Mt Mayday, Mackintosh)",A,4,0,False,1214,0,12060,9.934102141680397,120600000.0,10000.0,1,Class 1
+2072,Blackwater Creek,A,4,0,False,0,0,0,,0.0,10000.0,,No data
+2073,Blackwater Creek,A,4,0,False,169,0,29411,174.02958579881656,294110000.0,10000.0,2,Class 2
+2074,Blackwater Creek,A,4,0,False,197,0,28957,146.98984771573603,289570000.0,10000.0,2,Class 2
+2075,Blackwater Creek,A,4,0,False,59,0,59,1.0,590000.0,10000.0,1,Class 1
+2076,Blackwater Creek,A,4,0,False,7,0,112,16.0,1120000.0,10000.0,1,Class 1
+2077,Blackwater Creek,A,4,0,False,4,0,29262,7315.5,292620000.0,10000.0,4,Class 4
+2078,Blackwater Creek,A,4,0,False,85,0,208,2.447058823529412,2080000.0,10000.0,1,Class 1
+2079,Blackwater Creek,A,4,0,False,8,0,11,1.375,110000.0,10000.0,1,Class 1
+2080,Blackwater Creek,A,4,0,False,120,0,157,1.3083333333333331,1570000.0,10000.0,1,Class 1
+2081,Longback,B,3,0,False,4,0,5,1.25,50000.0,10000.0,1,Class 1
+2082,Longback,B,3,0,False,423,0,1816,4.293144208037825,18160000.0,10000.0,1,Class 1
+2083,Brookside,B,3,0,False,15,0,15,1.0,150000.0,10000.0,1,Class 1
+2084,Brookside,B,3,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+2085,Brookside,B,3,0,False,2,0,5,2.5,50000.0,10000.0,1,Class 1
+2086,Brookside,B,3,0,False,333,0,28927,86.86786786786787,289270000.0,10000.0,2,Class 2
+2087,Corinna,B,3,0,False,451,0,321932,713.8181818181819,3219320000.0,10000.0,3,Class 3
+2088,Corinna,B,3,0,False,4,0,10,2.5,100000.0,10000.0,1,Class 1
+2089,Corinna,B,3,0,False,9,0,9,1.0,90000.0,10000.0,1,Class 1
+2090,Corinna,B,3,0,False,54,0,82,1.5185185185185186,820000.0,10000.0,1,Class 1
+2091,Corinna,B,3,0,False,4,0,4,1.0,40000.0,10000.0,1,Class 1
+2092,Corinna,B,3,0,False,4,0,4,1.0,40000.0,10000.0,1,Class 1
+2093,Corinna,B,3,0,False,22,0,283,12.863636363636363,2830000.0,10000.0,1,Class 1
+2094,Corinna,B,3,0,False,115,0,319108,2774.8521739130438,3191080000.0,10000.0,3,Class 3
+2095,Corinna,B,3,0,False,4,0,668,167.0,6680000.0,10000.0,2,Class 2
+2096,Corinna,B,3,0,False,6,0,32,5.333333333333333,320000.0,10000.0,1,Class 1
+2097,Corinna,B,3,0,False,621,0,29435,47.39935587761675,294350000.0,10000.0,2,Class 2
+2099,Savage - Delville,B,3,0,False,77,0,161,2.090909090909091,1610000.0,10000.0,1,Class 1
+2100,Savage - Delville,B,3,0,False,134,0,30429,227.0820895522388,304290000.0,10000.0,2,Class 2
+2101,Savage - Delville,B,3,0,False,663,0,352498,531.6711915535445,3524980000.0,10000.0,3,Class 3
+2102,Savage - Delville,B,3,0,False,18,0,21,1.1666666666666667,210000.0,10000.0,1,Class 1
+2103,Savage - Delville,B,3,0,False,251,0,713,2.8406374501992038,7130000.0,10000.0,1,Class 1
+2104,Mt Youngbuck,D,1,0,False,888,0,10390,11.70045045045045,103900000.0,10000.0,1,Class 1
+2105,Mt Youngbuck,D,1,0,False,2599,0,26380,10.15005771450558,263800000.0,10000.0,1,Class 1
+2106,Falls Creek,D,1,0,False,358,0,886,2.474860335195531,8860000.0,10000.0,1,Class 1
+2107,Ramsay River,D,1,0,False,36,0,3741,103.91666666666669,37410000.0,10000.0,2,Class 2
+2108,Ramsay River,D,1,0,False,3374,0,38524,11.417901600474217,385240000.0,10000.0,1,Class 1
+2110,Main Creek - Bowry Creek,A,4,0,False,52,0,364,7.0,3640000.0,10000.0,1,Class 1
+2111,Main Creek - Bowry Creek,A,4,0,False,77,0,2197,28.53246753246753,21970000.0,10000.0,2,Class 2
+2112,Merton - Sweeney Creek,C,2,0,False,66,0,336,5.090909090909091,3360000.0,10000.0,1,Class 1
+2113,Merton - Sweeney Creek,C,2,0,False,28,0,247,8.821428571428571,2470000.0,10000.0,1,Class 1
+2114,Mt Lindsay (1),C,2,0,False,2571,0,23765,9.243485025281991,237650000.0,10000.0,1,Class 1
+2115,Mt Lindsay (2),C,2,0,False,26,0,226,8.692307692307692,2260000.0,10000.0,1,Class 1
+2116,Mt Lindsay (2),C,2,0,False,197,0,744,3.7766497461928936,7440000.0,10000.0,1,Class 1
+2117,Mt Lindsay (2),C,2,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+2118,Mt Lindsay (2),C,2,0,False,1,0,55,55.0,550000.0,10000.0,2,Class 2
+2119,Mt Lindsay (2),C,2,0,False,1,0,12,12.0,120000.0,10000.0,1,Class 1
+2120,Mt Lindsay (3),C,2,0,False,159,0,478,3.006289308176101,4780000.0,10000.0,1,Class 1
+2121,Mt Lindsay (3),C,2,0,False,58,0,280,4.827586206896552,2800000.0,10000.0,1,Class 1
+2123,Heazlewood River - Whaleback Ridge,D,1,0,False,1811,0,3541,1.9552733296521256,35410000.0,10000.0,1,Class 1
+2124,Renison Bell,D,1,D,True,0,0,0,,0.0,10000.0,,No data
+2125,Renison Bell,D,1,D,True,0,0,0,,0.0,10000.0,,No data
+2126,Renison Bell,D,1,D,True,2,2,2,1.0,20000.0,10000.0,1,Class 1
+2127,Renison Bell,D,1,D,True,2,2,2,1.0,20000.0,10000.0,1,Class 1
+2128,Renison Bell,D,1,D,True,1,1,0,0.0,0.0,10000.0,1,Class 1
+2129,Renison Bell,D,1,D,True,2,2,2,1.0,20000.0,10000.0,1,Class 1
+2130,Renison Bell,D,1,D,True,2,2,0,0.0,0.0,10000.0,1,Class 1
+2131,Webbs Creek,B,3,0,False,168,0,1563,9.303571428571429,15630000.0,10000.0,1,Class 1
+2132,Webbs Creek,B,3,0,False,2,0,769,384.5,7690000.0,10000.0,3,Class 3
+2133,Wilson River,B,3,0,False,142,0,929,6.542253521126761,9290000.0,10000.0,1,Class 1
+2135,Wilson River,B,3,0,False,36,0,126,3.5,1260000.0,10000.0,1,Class 1
+2136,Wilson River,B,3,0,False,2,0,4,2.0,40000.0,10000.0,1,Class 1
+2137,Wilson River,B,3,0,False,3,0,582,194.0,5820000.0,10000.0,2,Class 2
+2138,Wilson River,B,3,0,False,3,0,39,13.0,390000.0,10000.0,1,Class 1
+2139,Wilson River,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2140,Wilson River,B,3,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
+2141,Wilson River,B,3,0,False,21,0,13745,654.5238095238095,137450000.0,10000.0,3,Class 3
+2142,Huskisson River (1),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+2143,Huskisson River (1),B,3,0,False,15,0,29,1.9333333333333331,290000.0,10000.0,1,Class 1
+2144,Huskisson River (1),B,3,0,False,73,0,461,6.315068493150685,4610000.0,10000.0,1,Class 1
+2145,Huskisson River (1),B,3,0,False,69,0,50088,725.9130434782609,500880000.0,10000.0,3,Class 3
+2146,Huskisson River (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2147,Huskisson River (1),B,3,0,False,15,0,1871,124.73333333333332,18710000.0,10000.0,2,Class 2
+2148,Huskisson River (1),B,3,0,False,20,0,50026,2501.3,500260000.0,10000.0,3,Class 3
+2149,Huskisson River (1),B,3,0,False,20,0,1977,98.85,19770000.0,10000.0,2,Class 2
+2150,Huskisson River (1),B,3,0,False,4,0,1849,462.25,18490000.0,10000.0,3,Class 3
+2151,Huskisson River (1),B,3,0,False,17,0,178,10.470588235294118,1780000.0,10000.0,1,Class 1
+2152,Huskisson River (1),B,3,0,False,2,0,3,1.5,30000.0,10000.0,1,Class 1
+2153,Huskisson River (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2154,Huskisson River (1),B,3,0,False,2,0,44,22.0,440000.0,10000.0,2,Class 2
+2155,Huskisson River (1),B,3,0,False,3,0,1834,611.3333333333334,18340000.0,10000.0,3,Class 3
+2156,Huskisson River (1),B,3,0,False,88,0,44471,505.3522727272728,444710000.0,10000.0,3,Class 3
+2157,Huskisson River (1),B,3,0,False,403,0,42125,104.52853598014887,421250000.0,10000.0,2,Class 2
+2158,Huskisson River (1),B,3,0,False,13,0,2343,180.23076923076923,23430000.0,10000.0,2,Class 2
+2159,Huskisson River (1),B,3,0,False,11,0,42083,3825.727272727273,420830000.0,10000.0,3,Class 3
+2160,Huskisson River (1),B,3,0,False,2,0,41978,20989.0,419780000.0,10000.0,4,Class 4
+2161,Huskisson River (1),B,3,0,False,1,0,10,10.0,100000.0,10000.0,1,Class 1
+2162,Huskisson River (1),B,3,0,False,2,0,41882,20941.0,418820000.0,10000.0,4,Class 4
+2163,Huskisson River (1),B,3,0,False,5,0,38229,7645.8,382290000.0,10000.0,4,Class 4
+2164,Huskisson River (1) / (2),B,3,0,False,432,0,49112,113.6851851851852,491120000.0,10000.0,2,Class 2
+2165,Huskisson River (1) / (2),B,3,0,False,9,0,47170,5241.111111111111,471700000.0,10000.0,3,Class 3
+2166,Huskisson River (2),C,2,0,False,1,0,5,5.0,50000.0,10000.0,1,Class 1
+2168,Stingray,B,3,0,False,6,0,40,6.666666666666667,400000.0,10000.0,1,Class 1
+2170,Stingray,B,3,0,False,6,0,207,34.5,2070000.0,10000.0,2,Class 2
+2172,Healy Creek,B,3,0,False,9,0,253,28.11111111111111,2530000.0,10000.0,2,Class 2
+2173,St Dizier,D,1,D,True,4,4,25,6.25,250000.0,10000.0,1,Class 1
+2174,Mt Bell,C,2,0,False,31,0,187,6.032258064516129,1870000.0,10000.0,1,Class 1
+2175,Dunkley (Parting Ck./Station Ck.),B,3,0,False,118,0,860,7.288135593220339,8600000.0,10000.0,1,Class 1
+2176,Dunkley (Parting Ck./Station Ck.),B,3,0,False,4,0,35,8.75,350000.0,10000.0,1,Class 1
+2177,Dunkley (Parting Ck./Station Ck.),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2178,Zeehan (1),B,3,0,False,102,0,17777,174.2843137254902,177770000.0,10000.0,2,Class 2
+2179,Zeehan (1),B,3,0,False,79,0,1776,22.481012658227847,17760000.0,10000.0,2,Class 2
+2180,Zeehan (1),B,3,0,False,21,0,175,8.333333333333334,1750000.0,10000.0,1,Class 1
+2181,Zeehan (1),B,3,0,False,21,0,4190,199.52380952380952,41900000.0,10000.0,2,Class 2
+2182,Zeehan (1),B,3,0,False,4,0,14,3.5,140000.0,10000.0,1,Class 1
+2183,Zeehan (1),B,3,0,False,1,0,361,361.0,3610000.0,10000.0,2,Class 2
+2184,Zeehan (1),B,3,0,False,1,0,30,30.0,300000.0,10000.0,2,Class 2
+2185,Zeehan (1),B,3,0,False,1,0,4,4.0,40000.0,10000.0,1,Class 1
+2186,Zeehan (1),B,3,0,False,10,0,27,2.7,270000.0,10000.0,1,Class 1
+2187,Zeehan (1),B,3,0,False,47,0,513,10.914893617021276,5130000.0,10000.0,1,Class 1
+2188,Zeehan (1),B,3,0,False,8,0,1794,224.25,17940000.0,10000.0,2,Class 2
+2189,Zeehan (1),B,3,0,False,1,0,1182,1182.0,11820000.0,10000.0,3,Class 3
+2190,Zeehan (1),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+2191,Zeehan (1),B,3,0,False,1,0,27,27.0,270000.0,10000.0,2,Class 2
+2192,Zeehan (3),D,1,0,False,9,0,31,3.4444444444444446,310000.0,10000.0,1,Class 1
+2193,Zeehan (3),D,1,0,False,49,0,948,19.346938775510203,9480000.0,10000.0,2,Class 2
+2194,Zeehan (3),D,1,0,False,12,0,4246,353.8333333333333,42460000.0,10000.0,2,Class 2
+2195,Zeehan (3),D,1,0,False,10,0,42,4.2,420000.0,10000.0,1,Class 1
+2196,Zeehan (3),D,1,0,False,22,0,29,1.318181818181818,290000.0,10000.0,1,Class 1
+2197,Zeehan (3),D,1,0,False,5,0,18,3.6,180000.0,10000.0,1,Class 1
+2198,Henty River,B,3,0,False,268,0,13452,50.19402985074627,134520000.0,10000.0,2,Class 2
+2199,Henty River,B,3,0,False,8,0,356,44.5,3560000.0,10000.0,2,Class 2
+2200,Henty River,B,3,0,False,5,0,14295,2859.0,142950000.0,10000.0,3,Class 3
+2201,Henty River,B,3,0,False,5,0,2136,427.2,21360000.0,10000.0,3,Class 3
+2202,Henty River,B,3,0,False,5,0,11207,2241.4,112070000.0,10000.0,3,Class 3
+2203,Westerway - Farrell,B,3,0,False,314,0,2882,9.178343949044589,28820000.0,10000.0,1,Class 1
+2204,Westerway - Farrell,B,3,0,False,1,0,5,5.0,50000.0,10000.0,1,Class 1
+2205,Westerway - Farrell,B,3,0,False,2,0,24,12.0,240000.0,10000.0,1,Class 1
+2206,Westerway - Farrell,B,3,0,False,2,0,1095,547.5,10950000.0,10000.0,3,Class 3
+2207,Westerway - Farrell,B,3,0,False,3,0,267,89.0,2670000.0,10000.0,2,Class 2
+2208,Westerway - Farrell,B,3,0,False,9,0,327,36.333333333333336,3270000.0,10000.0,2,Class 2
+2209,Westerway - Farrell,B,3,0,False,5,0,24,4.8,240000.0,10000.0,1,Class 1
+2210,Westerway - Farrell,B,3,0,False,9,0,27,3.0,270000.0,10000.0,1,Class 1
+2211,Ewart Creek,B,3,0,False,201,0,2197,10.930348258706468,21970000.0,10000.0,1,Class 1
+2212,Ewart Creek,B,3,0,False,3,0,9,3.0,90000.0,10000.0,1,Class 1
+2213,Ewart Creek,B,3,0,False,4,0,107,26.75,1070000.0,10000.0,2,Class 2
+2214,Ewart Creek,B,3,0,False,8,0,23,2.875,230000.0,10000.0,1,Class 1
+2215,Dundas Rivulet Valley (Misery Hill),B,3,0,False,127,0,3626,28.551181102362204,36260000.0,10000.0,2,Class 2
+2216,Dundas Rivulet Valley (Misery Hill),B,3,0,False,6,0,2906,484.3333333333333,29060000.0,10000.0,3,Class 3
+2217,Leslie Creek,B,3,0,False,6,0,27,4.5,270000.0,10000.0,1,Class 1
+2218,McLean Creek (Mt Zeehan),B,3,0,False,179,0,1455,8.128491620111731,14550000.0,10000.0,1,Class 1
+2220,Fen Creek,B,3,0,False,143,0,749,5.2377622377622375,7490000.0,10000.0,1,Class 1
+2221,Fen Creek,B,3,0,False,32,0,95,2.96875,950000.0,10000.0,1,Class 1
+2222,Fen Creek,B,3,0,False,12,0,334,27.83333333333333,3340000.0,10000.0,2,Class 2
+2223,Badger River,B,3,0,False,620,0,2085,3.3629032258064515,20850000.0,10000.0,1,Class 1
+2225,Badger River,B,3,0,False,164,0,1064,6.487804878048781,10640000.0,10000.0,1,Class 1
+2226,Badger River,B,3,0,False,3,0,16,5.333333333333333,160000.0,10000.0,1,Class 1
+2227,Badger River,B,3,0,False,2,0,7,3.5,70000.0,10000.0,1,Class 1
+2228,Badger River,B,3,0,False,1,0,5,5.0,50000.0,10000.0,1,Class 1
+2229,Badger River,B,3,0,False,1,0,22,22.0,220000.0,10000.0,2,Class 2
+2230,Badger River,B,3,0,False,39,0,185,4.743589743589744,1850000.0,10000.0,1,Class 1
+2231,Badger River,B,3,0,False,5,0,548,109.6,5480000.0,10000.0,2,Class 2
+2232,Badger River,B,3,0,False,99,0,1396,14.1010101010101,13960000.0,10000.0,1,Class 1
+2233,Badger River,B,3,0,False,3,0,28,9.333333333333334,280000.0,10000.0,1,Class 1
+2234,Badger River,B,3,0,False,84,0,226,2.6904761904761907,2260000.0,10000.0,1,Class 1
+2235,Little Castray River,B,3,0,False,47,0,2961,63.0,29610000.0,10000.0,2,Class 2
+2236,Little Castray River,B,3,0,False,8,0,75,9.375,750000.0,10000.0,1,Class 1
+2237,Professor - Amber,B,3,0,False,786,0,2160,2.7480916030534357,21600000.0,10000.0,1,Class 1
+2238,Queen River Valley (2),B,3,0,False,215,0,7495,34.86046511627907,74950000.0,10000.0,2,Class 2
+2239,Queen River Valley (2),B,3,0,False,216,0,3776,17.48148148148148,37760000.0,10000.0,1,Class 1
+2240,Queen River Valley (2),B,3,0,False,1,0,683,683.0,6830000.0,10000.0,3,Class 3
+2241,Queen River Valley (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2242,Queen River Valley (2),B,3,0,False,20,0,6745,337.25,67450000.0,10000.0,2,Class 2
+2243,Queen River Valley (2),B,3,0,False,1,0,4,4.0,40000.0,10000.0,1,Class 1
+2244,Queen River Valley (2),B,3,0,False,2,0,13,6.5,130000.0,10000.0,1,Class 1
+2245,Queen River Valley (2),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+2246,Queen River Valley (2),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2247,Queen River Valley (2),B,3,0,False,1,0,31,31.0,310000.0,10000.0,2,Class 2
+2248,Queen River Valley (2),B,3,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
+2249,Queen River Valley (2),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+2250,Queen River Valley (2),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+2251,Queen River Valley (2),B,3,0,False,3,0,172,57.333333333333336,1720000.0,10000.0,2,Class 2
+2252,Queen River Valley (2),B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+2253,Queen River Valley (2),B,3,0,False,2,0,5,2.5,50000.0,10000.0,1,Class 1
+2254,Queen River Valley (2),B,3,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+2255,Queen River Valley (2),B,3,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+2256,Thomas Currie-Newall (1),B,3,0,False,2,0,46,23.0,460000.0,10000.0,2,Class 2
+2257,Thomas Currie-Newall (1),B,3,0,False,1,0,2268,2268.0,22680000.0,10000.0,3,Class 3
+2258,Thomas Currie-Newall (1),B,3,0,False,2,0,2367,1183.5,23670000.0,10000.0,3,Class 3
+2259,Thomas Currie-Newall (1),B,3,0,False,4,0,1861,465.25,18610000.0,10000.0,3,Class 3
+2260,Thomas Currie-Newall (1),B,3,0,False,9,0,40,4.444444444444445,400000.0,10000.0,1,Class 1
+2261,Thomas Currie-Newall (1),B,3,0,False,53,0,811,15.30188679245283,8110000.0,10000.0,1,Class 1
+2263,Thomas Currie - Newall (2),D,1,0,False,256,0,70377,274.91015625,703770000.0,10000.0,2,Class 2
+2265,Linda,B,3,0,False,313,0,1381,4.412140575079873,13810000.0,10000.0,1,Class 1
+2266,Linda,B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+2267,Linda,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2268,Linda,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2269,Linda,B,3,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+2270,Linda,B,3,0,False,6,0,1300,216.66666666666663,13000000.0,10000.0,2,Class 2
+2271,Linda,B,3,0,False,2,0,14,7.0,140000.0,10000.0,1,Class 1
+2272,Linda,B,3,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+2273,Linda,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2274,Linda,B,3,0,False,10,0,37,3.7,370000.0,10000.0,1,Class 1
+2275,Bubs Hill,A,4,0,False,19,0,41,2.1578947368421053,410000.0,10000.0,1,Class 1
+2276,Bubs Hill,A,4,0,False,4,0,4,1.0,40000.0,10000.0,1,Class 1
+2277,Bubs Hill,A,4,0,False,3,0,3,1.0,30000.0,10000.0,1,Class 1
+2278,Bubs Hill,A,4,0,False,1,0,16,16.0,160000.0,10000.0,1,Class 1
+2279,Bubs Hill,A,4,0,False,24,0,35,1.4583333333333333,350000.0,10000.0,1,Class 1
+2280,Bubs Hill,A,4,0,False,96,0,659,6.864583333333333,6590000.0,10000.0,1,Class 1
+2281,Nelson River,A,4,0,False,0,0,0,,0.0,10000.0,,No data
+2282,Nelson River,A,4,0,False,12,0,3201,266.75,32010000.0,10000.0,2,Class 2
+2283,Nelson River,A,4,0,False,2,0,4,2.0,40000.0,10000.0,1,Class 1
+2284,Nelson River,A,4,0,False,5,0,3834,766.8,38340000.0,10000.0,3,Class 3
+2285,Nelson River,A,4,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
+2286,Nelson River,A,4,0,False,2,0,3438,1719.0,34380000.0,10000.0,3,Class 3
+2287,Nelson River,A,4,0,False,1,0,16,16.0,160000.0,10000.0,1,Class 1
+2288,Nelson River,A,4,0,False,1,0,320,320.0,3200000.0,10000.0,2,Class 2
+2289,Nelson River,A,4,0,False,15,0,3425,228.33333333333331,34250000.0,10000.0,2,Class 2
+2290,Nelson River,A,4,0,False,1,0,4,4.0,40000.0,10000.0,1,Class 1
+2291,Nelson River,A,4,0,False,1,0,3203,3203.0,32030000.0,10000.0,3,Class 3
+2292,Jukes - Darwin (Kelly Basin),B,3,0,False,636,0,3151,4.95440251572327,31510000.0,10000.0,1,Class 1
+2293,Jukes - Darwin (Kelly Basin),B,3,0,False,6,0,21,3.5,210000.0,10000.0,1,Class 1
+2294,Jukes - Darwin (Kelly Basin),B,3,0,False,10,0,50,5.0,500000.0,10000.0,1,Class 1
+2295,Jukes - Darwin (Kelly Basin),B,3,0,False,1,0,1268,1268.0,12680000.0,10000.0,3,Class 3
+2296,Jukes - Darwin (Kelly Basin),B,3,0,False,2,0,9,4.5,90000.0,10000.0,1,Class 1
+2297,Jukes - Darwin (Kelly Basin),B,3,0,False,1,0,7,7.0,70000.0,10000.0,1,Class 1
+2298,Jukes - Darwin (Kelly Basin),B,3,0,False,363,0,3499,9.639118457300276,34990000.0,10000.0,1,Class 1
+2299,Jukes - Darwin (Kelly Basin),B,3,0,False,15,0,25,1.6666666666666667,250000.0,10000.0,1,Class 1
+2300,Jukes - Darwin (Kelly Basin),B,3,0,False,236,0,55985,237.22457627118644,559850000.0,10000.0,2,Class 2
+2301,Jukes - Darwin (Kelly Basin),B,3,0,False,681,0,54117,79.4669603524229,541170000.0,10000.0,2,Class 2
+2302,Jukes - Darwin (Kelly Basin),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2303,Jukes - Darwin (Kelly Basin),B,3,0,False,29,0,54020,1862.7586206896551,540200000.0,10000.0,3,Class 3
+2304,Jukes - Darwin (Kelly Basin),B,3,0,False,3,0,7,2.333333333333333,70000.0,10000.0,1,Class 1
+2305,Governor - Fincham (1),B,3,0,False,3,0,12,4.0,120000.0,10000.0,1,Class 1
+2306,Governor - Fincham (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2307,Governor - Fincham (1),B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2308,Governor - Fincham (2),D,1,0,False,64,0,408,6.375,4080000.0,10000.0,1,Class 1
+2309,Governor - Fincham (2),D,1,0,False,636,0,771,1.2122641509433962,7710000.0,10000.0,1,Class 1
+2310,Governor - Fincham (2),D,1,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+2311,Governor - Fincham (2),D,1,0,False,50,0,4965,99.3,49650000.0,10000.0,2,Class 2
+2312,Governor - Fincham (2),D,1,0,False,2,0,11,5.5,110000.0,10000.0,1,Class 1
+2313,Governor - Fincham (2),D,1,0,False,4,0,6,1.5,60000.0,10000.0,1,Class 1
+2314,Governor - Fincham (2),D,1,0,False,39,0,271,6.948717948717949,2710000.0,10000.0,1,Class 1
+2315,Little Eldons,D,1,0,False,712,0,968,1.3595505617977528,9680000.0,10000.0,1,Class 1
+2317,Little Eldons,D,1,0,False,51,0,400,7.84313725490196,4000000.0,10000.0,1,Class 1
+2318,Little Eldons,D,1,0,False,14,0,90,6.428571428571429,900000.0,10000.0,1,Class 1
+2319,Little Eldons,D,1,0,False,7,0,2409,344.1428571428572,24090000.0,10000.0,2,Class 2
+2320,Little Eldons,D,1,0,False,35,0,219,6.257142857142857,2190000.0,10000.0,1,Class 1
+2321,Little Eldons,D,1,0,False,82,0,822,10.024390243902438,8220000.0,10000.0,1,Class 1
+2322,Little Eldons,D,1,0,False,61,0,340,5.573770491803279,3400000.0,10000.0,1,Class 1
+2323,Little Eldons,D,1,0,False,17,0,21505,1265.0,215050000.0,10000.0,3,Class 3
+2324,Little Eldons,D,1,0,False,150,0,9530,63.53333333333333,95300000.0,10000.0,2,Class 2
+2325,Little Eldons,D,1,0,False,230,0,21058,91.55652173913045,210580000.0,10000.0,2,Class 2
+2326,Little Eldons,D,1,0,False,1200,0,35221,29.35083333333333,352210000.0,10000.0,2,Class 2
+2327,Little Eldons,D,1,0,False,114,0,5288,46.3859649122807,52880000.0,10000.0,2,Class 2
+2328,Little Eldons,D,1,0,False,8749,0,16582,1.895302320265173,165820000.0,10000.0,1,Class 1
+2329,Little Eldons,D,1,0,False,1,0,11,11.0,110000.0,10000.0,1,Class 1
+2330,Little Eldons,D,1,0,False,6,0,288,48.0,2880000.0,10000.0,2,Class 2
+2331,Little Eldons,D,1,0,False,1,0,18,18.0,180000.0,10000.0,1,Class 1
+2332,Little Eldons,D,1,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+2333,Little Eldons,D,1,0,False,2,0,4096,2048.0,40960000.0,10000.0,3,Class 3
+2334,Little Eldons,D,1,0,False,1,0,294,294.0,2940000.0,10000.0,2,Class 2
+2335,Little Eldons,D,1,0,False,3,0,4,1.3333333333333333,40000.0,10000.0,1,Class 1
+2336,Little Eldons,D,1,0,False,1,0,162,162.0,1620000.0,10000.0,2,Class 2
+2337,Little Eldons,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+2338,Little Eldons,D,1,0,False,1,0,12,12.0,120000.0,10000.0,1,Class 1
+2339,Little Eldons,D,1,0,False,2,0,14,7.0,140000.0,10000.0,1,Class 1
+2340,Little Eldons,D,1,0,False,2,0,2,1.0,20000.0,10000.0,1,Class 1
+2341,Little Eldons,D,1,0,False,2,0,30,15.0,300000.0,10000.0,1,Class 1
+2342,Little Eldons,D,1,0,False,0,0,0,,0.0,10000.0,,No data
+2343,Little Eldons,D,1,0,False,4,0,189,47.25,1890000.0,10000.0,2,Class 2
+2344,Little Eldons,D,1,0,False,2,0,17,8.5,170000.0,10000.0,1,Class 1
+2345,Little Eldons,D,1,0,False,2,0,153,76.5,1530000.0,10000.0,2,Class 2
+2346,Little Eldons,D,1,0,False,17,0,95,5.588235294117647,950000.0,10000.0,1,Class 1
+2347,Little Eldons,D,1,0,False,2,0,8,4.0,80000.0,10000.0,1,Class 1
+2348,Little Eldons,D,1,0,False,1,0,355,355.0,3550000.0,10000.0,2,Class 2
+2349,Little Eldons,D,1,0,False,4,0,2421,605.25,24210000.0,10000.0,3,Class 3
+2350,Little Eldons,D,1,0,False,2,0,196,98.0,1960000.0,10000.0,2,Class 2
+2351,Little Eldons,D,1,0,False,123,0,30026,244.1138211382114,300260000.0,10000.0,2,Class 2
+2352,South Eldon,B,3,0,False,53,0,723,13.641509433962264,7230000.0,10000.0,1,Class 1
+2353,South Eldon,B,3,0,False,37,0,214,5.783783783783784,2140000.0,10000.0,1,Class 1
+2354,Little Donaldson - Donaldson,B,3,0,False,1075,0,7351,6.838139534883721,73510000.0,10000.0,1,Class 1
+2355,Little Donaldson - Donaldson,B,3,0,False,237,0,9300,39.24050632911393,93000000.0,10000.0,2,Class 2
+2356,Little Donaldson - Donaldson,B,3,0,False,82,0,4883,59.54878048780488,48830000.0,10000.0,2,Class 2
+2362,Misery,D,1,0,False,17419,0,121765,6.990355359090648,1217650000.0,10000.0,1,Class 1
+2363,Hazell Creek (Brisbane Braddon),B,3,0,False,667,0,7581,11.365817091454272,75810000.0,10000.0,1,Class 1
+2364,Dubbil Barril,B,3,0,False,71,0,2446,34.45070422535211,24460000.0,10000.0,2,Class 2
+2365,Dubbil Barril,B,3,0,False,16,0,60,3.75,600000.0,10000.0,1,Class 1
+2366,Dubbil Barril,B,3,0,False,11,0,21,1.9090909090909087,210000.0,10000.0,1,Class 1
+2367,Dubbil Barril,B,3,0,False,824,0,75287,91.36771844660194,752870000.0,10000.0,2,Class 2
+2368,Granville Harbour,C,2,0,False,3,0,9,3.0,90000.0,10000.0,1,Class 1
+2369,Little Savage River,B,3,0,False,1249,0,13602,10.89031224979984,136020000.0,10000.0,1,Class 1
+2370,Little Savage River,B,3,0,False,59,0,175,2.9661016949152543,1750000.0,10000.0,1,Class 1
+2371,Little Savage River,B,3,0,False,150,0,10043,66.95333333333333,100430000.0,10000.0,2,Class 2
+2372,Little Savage River,B,3,0,False,387,0,10699,27.645994832041342,106990000.0,10000.0,2,Class 2
+2373,Little Savage River,B,3,0,False,485,0,16201,33.404123711340205,162010000.0,10000.0,2,Class 2
+2374,Little Savage River,B,3,0,False,686,0,1693,2.4679300291545188,16930000.0,10000.0,1,Class 1
+2375,Little Savage River,B,3,0,False,453,0,18895,41.71081677704194,188950000.0,10000.0,2,Class 2
+2379,Brougham River (Whitehawk Creek),B,3,0,False,38,0,345,9.078947368421051,3450000.0,10000.0,1,Class 1
+2380,Brougham River (Whitehawk Creek),B,3,0,False,5,0,23,4.6,230000.0,10000.0,1,Class 1
+2381,Brougham River (Whitehawk Creek),B,3,0,False,63,0,678,10.761904761904765,6780000.0,10000.0,1,Class 1
+2382,Brougham River (Whitehawk Creek),B,3,0,False,34,0,3340,98.23529411764706,33400000.0,10000.0,2,Class 2
+2383,Charter - Southwell,B,3,0,False,76,0,34835,458.35526315789474,348350000.0,10000.0,3,Class 3
+2384,Charter - Southwell,B,3,0,False,36,0,35016,972.6666666666666,350160000.0,10000.0,3,Class 3
+2385,Charter - Southwell,B,3,0,False,21,0,68,3.238095238095238,680000.0,10000.0,1,Class 1
+2386,Charter - Southwell,B,3,0,False,3,0,12,4.0,120000.0,10000.0,1,Class 1
+2387,Charter - Southwell,B,3,0,False,46,0,237,5.152173913043479,2370000.0,10000.0,1,Class 1
+2388,Charter - Southwell,B,3,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+2389,Charter - Southwell,B,3,0,False,6,0,31,5.166666666666667,310000.0,10000.0,1,Class 1
+2390,Charter - Southwell,B,3,0,False,6,0,7,1.1666666666666667,70000.0,10000.0,1,Class 1
+2391,Charter - Southwell,B,3,0,False,22,0,5342,242.8181818181818,53420000.0,10000.0,2,Class 2
+2392,Charter - Southwell,B,3,0,False,47,0,276,5.872340425531915,2760000.0,10000.0,1,Class 1
+2410,Sophia River,A,4,0,False,26,0,262,10.076923076923077,2620000.0,10000.0,1,Class 1
+2411,Sophia River,A,4,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
+2412,Sophia River,A,4,0,False,1,0,32,32.0,320000.0,10000.0,2,Class 2
+2413,Sophia River,A,4,0,False,2,0,20,10.0,200000.0,10000.0,1,Class 1
+2414,Sophia River,A,4,0,False,1,0,4,4.0,40000.0,10000.0,1,Class 1
+2415,Sophia River,A,4,0,False,8,0,29,3.625,290000.0,10000.0,1,Class 1
+2416,Sophia River,A,4,0,False,2,0,3,1.5,30000.0,10000.0,1,Class 1
+2417,Sophia River,A,4,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+2418,Sophia River,A,4,0,False,1431,0,52080,36.39412997903564,520800000.0,10000.0,2,Class 2
+2419,Sophia River,A,4,0,False,9,0,29,3.2222222222222223,290000.0,10000.0,1,Class 1
+2420,Sophia River,A,4,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+2421,Sophia River,A,4,0,False,2,0,36335,18167.5,363350000.0,10000.0,4,Class 4
+2432,Lower Black River - South Forest,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2433,Lower Black River - South Forest,B,3,0,False,1,0,34047,34047.0,340470000.0,10000.0,4,Class 4
+2434,Lower Black River - South Forest,B,3,0,False,1,0,9,9.0,90000.0,10000.0,1,Class 1
+2435,Lower Black River - South Forest,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2436,Lower Black River - South Forest,B,3,0,False,20,0,37,1.85,370000.0,10000.0,1,Class 1
+2437,Lower Black River - South Forest,B,3,0,False,8,0,260,32.5,2600000.0,10000.0,2,Class 2
+2438,Lower Black River - South Forest,B,3,0,False,2,0,14,7.0,140000.0,10000.0,1,Class 1
+2439,Lower Black River - South Forest,B,3,0,False,4,0,91,22.75,910000.0,10000.0,2,Class 2
+2440,Lower Black River - South Forest,B,3,0,False,10,0,26,2.6,260000.0,10000.0,1,Class 1
+2441,Lower Black River - South Forest,B,3,0,False,2,0,1912,956.0,19120000.0,10000.0,3,Class 3
+2442,Lower Black River - South Forest,B,3,0,False,4,0,454,113.5,4540000.0,10000.0,2,Class 2
+2443,Lower Black River - South Forest,B,3,0,False,3,0,22,7.333333333333333,220000.0,10000.0,1,Class 1
+2444,Lower Black River - South Forest,B,3,0,False,7,0,18,2.571428571428572,180000.0,10000.0,1,Class 1
+2445,Lower Black River - South Forest,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2446,Lower Black River - South Forest,B,3,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
+2447,Lower Black River - South Forest,B,3,0,False,1,0,1,1.0,10000.0,10000.0,1,Class 1
+2448,Lower Black River - South Forest,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2449,Lower Black River - South Forest,B,3,0,False,1,0,2,2.0,20000.0,10000.0,1,Class 1
+2450,Lower Black River - South Forest,B,3,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
+2451,Eastons Creek,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2452,Eastons Creek,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2462,Lower Black River - South Forest,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2463,Lower Black River - South Forest,B,3,0,False,8,0,104,13.0,1040000.0,10000.0,1,Class 1
+2464,Lower Black River - South Forest,B,3,0,False,6,0,13,2.1666666666666665,130000.0,10000.0,1,Class 1
+2465,Lower Black River - South Forest,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2466,Lower Black River - South Forest,B,3,0,False,186,0,2842,15.279569892473118,28420000.0,10000.0,1,Class 1
+2467,Lower Black River - South Forest,B,3,0,False,6,0,471,78.5,4710000.0,10000.0,2,Class 2
+2468,Lower Black River - South Forest,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2469,Lower Black River - South Forest,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2470,Lower Black River - South Forest,B,3,0,False,1,0,34106,34106.0,341060000.0,10000.0,4,Class 4
+2471,Lower Black River - South Forest,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2472,Lower Black River - South Forest,B,3,0,False,1,0,34129,34129.0,341290000.0,10000.0,4,Class 4
+2473,Lower Black River - South Forest,B,3,0,False,350,0,34125,97.5,341250000.0,10000.0,2,Class 2
+2474,Lower Black River - South Forest,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2567,"Dante Rivulet (Lake Spicer, Lake Dora)",A,4,0,False,264,0,1933,7.321969696969697,19330000.0,10000.0,1,Class 1
+2568,"Dante Rivulet (Lake Spicer, Lake Dora)",A,4,0,False,1,0,502,502.0,5020000.0,10000.0,3,Class 3
+2569,"Dante Rivulet (Lake Spicer, Lake Dora)",A,4,0,False,2,0,10,5.0,100000.0,10000.0,1,Class 1
+2570,"Dante Rivulet (Lake Spicer, Lake Dora)",A,4,0,False,60,0,951,15.85,9510000.0,10000.0,1,Class 1
+2598,Lower Black River - South Forest,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2599,Lower Black River - South Forest,B,3,0,False,0,0,0,,0.0,10000.0,,No data
+2600,Lower Black River - South Forest,B,3,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
+2601,Lower Black River - South Forest,B,3,0,False,1,0,3,3.0,30000.0,10000.0,1,Class 1
