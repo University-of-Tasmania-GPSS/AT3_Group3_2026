@@ -1,12 +1,14 @@
-<h1 align="center">Building a Karst Groundwater Vulnerability</h1>
-<h1 align="center">Index in Tasmania</h1>
+<div style="text-align: center;">
+<h1 style="font-weight: normal;">Hidden Landscapes, Unseen Risks</h1>
+</div>
 
-<h2 align="center">An attempt to build a karst/groundwater vulnerability</h2>
-<h2 align="center">index for karst in Tasmania and use it to look at risk</h2>
-<h2 align="center">from land use change.</h2> 
+<div style="text-align: center;">
+<h2 style="font-weight: normal;">Developing a Karst Vulnerability Index to assess land use pressures and potential water quality risk in Tasmania</h2>
+</div>
 
-<h3 align="center">by Maggie Li and Rachel Roberts for UTas KGG375 - AT3</h3>
-<br>
+<div style="text-align: center;">
+<h3 style="font-weight: normal;">Maggie Li and Rachel Roberts for University of Tasmania Unit KGG375</h3>
+</div>
 
 
 
