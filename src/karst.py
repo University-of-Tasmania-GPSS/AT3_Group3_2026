@@ -72,6 +72,13 @@ def add_connectivity(karst_gdf):
     return karst_gdf
 
 
+def susceptibility_score(intensity, exposure):
+    """Susceptibility on a 0-1 scale: how karstified the rock is (Atlas category, 0-4) times how exposed the
+    karst is (exposed 3, covered 2, interstratal 1, 0 for no karst). Covered karst has a protective cap, so
+    exposure scales the score down instead of adding to it."""
+    return (np.asarray(intensity, float) / 4.0) * (np.asarray(exposure, float) / 3.0)
+
+
 # Class edges for the main D8 connectivity score: powers of ten of the ratio of upstream cells to polygon
 # cells (class 1: up to 1, 2: 1-10, 3: 10-100, 4: over 100). Fixed, so a class means the same ratio at every scale.
 D8_DECADE_EDGES = (1, 10, 100)
@@ -95,7 +102,7 @@ def log1p_classes(ratio, n_classes=4):
     return classes, np.expm1(log_edges)
 
 
-def add_connectivity_d8(karst_gdf, counts_csv, scheme="decades", n_classes=4, edges=None, unrouted="atlas"):
+def add_connectivity_d8(karst_gdf, counts_csv, scheme="decades", n_classes=4, edges=None, unrouted="catchment"):
     """Replace the Atlas connectivity with D8 flow-routing connectivity (`add_connectivity` must have run first).
 
     The D8 signal is `upstream_cells_per_target_cell` from the routing notebooks (03alt3 at 25 m, 03-100m at
@@ -108,10 +115,12 @@ def add_connectivity_d8(karst_gdf, counts_csv, scheme="decades", n_classes=4, ed
         and highest ratio of the routed polygons (edges follow each run's data; see `log1p_classes`); "log"
         uses the older five-class edges `D8_LOG_EDGES`. Pass `edges` to override the edges of "decades" or "log".
     unrouted: polygons with no raster cell at this resolution (small polygons at 100 m) have no ratio.
-        "atlas" keeps their Atlas score, "zero" sets 0.
+        "catchment" (default) gives them the Atlas catchment flags only (proximal 3, distal 1, else 0), because
+        exposure is now scored on its own in susceptibility and the full Atlas score would count it twice;
+        "atlas" keeps their full Atlas score (which includes exposure), "zero" sets 0.
 
     Columns added: `connectivity_atlas` (the Atlas score, kept as the fallback and for checks), `d8_ratio`,
-    `d8_class` (1..n, NaN if unrouted) and `connectivity_source` ("d8", "atlas" or "none"); `connectivity` is
+    `d8_class` (1..n, NaN if unrouted) and `connectivity_source` ("d8", "catchment", "atlas" or "none"); `connectivity` is
     overwritten, and the ratio edges are stored in `karst_gdf.attrs["d8_ratio_edges"]`. Returns the same GeoDataFrame.
     """
     import pandas as pd
@@ -139,9 +148,14 @@ def add_connectivity_d8(karst_gdf, counts_csv, scheme="decades", n_classes=4, ed
     karst_gdf["connectivity_atlas"] = atlas
     karst_gdf["d8_ratio"] = np.where(routed, ratio, np.nan)
     karst_gdf["d8_class"] = d8_class
-    fallback = atlas if unrouted == "atlas" else 0.0
+    if unrouted == "atlas":
+        fallback = atlas
+    elif unrouted == "catchment":
+        fallback = karst_gdf[["proximal_score", "distal_score"]].max(axis=1).to_numpy(float)
+    else:
+        fallback = 0.0
     karst_gdf["connectivity"] = np.where(routed, 3.0 * d8_class / n, fallback)
-    karst_gdf["connectivity_source"] = np.where(routed, "d8", "atlas" if unrouted == "atlas" else "none")
+    karst_gdf["connectivity_source"] = np.where(routed, "d8", unrouted if unrouted in ("atlas", "catchment") else "none")
     karst_gdf.attrs["d8_ratio_edges"] = ratio_edges
     return karst_gdf
 
