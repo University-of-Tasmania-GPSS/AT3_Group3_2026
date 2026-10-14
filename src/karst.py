@@ -326,11 +326,12 @@ def classify_scores(score_array, valid_mask):
     return class_array, present, labels
 
 
-# Fixed class edges for the 0-1 risk score. The score is a product of four terms that are each below 1,
-# so it rarely exceeds 0.5. With LIST land-use pressure (0-10, natural land scores 1/10) a strong cell
-# scores about 0.12, so equal 0.03-wide classes spread it over the range it actually reaches; 0.2-wide
+# Fixed class edges for the 0-1 risk score. The score is a product of five terms that are each below 1
+# (karst intensity, exposure, connectivity, land-use pressure, slope), so it rarely exceeds 0.5. With LIST
+# land-use pressure (natural land scores 1/10) and exposure (covered karst scores 2/3, interstratal 1/3) a strong
+# cell scores about 0.1, so equal 0.025-wide classes spread it over the range it actually reaches; 0.2-wide
 # classes put almost every cell in the first.
-RISK_EDGES = (0.03, 0.06, 0.09, 0.12)
+RISK_EDGES = (0.025, 0.05, 0.075, 0.10)
 RISK_LABELS = ["None", "Very Low", "Low", "Moderate", "High", "Very High"]
 
 

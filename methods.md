@@ -26,7 +26,7 @@ The logic of the project is to test how scale, data and method choices change th
 ### 1. Susceptibility: how karstified is the rock and how much cover does the karst have?
 
 Each Karst Atlas polygon carries a category from **A** (most intensely
-karstified) to **D**, scored 4 to 1, with 0 for no karst.
+karstified) to **D**, scored 4 to 1, with 0 for no karst. It also carries an exposure type. Exposed karst is open to the surface and scores 3. Covered karst has a protective cap of other rock and scores 2. Interstratal karst sits between other rock layers, gets little rain of its own, and scores 1. Susceptibility is the two multiplied together, each divided by its maximum, so covered and interstratal karst score below exposed karst of the same category.
 
 ```{figure} figures/susceptibility.png
 :alt: Two maps of Mole Creek: karst intensity from 0 to 4 and exposure type.
@@ -116,9 +116,9 @@ Susceptibility (0 to 4) and connectivity (0 to 3) are each divided by their
 maximum so that neither dominates because of its scale, then multiplied to give
 **intrinsic vulnerability**. Multiplying by pressure and then by the slope
 multiplier gives **relative risk**. Risk is a product of four terms that are each
-below 1, so it rarely exceeds 0.5 (a strong cell scores about 0.12 with LIST pressure). It is sorted into fixed
-classes at 0.03, 0.06, 0.09 and 0.12: *Very Low* (up to 0.03), *Low*, *Moderate*, *High* and
-*Very High* (above 0.12), with 0 shown as *None*. The edges are absolute, so a label means the same
+below 1, so it rarely exceeds 0.5 (a strong cell scores about 0.1 with LIST pressure and exposure). It is sorted into fixed
+classes at 0.025, 0.05, 0.075 and 0.10: *Very Low* (up to 0.025), *Low*, *Moderate*, *High* and
+*Very High* (above 0.10), with 0 shown as *None*. The edges are absolute, so a label means the same
 score at Mole Creek and statewide, and a class stays empty if no cell reaches it.
 
 ### The scores in one place
@@ -127,7 +127,7 @@ Every ingredient is scaled to 0 to 1 before it enters the equation:
 
 | Ingredient | Raw score | Scaled by |
 |---|---|---|
-| Susceptibility (S) | Karst Atlas category A to D scored 4 to 1, 0 for no karst | divided by 4 |
+| Susceptibility (S) | Karst Atlas category A to D scored 4 to 1, times exposure (exposed 3, covered 2, interstratal 1), 0 for no karst | each divided by its maximum, then multiplied |
 | Connectivity (C) | Four D8 log classes, scaled to 0 to 3 | divided by 3 |
 | Pressure (P) | LIST land-use matrix, 0 to 10: conservation and natural land 1, plantation forestry 6, intensive uses up to 10 | divided by 10 |
 | Slope | Multiplier from 0.5 (flat) to 1 (30 degrees or steeper) | used as it is |
@@ -151,7 +151,7 @@ Keeping the inputs the same in the first two rows separates the effect of struct
 :::{embed} #structure-slider
 :::
 
-*The main product (left) against the four ingredients added with equal weights (right), Mole Creek. The two are on different scales (the sum scores 0.4 to 0.6, the product mostly under 0.12), so each map is split into fifths of its own karst cells: the colours show where each map ranks a cell, not how large its score is.*
+*The main product (left) against the four ingredients added with equal weights (right), Mole Creek. The two are on different scales (the sum scores 0.4 to 0.6, the product mostly under 0.1), so each map is split into fifths of its own karst cells: the colours show where each map ranks a cell, not how large its score is.*
 
 #### How slope enters
 

@@ -7,28 +7,13 @@
 
 *How far each choice moves the map: 1 = same ordering of the karst, lower = bigger change.*
 
-:::{dropdown} Table of change: every choice
-
-| Group | Choice | Mole Creek (25 m) | Tasmania (100 m) |
-|---|---|---|---|
-| Scale | Routing on a 2 m DEM | 0.99 | – |
-| Scale | 100 m grid instead of 25 m | 0.82 | – |
-| Data | DEA 2020 land cover instead of LIST 2021 land use | 0.99 | 0.85 |
-| Method | Six-input weighted sum | 0.41 | 0.82 |
-| Method | COP slope direction (flatter = higher) | 0.59 | 0.95 |
-| Method | All four ingredients summed | 0.94 | 0.71 |
-| Method | Slope ceiling of 10 degrees | 0.97 | 0.99 |
-
-*Rank correlation with the main map over the mapped karst: 1 = same ordering, lower = bigger change.*
-
-:::
 
 :::{dropdown} Scale: 2 m, 25 m and 100 m
 
 | Choice | Mole Creek (25 m) | Tasmania (100 m) |
 |---|---|---|
-| Routing on a 2 m DEM | 0.99 | – |
-| 100 m grid instead of 25 m | 0.82 | – |
+| 2 m DEM | 0.99 | – |
+| 100 m DEM | 0.89 | – |
 
 :::
 
@@ -36,7 +21,7 @@
 
 | Choice | Mole Creek (25 m) | Tasmania (100 m) |
 |---|---|---|
-| DEA 2020 land cover instead of LIST 2021 land use | 0.99 | 0.85 |
+| DEA land cover | 0.98 | 0.84 |
 
 :::
 
@@ -44,10 +29,11 @@
 
 | Choice | Mole Creek (25 m) | Tasmania (100 m) |
 |---|---|---|
-| All four ingredients summed | 0.94 | 0.71 |
-| Six-input weighted sum | 0.41 | 0.82 |
-| COP slope direction (flatter = higher) | 0.59 | 0.95 |
-| Slope ceiling of 10 degrees | 0.97 | 0.99 |
+| Four ingredients added | 0.98 | 0.70 |
+| Six ingredients added | 0.55 | 0.82 |
+| Slope, flatter = higher | 0.83 | 0.96 |
+| Slope, 10 degree ceiling | 0.99 | 0.99 |
+| Exposure removed | 0.91 | 0.96 |
 
 :::
 
@@ -65,15 +51,15 @@ Statewide, mean risk per named karst system (100 m). Only the 260 systems with a
 
 | Rank | System | Atlas category | Mean risk | Cells |
 |---|---|---|---|---|
-| 1 | Gunns Plains | A | 0.187 | 2,998 |
-| 2 | Nabageena | B | 0.186 | 103 |
-| 3 | Flowery Gully | A | 0.168 | 120 |
-| 4 | Doctors Rocks | B | 0.164 | 71 |
-| 5 | Fairview (Redpa) (1 & 2) | B | 0.164 | 94 |
-| 6 | Wynyard | C | 0.158 | 173 |
-| 7 | Lower Black River - South Forest | B | 0.158 | 614 |
-| 8 | Savage River Mine | B | 0.153 | 26 |
-| 9 | Stockers Plain (Muddy Ck; Golden Vly) | B | 0.152 | 34 |
-| 10 | Melrose-Paloona (Eugenana) | C | 0.141 | 258 |
-| 28 | Mole Creek | A and B | 0.097 | 24,260 |
-| 65 | Meander - Western Creek | D | 0.055 | 1,507 |
+| 1 | Flowery Gully | A | 0.168 | 120 |
+| 2 | Doctors Rocks | B | 0.164 | 71 |
+| 3 | Savage River Mine | B | 0.153 | 26 |
+| 4 | Gunns Plains | A | 0.146 | 2,998 |
+| 5 | Nabageena | B | 0.136 | 103 |
+| 6 | Wynyard | C | 0.135 | 173 |
+| 7 | Port Hills | B | 0.133 | 57 |
+| 8 | Irishtown - Sedgy Creek (2) | B | 0.131 | 106 |
+| 9 | Lorinna | B | 0.114 | 169 |
+| 10 | Puncheon | B | 0.114 | 132 |
+| 33 | Mole Creek | A and B | 0.074 | 24,260 |
+| 52 | Meander - Western Creek | D | 0.055 | 1,507 |

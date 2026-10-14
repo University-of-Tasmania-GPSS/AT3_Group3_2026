@@ -1,15 +1,25 @@
-# Conclusion
+jup# Conclusion
 
 :::{div}
 :class: tagline
 Same karst, different users, different questions.
 :::
 
+```{figure} figures/connectivity_landuse_2x2_mole_creek.png
+:alt: Four maps of the Mole Creek karst. The main map, a 100 m grid, DEA land cover and a six-input weighted sum, each split into fifths of its own cells. The 100 m grid is blockier, DEA is almost identical to the main map, and the weighted sum looks like a different map.
+:width: 90%
+:align: center
+
+The main map and one change on each axis. Titles give the rank correlation with the main map (1 = same ordering).
+```
+
 :::{dropdown} What we found
 
-- **Top three areas.** The highest relative risk in Tasmania is at Gunns Plains (0.19), Nabageena (0.19) and Flowery Gully (0.17), among systems of at least 20 cells.
-- **Method moves the map most.** Adding the four ingredients keeps the Mole Creek order (0.94) but not the state's (0.71), and a six-input literature-style index gives a very different Mole Creek map (0.41). Slope direction changes Mole Creek (0.59) but barely the state (0.95).
-- **Scale and data matter less.** A 2 m elevation model gives the same map as 25 m (0.99), and the 100 m grid changes it a little more (0.82). Tasmanian land use against national land cover barely moves Mole Creek (0.99) and moves the state more (0.85).
+- **Top three areas.** The highest relative risk in Tasmania is at Flowery Gully (0.17), Doctors Rocks (0.16) and Savage River Mine (0.15), among systems of at least 20 cells.
+- **Method moves the map most.** Adding the four ingredients keeps the Mole Creek order (0.98) but not the state's (0.70), and a six-input literature-style index gives a very different Mole Creek map (0.55). Slope direction changes Mole Creek (0.83) but barely the state (0.96).
+- **Scale and data matter less.** A 2 m elevation model gives the same map as 25 m (0.99), and the 100 m grid changes it a little more (0.89). Tasmanian land use against national land cover barely moves Mole Creek (0.98) and moves the state more (0.84).
+- **Exposure.** Scoring how exposed the karst is changes the map a little (0.91 at Mole Creek, 0.96 statewide), and it strengthens the springs check (springs sit at about the 99th percentile of the karst score, up from the 96th).
+
 :::
 
 :::{dropdown} Limitations
