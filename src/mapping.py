@@ -166,6 +166,13 @@ def score_colours(n, zero_transparent=True):
     return colours
 
 
+def intrinsic_colours(n=5):
+    """n colours (pale blue to dark navy) for intrinsic vulnerability maps. Kept apart from the magma ramp used
+    for relative risk, so the two kinds of map cannot be mistaken for each other. A single-hue light-to-dark ramp
+    that stays readable for colour-blind viewers, with a pale-blue light end that shows against green land."""
+    return plt.cm.Blues(np.linspace(0.28, 1.0, n))
+
+
 def plot_scores(ax, array, transform, n, nodata=255, alpha=0.8, colours=None):
     """Draw an integer score raster (0..n-1) with `score_colours`, or with `colours` (n RGBA rows)
     where a class should be fainter, e.g. a background class that covers most of the map."""

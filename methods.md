@@ -175,7 +175,7 @@ The same code (`src/karst.py`, `src/landuse.py`, `src/hydro.py`) runs statewide 
 - **Scale.** Does the 100 m statewide run reproduce the 25 m local pattern, and does routing on a 2 m DEM change the Mole Creek map?
 - **Data.** Does swapping LIST land use for DEA land cover change the map?
 - **Method.** Does adding weighted scores instead of multiplying them, or a different slope rule, change the map, and does it change how well springs line up with the scores?
-- **Independent data.** Do mapped springs and conservation values line up with the scores? Neither dataset is ever an input to the model.
+- **Independent data.** Do mapped springs line up with the scores? The springs data is never an input to the model.
 
 ## Sensitivity
 
