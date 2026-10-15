@@ -26,7 +26,7 @@ The method is built and tuned at **Mole Creek** (25 m grid), then applied across
 
 ## Main findings
 
-- **Method moves the map most.** Adding the four ingredients instead of multiplying them keeps the Mole Creek order (rank correlation 0.98) but not the state's (0.70). A six-input weighted sum gives a very different Mole Creek map (0.55). Slope direction changes Mole Creek (0.83) but barely the state (0.96).
+- **Method moves the map most.** Adding the four ingredients instead of multiplying them keeps the Mole Creek order (rank correlation 0.98) and changes the state's (0.70). A six-input weighted sum gives a very different Mole Creek map (0.55). Slope direction changes Mole Creek (0.83) but barely the state (0.96).
 - **Scale and data matter less.** A 2 m DEM gives the same map as 25 m (0.99); the 100 m grid changes it more (0.89). Tasmanian land use against DEA land cover barely moves Mole Creek (0.98) and moves the state more (0.84).
 - **Exposure** shifts the map a little (0.91 at Mole Creek, 0.96 statewide) and improves the independent springs check (springs sit at about the 99th percentile of the karst score).
 - **No single ideal map.** Which map suits depends on the user and the question; the book states the choices and how far each one moves the result.
@@ -35,7 +35,7 @@ The "rank correlation" is the Spearman correlation with the main map over the ma
 
 **Out of scope:** borehole data, AHP weighting, TGD/Karst Index Database cross-checks, and CFEV karst conservation value (tried as context in Stage 10, then dropped).
 
-**Known limitations:** no contamination data; scores are partly judgement; 132 karst polygons are too small for a 100 m cell and are left without a connectivity score; the land-use layer is a single year. These are set out in the Conclusion.
+**Known limitations:** no contamination data; scores are partly judgement; 132 karst polygons are too small for a 100 m cell and are left without a connectivity score; LIST land use has six snapshots (2002 to 2021), so change over time is only partly covered, and the main map uses 2021. These are set out in the Conclusion.
 
 ## Group members
 
@@ -100,7 +100,7 @@ Datasets live in a University of Tasmania OneDrive shared library ("AT3_initial_
 
 Sources (`Input_data/`):
 - **Karst Atlas v3.1** (2003) — mapped karst extent, category, exposure and catchment flags; via Mineral Resources Tasmania / group access.
-- **LIST land use 2021** (LISTdata, DPIPWE) — land-use polygons scored with the matrix in `src/landuse_list.py`. This is the main pressure layer.
+- **LIST land use** (LISTdata, DPIPWE) — land-use polygons for 2002, 2009–10, 2013, 2015, 2019 and 2021, scored with the matrix in `src/landuse_list.py`. The 2021 layer is the main pressure layer.
 - **DEA Level-3 Land Cover** (`ga_ls_landcover_class_cyear_3`) — the alternative pressure layer, fetched on demand through the DEA STAC catalogue (`https://explorer.dea.ga.gov.au/stac`) with `pystac_client` and `odc.stac`; no authentication needed.
 - **LIST CFEV Groundwater Dependent Ecosystems / springs** — independent check only. 115 points statewide.
 - **DEM** — LIST 25 m statewide (built per municipality), with a 2 m DEM for Mole Creek used as a check.
@@ -114,16 +114,16 @@ The unit disallows PyQGIS, so resampling uses `rioxarray` and `xarray`, and flow
 
 - Build at Mole Creek first, then apply the same method statewide.
 - Keep vector layers as vectors until something needs rasterising.
-- Multiply the ingredients, so a place must be high on all of them to score high. The alternatives are tested, not assumed.
+- Multiply the ingredients, so a place must be high on all of them to score high. The alternatives are tested.
 - Exposure is part of susceptibility (karst intensity times exposure), so covered karst scores below exposed karst.
 - Connectivity classes use fixed powers of ten, so a class means the same ratio at every resolution.
 - Springs are an independent check and never an input to the score.
-- Polygons with no routed connectivity score (too small for a 100 m cell) are left out, not given a substitute score.
+- Polygons with no routed connectivity score (too small for a 100 m cell) are left out.
 - Risk classes are fixed (0.025, 0.05, 0.075, 0.10), so a label means the same score at Mole Creek and statewide; the interactive map colours cells by rank.
 
 ## Method notes
 
 - **Pressure reaching karst:** each karst cell takes the mean pressure across its named system, including its catchment polygons (`aggregate_pressure_by_system()`). Only polygons within 1 km of each other under one name are pooled.
-- **Overlaps:** `rasterize_max()` resolves overlapping polygons to the maximum, not draw order, and skips polygons with no score.
+- **Overlaps:** `rasterize_max()` resolves overlapping polygons to the maximum and skips polygons with no score.
 - **Statistics:** Stages 6 and 8 use pooled-pixel means; rank correlation is the common measure across tests (Stage 16).
 - **Not independent checks:** Stage 6's "named areas rank sensibly" is partly circular (risk derives partly from the Atlas category that names and ranks the areas), and the springs check is only independent-ish (the spring and karst data share sources).
