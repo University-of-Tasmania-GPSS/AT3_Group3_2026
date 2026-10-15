@@ -17,6 +17,7 @@ dependencies:
   - plotly
   - contextily
   - leafmap
+  - folium
   - jupyterlab
   - whitebox
   - numba

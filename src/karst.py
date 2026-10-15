@@ -102,7 +102,7 @@ def log1p_classes(ratio, n_classes=4):
     return classes, np.expm1(log_edges)
 
 
-def add_connectivity_d8(karst_gdf, counts_csv, scheme="decades", n_classes=4, edges=None, unrouted="catchment"):
+def add_connectivity_d8(karst_gdf, counts_csv, scheme="decades", n_classes=4, edges=None, unrouted="drop"):
     """Replace the Atlas connectivity with D8 flow-routing connectivity (`add_connectivity` must have run first).
 
     The D8 signal is `upstream_cells_per_target_cell` from the routing notebooks (03alt3 at 25 m, 03-100m at
@@ -115,12 +115,13 @@ def add_connectivity_d8(karst_gdf, counts_csv, scheme="decades", n_classes=4, ed
         and highest ratio of the routed polygons (edges follow each run's data; see `log1p_classes`); "log"
         uses the older five-class edges `D8_LOG_EDGES`. Pass `edges` to override the edges of "decades" or "log".
     unrouted: polygons with no raster cell at this resolution (small polygons at 100 m) have no ratio.
-        "catchment" (default) gives them the Atlas catchment flags only (proximal 3, distal 1, else 0), because
-        exposure is now scored on its own in susceptibility and the full Atlas score would count it twice;
-        "atlas" keeps their full Atlas score (which includes exposure), "zero" sets 0.
+        "drop" (default) leaves their connectivity empty (NaN), so they are left out of the map and the rankings
+        instead of being scored on a different basis; "catchment" gives them the Atlas catchment flags only
+        (proximal 3, distal 1, else 0); "atlas" keeps their full Atlas score (which includes exposure, now scored
+        on its own in susceptibility); "zero" sets 0.
 
     Columns added: `connectivity_atlas` (the Atlas score, kept as the fallback and for checks), `d8_ratio`,
-    `d8_class` (1..n, NaN if unrouted) and `connectivity_source` ("d8", "catchment", "atlas" or "none"); `connectivity` is
+    `d8_class` (1..n, NaN if unrouted) and `connectivity_source` ("d8", "catchment", "atlas" or "none", where "none" is dropped or zero); `connectivity` is
     overwritten, and the ratio edges are stored in `karst_gdf.attrs["d8_ratio_edges"]`. Returns the same GeoDataFrame.
     """
     import pandas as pd
@@ -152,6 +153,8 @@ def add_connectivity_d8(karst_gdf, counts_csv, scheme="decades", n_classes=4, ed
         fallback = atlas
     elif unrouted == "catchment":
         fallback = karst_gdf[["proximal_score", "distal_score"]].max(axis=1).to_numpy(float)
+    elif unrouted == "drop":
+        fallback = np.nan
     else:
         fallback = 0.0
     karst_gdf["connectivity"] = np.where(routed, 3.0 * d8_class / n, fallback)
@@ -166,7 +169,7 @@ def rasterize_max(gdf, value_column, out_shape, transform, fill=0, dtype="uint8"
     """Rasterise `value_column`, with overlapping polygons resolved by MAX
     rather than draw order (`rasterio.features.rasterize` burns shapes in
     the order given, so the last one wins on overlap)."""
-    ordered = gdf.sort_values(value_column)  # ascending: highest value drawn last, wins
+    ordered = gdf[gdf[value_column].notna()].sort_values(value_column)  # ascending: highest value drawn last, wins; empty values are skipped
     return rasterize(
         [(geom, val) for geom, val in zip(ordered.geometry, ordered[value_column])],
         out_shape=out_shape, transform=transform, fill=fill, dtype=dtype,

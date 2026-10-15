@@ -2,95 +2,83 @@
 
 KGG375 GIS Project (AT3) — Group 3, University of Tasmania
 
-## Project Objectives
+**Book title:** *Hidden Landscapes, Unseen Risks* — developing a karst vulnerability index to assess land-use pressure and potential water-quality risk in Tasmania.
 
-A relative karst vulnerability/risk model for Tasmania built from three
-layers — **karst susceptibility**, **hydrological connectivity** and
-**land-use pressure** — rather than one large weighted index. The method
-is developed and frozen at **Mole Creek** (local, 25 m), applied
-statewide at 100 m without re-tuning, and the two scales are compared.
-See `methods.md` for the method.
+**Published book:** https://university-of-tasmania-gpss.github.io/AT3_Group3_2026/
+(built from the `main` branch by `.github/workflows/deploy.yml`).
 
-The Mole Creek study area is the relevant Karst Atlas polygons buffered
-by 3 km (`notebooks/00_bounding_boxes.ipynb`). Without the buffer there is
-no surrounding land: connectivity saturates and land-use pressure has
-nothing outside the karst to measure. The buffer is a pragmatic choice,
-not a watershed delineation.
+## Project aim
 
-Objectives:
-1. Prototype the model at Mole Creek: susceptibility (`Kcategory` +
-   exposure type) → connectivity (`Kproxcatch` + DEM drainage) →
-   land-use pressure (DEA land cover) → relative risk.
-2. Freeze the method, then apply it statewide.
-3. Compare statewide-coarse and Mole-Creek-detailed outputs over Mole
-   Creek (Stage 8).
-4. **Stage 9 — sensitivity** (`notebooks/09_sensitivity_analysis.ipynb`):
-   weights, rainfall, the 1988–2024 land-use trend, and the
-   catchment-aggregation choice. Aggregation is the largest sensitivity
-   (r≈0.10 vs. the frozen method; r>0.94 for every weight/rainfall
-   variant). Weights and rainfall shift the top-ranked area. The land-use
-   trend is a U-shape at both scales, possibly a shared DEA product
-   artefact.
-5. **Stage 10 — validation** (`notebooks/10_validation_context.ipynb`):
-   CFEV GDE springs check, never build, the model, tested per named
-   system (112 points fall in ~25 systems) against a karst-only null.
-   Statewide, GDE systems sit at or below typical karst (~0.1st
-   percentile). Mole Creek's 37 points all fall in one system, so no
-   p-value is reported. A risk × conservation-value matrix gives 51
-   high-risk, high/VH-value systems; the gradient is nearly flat (mean
-   risk 0.218/0.239/0.277 for M/H/VH), so it is a ranking tool.
-6. Communicate the workflow via a reproducible MyST/Jupyter Book.
+Test how **scale**, **data** and **method** choices change a relative karst risk map, then use the best-supported combination to build an index that scales from one cave system (Mole Creek) to the whole state. There is no contamination ground truth, so the result is a *relative* map and the focus is on how much each choice moves it.
 
-**Out of scope:** borehole data (depth/flow/accuracy filtering is a
-project of its own), AHP (3–4 literature-justified weights are used
-instead), and TGD/Karst Index Database cross-checks (not built).
+The model multiplies four terms, each scaled 0 to 1:
 
-**Known limitation:** the method is tuned at Mole Creek, so statewide
-results may reflect its geology/land-use mix.
+| Term | What it is |
+|---|---|
+| **Susceptibility** | Karst Atlas category (A–D, scored 4–1) × exposure type (exposed 3, covered 2, interstratal 1) |
+| **Connectivity** | D8 flow routing: upstream cells draining to each karst polygon, per polygon cell, in four powers-of-ten classes |
+| **Pressure** | LIST Tasmania land-use matrix for 2021 (0–10), averaged over each named karst system; DEA land cover is the tested alternative |
+| **Slope** | Multiplier from 0.5 (flat) to 1 (30° or steeper) |
 
-## Group Members
+*Intrinsic vulnerability* = susceptibility × connectivity. *Relative risk* = intrinsic vulnerability × pressure × slope. See `methods.md` for the method and `results.md` for the findings.
+
+The method is built and tuned at **Mole Creek** (25 m grid), then applied across **Tasmania at 100 m** and compared. The Mole Creek study area is the Karst Atlas polygons plus a 3 km buffer (`notebooks/00_bounding_boxes.ipynb`), because pressure and routing need the land around the karst. Results are reported for the Mole Creek karst only.
+
+## Main findings
+
+- **Method moves the map most.** Adding the four ingredients instead of multiplying them keeps the Mole Creek order (rank correlation 0.98) but not the state's (0.70). A six-input weighted sum gives a very different Mole Creek map (0.55). Slope direction changes Mole Creek (0.83) but barely the state (0.96).
+- **Scale and data matter less.** A 2 m DEM gives the same map as 25 m (0.99); the 100 m grid changes it more (0.89). Tasmanian land use against DEA land cover barely moves Mole Creek (0.98) and moves the state more (0.84).
+- **Exposure** shifts the map a little (0.91 at Mole Creek, 0.96 statewide) and improves the independent springs check (springs sit at about the 99th percentile of the karst score).
+- **No single ideal map.** Which map suits depends on the user and the question; the book states the choices and how far each one moves the result.
+
+The "rank correlation" is the Spearman correlation with the main map over the mapped karst cells (1 = same ordering).
+
+**Out of scope:** borehole data, AHP weighting, TGD/Karst Index Database cross-checks, and CFEV karst conservation value (tried as context in Stage 10, then dropped).
+
+**Known limitations:** no contamination data; scores are partly judgement; 132 karst polygons are too small for a 100 m cell and are left without a connectivity score; the land-use layer is a single year. These are set out in the Conclusion.
+
+## Group members
 
 - Maggie Meng Li — UTas ID: 142410 — GitHub: [mags612](https://github.com/mags612) — yume0612@gmail.com
 - Rachel Elisabeth Roberts — UTas ID: 855396 — GitHub: [RachelElisabethR](https://github.com/RachelElisabethR)
 
 KGG375, University of Tasmania
 
-## AI Usage Acknowledgement
+## AI usage acknowledgement
 
-Generative AI tools (Claude, ChatGPT) were used during this project for
-brainstorming project scope, discussing methodological options, and
-assisting with code development, debugging, and repository setup. All
-AI-assisted content was reviewed, tested, and understood by the group
-before inclusion, consistent with the unit's Academic Integrity
-guidance. This section will be expanded with specific examples as the
-project progresses (e.g. which notebooks/functions had AI assistance).
+Generative AI tools were used in this project: Claude (Anthropic, used through Claude Code) and ChatGPT. They were used to:
 
-## Published Jupyter Book
+- **Assist with code development and debugging:** writing and fixing shared functions in `src/` (for example the susceptibility score, the D8 connectivity classing, overlap-safe rasterising and the colour helpers), editing and re-running the notebooks in order, tracking down errors, and checking outputs against each other.
+- **Explain methods and compare options:** discussing alternatives such as multiplying against adding ingredients, class breaks, slope rules and the sensitivity tests, and explaining what published indices (EPIK, COP, DRASTIC) need.
+- **Improve written content:** drafting and tightening wording in the book pages, notebook notes and the presentation script, and keeping numbers in the text consistent with the saved outputs.
+- **Build figures and the interactive map:** the interactive Leaflet map, the Plotly sensitivity chart, map and figure layouts, and the introduction diagrams (the diagram captions say where an AI helped draw them).
+- **Support repository setup:** environment, build configuration and file organisation.
 
-Deploys automatically to GitHub Pages on every push to `main` (see
-`.github/workflows/deploy.yml`). Once Pages is enabled in the repo
-settings, it will be published at:
-https://university-of-tasmania-gpss.github.io/AT3_Group3_2026/
+The group chose the research question, the model design and scoring, which tests to run, and how to interpret the results. All AI-assisted code and text was reviewed, run and checked by the group against the saved outputs before inclusion, consistent with the unit's Academic Integrity guidance. AI did not supply any data.
 
-## Repository Structure
+## Repository structure
 
 ```
 ├── environment.yml     # conda environment
-├── myst.yml            # MyST/Jupyter Book config
+├── myst.yml            # MyST / Jupyter Book config (custom.css styles the pages)
 ├── index.md, introduction.md, methods.md, results.md,
-│   discussion.md, conclusion.md, reference.md   # Book pages
-├── notebooks/          # Stages 00–10, run in numbered order
-├── src/                # shared code: karst.py, landuse.py
+│   discussion.md, conclusion.md, reference.md    # book pages
+├── notebooks/          # Stages 00–16, run in numbered order (see below)
+├── src/                # shared code (see below)
+├── figures/            # figures used by the book, and the interactive map
 ├── meeting_minutes/
-└── .github/workflows/deploy.yml   # builds & publishes the Book
+└── .github/workflows/deploy.yml   # builds and publishes the book
 ```
 
-Note: raw/processed datasets are **not stored in this repository** — they
-are kept in a shared OneDrive folder (University of Tasmania Shared
-Libraries) so both group members can access and sync them without
-bloating the git history. See "Data Access" below.
+**Notebooks** (`notebooks/`): `00` bounding boxes, `01` Mole Creek set-up, `02` karst susceptibility, `03` connectivity, `04` and `04_v2` intrinsic vulnerability (without and with exposure), `05` and `05b` land-use pressure (DEA and LIST), `06` relative risk at Mole Creek, `07` statewide run, `08` compare scales, `09` sensitivity, `10` springs check, `13` connectivity across resolution, `14` weighted-sum prototype, `15` interactive map, `16` which choices move the map. `notebooks/archive/` holds retired comparisons.
 
-## Reproduction Instructions
+**D8 routing notebooks** (`03alt3` for 25 m at Mole Creek, `03-100m-hydrological-connectivity` for the state, `03alt2` for 2 m at Mole Creek) run WhiteboxTools and write the count tables that Stages 3, 7 and 13 read. They are slow and are not part of the numbered run; their outputs are shared.
+
+**Shared code** (`src/`): `karst.py` (susceptibility, connectivity, classes, pressure aggregation), `landuse.py` (DEA land cover), `landuse_list.py` (LIST land-use matrix), `hydro.py` (slope, watercourses), `structures.py` (weighted-sum inputs), `d8_routing.py` (upstream counts check), `mapping.py` (map helpers and colours).
+
+Raw and processed datasets are **not stored in this repository**. They are kept in a shared OneDrive folder (University of Tasmania Shared Libraries) so both group members can use them without bloating the git history. See "Data access" below.
+
+## Reproduction instructions
 
 1. Clone this repository.
 2. Create the conda environment:
@@ -98,78 +86,44 @@ bloating the git history. See "Data Access" below.
    conda env create -f environment.yml
    conda activate KGG375_AT3
    ```
-3. Request access to the shared OneDrive data folder (see "Data Access"
-   below), copy `.env.example` to `.env`, and set `AT3_DATA_DIR` to your
-   local path to that folder.
-4. Run the notebooks in `notebooks/` in numbered order.
+3. Request access to the shared OneDrive data folder (see "Data access") and set the environment variable `AT3_DATA_DIR` to your local path to it *before* starting Jupyter, for example `export AT3_DATA_DIR="/path/to/AT3_initial_datasets"`. The notebooks read it with `os.environ`.
+4. Run the notebooks in `notebooks/` in numbered order. The routing tables from the D8 notebooks are read from the shared `Output_data/` folder.
 5. Build the book locally:
    ```bash
    jupyter-book build --html
    ```
+   The build does not re-run the notebooks; it uses their saved outputs.
 
-## Data Access
+## Data access
 
-Datasets live in a University of Tasmania OneDrive shared library
-("AT3_initial_datasets"), not in the repository: `Input_data/` (raw
-sources) and `Output_data/` (everything the notebooks generate).
-Notebooks read and write via `AT3_DATA_DIR`.
+Datasets live in a University of Tasmania OneDrive shared library ("AT3_initial_datasets"), not in the repository: `Input_data/` (raw sources) and `Output_data/` (everything the notebooks generate). Notebooks read and write through `AT3_DATA_DIR`.
 
 Sources (`Input_data/`):
-- **Karst Atlas v3.1** (2003) — mapped karst extent and carbonate
-  features; via Mineral Resources Tasmania / group access.
-- **LIST CFEV Karst** (LISTdata, DPIPWE) — conservation value polygons.
-  Used in Stage 10 (field `KT_ICV`: M/H/VH). Boundaries differ from the
-  Karst Atlas ("Mole Creek" splits into "Mole Creek 1-4"), so it is joined
-  by spatial overlay, not by name.
-- **LIST CFEV Groundwater Dependent Ecosystems / springs** (LISTdata,
-  DPIPWE) — validation only. 115 points statewide, 37 within Mole Creek.
-- **LIST Groundwater Boreholes** — optional, unused.
-- **DEM** — LIST 25 m statewide, per-municipality tiles (all 29 downloaded).
-- **Geology** — Mineral Resources Tasmania at 1:25,000, 1:250,000 and
-  1:500,000 (`geopackage/`, `geology25k/`).
-- **Geoconservation site data** (`geosite_report_4_22-Sep-2026/`) —
-  sourced, unused.
-- **Tasmania state boundary** (`STE_2021_AUST_SHP_GDA2020/`, ABS ASGS).
-- **Land use** — DEA Level-3 Land Cover (`ga_ls_landcover_class_cyear_3`),
-  fetched on demand via the DEA STAC catalogue
-  (`https://explorer.dea.ga.gov.au/stac`) with `pystac_client` +
-  `odc.stac`; no authentication needed, no local raw files. AT3 disallows
-  PyQGIS, so resampling uses `rioxarray`/`xarray` and reclassification
-  uses `numpy`.
+- **Karst Atlas v3.1** (2003) — mapped karst extent, category, exposure and catchment flags; via Mineral Resources Tasmania / group access.
+- **LIST land use 2021** (LISTdata, DPIPWE) — land-use polygons scored with the matrix in `src/landuse_list.py`. This is the main pressure layer.
+- **DEA Level-3 Land Cover** (`ga_ls_landcover_class_cyear_3`) — the alternative pressure layer, fetched on demand through the DEA STAC catalogue (`https://explorer.dea.ga.gov.au/stac`) with `pystac_client` and `odc.stac`; no authentication needed.
+- **LIST CFEV Groundwater Dependent Ecosystems / springs** — independent check only. 115 points statewide.
+- **DEM** — LIST 25 m statewide (built per municipality), with a 2 m DEM for Mole Creek used as a check.
+- **LIST hydrolines** — watercourses (used in the six-input weighted-sum test).
+- **Geology** — Mineral Resources Tasmania at 1:25,000, 1:250,000 and 1:500,000, kept for context.
+- **Tasmania state boundary** — ABS ASGS (`STE_2021_AUST_SHP_GDA2020/`).
 
-## Design Decisions
+The unit disallows PyQGIS, so resampling uses `rioxarray` and `xarray`, and flow routing uses WhiteboxTools.
 
-- Build at Mole Creek first, freeze, then apply statewide.
+## Design decisions
+
+- Build at Mole Creek first, then apply the same method statewide.
 - Keep vector layers as vectors until something needs rasterising.
-- Geology refines the susceptibility layer; it does not add its own
-  weighted score (no double-counting).
-- CFEV springs and conservation value are validation/context only, never
-  inputs to the score.
-- A few justified weights, not AHP.
-- Shared code: `src/landuse.py` (`fetch_landuse_pressure()`, Stages 5, 7,
-  9) and `src/karst.py` (susceptibility, connectivity, classification,
-  pressure aggregation; Stages 2, 3, 7).
+- Multiply the ingredients, so a place must be high on all of them to score high. The alternatives are tested, not assumed.
+- Exposure is part of susceptibility (karst intensity times exposure), so covered karst scores below exposed karst.
+- Connectivity classes use fixed powers of ten, so a class means the same ratio at every resolution.
+- Springs are an independent check and never an input to the score.
+- Polygons with no routed connectivity score (too small for a 100 m cell) are left out, not given a substitute score.
+- Risk classes are fixed (0.025, 0.05, 0.075, 0.10), so a label means the same score at Mole Creek and statewide; the interactive map colours cells by rank.
 
-## Method Corrections (Stages 2–8)
+## Method notes
 
-- **Pressure reaching karst:** catchment-only polygons have zero karst
-  intensity, so their pressure never reached the risk product (26.8% of
-  high-pressure cells at Mole Creek). Karst cells now use the mean
-  pressure across their named system (`aggregate_pressure_by_system()`),
-  a simple mean, not flow-routed.
-- **Resampling:** statewide land cover uses `mode`, not nearest-neighbour,
-  when downsampling 30 m to 100 m.
-- **Scoring:** covered karst now scores below exposed (EPIK protective
-  cover); the Stage 2 carbonate match no longer matches "non-carbonate".
-- **Rasterising:** `rasterize_max()` makes overlaps resolve to the max,
-  not draw order.
-- **Statistics:** Stages 6 and 8 both use pooled-pixel means. Stage 8
-  headlines the cells where either surface is nonzero (r=0.91 over all
-  cells is inflated by ~77% zero-zero cells).
-- **Outputs and code:** each stage writes its own file; labels come from
-  `classify_scores()`/`classify_fixed()`; Stage 7 imports the shared
-  modules; dead `d8_pointer` call removed.
-- **Not independent checks:** Stage 6's "named areas rank sensibly"
-  (risk derives partly from `KCATEGORY`, which names and ranks the areas)
-  and Stage 7's Mole Creek cross-check (a subset of the same computation)
-  confirm the arithmetic, not the model.
+- **Pressure reaching karst:** each karst cell takes the mean pressure across its named system, including its catchment polygons (`aggregate_pressure_by_system()`). Only polygons within 1 km of each other under one name are pooled.
+- **Overlaps:** `rasterize_max()` resolves overlapping polygons to the maximum, not draw order, and skips polygons with no score.
+- **Statistics:** Stages 6 and 8 use pooled-pixel means; rank correlation is the common measure across tests (Stage 16).
+- **Not independent checks:** Stage 6's "named areas rank sensibly" is partly circular (risk derives partly from the Atlas category that names and ranks the areas), and the springs check is only independent-ish (the spring and karst data share sources).
