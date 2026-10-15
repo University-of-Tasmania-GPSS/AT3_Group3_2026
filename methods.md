@@ -77,9 +77,9 @@ cleaning (Eberhard & Houshold, 2002). What is on the land therefore matters, and
 | Classes scored | Six: water, natural vegetation, aquatic vegetation, bare surface, cultivated, artificial | The LIST hierarchy, from conservation land to intensive uses |
 | Scale | 0, 1 or 3 | 0 to 10 |
 | Sees | Cultivated against natural cover, for any year | Plantation forestry, irrigated pasture, intensive animal production, mining and waste |
-| Misses | Cannot separate managed plantation from native forest, and counts lightly grazed pasture as natural | A single year, and a heavier Tasmania-only dataset |
+| Misses | Cannot separate managed plantation from native forest, and counts lightly grazed pasture as natural | Six snapshots from 2002 to 2021 (fewer than DEA's annual series), and a heavier Tasmania-only dataset |
 
-The main map uses **LIST land use**: it is Tasmania's own source and records what the land is used for, not only what covers it. DEA is kept as a tested alternative.
+The main map uses **LIST land use**: it is Tasmania's own source and records what the land is used for as well as what covers it. DEA is kept as a tested alternative.
 
 :::{embed} #pressure-slider
 :::
@@ -153,7 +153,7 @@ Keeping the inputs the same in the first two rows separates the effect of struct
 :::{embed} #structure-slider
 :::
 
-*The main product (left) against the four ingredients added with equal weights (right), Mole Creek. The two are on different scales (the sum scores 0.4 to 0.5, the product mostly under 0.1), so each map is split into fifths of its own karst cells: the colours show where each map ranks a cell, not how large its score is.*
+*The main product (left) against the four ingredients added with equal weights (right), Mole Creek. The two are on different scales (the sum scores 0.4 to 0.5, the product mostly under 0.1), so each map is split into fifths of its own karst cells: the colours show where each map ranks a cell.*
 
 #### How slope enters
 
@@ -190,7 +190,7 @@ The three tests above vary the choices the Introduction names. The model also re
 | Pressure scores | LIST matrix, 0 to 10 | For the DEA version: natural land at 0; a milder 1:2 contrast |
 | Rainfall | Not used | A 0.5 to 1 modifier from the Atlas rainfall field |
 
-Every test, and these judgement calls, is scored on one measure in `notebooks/16_which_choices_matter.ipynb`: the rank correlation with the main map over the mapped karst. The land-cover year is not a sensitivity. It is a change to track, and the final map uses 2021 land use.
+Every test, and these judgement calls, is scored on one measure in `notebooks/16_which_choices_matter.ipynb`: the rank correlation with the main map over the mapped karst. The land-cover year is a change to track over time, and the final map uses 2021 land use.
 
 ## Reproducibility
 
