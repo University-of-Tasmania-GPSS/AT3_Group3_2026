@@ -55,7 +55,7 @@ Routing depends on the DEM, so connectivity is where resolution enters the proje
 | Local | 25 m | Mole Creek | The Mole Creek map |
 | Statewide | 100 m | All of Tasmania | The Tasmania map |
 
-The 2 m run is too large to repeat for the state, so it is compared with the 25 m run at Mole Creek, and the 100 m run is compared with both on the polygons they share (`notebooks/13_connectivity_resolution.ipynb`). The Karst Atlas flags give a second connectivity score (the highest of exposure type, proximal catchment and distal catchment), which serves as a check on the routing.
+The 2 m run is too large to repeat for the state, so it is compared with the 25 m run at Mole Creek, and the 100 m run is compared with both on the polygons they share (Stage 13). The Karst Atlas flags give a second connectivity score (the highest of exposure type, proximal catchment and distal catchment), which serves as a check on the routing.
 
 **Polygons with no routed score.** At 100 m, 132 of the 1,677 karst polygons (about 0.02% of karst area) are too small to hold a single grid cell, so the routing cannot score them. We leave them out: they have no connectivity score and do not appear on the statewide map or in the rankings. Giving them a substitute score, from the Atlas flags or by leaving connectivity out of the product, would score them on a different basis from every other polygon, and would inflate them. At Mole Creek's 25 m, all 66 polygons are routed. The neighbouring karst inside the 3 km buffer is not routed and is context only.
 
@@ -139,7 +139,7 @@ The land-use scores are expert judgement in both versions (DEA classes in `05`, 
 ### How the ingredients combine 
 
 Both EPIK and COP multiply their factors, while methods such as DRASTIC add weighted scores, so we run the alternatives
-(`notebooks/14_weighted_sum_prototype.ipynb`):
+(Stage 14):
 
 | Structure | How the ingredients combine | Inputs |
 |---|---|---|
@@ -157,7 +157,7 @@ Keeping the inputs the same in the first two rows separates the effect of struct
 
 #### How slope enters
 
-Slope is part of the method too. Published rules differ, and COP (Vías et al., 2006) gives slope two signs, so we run our rule against COP's and against lower ceilings (`notebooks/09_sensitivity_analysis.ipynb`, section 9.7):
+Slope is part of the method too. Published rules differ, and COP (Vías et al., 2006) gives slope two signs, so we run our rule against COP's and against lower ceilings (Stage 9, section 9.7):
 
 | Rule | Direction | Form |
 |---|---|---|
@@ -177,11 +177,11 @@ The same code (`src/karst.py`, `src/landuse.py`, `src/hydro.py`) runs statewide 
 - **Scale.** Does the 100 m statewide run reproduce the 25 m local pattern, and does routing on a 2 m DEM change the Mole Creek map?
 - **Data.** Does swapping LIST land use for DEA land cover change the map?
 - **Method.** Does adding weighted scores instead of multiplying them, or a different slope rule, change the map, and does it change how well springs line up with the scores?
-- **Independent data.** Do mapped springs line up with the scores? The springs data is never an input to the model.
+- **Independent data.** Do mapped springs line up with the scores? Each spring takes the score of its nearest karst polygon, and the average for the systems holding springs is compared with random draws of karst. The springs data is never an input to the model.
 
 ## Sensitivity
 
-The three tests above vary the choices the Introduction names. The model also rests on smaller judgement calls, and each is run once against the main map (`notebooks/09_sensitivity_analysis.ipynb`):
+The three tests above vary the choices the Introduction names. The model also rests on smaller judgement calls, and each is run once against the main map (Stage 9):
 
 | Judgement | Main choice | What we varied |
 |---|---|---|
@@ -190,20 +190,19 @@ The three tests above vary the choices the Introduction names. The model also re
 | Pressure scores | LIST matrix, 0 to 10 | For the DEA version: natural land at 0; a milder 1:2 contrast |
 | Rainfall | Not used | A 0.5 to 1 modifier from the Atlas rainfall field |
 
-Every test, and these judgement calls, is scored on one measure in `notebooks/16_which_choices_matter.ipynb`: the rank correlation with the main map over the mapped karst. The land-cover year is a change to track over time, and the final map uses 2021 land use.
+Every test, and these judgement calls, is scored on one measure in Stage 16: the rank correlation with the main map over the mapped karst. The land-cover year is a change to track over time, and the final map uses 2021 land use.
 
 ## Reproducibility
 
-The pipeline is 17 notebooks, run in numbered order, sharing code in `src/`
-(`05b` builds the LIST pressure layer that Stage 6 uses, and `05` is the DEA alternative; there is no Stage 11 or
-Stage 12, and the retired Atlas connectivity comparisons are in `notebooks/archive/`). Three further notebooks run the D8
-flow-routing that feeds the connectivity score: `03alt3` (25 m DEM) for
+The pipeline is 18 stages, run in numbered order, sharing code in `src/`
+(`05b` builds the LIST pressure layer that Stage 6 uses, and `05` is the DEA alternative). Three further routing runs compute the D8
+flow routing that feeds the connectivity score: `03alt3` (25 m DEM) for
 Mole Creek, `03-100m-hydrological-connectivity` (100 m DEM) for all of
 Tasmania, and `03alt2` (2 m DEM, Mole Creek) for the scale check. They sit
 before Stages 3 and 7 and are not part of the numbered run: the routing is
 slow and the 2 m run is too large to repeat, so their count tables are shared
 outputs that Stages 3, 7 and 13 read. Raw data and those tables stay in a
-shared folder, every other output is regenerated by the notebooks, and
+shared folder, every other output is regenerated by the stages, and
 `environment.yml` pins the conda environment.
 
 The steps, in order:
@@ -211,7 +210,7 @@ The steps, in order:
 1. Study areas and setup (00–01)
 2. Susceptibility, connectivity and intrinsic vulnerability (02–04, with exposure in `04_v2`)
 3. Land-use pressure, DEA (05) and LIST (05b), and relative risk (06)
-4. Statewide run and scale comparison (07–08)
+4. Statewide run and scale comparison (07, 08 and 08b)
 5. Sensitivity and validation (09, 10)
 6. Connectivity across resolution, springs test and the Atlas check (13)
 7. The method test: product against weighted sum, with EPIK and COP replications (14)
