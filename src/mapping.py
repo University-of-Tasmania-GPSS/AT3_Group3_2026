@@ -1,7 +1,7 @@
 """Shared map-drawing helpers (basemap, real coordinates, scale bar, north arrow).
 
 Rasters are drawn in their own projected coordinates (EPSG:7855, metres) so
-axes show eastings/northings, not pixel counts. The basemap is Esri World
+axes show eastings and northings. The basemap is Esri World
 Topographic Map; tiles are downloaded on first use and cached locally.
 """
 import textwrap

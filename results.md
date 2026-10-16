@@ -4,15 +4,15 @@
 
 This chapter shows the map it produces, then how far each choice we tested moves it, and how well it holds up against independent data. 
 
-## 1. Intrinsic vulnerability at Mole Creek
+## 1. Karst intrinsic vulnerability (KIVI) at Mole Creek
 
-Intrinsic vulnerability is susceptibility (how karstified and how exposed the rock is) multiplied by connectivity (how much water drains in). It describes the karst itself, before land use or slope is applied.
+The Karst Intrinsic Vulnerability Index (KIVI) is susceptibility (how karstified and how exposed the rock is) multiplied by connectivity (how much water drains in). It describes the karst itself, before land use or slope is applied.
 
 ```{figure} figures/intrinsic_vulnerability_mole_creek.png
 :alt: Map of the Mole Creek karst in five blue classes from very low to very high intrinsic vulnerability. Most of the karst is High, with Very high patches in the north and Very low patches in the east.
 :width: 100%
 
-Intrinsic vulnerability at Mole Creek (25 m): susceptibility × connectivity. Most of the karst is High (56%), with small Very high areas (5%) where exposed, strongly karstified karst sits low in a large catchment.
+KIVI at Mole Creek (25 m): susceptibility × connectivity. Most of the karst is High (56%), with small Very high areas (5%) where exposed, strongly karstified karst sits low in a large catchment.
 ```
 
 More than half of the Mole Creek karst (56%) has High intrinsic vulnerability, mostly across the west and centre, where the rock is strongly karstified. The highest class (Very high, 5%) is a small area in the north-west and north-centre where that rock is open to the surface and lies low in a large catchment. The eastern block is Moderate (25%), and the lowest classes are a narrow strip on the south-east edge (Low, 6%) and small patches of karst between other rock layers in the centre and east (Very low, 8%).
@@ -21,7 +21,7 @@ Covered and interstratal karst scores lower than exposed karst of the same categ
 
 ## 2. Relative risk at Mole Creek
 
-Relative risk multiplies intrinsic vulnerability by land-use pressure and the slope multiplier. It uses LIST land use for 2021, with the scoring set out in the Methods.
+Relative risk multiplies KIVI by land-use pressure and the slope multiplier. It uses LIST land use for 2021, with the scoring set out in the Methods.
 
 ```{figure} figures/risk_mole_creek.png
 :alt: Map of the Mole Creek karst in five classes of relative risk, from Very Low to Very High.

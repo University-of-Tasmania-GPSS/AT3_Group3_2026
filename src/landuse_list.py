@@ -1,8 +1,8 @@
-"""Land-use pressure from the LIST Tasmania land-use polygons (experimental).
+"""Land-use pressure from the LIST Tasmania land-use polygons: the main pressure layer.
 
-Alternative to the DEA land-cover reclass in landuse.py. Scores are expert
-judgement on a 0-10 scale, anchored to the LIST primary-group hierarchy
-(1 conservation ... 5 intensive uses) with adjustments within each group.
+Scores are expert judgement on a 0-10 scale, anchored to the LIST primary-group hierarchy
+(1 conservation ... 5 intensive uses) with adjustments within each group. The DEA land-cover
+reclass in landuse.py is the tested alternative.
 """
 import geopandas as gpd
 from rasterio.warp import transform_bounds

@@ -9,7 +9,7 @@ KGG375 GIS Project (AT3) — Group 3, University of Tasmania
 
 ## Project aim
 
-Test how **scale**, **data** and **method** choices change a relative karst risk map, then use the best-supported combination to build an index that scales from one cave system (Mole Creek) to the whole state. There is no contamination ground truth, so the result is a *relative* map and the focus is on how much each choice moves it.
+Build a Karst Intrinsic Vulnerability Index (KIVI) for Tasmania, combine it with land use as a relative karst risk map, and test how **scale**, **data** and **method** choices change the result. The method is built at one cave system (Mole Creek) and scaled to the whole state. There is no contamination ground truth, so the result is a *relative* map and the focus is on how much each choice moves it.
 
 The model multiplies four terms, each scaled 0 to 1:
 
@@ -20,7 +20,7 @@ The model multiplies four terms, each scaled 0 to 1:
 | **Pressure** | LIST Tasmania land-use matrix for 2021 (0–10), averaged over each named karst system; DEA land cover is the tested alternative |
 | **Slope** | Multiplier from 0.5 (flat) to 1 (30° or steeper) |
 
-*Intrinsic vulnerability* = susceptibility × connectivity. *Relative risk* = intrinsic vulnerability × pressure × slope. See `methods.md` for the method and `results.md` for the findings.
+*KIVI (intrinsic vulnerability)* = susceptibility × connectivity. *Relative risk* = intrinsic vulnerability × pressure × slope. See `methods.md` for the method and `results.md` for the findings.
 
 The method is built and tuned at **Mole Creek** (25 m grid), then applied across **Tasmania at 100 m** and compared. The Mole Creek study area is the Karst Atlas polygons plus a 3 km buffer (`notebooks/00_bounding_boxes.ipynb`), because pressure and routing need the land around the karst. Results are reported for the Mole Creek karst only.
 

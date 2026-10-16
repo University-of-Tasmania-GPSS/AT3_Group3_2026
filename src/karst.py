@@ -1,8 +1,7 @@
 """Karst susceptibility and hydrological connectivity scoring, pressure aggregation and risk
-classification, shared by the notebooks so the frozen method stays identical across them.
+classification, shared by the notebooks so every stage uses the same method.
 
-All reclassification choices here are ordinal, not ratio, scores: a value
-of 4 means "more" than 2, not "twice as much".
+Reclassified scores are ordinal: a value of 4 ranks above a value of 2.
 """
 
 import geopandas as gpd
@@ -46,14 +45,12 @@ def add_karst_susceptibility(karst_gdf):
 
 # --- Stage 3: hydrological connectivity -------------------------------------
 
-# Covered karst has a protective non-karst cap between the surface and the
-# karst itself; EPIK's Protective Cover (P) factor treats that cover as
-# *reducing* vulnerability, not neutral. So: exposed keeps the maximum score
-# (no buffering); covered is still autogenic (it gets its own rainfall, per
-# the Data Dictionary) but scored lower for the buffering; interstratal is
-# lower again since, per the Data Dictionary, it is not autogenic at all --
-# its recharge depends on an external catchment (KPROXCATCH), not direct
-# rainfall.
+# Covered karst has a protective cap of non-karst rock between the surface and the karst;
+# EPIK's Protective Cover (P) factor treats such cover as reducing vulnerability. Exposed
+# karst keeps the maximum score. Covered karst is autogenic (it receives its own rainfall,
+# per the Data Dictionary) and scores lower for the buffering. Interstratal karst scores
+# lowest: its recharge comes from an external catchment (KPROXCATCH) and little rain falls
+# on it directly.
 AUTOGENIC_SCORE = {"exposed": 3, "covered": 2, "interstratal": 1, "non-karst": 0}
 
 
@@ -75,14 +72,14 @@ def add_connectivity(karst_gdf):
 def susceptibility_score(intensity, exposure):
     """Susceptibility on a 0-1 scale: how karstified the rock is (Atlas category, 0-4) times how exposed the
     karst is (exposed 3, covered 2, interstratal 1, 0 for no karst). Covered karst has a protective cap, so
-    exposure scales the score down instead of adding to it."""
+    exposure scales the score down."""
     return (np.asarray(intensity, float) / 4.0) * (np.asarray(exposure, float) / 3.0)
 
 
 # Class edges for the main D8 connectivity score: powers of ten of the ratio of upstream cells to polygon
-# cells (class 1: up to 1, 2: 1-10, 3: 10-100, 4: over 100). Fixed, so a class means the same ratio at every scale.
+# cells (class 1: up to 1, 2: 1-10, 3: 10-100, 4: over 100). The edges are fixed, so a class covers the same ratio at every scale.
 D8_DECADE_EDGES = (1, 10, 100)
-# Edges of an earlier five-class scheme, kept for the archived notebooks.
+# Edges of a five-class alternative, used by the archived notebooks.
 D8_LOG_EDGES = (1, 3, 10, 30)
 
 
@@ -103,26 +100,27 @@ def log1p_classes(ratio, n_classes=4):
 
 
 def add_connectivity_d8(karst_gdf, counts_csv, scheme="decades", n_classes=4, edges=None, unrouted="drop"):
-    """Replace the Atlas connectivity with D8 flow-routing connectivity (`add_connectivity` must have run first).
+    """Overwrite the Atlas connectivity with D8 flow-routing connectivity (`add_connectivity` runs first).
 
     The D8 signal is `upstream_cells_per_target_cell` from the routing notebooks (03alt3 at 25 m, 03-100m at
     100 m): how many DEM cells drain into each karst polygon, per cell of the polygon. It is classed and
-    rescaled to the same 0-3 scale as the Atlas score, so later stages can keep reading `connectivity`. The
-    scores are fractional (e.g. 3 * 2/4), so rasterise them with a float dtype, not `rasterize_max`'s default.
+    rescaled to the same 0-3 scale as the Atlas score, so later stages read `connectivity`. The scores are
+    fractional (e.g. 3 * 2/4), so rasterise them with a float dtype.
 
     scheme: "decades" (main) classes the ratio at fixed powers of ten (`D8_DECADE_EDGES`: up to 1, 1-10,
         10-100, over 100); "log1p" splits log1p(ratio) into `n_classes` equal-width intervals between the lowest
         and highest ratio of the routed polygons (edges follow each run's data; see `log1p_classes`); "log"
-        uses the older five-class edges `D8_LOG_EDGES`. Pass `edges` to override the edges of "decades" or "log".
+        uses the five-class edges `D8_LOG_EDGES`. Pass `edges` to override the edges of "decades" or "log".
     unrouted: polygons with no raster cell at this resolution (small polygons at 100 m) have no ratio.
         "drop" (default) leaves their connectivity empty (NaN), so they are left out of the map and the rankings
         instead of being scored on a different basis; "catchment" gives them the Atlas catchment flags only
-        (proximal 3, distal 1, else 0); "atlas" keeps their full Atlas score (which includes exposure, now scored
-        on its own in susceptibility); "zero" sets 0.
+        (proximal 3, distal 1, else 0); "atlas" keeps their full Atlas score (which includes exposure, scored
+        separately in susceptibility); "zero" sets 0.
 
     Columns added: `connectivity_atlas` (the Atlas score, kept as the fallback and for checks), `d8_ratio`,
-    `d8_class` (1..n, NaN if unrouted) and `connectivity_source` ("d8", "catchment", "atlas" or "none", where "none" is dropped or zero); `connectivity` is
-    overwritten, and the ratio edges are stored in `karst_gdf.attrs["d8_ratio_edges"]`. Returns the same GeoDataFrame.
+    `d8_class` (1..n, NaN if unrouted) and `connectivity_source` ("d8", "catchment", "atlas" or "none", where
+    "none" means dropped or zero). `connectivity` holds the D8 score, and the ratio edges are stored in
+    `karst_gdf.attrs["d8_ratio_edges"]`. Returns the same GeoDataFrame.
     """
     import pandas as pd
 
@@ -166,9 +164,9 @@ def add_connectivity_d8(karst_gdf, counts_csv, scheme="decades", n_classes=4, ed
 # --- Shared: overlap-safe rasterisation -------------------------------------
 
 def rasterize_max(gdf, value_column, out_shape, transform, fill=0, dtype="uint8"):
-    """Rasterise `value_column`, with overlapping polygons resolved by MAX
-    rather than draw order (`rasterio.features.rasterize` burns shapes in
-    the order given, so the last one wins on overlap)."""
+    """Rasterise `value_column`, resolving overlapping polygons by the maximum value.
+    (`rasterio.features.rasterize` burns shapes in the order given, so the last one wins
+    on overlap; sorting ascending lets the maximum win.)"""
     ordered = gdf[gdf[value_column].notna()].sort_values(value_column)  # ascending: highest value drawn last, wins; empty values are skipped
     return rasterize(
         [(geom, val) for geom, val in zip(ordered.geometry, ordered[value_column])],
@@ -206,42 +204,32 @@ def _spatial_clusters(geometries, max_gap_m):
 
 
 def aggregate_pressure_by_system(karst_gdf, pressure_array, transform, pressure_nodata, max_gap_m=1000):
-    """Return a copy of `pressure_array` where every KARST cell (not
-    catchment-only cells) has been replaced with the MEAN pressure across its
-    whole named system -- the karst polygon(s) AND whichever catchment
-    polygons share the same `KNAME` *and are spatially connected* to it.
+    """Return a copy of `pressure_array` in which every karst cell takes the mean pressure across its
+    whole named system: the karst polygon(s) and the catchment polygons that share the same `KNAME`
+    and are spatially connected to them.
 
-    Why: risk = intrinsic_vulnerability x pressure is a per-cell product, and
-    catchment-only polygons have karst_intensity=0, so their contribution to
-    risk is always 0, however much high-pressure land they contain -- 26.8%
-    of high-pressure cells at Mole Creek were lost this way. This function
-    lets a catchment's land use reach the karst it actually drains into,
-    rather than only the pixel directly on top of the karst mattering.
+    Risk is a per-cell product and catchment-only polygons have karst_intensity=0, so land use inside
+    a catchment reaches the karst through this mean (26.8% of high-pressure cells at Mole Creek sit in
+    catchment-only polygons).
 
-    Two `KNAME` issues are handled explicitly:
-    - It is blank/null for 454 of 2601 statewide features (5 at Mole Creek);
-      a plain `groupby("KNAME")` would silently drop these. Each blank-name
-      polygon is instead treated as its own single-feature system.
-    - Some names are shared by unrelated, widely-separated polygons --
-      "Several" (3 polygons up to 233 km apart) and "Various" (2 polygons
-      104 km apart) are placeholder labels, not real system names; even a
-      real name like "Trowutta-Sumac" has outlying polygons several km from
-      its main cluster. So within each `KNAME` group, only polygons within
-      `max_gap_m` of each other (chained transitively) are pooled. At
-      `max_gap_m=1000`, "Mole Creek" (73 polygons spanning 37 km) stays one
-      connected system, while "Several"/"Various" split into singletons, as
-      they should.
+    Two `KNAME` issues are handled:
+    - KNAME is blank for 454 of 2601 statewide features (5 at Mole Creek). Each blank-name polygon
+      forms its own single-feature system.
+    - Some names are shared by unrelated, widely separated polygons: "Several" (3 polygons up to
+      233 km apart) and "Various" (2 polygons 104 km apart) are placeholder labels, and a real name
+      like "Trowutta-Sumac" has outlying polygons several km from its main cluster. Within each
+      `KNAME` group, only polygons within `max_gap_m` of each other (chained) are pooled. At
+      `max_gap_m=1000`, "Mole Creek" (73 polygons spanning 37 km) forms one connected system and
+      "Several" and "Various" split into single polygons.
 
-    Uses a MEAN over each system, not the pixel's own value -- simple and
-    transparent, not flow-routed or distance-weighted. Consequence: every
-    karst cell in a system gets the *same* pressure value, so within-system
-    spatial variation in land use is gone (see `discussion.md`).
+    The mean is simple and transparent, with no flow routing or distance weighting. Every karst cell
+    in a system takes the same pressure value, so land use varies between systems and is constant
+    within each (see `discussion.md`).
     """
     effective = pressure_array.astype(float)  # float: a uint8 input would truncate the system mean
     shape = pressure_array.shape
 
-    # Blank/null KNAME -> each polygon is its own system (explicit, not a
-    # silent groupby-drop). Real names get spatial-cluster splitting below.
+    # Blank or null KNAME: each polygon forms its own system. Real names are split into spatial clusters below.
     karst_gdf = karst_gdf.copy()
     blank = karst_gdf["KNAME"].isna() | (karst_gdf["KNAME"].astype(str).str.strip() == "")
     karst_gdf.loc[blank, "_group_key"] = [f"__unnamed_{i}" for i in karst_gdf.index[blank]]
@@ -261,8 +249,7 @@ def aggregate_pressure_by_system(karst_gdf, pressure_array, transform, pressure_
         if len(karst_only) == 0:
             continue  # this system has no actual karst cells to assign to
 
-        # Rasterize each system's own footprint to index pressure directly,
-        # rather than re-opening a file per system (hundreds of times statewide).
+        # Rasterise each system's footprint and index the pressure array directly (hundreds of systems statewide).
         group_pixels_mask = rasterize(
             [(g, 1) for g in group.geometry], out_shape=shape, transform=transform, fill=0, dtype="uint8"
         )
@@ -282,9 +269,7 @@ def aggregate_pressure_by_system(karst_gdf, pressure_array, transform, pressure_
 
 # --- Shared: classify a combined score onto whatever distinct values occur -
 
-# Ordered vocabulary to draw labels from, shared across Stages 4, 6 and 7 so
-# a given score always gets the same label and new distinct values upstream
-# can't silently fall through a hardcoded label list.
+# Ordered vocabulary that labels are drawn from, shared across stages so a given score always gets the same label.
 _CANONICAL_LABELS = [
     "None", "Very Low", "Low", "Low-Moderate", "Moderate",
     "Moderate-High", "High", "Very High", "Severe", "Extreme",
@@ -292,11 +277,9 @@ _CANONICAL_LABELS = [
 
 
 def classify_scores(score_array, valid_mask):
-    """Classify `score_array` directly on whatever distinct values actually
-    occur within `valid_mask` (not arbitrary quantile breaks -- these scores
-    are products of a handful of discrete ordinal inputs, so there are only
-    ever a few real combinations, and classifying on the actual values is
-    more meaningful than imposing bins on them).
+    """Classify `score_array` on the distinct values that occur within `valid_mask`. These scores are
+    products of a handful of discrete ordinal inputs, so only a few real combinations exist, and
+    classing on the actual values keeps every combination visible.
 
     Returns (class_array, present_values, labels): `class_array` is a uint8
     raster where value i corresponds to present_values[i] and labels[i]
@@ -308,9 +291,8 @@ def classify_scores(score_array, valid_mask):
     if n > len(_CANONICAL_LABELS):
         labels = [f"Class {i} ({v:.3f})" for i, v in enumerate(present)]
     else:
-        # Evenly spread across the vocabulary, always fixing "None" to the
-        # lowest value when it's exactly 0 (every stage's score is a product
-        # of factors that can be 0, so this always occurs in practice).
+        # Labels are spread evenly across the vocabulary, with "None" fixed to the lowest value
+        # when it is exactly 0 (the scores are products of factors that can be 0).
         start = 1 if present[0] == 0 else 0
         pool = _CANONICAL_LABELS[start:]
         remaining = n - (1 if start == 1 else 0)
@@ -332,17 +314,16 @@ def classify_scores(score_array, valid_mask):
 # Fixed class edges for the 0-1 risk score. The score is a product of five terms that are each below 1
 # (karst intensity, exposure, connectivity, land-use pressure, slope), so it rarely exceeds 0.5. With LIST
 # land-use pressure (natural land scores 1/10) and exposure (covered karst scores 2/3, interstratal 1/3) a strong
-# cell scores about 0.1, so equal 0.025-wide classes spread it over the range it actually reaches; 0.2-wide
-# classes put almost every cell in the first.
+# cell scores about 0.1, so 0.025-wide classes spread it over the range it reaches. Classes 0.2 wide would put
+# almost every cell in the first.
 RISK_EDGES = (0.025, 0.05, 0.075, 0.10)
 RISK_LABELS = ["None", "Very Low", "Low", "Moderate", "High", "Very High"]
 
 
 def classify_fixed(score_array, valid_mask, edges=RISK_EDGES, labels=RISK_LABELS):
-    """Classify a 0-1 score into fixed classes at `edges`, with exact 0 kept as
-    its own "None" class. Because the edges are absolute, the same label means the
-    same score range wherever it is used (Mole Creek and statewide), and a class
-    stays empty if no cell reaches it.
+    """Classify a 0-1 score into fixed classes at `edges`, with exact 0 kept as its own "None" class.
+    The edges are absolute, so a label covers the same score range at Mole Creek and statewide, and a
+    class stays empty when no cell reaches it.
 
     Returns (class_array, edges, labels); class 0 is "None", 255 is outside `valid_mask`.
     """
@@ -372,14 +353,14 @@ def mole_creek_focus_mask(karst_gdf, shape, transform):
     return burned == 1
 
 
-# --- Connectivity v2 (experimental) ------------------------------------------
+# --- Connectivity with a polygon-level slope factor ---------------------------
 
 def add_connectivity_v2(karst_gdf, mean_slope_deg, slope_ref_deg=15.0, min_factor=0.5):
     """Polygon-level connectivity with slope folded in (`add_connectivity` must have run first).
 
     A slope factor in [min_factor, 1] scales the catchment-derived signals (proximal and
     distal) by the polygon's mean slope, because steeper catchments deliver runoff more
-    readily. The autogenic signal (exposed / covered / interstratal) is not slope-scaled.
+    readily. The autogenic signal (exposed / covered / interstratal) keeps its own score.
     A polygon with no slope value is left unscaled. The watercourse signal is cell-level and
     is combined with this at raster stage (see `hydro.watercourse_raster`).
     """

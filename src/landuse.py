@@ -1,9 +1,7 @@
 """Fetch and reclassify DEA Level-3 land cover into a land-use pressure layer.
 
-Shared by notebooks 05 (Mole Creek), 07 (statewide), and 09 (temporal
-sensitivity) -- same STAC access pattern and reclassification everywhere,
-extracted here after the third notebook needed it, to stop it drifting
-into three slightly-different copies.
+Shared by notebooks 05 (Mole Creek), 5b, 07 (statewide), 09 (temporal trend) and 16, so
+every stage uses the same STAC access pattern and reclassification.
 """
 
 import time
@@ -33,7 +31,7 @@ def _with_retry(fn, tries=6, wait_s=20):
 # class observed anywhere over Tasmania: 111 Cultivated terrestrial
 # vegetation, 112 Natural terrestrial vegetation, 124 Natural aquatic
 # vegetation, 215 Artificial surface, 216 Natural bare surface, 220 Water.
-# Class 255 (no data) is left unmapped -> stays 255.
+# Class 255 (no data) stays 255.
 PRESSURE_RECLASS = {111: 3, 112: 1, 124: 1, 215: 3, 216: 1, 220: 0}
 
 
@@ -86,10 +84,8 @@ def fetch_landuse_pressure(bbox_wgs84, year, template_path, target_crs="EPSG:785
                 arr = cached.squeeze().load()
         else:
             catalog = _with_retry(lambda: pystac_client.Client.open(DEA_STAC_URL))
-            # Pin the AWS region/endpoint explicitly: GDAL's default region
-            # discovery hits the generic (non-bucket-qualified) s3.amazonaws.com
-            # endpoint first, which some network environments block even when
-            # the bucket-qualified regional endpoint is reachable.
+            # Set the AWS region and endpoint explicitly: GDAL's default discovery starts at the generic
+            # s3.amazonaws.com endpoint, which some networks block, while the regional endpoint is reachable.
             odc.stac.configure_rio(
                 cloud_defaults=True,
                 aws={
@@ -107,17 +103,14 @@ def fetch_landuse_pressure(bbox_wgs84, year, template_path, target_crs="EPSG:785
             if not items:
                 raise ValueError(f"No DEA Level-3 land cover items found for {year} over {bbox_wgs84}")
 
-            # Load at the template's own resolution when it's coarser than DEA's
-            # native ~30m (avoids pulling more data than needed statewide); never
-            # finer than 30m, since that's not real extra detail, just noise.
+            # Load at the template's own resolution when it is coarser than DEA's native ~30 m
+            # (less data statewide), and at 30 m otherwise, the finest real detail DEA holds.
             template_res = abs(dem_template.rio.resolution()[0])
             load_res = max(template_res, 30)
 
-            # Downsampling categorical data (e.g. statewide: 30m native -> 100m)
-            # needs majority/mode resampling, not nearest -- nearest just keeps
-            # one native pixel in ~11 and throws the other ten away, which can
-            # pick a non-dominant class. Only matters when actually downsampling;
-            # nearest is correct for Mole Creek's slight 30m->25m upsample.
+            # Downsampling categorical data (statewide: 30 m native to 100 m) uses majority (mode)
+            # resampling, which picks the dominant class of the ~11 native pixels in each cell.
+            # Nearest-neighbour suits Mole Creek's slight 30 m to 25 m upsample.
             load_resampling = "mode" if load_res > 30 else "nearest"
 
             land_cover = odc.stac.load(

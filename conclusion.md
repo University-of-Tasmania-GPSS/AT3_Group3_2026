@@ -13,24 +13,34 @@ Same karst, different users, different questions.
 The main map and one change on each axis. Titles give the rank correlation with the main map (1 = same ordering).
 ```
 
-## Take-home points
+## What we found
 
-We set out to test how scale, data and method choices change a karst risk map, and to build one model that runs from Mole Creek to the whole of Tasmania.
+We built a Karst Intrinsic Vulnerability Index (KIVI) at Mole Creek (25 m), applied it across Tasmania (100 m), and combined it with LIST land use and slope into a relative karst risk map. Method choices move the map most, scale and data move it less, and the same code and fixed classes run at both scales.
 
-- **Method matters most.** Adding the ingredients instead of multiplying them, or using a six-input weighted sum, changes the map more than a finer elevation model or a different land-use layer. The six-input sum gave a very different Mole Creek map (0.55), and adding the four ingredients changed the state's ordering (0.70).
-- **Data and scale matter less.** A 2 m elevation model gives the same map as 25 m (0.99), and the 100 m grid changes it only a little (0.89). Tasmanian land use against national land cover barely moves Mole Creek (0.98) and moves the state more (0.84), because the Tasmanian layer can see plantations and irrigated pasture.
-- **One model scales from a cave system to the state.** The same code and fixed classes run at 25 m locally and 100 m statewide. The coarse map is good for screening the state, and finer data is worth using where a decision depends on it.
-- **Exposure belongs in the model.** Scoring how exposed the karst is changes the map a little (0.91 at Mole Creek) and strengthens the springs check: springs sit at about the 99th percentile of the karst score, up from about the 96th.
-- **The map is relative.** It ranks places against each other, and the right map depends on who is asking and what they need to decide.
+**A KIVI for Tasmania.** Susceptibility (Atlas category × exposure) times connectivity (D8 flow routing) runs at 25 m and 100 m with the same five classes. Across the state, 47% of karst cells are High and 9% Very high. Adding exposure shifts the map a little (rank correlation 0.91 at Mole Creek) and lifts the springs check from about the 96th to the 99th percentile.
+
+**KIVI with land use.** Multiplying KIVI by LIST 2021 pressure and the slope multiplier gives the risk map. Risk is highest in the west of Mole Creek, and Flowery Gully, Doctors Rocks and Gunns Plains lead the statewide ranking of larger systems. The DEA series from 1988 to 2024 shows that the level of risk follows land use (65% high-pressure land in 1988, 22% in 2011, 64% in 2024) while the pattern stays fixed (correlation of at least 0.9998 between years). Running the model on each LIST snapshot is the next step.
+
+**KIVI with conservation value.** The comparison with CFEV Integrated Conservation Value is in the CFEV subsection of the Results.
+
+## What the tests showed
+
+- **Method matters most.** The six-input weighted sum gives a very different Mole Creek map (0.55), and adding the four ingredients changes the state's ordering (0.70).
+- **Scale matters less.** A 2 m elevation model gives the same map as 25 m (0.99), and the 100 m grid changes it a little (0.89).
+- **Data matters least at Mole Creek.** Tasmanian land use and national land cover give the same Mole Creek ranking (0.98) and differ more across the state (0.84), because the Tasmanian layer separates plantations and irrigated pasture.
+
+## Using the map
+
+The map ranks places against each other, so it suits screening the state and choosing where finer data is worth collecting. Springs sit at about the 99th percentile of the KIVI score, which is encouraging, and the check rests on 12 to 28 systems and on discharge rather than recharge points. Which map suits depends on who is asking and what they need to decide.
 
 ## What we would do next
 
-- **Add ground truth.** Water-quality or dye-tracing records would let us test the map against something other than where springs are.
-- **Route pressure along the flow paths.** Pressure is a simple mean over each named system. Routing land use along the flow paths into each karst polygon would be a better description of what reaches the karst.
-- **Keep the sinks.** Standard flow routing fills sinks, which in karst can be real sinkholes. Methods that retain sinks (in Whitebox and RichDEM) may work better, and we did not have time to test them.
-- **Fill the missing inputs.** Soil cover, depth to groundwater and sinkhole density would make a literature-style index possible for Tasmania.
-- **Track land-use change.** LIST has six snapshots (2002, 2009–10, 2013, 2015, 2019 and 2021). Running the model on each would show how risk moves as land use changes.
-- **Flag the small systems.** A confidence mark based on how many grid cells each system has would show where the 100 m map is least reliable.
+- **Add ground truth.** Water-quality or dye-tracing records would let us test the map against measured contamination.
+- **Route pressure along the flow paths.** Pressure is a mean over each named system. Routing land use along the flow paths into each karst polygon describes what reaches the karst more closely.
+- **Run each LIST snapshot.** LIST has six snapshots (2002, 2009–10, 2013, 2015, 2019 and 2021), and running the model on each shows how risk moves with land use.
+- **Keep the sinks.** Flow routing that retains sinks (Whitebox, RichDEM) may suit karst, where sinks can be real sinkholes.
+- **Fill the missing inputs.** Soil cover, depth to groundwater and sinkhole density would allow a literature-style index for Tasmania.
+- **Flag the small systems.** A confidence mark based on each system's cell count shows where the 100 m map is least reliable.
 
 :::{dropdown} Limitations
 
@@ -50,7 +60,7 @@ We set out to test how scale, data and method choices change a karst risk map, a
 - Land-use scores, slope direction and class edges are judgement. Published methods disagree on the sign of slope, and our map follows one choice.
 - Connectivity is routed over the surface DEM. It cannot see underground drainage or sinkholes, and catchments are cut off at the edge of the 3 km buffer, so polygons near the edge may be slightly under-counted.
 - Pressure is averaged over each named system, so every cell in a system gets the same value and the map is patchy by system. This was the choice that changed the Mole Creek map most.
-- Scores are relative, and the risk classes were re-set to 0.025 steps when the land-use layer and exposure lowered the scores. The colours show rank within Tasmania's karst.
+- Scores are relative, and the risk classes are 0.025 wide because the product of four terms rarely exceeds 0.1. The colours show rank within Tasmania's karst.
 - Very small systems dominate an unfiltered ranking, so we only rank systems of at least 20 cells.
 - We built and froze the method at Mole Creek, so some choices began as judgement calls, and the tests checked them afterwards.
 :::
