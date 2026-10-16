@@ -3,15 +3,22 @@ title: Introduction
 ---
 
 
-# The ground that swallows rain
+# Background
 
-**How vulnerable is karst and its groundwater to land use change or contaminants?**
+Water. We all know its importance to life, how critical it is to keep it clean and contamination free for human, non-human and environmental health. But have you ever thought about what happens to it under the ground? There are many places in Tasmania where water has turned the subterranean depths into a sparkling, mysterious, stunningly beautiful wonderland, silent except for the musical dripping of water or the gurgling of the crystal clear streams. In other places there are waterfalls and underground rivers flowing into the dark where only experienced cave divers dare to go. 
 
 ```{figure} figures/Croesus.jpg
 :alt: Inside a limestone cave at Mole Creek, Tasmania.
 :width: 70%
 
 Rachel inside a cave at Mole Creek.
+```
+Caves are also home to a variety of fauna, some dwell only in caves while others just take advantage of their shelter.
+
+```{figure} figures/Male_cave_spider.jpeg
+:alt: Endemic Tasmanian cave spider _Hickmania troglodytes_
+:width: 50%
+Endemic Tasmanian cave spider *Hickmania troglodytes*.
 ```
 
 ## Rock that rain dissolves
