@@ -15,11 +15,11 @@ The main map and one change on each axis. Titles give the rank correlation with 
 
 ## What we found
 
-We built a Karst Intrinsic Vulnerability Index (KIVI) at Mole Creek (25 m), applied it across Tasmania (100 m), and combined it with LIST land use and slope into a relative karst risk map. Method choices move the map most, scale and data move it less, and the same code and fixed classes run at both scales.
+We built a Karst Intrinsic Vulnerability Index (KIVI) at Mole Creek (25 m), applied it across Tasmania (100 m), and combined it with LIST land use and slope into a relative karst risk map, using the same code and fixed classes at both scales.
 
-**A KIVI for Tasmania.** Susceptibility (Atlas category × exposure) times connectivity (D8 flow routing) runs at 25 m and 100 m with the same five classes. Across the state, 47% of karst cells are High and 9% Very high. Adding exposure shifts the map a little (rank correlation 0.91 at Mole Creek) and lifts the springs check from about the 96th to the 99th percentile.
+**A KIVI for Tasmania.** Susceptibility (Atlas category × exposure) times connectivity (D8 flow routing) runs at 25 m and 100 m with the same five classes. Across the state, 47% of karst cells are High and 9% Very high. Exposure is part of the score because it lifts the springs check from about the 96th to the 99th percentile.
 
-**KIVI with land use.** Multiplying KIVI by LIST 2021 pressure and the slope multiplier gives the risk map. Risk is highest in the west of Mole Creek, and Flowery Gully, Doctors Rocks and Gunns Plains lead the statewide ranking of larger systems. The DEA series from 1988 to 2024 shows that the level of risk follows land use (65% high-pressure land in 1988, 22% in 2011, 64% in 2024) while the pattern stays fixed (correlation of at least 0.9998 between years). Running the model on each LIST snapshot is the next step.
+**KIVI with land use.** Multiplying KIVI by LIST 2021 pressure and the slope multiplier gives the risk map. Risk is highest in the west of Mole Creek, and Flowery Gully, Doctors Rocks and Gunns Plains lead the statewide ranking of larger systems. Over the DEA series from 1988 to 2024 the level of risk follows land use and the pattern stays fixed.
 
 **KIVI with conservation value.** The comparison with CFEV Integrated Conservation Value is in the CFEV subsection of the Results.
 
@@ -28,10 +28,6 @@ We built a Karst Intrinsic Vulnerability Index (KIVI) at Mole Creek (25 m), appl
 - **Method matters most.** The six-input weighted sum gives a very different Mole Creek map (0.55), and adding the four ingredients changes the state's ordering (0.70).
 - **Scale matters less.** A 2 m elevation model gives the same map as 25 m (0.99), and the 100 m grid changes it a little (0.89).
 - **Data matters least at Mole Creek.** Tasmanian land use and national land cover give the same Mole Creek ranking (0.98) and differ more across the state (0.84), because the Tasmanian layer separates plantations and irrigated pasture.
-
-## Using the map
-
-The map ranks places against each other, so it suits screening the state and choosing where finer data is worth collecting. Springs sit at about the 99th percentile of the KIVI score, which is encouraging, and the check rests on 12 to 28 systems and on discharge rather than recharge points. Which map suits depends on who is asking and what they need to decide.
 
 ## What we would do next
 
@@ -42,7 +38,7 @@ The map ranks places against each other, so it suits screening the state and cho
 - **Fill the missing inputs.** Soil cover, depth to groundwater and sinkhole density would allow a literature-style index for Tasmania.
 - **Flag the small systems.** A confidence mark based on each system's cell count shows where the 100 m map is least reliable.
 
-:::{dropdown} Limitations
+## Limitations
 
 **Ground truth**
 - Nothing measures contamination, so there is no way to say which map is right. The only check is where springs are, and springs mark where water leaves the karst.
@@ -63,4 +59,3 @@ The map ranks places against each other, so it suits screening the state and cho
 - Scores are relative, and the risk classes are 0.025 wide because the product of four terms rarely exceeds 0.1. The colours show rank within Tasmania's karst.
 - Very small systems dominate an unfiltered ranking, so we only rank systems of at least 20 cells.
 - We built and froze the method at Mole Creek, so some choices began as judgement calls, and the tests checked them afterwards.
-:::

@@ -9,13 +9,13 @@ This chapter shows the map it produces, then how far each choice we tested moves
 The Karst Intrinsic Vulnerability Index (KIVI) is susceptibility (how karstified and how exposed the rock is) multiplied by connectivity (how much water drains in). It describes the karst itself, before land use or slope is applied.
 
 ```{figure} figures/intrinsic_vulnerability_mole_creek.png
-:alt: Map of the Mole Creek karst in five blue classes from very low to very high intrinsic vulnerability. Most of the karst is High, with Very high patches in the north and Very low patches in the east.
+:alt: Map of the Mole Creek karst in five blue classes from very low to very high KIVI. Most of the karst is High, with Very high patches in the north and Very low patches in the east.
 :width: 100%
 
 KIVI at Mole Creek (25 m): susceptibility × connectivity. Most of the karst is High (56%), with small Very high areas (5%) where exposed, strongly karstified karst sits low in a large catchment.
 ```
 
-More than half of the Mole Creek karst (56%) has High intrinsic vulnerability, mostly across the west and centre, where the rock is strongly karstified. The highest class (Very high, 5%) is a small area in the north-west and north-centre where that rock is open to the surface and lies low in a large catchment. The eastern block is Moderate (25%), and the lowest classes are a narrow strip on the south-east edge (Low, 6%) and small patches of karst between other rock layers in the centre and east (Very low, 8%).
+More than half of the Mole Creek karst (56%) has High KIVI, mostly across the west and centre, where the rock is strongly karstified. The highest class (Very high, 5%) is a small area in the north-west and north-centre where that rock is open to the surface and lies low in a large catchment. The eastern block is Moderate (25%), and the lowest classes are a narrow strip on the south-east edge (Low, 6%) and small patches of karst between other rock layers in the centre and east (Very low, 8%).
 
 Covered and interstratal karst scores lower than exposed karst of the same category.
 
@@ -32,7 +32,7 @@ Relative karst risk at Mole Creek (25 m).
 
 Risk is highest in the west. About four in five of the High (13%) and Very High (15%) cells lie in the western third of the study area, mostly on exposed karst and steeper ground. The centre is mostly Moderate (38%), and the east is mostly Low (26%) or Very Low (8%), where the karst is flat and covered by other rock. Land-use pressure is averaged over each named system, so inside the main Mole Creek system the pattern comes from the ground itself, while the small Chudleigh Hill system, which has higher pressure, is almost all Very High.
 
-Most karst falls in the lower classes. This comes from the arithmetic: the score is the product of numbers below one, so it bunches towards zero, and a place has to score high on every ingredient to score high overall. The classes are therefore narrow (0.025 wide), and the colours show *relative* risk: which places stand out from the rest of Tasmania's karst.
+Most karst falls in the lower classes. This comes from the arithmetic: the score is the product of numbers below one, so it bunches towards zero, and a place has to score high on every ingredient to score high overall. The classes are therefore narrow (0.025 wide), and the colours show which places stand out from the rest of Tasmania's karst.
 
 ## 3. Across Tasmania
 
@@ -41,9 +41,9 @@ The same model runs across the state at 100 m. The map below shows both results 
 :::{embed} #risk-map-compact
 :::
 
-*Interactive map of Tasmania: relative karst risk (low to high, ranked among the karst cells) and intrinsic vulnerability (five blue classes). Choose a layer in the layers menu, use the Mole Creek button to zoom in, click a karst system for its category, exposure, connectivity class, mean slope and mean risk, and switch on the springs. Grey land is outside the mapped karst.*
+*Interactive map of Tasmania: relative karst risk (low to high, ranked among the karst cells) and KIVI (five blue classes). Choose a layer in the layers menu, use the Mole Creek button to zoom in, click a karst system for its category, exposure, connectivity class, mean slope and mean risk, and switch on the springs. Grey land is outside the mapped karst.*
 
-Across the state, the shares of the karst cells in the intrinsic vulnerability classes are Very low 18%, Low 4%, Moderate 22%, High 47% and Very high 9%. The shares in the relative risk classes are below, with Mole Creek for comparison.
+Across the state, the shares of the karst cells in the KIVI classes are Very low 18%, Low 4%, Moderate 22%, High 47% and Very high 9%. The shares in the relative risk classes are below, with Mole Creek for comparison.
 
 | Class | Score up to | Mole Creek (25 m) | Tasmania (100 m) |
 |---|---|---|---|
@@ -120,7 +120,7 @@ The main map and one change on each axis. Each map is split into fifths of its o
 High-pressure land and mean risk on karst, 1988 to 2024, using DEA land cover (the only source with an annual series).
 ```
 
-At Mole Creek the share of high-pressure land on the karst swings from 65% (1988) to 22% (2011) and back to 64% (2024), while the pattern of risk stays almost fixed (a correlation of at least 0.9998 between years). Statewide the share is lower, between 10% and 19%. So one year of land use is enough to say *where* risk concentrates, but not *how much* there is, and the map should be updated as land use changes. The LIST layer is a single year (2021), which is a limit.
+At Mole Creek the share of high-pressure land on the karst swings from 65% (1988) to 22% (2011) and back to 64% (2024), while the pattern of risk stays almost fixed (a correlation of at least 0.9998 between years). Statewide the share is lower, between 10% and 19%. So one year of land use is enough to say *where* risk concentrates, but not *how much* there is, and the map should be updated as land use changes. The main map uses LIST land use for 2021.
 
 ## 6. Checks against independent data
 
@@ -133,6 +133,6 @@ The one independent check is **mapped springs** (CFEV groundwater-dependent ecos
 | Within 500 m | 24 | 0.44 | 0.34 | 99.3 |
 | Within 1000 m | 28 | 0.44 | 0.34 | 99.6 |
 
-Springs sit in karst that scores well above the average, at about the 99th percentile, and the result holds when warm and mound springs are removed. Adding exposure raised this from about the 96th percentile. Three caveats keep it a weak check. Springs mark where water *leaves* the karst, which says little about where it enters. The test rests on 12 to 28 systems. And springs are probably mapped using the same karst knowledge that feeds our scores, and more often where karst is exposed, so some of the match is built in.
+Springs sit in karst that scores well above the average, at about the 99th percentile, and the result holds when warm and mound springs are removed. Adding exposure raised this from about the 96th percentile. The check is a weak one: springs mark where water leaves the karst, the test rests on 12 to 28 systems, and springs are probably mapped using the same karst knowledge that feeds our scores.
 
 % TODO: the CFEV comparison goes here, as a new subsection "7. CFEV".
