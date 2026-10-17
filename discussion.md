@@ -1,8 +1,4 @@
-
-
-
-
-
+# Discussion
 
 
 Moved from intro

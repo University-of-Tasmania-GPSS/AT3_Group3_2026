@@ -1,15 +1,62 @@
 # Methods
 
-## The approach
+Study areas: 1. Mole Creek 2. Tasmania including offshore islands  
+CRS: GDA2020 / MGA Zone 55 (EPSG:7855)
+
+## Source datasets
+Australian Bureau of Statistics STE_2021_AUST_SHP_GDA2020    
+DEA Level 3 Land Cover  
+Geology at 1:25,000 (Mineral Resources Tasmania)  
+Lands Tasmania 2m DEM downloaded from the ELVIS platform  
+LIST CFEV Groundwater Statewide  
+LIST CFEV Karst Statewide  
+LIST DEM 25m   
+LIST Hydline  
+Tasmanian Digital Karst Atlas Version 3.1 GIS data set
+
+## Karst Intrinsic Vulnerability Index (KIVI) method
+After consideration of karst vulnerability index methods from the literature and investigation of available datasets, we decided on a multiplicative index using 3 parameters based on EPIK. EPIK uses the parameters:  
+1. **Epikarst** - the upper 3-30m layer of a karst environment where part of the water is stored and released slowly while the rest flows into the endokarst below  
+2. **Protective cover** - the sediment overlying the karst rock  
+3. **Infiltration conditions** - the type of recharge to the karst aquifer  
+4. **Karst network development** - the subsurface cave system development and connectivity (Doerfliger et al, 1999)
+
+We used 3 parameters for the Karst Intrinsic Vulnerability Index (KIVI) :
+1. **Karst intensity** - Karst Atlas attribute Kcategory which we scored 4-1 for A-D, which has aspects of EPIK's epikarst and karst network development. 
+
+:::{table} **Karst categories from Tasmananian Karst Atlas v3.1**
+:label: table
+:align: center  
+
+| Characters | Karst Categories | Karst intensity |
+|:------------:|------------------|:-----------------:|
+|  A |	intensely karstified or probably intensively karstified. | 4 |
+|  B |	substantially karstified or probably substantially karstified. | 3 |
+|  C |	partially karstified or potentially partly karstified. | 2 |
+|  D |  possibly partially karstified. | 1 |
+
+:::
+
+2. **Karst exposure** - Karst Atlas Kexposed, Kcovered or Kinterstr scored 3, 2 and 1 which directly relates to EPIK's protective cover parameter. Exposed has no or only thin layers of soil above the karst rock, covered has substantial but unlithified deposits above it and interstr(atal) has lithified rock above it. 
+
+
+3. **Connectivity** - relates to EPIK's infiltration conditions. EPIK's infiltration scores include a coefficient based on slope and vegetative cover however because we wanted to be able to add slope and vegetation as separate parameters we didn't include them here. Connectivity was calculated by counting the upstream cells directly connected to each karst polygon by following the Whitebox D8 point upstream, and changing that to a target cell ratio per polygon. These were given scores of 1-4 using powers-of-ten ranges.
+
+
 
 ```{mermaid}
 flowchart LR
-    A["<b>1. Susceptibility</b><br/>How karstified<br/> times how covered<br> is the rock?<br/>"] --> I
-    B["<b>2. Connectivity</b><br/>How much water<br/>drains in?<br/>"] --> I
-    I(["<b>Intrinsic<br/>vulnerability</b><br/>= S × C"]) --> R
-    C["<b>3. Pressure</b><br/>What is happening<br/>on the land?<br/>"] --> R
-    D["<b>4. Slope</b><br/>Does runoff<br/>concentrate or soak in?<br/>"] --> R
-    R(["<b>Relative risk</b><br/>= S × C × P × Slope<br/>"])
+    E["<b>1. Karst intensity (KI)</b><br/>A intensely karstified<br/>B substantially karstified<br/>C partially karstified<br/>D possibly partially karstified<br/>"] --> A
+    F["<b>2. Karst exposure (KE)</b><br/>Exposed, covered<br/>or interstratal<br/>"] --> A
+    A["<b>3. Susceptibility (S)</b><br/>KI x KE<br/>"] --> I
+    B["<b>4. Connectivity (C)</b><br/>How much water<br/>can reach the karst?<br/>"] --> I
+    V["<b>8. CFEV Integrated<br/>Conservation Value (ICV)</b><br/>Moderate, High<br/>or Very High<br/>"] --> K
+    I(["<b>5. Karst intrinsic vulnerability index (KIVI)</b><br/>= S × C"]) --> K
+    I --> R
+    C["<b>6. Pressure (P)</b><br/>Land use pressure<br/>"] --> R
+    D["<b>7. Slope (Sl)</b><br/>Flow velocity<br/><br/>"] --> R
+    K(["<b>Conservation priority</b><br/>KIVI × ICV<br/>"])
+    R(["<b>Relative risk</b><br/>= KIVI × P × Sl<br/>"])
 ```
 
 ## Build small, then go big
