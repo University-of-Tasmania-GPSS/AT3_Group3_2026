@@ -21,7 +21,7 @@ We built a Karst Intrinsic Vulnerability Index (KIVI) at Mole Creek (25 m), appl
 
 **KIVI with land use.** Multiplying KIVI by LIST 2021 pressure and the slope multiplier gives the risk map. Risk is highest in the west of Mole Creek, and Flowery Gully, Doctors Rocks and Gunns Plains lead the statewide ranking of larger systems. Over the DEA series from 1988 to 2024 the level of risk follows land use and the pattern stays fixed.
 
-**KIVI with conservation value.** The comparison with CFEV Integrated Conservation Value is in the CFEV subsection of the Results.
+**KIVI with conservation value.** Combining KIVI with CFEV Integrated Conservation Value gives a four-class priority map. The top class covers 13% of the karst, mostly in the south-west mountains and at Mole Creek (Results, section 7).
 
 ## What the tests showed
 
@@ -47,7 +47,7 @@ We built a Karst Intrinsic Vulnerability Index (KIVI) at Mole Creek (25 m), appl
 
 **Data**
 - The national land-cover product cannot see plantations or irrigated pasture. The Tasmanian land-use layer can, and it has six snapshots (2002 to 2021), fewer than DEA's annual series. The main map uses the latest (2021), so change over time is only partly covered.
-- We ran the 2 m elevation model only at Mole Creek, as a check. It matched the 25 m map, so finer data did not look worth pursuing.
+- The 2 m elevation model was run only at Mole Creek, where it matches the 25 m map (0.99). Whether it matches in karst with steeper or more complex terrain is untested.
 - The 100 m statewide run smooths slope and misses small systems. 132 karst areas were too small for a single cell, so they have no connectivity score and are left out of the statewide map.
 - Karst susceptibility is only four Atlas categories, and the files we had do not define categories B and C.
 - Rainfall from the Atlas is one value per polygon and barely varies at Mole Creek, so we left it out.

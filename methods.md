@@ -194,7 +194,7 @@ Every test, and these judgement calls, is scored on one measure in Stage 16: the
 
 ## Reproducibility
 
-The pipeline is 18 stages, run in numbered order, sharing code in `src/`
+The pipeline is 19 stages, run in numbered order, sharing code in `src/`
 (`05b` builds the LIST pressure layer that Stage 6 uses, and `05` is the DEA alternative). Three further routing runs compute the D8
 flow routing that feeds the connectivity score: `03alt3` (25 m DEM) for
 Mole Creek, `03-100m-hydrological-connectivity` (100 m DEM) for all of
@@ -210,7 +210,7 @@ The steps, in order:
 1. Study areas and setup (00–01)
 2. Susceptibility, connectivity and intrinsic vulnerability (02–04, with exposure in `04_v2`)
 3. Land-use pressure, DEA (05) and LIST (05b), and relative risk (06)
-4. Statewide run and scale comparison (07, 08 and 08b)
+4. Statewide run, conservation value and scale comparison (07, 07b, 08 and 08b)
 5. Sensitivity and validation (09, 10)
 6. Connectivity across resolution, springs test and the Atlas check (13)
 7. The method test: product against weighted sum, with EPIK and COP replications (14)

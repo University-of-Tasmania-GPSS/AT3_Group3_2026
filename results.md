@@ -103,6 +103,16 @@ The main map and one change on each axis. Each map is split into fifths of its o
 
 **Scale.** Routing water on a 2 m elevation model gives almost the same map as 25 m (0.99; 88% of polygons fall in the same connectivity class). The 100 m grid changes it more (0.89), mainly because small polygons are covered by only a few cells. 
 
+The same comparison on KIVI alone (Stage 8b) gives a correlation of 0.88 between the 25 m and 100 m surfaces over the Mole Creek core, with 61% of cells at exactly the same score. The 100 m run scores Mole Creek higher on average (0.41 against 0.34), mostly in the west and north-centre, while the east and the Meander – Western Creek system are almost identical. The 25 m DEM stops at the 3 km buffer and the 100 m DEM covers all of Tasmania, so the 100 m routing counts upstream land beyond the buffer, and some polygons move up a connectivity class. This is why the statewide map in section 3 shows more of Mole Creek in the higher KIVI classes than the 25 m map in section 1.
+
+```{figure} figures/intrinsic_vulnerability_scale_comparison.png
+:alt: Three maps of the Mole Creek karst. KIVI at 25 m, KIVI from the 100 m statewide run resampled to 25 m, and the difference between them. The 100 m run is higher in the west and north-centre and the same in the east.
+:width: 60%
+:align: center
+
+KIVI at Mole Creek from the 25 m run and the 100 m statewide run, and the difference (25 m minus 100 m).
+```
+
 **Data.** Replacing the Tasmanian land-use layer with the national DEA land-cover layer has little effect on the Mole Creek ranking (similarity = 0.98) but produces greater differences across the state (0.84). These differences reflect contrasting land-cover classifications: LIST distinguishes plantation forestry and irrigated pasture from other land uses, whereas DEA groups these areas within broader natural or cultivated cover classes. DEA also uses a coarser classification scheme (three levels compared with LIST’s 0–10 scale), resulting in higher mean risk scores at Mole Creek (0.095 versus 0.062).
 
 **Method.** 
@@ -135,4 +145,28 @@ The one independent check is **mapped springs** (CFEV groundwater-dependent ecos
 
 Springs sit in karst that scores well above the average, at about the 99th percentile, and the result holds when warm and mound springs are removed. Adding exposure raised this from about the 96th percentile. The check is a weak one: springs mark where water leaves the karst, the test rests on 12 to 28 systems, and springs are probably mapped using the same karst knowledge that feeds our scores.
 
-% TODO: the CFEV comparison goes here, as a new subsection "7. CFEV".
+## 7. KIVI and conservation value
+
+The Conservation of Freshwater Ecosystem Values (CFEV) project rated each karst area as Moderate, High or Very High in Integrated Conservation Value (ICV). We set the ICV layer on the same 100 m grid as KIVI and compared the two for the 409,382 karst cells that have both (4,094 km²). Across the state, ICV is Moderate on 27% of these cells, High on 46% and Very High on 27%.
+
+Cells with higher KIVI (0.5 and above) are more often Very High conservation value (48% of them) than cells with lower KIVI (6%). Most lower-KIVI cells are High (71%).
+
+We then grouped KIVI into Lower, Middle and Higher, and combined each group with the ICV class into four provisional priority classes. Priority 1 is Higher KIVI with Very High ICV. Priority 2 is Higher KIVI with High ICV, or Middle KIVI with Very High ICV. Priority 3 and 4 cover the remaining combinations, with Priority 4 the lowest.
+
+```{figure} figures/karst_conservation_priority_map_tas_100m_EPSG7855.png
+:alt: Map of Tasmania showing karst in four red classes of conservation priority. The darkest class sits in the south-west mountains and at Mole Creek.
+:width: 100%
+
+Karst conservation priority (100 m): KIVI combined with CFEV Integrated Conservation Value.
+```
+
+| Priority | Share of karst cells | Area (km²) |
+|---|---|---|
+| 1 Highest | 12.8% | 524 |
+| 2 High | 19.3% | 791 |
+| 3 Moderate | 47.3% | 1,936 |
+| 4 Lower | 20.6% | 843 |
+
+*Share of the karst cells with both KIVI and ICV.*
+
+Priority 1 concentrates in a few large systems: Mole Creek (146 km², 61% of its area, all of it Very High conservation value), Junee–Florentine (140 km², 74%), Mt Anne–Upper Weld (112 km², 83%), and smaller systems such as Gordon–Sprent and Mt Cripps that are almost entirely Priority 1. The class boundaries are provisional, and the map ranks places for attention. It adds conservation value to the KIVI picture and gives no measure of contamination.
