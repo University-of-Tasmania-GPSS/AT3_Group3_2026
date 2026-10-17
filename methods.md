@@ -11,7 +11,7 @@ After consideration of karst vulnerability index methods from the literature and
 We used 3 parameters for the Karst Intrinsic Vulnerability Index (KIVI) :  
 **1. Karst intensity** - Karst Atlas attribute Kcategory which we scored 4-1 for A-D, which has aspects of EPIK's epikarst and karst network development. 
 
-:::{table} **Karst categories from Tasmananian Karst Atlas v3.1**
+:::{table} **Karst categories from Tasmanian Karst Atlas v3.1**
 :label: table
 :align: center  
 
@@ -27,7 +27,7 @@ We used 3 parameters for the Karst Intrinsic Vulnerability Index (KIVI) :
 **2. Karst exposure** - Karst Atlas Kexposed, Kcovered or Kinterstr scored 3, 2 and 1 which directly relates to EPIK's protective cover parameter. Exposed has no or only thin layers of soil above the karst rock, covered has substantial but unlithified deposits above it and interstr(atal) has lithified rock above it. 
 
 
-**3. Connectivity** - relates to EPIK's infiltration conditions. EPIK's infiltration scores include a coefficient based on slope and vegetative cover however because we wanted to be able to add slope and vegetation as separate parameters we didn't include them here. Connectivity was calculated by counting the upstream cells directly connected to each karst polygon by following the Whitebox D8 point upstream, and changing that to a target cell ratio per polygon. These were given scores of 1-4 using powers-of-ten ranges.
+**3. Connectivity** - relates to EPIK's infiltration conditions. EPIK's infiltration scores include a coefficient based on slope and vegetative cover however because we wanted to be able to add slope and vegetation as separate parameters we didn't include them here. Connectivity was calculated by counting the upstream cells directly connected to each karst polygon by following the Whitebox D8 point upstream, and changing that to a target cell ratio per polygon. These were classed into four powers-of-ten ranges and scored 0 to 3 after rescaling.
 
 The final KIVI score came from normalising each parameter to give a score between 0 and 1 and multiplying the 3 together. 
 
@@ -79,12 +79,11 @@ Tasmanian Digital Karst Atlas Version 3.1 GIS data set
 We also built our own modules which helped to keep processing consistent across the workflow such as `karst.py`, `hydro.py`, `landuse.py` and `d8_routing.py`.  
 
 ## Building the model
-## Build small, then go big
+
 We built and tuned the method at Mole Creek on a 25 m grid, and then froze it and ran it across all of Tasmania at 100 m. Both use one coordinate system (GDA2020 / MGA55, EPSG:7855). The Mole Creek study area we used was the Karst Atlas polygons with Mole Creek in the name and the Meander - Western Creek polygon, plus a 3 km buffer. This was necessary to include the catchment for the karst polygons for
 
-The logic of the project is to test how scale, data and method choices change the map and then use the most defensible combination. In practice we built and froze the method at Mole Creek first, so some choices (the equation, the scores) began as judgement calls, and the tests then checked them. 
+We built and froze the method at Mole Creek first, so some choices (the equation, the scores) began as judgement calls, and the tests then checked them.
 
-### Raster Preparation
 Bounding boxes for Tasmania and for the Mole Creek area were prepared by reading the source file into a geopandas dataframe, selecting the polygons required and making sure they were in EPSG:7855.  The Mole Creek bounding box was used to clip a Mole Creek DEM from the statewide merged and reprojected DEM which was used as the raster grid for the rasterization of the 25m polygons through the workflow. This kept the CRS, grid alignment and explicit NoData handling consistent across the project and between scales.
 
 ## The parameters, mapped at Mole Creek
@@ -97,21 +96,21 @@ Calculating the scores for the susceptibility inputs of karst intensity and expo
 ```{figure} figures/karst_susceptibility_mc.png
 :alt: Two maps of Mole Creek: Karst intensity from 1 to 4 and exposure score 1-3.
 
-Top, Karst intensity: 1, 2, 3, 4 = possibly partially kastified, partiall karstified, substantially karstified, intensely karstified. Bottom, Karst exposure: 1, 2, 3 = interstratal, covered, exposed
+Top, Karst intensity: 1, 2, 3, 4 = possibly partially karstified, partially karstified, substantially karstified, intensely karstified. Bottom, Karst exposure: 1, 2, 3 = interstratal, covered, exposed
 ```
 
 ### 2. Connectivity: how much water potentially reaches each polygon? 
 
-We used the D8 direction map created during the flow accumulation calculation to trace up the hill from each karst polygon and count how many cells could potentially contribute their water to the polygon **D8 flow routing** (WhiteboxTools) then caculated the ratio of uphill contributing cells per cell of the polygon. All connecting cells on the way to the top of the catchment were counted including the polygon's own cells, except for interstratal karst as it is not considered to receive the rain falling on it itself.  
+We used the D8 direction map created during the flow accumulation calculation to trace up the hill from each karst polygon and count how many cells could potentially contribute their water to the polygon **D8 flow routing** (WhiteboxTools) then calculated the ratio of uphill contributing cells per cell of the polygon. All connecting cells on the way to the top of the catchment were counted including the polygon's own cells, except for interstratal karst as it is not considered to receive the rain falling on it itself.  
 
 Using the usual fill tool and D8 direction uphill count may not be the best method for an area with highly developed epikarst because it can hide the sinkholes that water flows into. Our logic for using it here was 1. that we needed a method that would work over all types of karst, 2. catchment area, which it effectively measures, can be used as a measure of hydraulic load, 3. if the karst is highly interconnected, that water may reach downhill karst anyway just underground and 4. in high intensity/long periods of rainfall much of the rain will flow overground. There are other flow accumulation methods that retain the sinks and work better for highly porous karst from Whitebox and RichDEM but we had a time limitation. 
 
 ```{figure} figures/steps_to_find_connectivity_susceptibility_classes.gif
 :alt: Two maps of Mole Creek: karst intensity from 0 to 4 and exposure type.
-Stages of caculating the hydrological connectivity susceptibility. The gif starts with the DEM.
+Stages of calculating the hydrological connectivity susceptibility. The gif starts with the DEM.
 ```
 
-Karst lower in a large catchment receives more water than karst on a divide. The ratio is classed in **powers of ten**: class 1 is a ratio of up to 1 contributing cell per polygon cell (little more than the polygon's own ground drains in), class 2 is 1 to 10, class 3 is 10 to 100, and class 4 is over 100 (hundreds of times its own area, as for a small karst polygon low in a big catchment). Each step is ten times the last, which suits a ratio that runs from 0 to over 100,000. The four classes are rescaled to 0 to 3. Each step is ten times the last, which suits a ratio that runs from 0 to over 100,000. The edges are the same at every resolution, so a class means the same ratio at 2 m, 25 m and 100 m, and no single large catchment sets the scale.
+Karst lower in a large catchment receives more water than karst on a divide. The ratio is classed in **powers of ten**: class 1 is a ratio of up to 1 contributing cell per polygon cell (little more than the polygon's own ground drains in), class 2 is 1 to 10, class 3 is 10 to 100, and class 4 is over 100 (hundreds of times its own area, as for a small karst polygon low in a big catchment). The four classes are rescaled to 0 to 3. Each step is ten times the last, which suits a ratio that runs from 0 to over 100,000. The edges are the same at every resolution, so a class means the same ratio at 2 m, 25 m and 100 m, and no single large catchment sets the scale.
 
 Routing depends on the DEM, so connectivity is where resolution enters the project:
 
@@ -180,9 +179,7 @@ The slope multiplier on the Mole Creek karst.
 
 ## Putting it together 
 
-Susceptibility (0 to 4) and connectivity (0 to 3) are each divided by their
-maximum so that neither dominates because of its scale, then multiplied to give
-**intrinsic vulnerability (KIVI)**. Multiplying by pressure and then by the slope
+KIVI is susceptibility × connectivity, each divided by its maximum. Multiplying by pressure and the slope
 multiplier gives **relative risk**. Risk is a product of four terms that are each
 below 1, so it rarely exceeds 0.5 (a strong cell scores about 0.1 with LIST pressure and exposure). It is sorted into fixed
 classes at 0.025, 0.05, 0.075 and 0.10: *Very Low* (up to 0.025), *Low*, *Moderate*, *High* and
@@ -234,14 +231,22 @@ Slope is part of the method too. Published rules differ, and COP (Vías et al., 
 
 COP's vegetation split is dropped because pressure already scores land cover.
 
+### Conservation priority
+
+The Conservation of Freshwater Ecosystem Values (CFEV) Integrated Conservation Value (ICV) layer rates karst as Moderate, High or Very High. We rasterise it onto the 100 m KIVI grid, give each cell the class that covers most of its area, and keep the cells that have both a KIVI score and an ICV class. KIVI is grouped into Lower (up to 0.1875), Middle (0.25 to 0.375) and Higher (0.5 and above), and each group is combined with the ICV class into four priority classes (Stage 7b, Results section 7). The group boundaries are provisional.
+
+### Interactive map
+
+The interactive map (Stage 15) shows the 100 m statewide results as two layers. Relative risk is coloured by each cell's rank among the karst cells, and KIVI uses five blue classes, the same as the static maps. Clicking a karst system gives its category, exposure, connectivity class, mean slope and mean risk.
+
 ## Scaling up to Tasmania
 
-The same code (`src/karst.py`, `src/landuse.py`, `src/hydro.py`) runs statewide at 100 m, with the same fixed classes, the same connectivity breaks and the same 0 to 1 scale. To see what the coarser grid costs, we resample the statewide result onto the Mole Creek grid and compare the two surfaces over the Mole Creek karst.
+The same code (`src/karst.py`, `src/landuse.py`, `src/hydro.py`) runs statewide at 100 m, with the same fixed classes, the same connectivity breaks and the same 0 to 1 scale. To see what the coarser grid costs, we resample the statewide result onto the Mole Creek grid (nearest neighbour) and compare the two surfaces over the Mole Creek karst. Stage 8 compares risk and Stage 8b compares KIVI.
 
 ## How we tested it
 
 - **Scale.** Does the 100 m statewide run reproduce the 25 m local pattern, and does routing on a 2 m DEM change the Mole Creek map?
-- **Data.** Does swapping LIST land use for DEA land cover change the map?
+- **Data.** Does swapping LIST land use for DEA land cover change the map? We also rerun the model on each DEA year from 1988 to 2024 and compare the years with each other (Stage 9).
 - **Method.** Does adding weighted scores instead of multiplying them, or a different slope rule, change the map, and does it change how well springs line up with the scores?
 - **Independent data.** Do mapped springs line up with the scores? Each spring takes the score of its nearest karst polygon, and the average for the systems holding springs is compared with random draws of karst. The springs data is never an input to the model.
 
