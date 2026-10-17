@@ -84,12 +84,12 @@ We built and tuned the method at Mole Creek on a 25 m grid, and then froze it an
 
 The logic of the project is to test how scale, data and method choices change the map and then use the most defensible combination. In practice we built and froze the method at Mole Creek first, so some choices (the equation, the scores) began as judgement calls, and the tests then checked them. 
 
-### Raster Preparation
+### Raster Preparation (notebooks 00-01)
 Bounding boxes for Tasmania and for the Mole Creek area were prepared by reading the source file into a geopandas dataframe, selecting the polygons required and making sure they were in EPSG:7855.  The Mole Creek bounding box was used to clip a Mole Creek DEM from the statewide merged and reprojected DEM which was used as the raster grid for the rasterization of the 25m polygons through the workflow. This kept the CRS, grid alignment and explicit NoData handling consistent across the project and between scales.
 
 ## The parameters, mapped at Mole Creek
 
-### 1. Susceptibility: how karstified is the rock and how much cover does the karst have?
+### 1. Susceptibility: how karstified is the rock and how much cover does the karst have? (notebook 02)
 
 Calculating the scores for the susceptibility inputs of karst intensity and exposure is the first step. Each polygon in the Mole Creek karst was given an intensity score and an exposure score and the scores were converted to a raster using the DEM template. You can [jump back here](#my-target-section) to see details of the intensity and exposure classes.  
 
@@ -100,11 +100,16 @@ Calculating the scores for the susceptibility inputs of karst intensity and expo
 Top, Karst intensity: 1, 2, 3, 4 = possibly partially kastified, partiall karstified, substantially karstified, intensely karstified. Bottom, Karst exposure: 1, 2, 3 = interstratal, covered, exposed
 ```
 
-### 2. Connectivity: how much water potentially reaches each polygon? 
+### 2. Connectivity: how much water potentially reaches each polygon? (notebooks 03)
 
 We used the D8 direction map created during the flow accumulation calculation to trace up the hill from each karst polygon and count how many cells could potentially contribute their water to the polygon **D8 flow routing** (WhiteboxTools) then caculated the ratio of uphill contributing cells per cell of the polygon. All connecting cells on the way to the top of the catchment were counted including the polygon's own cells, except for interstratal karst as it is not considered to receive the rain falling on it itself.  
 
-Using the usual fill tool and D8 direction uphill count may not be the best method for an area with highly developed epikarst because it can hide the sinkholes that water flows into. Our logic for using it here was 1. that we needed a method that would work over all types of karst, 2. catchment area, which it effectively measures, can be used as a measure of hydraulic load, 3. if the karst is highly interconnected, that water may reach downhill karst anyway just underground and 4. in high intensity/long periods of rainfall much of the rain will flow overground. There are other flow accumulation methods that retain the sinks and work better for highly porous karst from Whitebox and RichDEM but we had a time limitation. 
+```{figure} figures/connectivity.png
+:alt: D8 connectivity map for Mole Creek, 25m.
+D8 connectivity map for Mole Creek, 25m.
+```
+
+Using the usual fill tool and D8 direction uphill count may not be the best method for an area with highly developed epikarst because it can hide the sinkholes that water flows into. Our logic for using it here was 1. that we needed a method that would work over all types of karst, 2. if the karst is highly interconnected, that water may reach downhill karst anyway just underground and 3. in high intensity/long periods of rainfall much of the rain will flow overground. If we were just focusing on Mole Creek and not wanting to scale the method up to state level there are other flow accumulation methods that retain the sinks and potentially be more accurate from Whitebox and RichDEM. To do this properly would require a more work attempting to map sinkholes more closely through a higher resolution DEM or ground assessment.
 
 ```{figure} figures/steps_to_find_connectivity_susceptibility_classes.gif
 :alt: Two maps of Mole Creek: karst intensity from 0 to 4 and exposure type.
@@ -130,8 +135,16 @@ The 2 m run is too large to repeat for the state, so it is compared with the 25 
 
 The same ground at three resolutions: the D8 connectivity class of each karst polygon when water is routed on a 2 m, 25 m and 100 m DEM.
 ```
+### 3. Calculating KIVI (notebooks 04)
+KIVI is calculated at this stage by multiplying susceptibility (intensity x exposure) and D8 connectivity. This gives a continuous index of 12 values which is later reclassified for easier visual comparison.
 
-### 3. Pressure: what is on the land? 
+```{figure} figures/KIVI_raw.png
+:alt: Map showing Karst Intrinsic Vulnerability Index
+The KIVI for Mole Creek, 25m
+
+```
+
+### 4. Pressure: what is on the land? 
 
 Karst aquifers are poor at purifying water: at Mole Creek, surface run-off is
 captured quickly by solutional openings and passes through conduits with little
@@ -168,7 +181,7 @@ captured by connectivity, so scoring it again here would count it twice.
 :::
 
 
-### 4. Slope: does runoff concentrate or soak in?
+### 5. Slope: does runoff concentrate or soak in?
 
 Slope comes from the DEM (25 m at Mole Creek, 100 m statewide). It enters as a **multiplier from 0.5 to 1**: 0.5 on flat ground, rising in a straight line to 1.0 at 30 degrees or steeper. Steeper ground is scored as more vulnerable, because runoff concentrates and runs towards sinkholes where it falls. The floor of 0.5 keeps flat ground from scoring zero: only "no karst" or "no pressure" gives zero risk. Slope is taken from each run's own DEM, so the 100 m statewide run sees smoother, gentler slopes than the 25 m local run. The sign and the ceiling are judgements, tested as part of the method test below.
 
