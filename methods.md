@@ -1,5 +1,6 @@
 # Methods
 ## How do we get there? ##
+(my-target-section)=
 ### Karst Intrinsic Vulnerability Index (KIVI) method
 After consideration of karst vulnerability index methods from the literature and investigation of available datasets, we decided on a multiplicative index using 3 parameters based on EPIK. EPIK uses the parameters:  
 1. **Epikarst** - the upper 3-30m layer of a karst environment where part of the water is stored and released slowly while the rest flows into the endokarst below  
@@ -59,9 +60,7 @@ Tasmanian Digital Karst Atlas Version 3.1 GIS data set
 **Study areas:** 1. Mole Creek 2. Tasmania including offshore islands  
 **CRS:** GDA2020 / MGA Zone 55 (EPSG:7855)
 
-### Raster Preparation
-Bounding boxes for Tasmania and for the Mole Creek area were prepared by reading the source file into a geopandas dataframe, selecting the polygons required and making sure they were in EPSG:7855. The Mole Creek area had a 3km buffer added to it so it included the catchment for the core polygons. The Mole Creek bounding box was used to clip a Mole Creek DEM from the statewide merged and reprojected DEM and used as the raster grid for the rasterization of the 25m polygons through the workflow. This kept the CRS, grid alignment and explicit NoData handling consistent across the project and between scales.
-
+### Python libraries used
 | Python Libraries | What they were used for |
 |---|---|
 | GeoPandas and Shapely | Read, reproject, filter and analyse spatial vector data such as Karst Atlas polygons, land-use polygons and watercourses; perform geometry operations such as buffering. |
@@ -79,44 +78,44 @@ Bounding boxes for Tasmania and for the Mole Creek area were prepared by reading
 
 We also built our own modules which helped to keep processing consistent across the workflow such as `karst.py`, `hydro.py`, `landuse.py` and `d8_routing.py`.  
 
+## Building the model
 ## Build small, then go big
+We built and tuned the method at Mole Creek on a 25 m grid, and then froze it and ran it across all of Tasmania at 100 m. Both use one coordinate system (GDA2020 / MGA55, EPSG:7855). The Mole Creek study area we used was the Karst Atlas polygons with Mole Creek in the name and the Meander - Western Creek polygon, plus a 3 km buffer. This was necessary to include the catchment for the karst polygons for
 
-We built and tuned the method at Mole Creek, a well-known karst area in
-northern Tasmania, on a 25 m grid, and then froze it and ran it across all
-of Tasmania at 100 m. Both use one coordinate system (GDA2020 / MGA55, EPSG:7855). The Mole Creek
-study area is the Karst Atlas polygons plus a 3 km buffer. 
+The logic of the project is to test how scale, data and method choices change the map and then use the most defensible combination. In practice we built and froze the method at Mole Creek first, so some choices (the equation, the scores) began as judgement calls, and the tests then checked them. 
 
-The logic of the project is to test how scale, data and method choices change the map and then use the most defensible combination. In practice we built and froze the method at Mole Creek first, so some choices (the equation, the scores) began as judgement calls, and the tests then checked them.
+### Raster Preparation
+Bounding boxes for Tasmania and for the Mole Creek area were prepared by reading the source file into a geopandas dataframe, selecting the polygons required and making sure they were in EPSG:7855.  The Mole Creek bounding box was used to clip a Mole Creek DEM from the statewide merged and reprojected DEM which was used as the raster grid for the rasterization of the 25m polygons through the workflow. This kept the CRS, grid alignment and explicit NoData handling consistent across the project and between scales.
 
-## The four ingredients, mapped at Mole Creek
+## The parameters, mapped at Mole Creek
 
 ### 1. Susceptibility: how karstified is the rock and how much cover does the karst have?
 
-Each Karst Atlas polygon carries a category from **A** (most intensely
-karstified) to **D**, scored 4 to 1, with 0 for no karst. It also carries an exposure type. Exposed karst is open to the surface and scores 3. Covered karst has a protective cap of other rock and scores 2. Interstratal karst sits between other rock layers, gets little rain of its own, and scores 1. Susceptibility is the two multiplied together, each divided by its maximum, so covered and interstratal karst score below exposed karst of the same category.
+Calculating the scores for the susceptibility inputs of karst intensity and exposure is the first step. Each polygon in the Mole Creek karst was given an intensity score and an exposure score and the scores were converted to a raster using the DEM template. You can [jump back here](#my-target-section) to see details of the intensity and exposure classes.  
 
-```{figure} figures/susceptibility.png
-:alt: Two maps of Mole Creek: karst intensity from 0 to 4 and exposure type.
+**Susceptibility input maps**
+```{figure} figures/karst_susceptibility_mc.png
+:alt: Two maps of Mole Creek: Karst intensity from 1 to 4 and exposure score 1-3.
 
-Top, karst intensity (Kcategory score 0 to 4, with A highest). Bottom, whether the karst is exposed, covered by other rock, or interstratal.
+Top, Karst intensity: 1, 2, 3, 4 = possibly partially kastified, partiall karstified, substantially karstified, intensely karstified. Bottom, Karst exposure: 1, 2, 3 = interstratal, covered, exposed
 ```
 
 ### 2. Connectivity: how much water potentially reaches each polygon? 
 
-We used the D8 direction map created during the flow accumulation calculation to trace up the hill from each karst polygon and count how many cells could potentially contribute their water to the polygon **D8 flow routing** (WhiteboxTools). All cells on the way to the top of the catchment were counted including the polygon's own cells, except for interstratal karst as it is not considered to receive the rain falling on it itself. 
+We used the D8 direction map created during the flow accumulation calculation to trace up the hill from each karst polygon and count how many cells could potentially contribute their water to the polygon **D8 flow routing** (WhiteboxTools) then caculated the ratio of uphill contributing cells per cell of the polygon. All connecting cells on the way to the top of the catchment were counted including the polygon's own cells, except for interstratal karst as it is not considered to receive the rain falling on it itself.  
+
+Using the usual fill tool and D8 direction uphill count may not be the best method for an area with highly developed epikarst because it can hide the sinkholes that water flows into. Our logic for using it here was 1. that we needed a method that would work over all types of karst, 2. catchment area, which it effectively measures, can be used as a measure of hydraulic load, 3. if the karst is highly interconnected, that water may reach downhill karst anyway just underground and 4. in high intensity/long periods of rainfall much of the rain will flow overground. There are other flow accumulation methods that retain the sinks and work better for highly porous karst from Whitebox and RichDEM but we had a time limitation. 
 
 ```{figure} figures/steps_to_find_connectivity_susceptibility_classes.gif
 :alt: Two maps of Mole Creek: karst intensity from 0 to 4 and exposure type.
 Stages of caculating the hydrological connectivity susceptibility. The gif starts with the DEM.
 ```
 
-Doing a standard flow accumulation often doesn’t work very well for karst because it fills in the sink which in karst can be actual sink holes, but catchment area, which it effectively measures, can be used as an input. There are other flow accumulation methods that retain the sinks and work better for highly porous karst from Whitebox and RichDEM but we had a time limitation. 
-
-Karst lower in a large catchment receives more water than karst on a divide. The ratio is classed in **powers of ten**: class 1 is a ratio of up to 1 (little more than the polygon's own ground drains in), class 2 is 1 to 10, class 3 is 10 to 100, and class 4 is over 100 (hundreds of times its own area, as for karst low in a big catchment). The four classes are rescaled to 0 to 3. Each step is ten times the last, which suits a ratio that runs from 0 to over 100,000. The edges are the same at every resolution, so a class means the same ratio at 2 m, 25 m and 100 m, and no single large catchment sets the scale.
+Karst lower in a large catchment receives more water than karst on a divide. The ratio is classed in **powers of ten**: class 1 is a ratio of up to 1 contributing cell per polygon cell (little more than the polygon's own ground drains in), class 2 is 1 to 10, class 3 is 10 to 100, and class 4 is over 100 (hundreds of times its own area, as for a small karst polygon low in a big catchment). Each step is ten times the last, which suits a ratio that runs from 0 to over 100,000. The four classes are rescaled to 0 to 3. Each step is ten times the last, which suits a ratio that runs from 0 to over 100,000. The edges are the same at every resolution, so a class means the same ratio at 2 m, 25 m and 100 m, and no single large catchment sets the scale.
 
 Routing depends on the DEM, so connectivity is where resolution enters the project:
 
-| Run | DEM | Covers | Used for |
+| Run | DEM | Area covered | Used for |
 |---|---|---|---|
 | Fine | 2 m | Mole Creek | Checking the 25 m run |
 | Local | 25 m | Mole Creek | The Mole Creek map |
