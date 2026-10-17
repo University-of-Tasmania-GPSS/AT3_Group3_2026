@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-labelledby="t d">
+  <title id="t">The project in five steps</title>
+  <desc id="d">A winding stream passes five stops: build an EPIK-style karst vulnerability index from Tasmanian data, build it at 25 m on Mole Creek and apply it statewide at 100 m, test how data, parameter combinations and weighting change the maps, combine it with land use to map risk across a 10 year period, then combine it with CFEV Integrated Conservation Value to map conservation priority.</desc>
+  <rect width="960" height="340" fill="#f4f7f8"/>
+  <path d="M20,180 C60,170 80,170 120,170 C200,170 230,140 305,140 C385,140 410,200 490,200 C570,200 600,150 675,150 C750,150 780,185 850,185 C890,185 920,180 944,175" fill="none" stroke="#2a6fb0" stroke-width="12" stroke-linecap="round" opacity="0.35"/>
+  <path d="M20,180 C60,170 80,170 120,170 C200,170 230,140 305,140 C385,140 410,200 490,200 C570,200 600,150 675,150 C750,150 780,185 850,185 C890,185 920,180 944,175" fill="none" stroke="#2a6fb0" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 10"/>
+
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle">
+    <circle cx="120" cy="170" r="20" fill="#14606a"/><text x="120" y="177" font-size="20" font-weight="700" fill="#fff">1</text>
+    <text x="120" y="232" font-size="19" font-weight="700" fill="#14395e">Build the index</text>
+    <text x="120" y="256" font-size="14" fill="#33454a">An EPIK-style index (KIVI) of</text>
+    <text x="120" y="275" font-size="14" fill="#33454a">karst susceptibility and</text>
+    <text x="120" y="294" font-size="14" fill="#33454a">connectivity, Tasmanian data</text>
+
+    <circle cx="305" cy="140" r="20" fill="#14606a"/><text x="305" y="147" font-size="20" font-weight="700" fill="#fff">2</text>
+    <text x="305" y="32" font-size="19" font-weight="700" fill="#14395e">Scale it up</text>
+    <text x="305" y="56" font-size="14" fill="#33454a">Build at 25 m on Mole Creek,</text>
+    <text x="305" y="75" font-size="14" fill="#33454a">apply statewide at 100 m,</text>
+    <text x="305" y="94" font-size="14" fill="#33454a">compare the two resolutions</text>
+
+    <circle cx="490" cy="200" r="20" fill="#14606a"/><text x="490" y="207" font-size="20" font-weight="700" fill="#fff">3</text>
+    <text x="490" y="262" font-size="19" font-weight="700" fill="#14395e">Test the choices</text>
+    <text x="490" y="286" font-size="14" fill="#33454a">How much do the data, the</text>
+    <text x="490" y="305" font-size="14" fill="#33454a">parameter combinations and</text>
+    <text x="490" y="324" font-size="14" fill="#33454a">the weighting change the map?</text>
+
+    <circle cx="675" cy="150" r="20" fill="#14606a"/><text x="675" y="157" font-size="20" font-weight="700" fill="#fff">4</text>
+    <text x="675" y="42" font-size="19" font-weight="700" fill="#14395e">Map land-use risk</text>
+    <text x="675" y="66" font-size="14" fill="#33454a">Combine KIVI with land-use</text>
+    <text x="675" y="85" font-size="14" fill="#33454a">pressure and compare risk</text>
+    <text x="675" y="104" font-size="14" fill="#33454a">across a 10 year period</text>
+
+    <circle cx="850" cy="185" r="20" fill="#14606a"/><text x="850" y="192" font-size="20" font-weight="700" fill="#fff">5</text>
+    <text x="850" y="247" font-size="19" font-weight="700" fill="#14395e">Map priorities</text>
+    <text x="850" y="271" font-size="14" fill="#33454a">Combine KIVI with CFEV</text>
+    <text x="850" y="290" font-size="14" fill="#33454a">Integrated Conservation Value</text>
+    <text x="850" y="309" font-size="14" fill="#33454a">for a priority map</text>
+  </g>
+</svg>

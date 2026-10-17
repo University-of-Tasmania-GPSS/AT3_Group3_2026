@@ -59,37 +59,33 @@ The Conservation of Freshwater Ecosystem Values (CFEV) project used reviewed and
 ## Mapping, conservation value, but what about vulnerability?
 The CFEV work gives a measure of conservation value and conservation management priority, but not of intrinsic vulnerability, which we define as vulnerability to groundwater contamination and/or physical karst damage. It depends on characteristics of the landscape and the pathways connecting the surface to groundwater. Because these factors vary spatially, vulnerability is commonly represented as a spatial index, in which several characteristics are mapped, scored and combined to produce a relative measure of vulnerability. The Tasmanian Conservation of Freshwater Ecosystem Values (CFEV) framework provides measures of conservation value and management priority, but does not directly assess intrinsic karst vulnerability as defined here.
 
-**Method:** The heterogeneity of karst and availability of data sets has led to a range of methods developed, with different methods often giving different results for the same area. A systematic review identified scale and parameter transferability as key dimensions distinguishing these methods (Iván & Mádl-Szőnyi, 2017).  In 2024, Moreno-Gómez et al outlined 12 of the methods including two of the earliest methods specifically focusing on karst: EPIK – Epikarst, Protective cover, Infiltration conditions and Karst network development (Doerfliger et al, 1999), and COP – Concentration of flow – Overlying layers – Precipitation method (Vias et al, 2006). Comparisons against tracer data have demonstrated differences between methods, with EPIK tending to overestimate vulnerability relative to observed conditions in the study by Ravbar and Goldscheider (2009).
+## Existing approaches
+The heterogeneity of karst and availability of data sets has led to a range of methods developed, with different methods often giving different results for the same area. A systematic review identified scale and parameter transferability as key dimensions distinguishing these methods (Iván & Mádl-Szőnyi, 2017).  In 2024, Moreno-Gómez et al outlined 12 of the methods including two of the earliest methods specifically focusing on karst: EPIK – Epikarst, Protective cover, Infiltration conditions and Karst network development (Doerfliger et al, 1999), and COP – Concentration of flow – Overlying layers – Precipitation method (Vias et al, 2006).
 
+These are just some of the parameters that have been used in karst groundwater vulnerability methods in different combinations: Rock type, soil cover, infiltration, soils, epikarst, karstfication, slope, vegetation, topography, elevation, conductivity, aquifer type. The definition and treatment of each parameter also varies from method to method (Moreno-Gómez et al, 2024) but most of them combine some measure of flow concentration, karst cover and karst development in some way.
+
+## Challenges
 **Scale:** Parameters developed for one karst system do not necessarily transfer directly to another (Moreno-Gómez et al., 2019). Detailed hydrological modelling, such as flow routing using a 2 m digital elevation model, can capture fine-scale patterns at a local site but is difficult to apply consistently across an entire state. This creates a trade-off between local detail and statewide coverage, requiring methods and spatial resolutions appropriate to the scale of the assessment.
 
 **Data:** Data availability is a fundamental limitation of karst vulnerability mapping (Ollivier et al., 2019). For example, freely available statewide land-cover products from Digital Earth Australia (DEA) may not distinguish between pine plantations and native forest, despite their potentially different implications for land-use pressure. Tasmania-specific datasets from the Land Information System Tasmania (LIST) can provide more detailed local information but are more complex to process and are not directly transferable beyond Tasmania.
 
-## Not just about water
-Most of the karst vulnerability index methods in the literature concentrate on groundwater and not physical karst but the Canadian province of British Columbia has developed a comprehensive set of standards and procedures for assessing karst vulnerability which includes geomorphology, hydrology and also ecosystems (The Province of British Columbia, 2003) and is a potential reference for developing a more comprehensive karst assessment approach in Tasmania. https://www2.gov.bc.ca/assets/gov/environment/natural-resource-stewardship/nr-laws-policy/risc/karst_risc.pdf
-
 ## Objective
+This project aimed to develop and evaluate a reproducible, scalable Python workflow for mapping relative karst vulnerability and associated land-use and conservation priorities in Tasmania. Specifically, we aimed to:
 
-Our objective was to develop a Python based spatial analysis workflow to: 
+1. Develop a Karst Intrinsic Vulnerability Index (KIVI) adapted to available Tasmanian data using an EPIK-style framework to represent karst susceptibility and potential hydrological connectivity.
+2. Build and refine the method at Mole Creek on a 25 m grid, then apply it statewide on a 100 m grid and compare the outputs at Mole Creek at each resolution.
+3. Test the sensitivity of vulnerability and risk patterns to key data and modelling choices including parameter dataset, parameter combinations and weighting.
+4. Combine intrinsic vulnerability with land-use pressure to map relative risk and compare the changes across a 10 year period.
+5. combine vulnerability with the Conservation of Freshwater Ecosystem Values Integrated Conservation Value (CFEV ICV) to give a conservation-vulnerability priority map
 
-1.	Create a Karst Intrinsic Vulnerability Index (KIVI) for Tasmania, 
-2.	combine KIVI with land use to look at land use risk and use that to compare the risk profiles about 10 years apart and,
-3.	combine KIVI with ICV to give a conservation-vulnerability priority map.
+Mole Creek was selected as the test area because it contains a high concentration of mapped karst features, has varied and active land use, has been studied previously, and is accessible for ground truthing. The statewide application demonstrates the workflow's broader coverage, while the resolution, data, and method comparisons show how modelling choices affect the resulting maps and their interpretation.
 
-The method would be developed on a chosen karst area at a 25m cell resolution and scaled to 100m to apply across the state. Comparison of the outputs at the two scales across our test area and sensitivity testing of input combinations and weightings would be used to refine or change our methods. 
+## The path
+**Build a relative karst vulnerability index that can scale from local to statewide. Test how different inputs and combination methods change the result, map land-use risk and conservation priorities.**
 
-We chose the Mole Creek karst as our test area because it has a high concentration of karst features, it has varied and active land use, it has been reasonably well studied in the past and it is accessible for ground truthing.
-
-Our focus was on building the Python workflow and assessing the feasibility of it meeting our objectives in a way that would make it easy to add or change inputs, combinations and weightings in the future.
-
-
-## What we set out to do
-
-**Test how different inputs and combination methods change the result, then use those findings to build a karst vulnerability index that can scale from local to statewide.**
-
-```{figure} figures/intro_aims_path.svg
-:alt: A winding stream passes four stops: build at Mole Creek, freeze and scale to Tasmania, swap the land-use data between DEA and LIST, then test and report.
+```{figure} figures/intro_aims_path_v2.svg
+:alt: A winding stream passes five stops: build the index, scale it up, test the choices, map land-use risk, map priorities.
 :width: 100%
 
-The project in four steps. *Diagram drawn by Claude (Anthropic, generative AI) from the authors' description and checked by the authors.*
+The project in five steps. *Diagram drawn by Claude (Anthropic, generative AI) from the authors' description and checked by the authors.*
 ```
