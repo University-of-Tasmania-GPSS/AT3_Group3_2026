@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-<h1 style="font-weight: normal;">Hidden Landscapes, Unseen Risks</h1>
+<h1 style="font-weight: normal;">Hidden Landscapes, Unseen Risks: Mapping Karst Vulnerability in Tasmania</h1>
 </div>
 
 <div style="text-align: center;">

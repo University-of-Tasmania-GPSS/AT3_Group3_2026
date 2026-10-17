@@ -2,7 +2,7 @@
 
 KGG375 GIS Project (AT3) — Group 3, University of Tasmania
 
-**Book title:** *Hidden Landscapes, Unseen Risks* — developing a karst vulnerability index to assess land-use pressure and potential water-quality risk in Tasmania.
+**Book title:** *Hidden Landscapes, Unseen Risks: Mapping Karst Vulnerability in Tasmania* — developing a karst vulnerability index to assess land-use pressure and potential water-quality risk in Tasmania.
 
 **Published book:** https://university-of-tasmania-gpss.github.io/AT3_Group3_2026/
 (built from the `main` branch by `.github/workflows/deploy.yml`).
