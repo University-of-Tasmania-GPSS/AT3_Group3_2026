@@ -76,7 +76,7 @@ This project aimed to develop and evaluate a reproducible, scalable Python workf
 2. Build and refine the method at Mole Creek on a 25 m grid, then apply it statewide on a 100 m grid and compare the outputs at Mole Creek at each resolution.
 3. Test the sensitivity of vulnerability and risk patterns to key data and modelling choices including parameter dataset, parameter combinations and weighting.
 4. Combine intrinsic vulnerability with land-use pressure to map relative risk and compare the changes across a 10 year period.
-5. combine vulnerability with the Conservation of Freshwater Ecosystem Values Integrated Conservation Value (CFEV ICV) to give a conservation-vulnerability priority map
+5. Combine vulnerability with the Conservation of Freshwater Ecosystem Values Integrated Conservation Value (CFEV ICV) to give a conservation-vulnerability priority map
 
 Mole Creek was selected as the test area because it contains a high concentration of mapped karst features, has varied and active land use, has been studied previously, and is accessible for ground truthing. The statewide application demonstrates the workflow's broader coverage, while the resolution, data, and method comparisons show how modelling choices affect the resulting maps and their interpretation.
 

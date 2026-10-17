@@ -1,28 +1,14 @@
 # Methods
-
-Study areas: 1. Mole Creek 2. Tasmania including offshore islands  
-CRS: GDA2020 / MGA Zone 55 (EPSG:7855)
-
-## Source datasets
-Australian Bureau of Statistics STE_2021_AUST_SHP_GDA2020    
-DEA Level 3 Land Cover  
-Geology at 1:25,000 (Mineral Resources Tasmania)  
-Lands Tasmania 2m DEM downloaded from the ELVIS platform  
-LIST CFEV Groundwater Statewide  
-LIST CFEV Karst Statewide  
-LIST DEM 25m   
-LIST Hydline  
-Tasmanian Digital Karst Atlas Version 3.1 GIS data set
-
-## Karst Intrinsic Vulnerability Index (KIVI) method
+## How do we get there? ##
+### Karst Intrinsic Vulnerability Index (KIVI) method
 After consideration of karst vulnerability index methods from the literature and investigation of available datasets, we decided on a multiplicative index using 3 parameters based on EPIK. EPIK uses the parameters:  
 1. **Epikarst** - the upper 3-30m layer of a karst environment where part of the water is stored and released slowly while the rest flows into the endokarst below  
 2. **Protective cover** - the sediment overlying the karst rock  
 3. **Infiltration conditions** - the type of recharge to the karst aquifer  
 4. **Karst network development** - the subsurface cave system development and connectivity (Doerfliger et al, 1999)
 
-We used 3 parameters for the Karst Intrinsic Vulnerability Index (KIVI) :
-1. **Karst intensity** - Karst Atlas attribute Kcategory which we scored 4-1 for A-D, which has aspects of EPIK's epikarst and karst network development. 
+We used 3 parameters for the Karst Intrinsic Vulnerability Index (KIVI) :  
+**1. Karst intensity** - Karst Atlas attribute Kcategory which we scored 4-1 for A-D, which has aspects of EPIK's epikarst and karst network development. 
 
 :::{table} **Karst categories from Tasmananian Karst Atlas v3.1**
 :label: table
@@ -37,12 +23,12 @@ We used 3 parameters for the Karst Intrinsic Vulnerability Index (KIVI) :
 
 :::
 
-2. **Karst exposure** - Karst Atlas Kexposed, Kcovered or Kinterstr scored 3, 2 and 1 which directly relates to EPIK's protective cover parameter. Exposed has no or only thin layers of soil above the karst rock, covered has substantial but unlithified deposits above it and interstr(atal) has lithified rock above it. 
+**2. Karst exposure** - Karst Atlas Kexposed, Kcovered or Kinterstr scored 3, 2 and 1 which directly relates to EPIK's protective cover parameter. Exposed has no or only thin layers of soil above the karst rock, covered has substantial but unlithified deposits above it and interstr(atal) has lithified rock above it. 
 
 
-3. **Connectivity** - relates to EPIK's infiltration conditions. EPIK's infiltration scores include a coefficient based on slope and vegetative cover however because we wanted to be able to add slope and vegetation as separate parameters we didn't include them here. Connectivity was calculated by counting the upstream cells directly connected to each karst polygon by following the Whitebox D8 point upstream, and changing that to a target cell ratio per polygon. These were given scores of 1-4 using powers-of-ten ranges.
+**3. Connectivity** - relates to EPIK's infiltration conditions. EPIK's infiltration scores include a coefficient based on slope and vegetative cover however because we wanted to be able to add slope and vegetation as separate parameters we didn't include them here. Connectivity was calculated by counting the upstream cells directly connected to each karst polygon by following the Whitebox D8 point upstream, and changing that to a target cell ratio per polygon. These were given scores of 1-4 using powers-of-ten ranges.
 
-
+The final KIVI score came from normalising each parameter to give a score between 0 and 1 and multiplying the 3 together. 
 
 ```{mermaid}
 flowchart LR
@@ -58,6 +44,40 @@ flowchart LR
     K(["<b>Conservation priority</b><br/>KIVI × ICV<br/>"])
     R(["<b>Relative risk</b><br/>= KIVI × P × Sl<br/>"])
 ```
+
+### Source datasets
+Australian Bureau of Statistics STE_2021_AUST_SHP_GDA2020    
+DEA Level 3 Land Cover  
+Geology at 1:25,000 (Mineral Resources Tasmania)  
+Lands Tasmania 2m DEM downloaded from the ELVIS platform  
+LIST CFEV Groundwater Statewide  
+LIST CFEV Karst Statewide  
+LIST DEM 25m   
+LIST Hydline  
+Tasmanian Digital Karst Atlas Version 3.1 GIS data set
+
+**Study areas:** 1. Mole Creek 2. Tasmania including offshore islands  
+**CRS:** GDA2020 / MGA Zone 55 (EPSG:7855)
+
+### Raster Preparation
+Bounding boxes for Tasmania and for the Mole Creek area were prepared by reading the source file into a geopandas dataframe, selecting the polygons required and making sure they were in EPSG:7855. The Mole Creek area had a 3km buffer added to it so it included the catchment for the core polygons. The Mole Creek bounding box was used to clip a Mole Creek DEM from the statewide merged and reprojected DEM and used as the raster grid for the rasterization of the 25m polygons through the workflow. This kept the CRS, grid alignment and explicit NoData handling consistent across the project and between scales.
+
+| Python Libraries | What they were used for |
+|---|---|
+| GeoPandas and Shapely | Read, reproject, filter and analyse spatial vector data such as Karst Atlas polygons, land-use polygons and watercourses; perform geometry operations such as buffering. |
+| Rasterio and rioxarray | Read, write, mosaic, mask, rasterize and align raster data; manage raster grids, coordinate systems, NoData values and resampling. |
+| NumPy | Store raster data as arrays and calculate scores, masks, vulnerability and risk cell by cell. |
+| Pandas | Manage attribute tables and connectivity count tables; read and write CSVs. |
+| WhiteboxTools (`whitebox`) | Prepare the DEM for D8 flow routing and generate flow direction and accumulation products. |
+| Numba | Speed up the custom upstream-routing counts used to calculate connectivity. |
+| SciPy | Support analyses such as distance calculations and statistical comparisons. |
+| pystac-client and odc-stac | Find and load DEA land-cover data from its STAC catalogue. |
+| Matplotlib and Contextily | Produce static maps, charts and map backgrounds. |
+| Plotly and Folium | Create interactive comparisons and the interactive risk map. |
+| Pillow (PIL) and IPython display tools | Handle some image and notebook display tasks. |
+| GDAL (`osgeo.gdal`) | Support raster operations in some notebooks. |
+
+We also built our own modules which helped to keep processing consistent across the workflow such as `karst.py`, `hydro.py`, `landuse.py` and `d8_routing.py`.  
 
 ## Build small, then go big
 
