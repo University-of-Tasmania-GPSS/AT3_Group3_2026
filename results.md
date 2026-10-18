@@ -103,7 +103,7 @@ The main map and one change on each axis. Each map is split into fifths of its o
 
 **Scale.** Routing water on a 2 m elevation model gives almost the same map as 25 m (0.99; 88% of polygons fall in the same connectivity class). The 100 m grid changes it more (0.89), mainly because small polygons are covered by only a few cells. For risk, mean risk over the Mole Creek karst is 0.062 at 25 m and 0.074 at 100 m, and the three named areas keep the same order.
 
-The same comparison on KIVI alone (Stage 8b) gives a correlation of 0.88 between the 25 m and 100 m surfaces over the Mole Creek core, with 61% of cells at exactly the same score. The 100 m run scores Mole Creek higher on average (0.41 against 0.34), mostly in the west and north-centre, while the east and the Meander – Western Creek system are almost identical. The 25 m DEM stops at the 3 km buffer and the 100 m DEM covers all of Tasmania, so the 100 m routing counts upstream land beyond the buffer, and some polygons move up a connectivity class. This is part of why the statewide map in section 3 shows more of Mole Creek in the higher KIVI classes than the 25 m map in section 1.
+The same comparison on KIVI alone (Stage 8b) gives a correlation of 0.88 between the 25 m and 100 m surfaces over the Mole Creek core, with 61% of cells at exactly the same score. The 100 m run scores Mole Creek higher on average (0.41 against 0.34), mostly in the west and north-centre, while the east and the Meander – Western Creek system are almost identical.
 
 ```{figure} figures/intrinsic_vulnerability_scale_comparison.png
 :alt: Three maps of the Mole Creek karst. KIVI at 25 m, KIVI from the 100 m statewide run resampled to 25 m, and the difference between them. The 100 m run is higher in the west and north-centre and the same in the east.
@@ -113,12 +113,12 @@ The same comparison on KIVI alone (Stage 8b) gives a correlation of 0.88 between
 KIVI at Mole Creek from the 25 m run and the 100 m statewide run, and the difference (25 m minus 100 m).
 ```
 
-**Data.** Replacing the Tasmanian land-use layer with the national DEA land-cover layer has little effect on the Mole Creek ranking (similarity = 0.98) but produces greater differences across the state (0.84). These differences reflect contrasting land-cover classifications: LIST distinguishes plantation forestry and irrigated pasture from other land uses, whereas DEA groups these areas within broader natural or cultivated cover classes. DEA also uses a coarser classification scheme (three levels compared with LIST’s 0–10 scale), resulting in higher mean risk scores at Mole Creek (0.095 versus 0.062).
+**Data.** Replacing the Tasmanian land-use layer with the national DEA land-cover layer has little effect on the Mole Creek ranking (similarity = 0.98) but produces greater differences across the state (0.84). DEA gives a higher mean risk at Mole Creek (0.095 against 0.062).
 
 **Method.** 
-- Adding the four ingredients instead of multiplying keeps the Mole Creek ordering (0.98) and changes the state's (0.70). It also puts every cell in the top class, because a sum scores about 0.4 to 0.5 where the product scores about 0.06, so a sum needs its own class edges.
-- A six-input weighted sum, closer to a literature-style index, gives a very different Mole Creek map (0.55). Indices like this need inputs such as soil cover, depth to groundwater and sinkhole density, which Tasmania has no statewide data for, so catchment flags, watercourses and rainfall stood in. 
-- Slope direction matters at Mole Creek (0.83) and hardly at all statewide (0.96). Most Mole Creek karst is gentle, so flipping the rule (flatter = more vulnerable, as in one published method) lifts nearly all of it at once. Lowering the slope ceiling from 30° to 10° barely changes the ordering (0.99).
+- Adding the four ingredients instead of multiplying keeps the Mole Creek ordering (0.98) and changes the state's (0.70). It also puts every cell in the top class, because a sum scores about 0.4 to 0.5 where the product scores about 0.06.
+- A six-input weighted sum, closer to a literature-style index, gives a very different Mole Creek map (0.55). Catchment flags, watercourses and rainfall stood in for soil cover, depth to groundwater and sinkhole density, which have no statewide Tasmanian data.
+- Slope direction matters at Mole Creek (0.83) and hardly at all statewide (0.96). Flipping the rule (flatter = more vulnerable, as in one published method) is the change tested. Lowering the slope ceiling from 30° to 10° barely changes the ordering (0.99).
 - Removing exposure changes the map by about as much as moving to a 100 m grid (0.91 at Mole Creek, 0.96 statewide).
 
 **Smaller choices.** Four further judgement calls were tested at Mole Creek (Stage 9).
@@ -136,7 +136,7 @@ KIVI at Mole Creek from the 25 m run and the 100 m statewide run, and the differ
 High-pressure land and mean risk on karst, 1988 to 2024, using DEA land cover (the only source with an annual series).
 ```
 
-At Mole Creek the share of high-pressure land on the karst swings from 65% (1988) to 22% (2011) and back to 64% (2024), while the pattern of risk stays almost fixed (a correlation of at least 0.9998 between years). Statewide the share is lower, between 10% and 19%. So one year of land use is enough to say *where* risk concentrates, but not *how much* there is, and the map should be updated as land use changes. The main map uses LIST land use for 2021.
+At Mole Creek the share of high-pressure land on the karst swings from 65% (1988) to 22% (2011) and back to 64% (2024), while the pattern of risk stays almost fixed (a correlation of at least 0.9998 between years). Statewide the share is lower, between 10% and 19%. The main map uses LIST land use for 2021.
 
 ## 6. Checks against independent data
 
