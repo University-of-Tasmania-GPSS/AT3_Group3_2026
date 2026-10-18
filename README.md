@@ -1,8 +1,8 @@
-# Karst Groundwater Vulnerability in Tasmania
+# Hidden Landscapes, Unseen Risks: Mapping Karst Vulnerability in Tasmania
 
 KGG375 GIS Project (AT3) — Group 3, University of Tasmania
 
-**Book title:** *Hidden Landscapes, Unseen Risks: Mapping Karst Vulnerability in Tasmania* — developing a karst vulnerability index to assess land-use pressure and potential water-quality risk in Tasmania.
+Developing a karst vulnerability index to assess land-use pressure and potential water-quality risk in Tasmania.
 
 **Published book:** https://university-of-tasmania-gpss.github.io/AT3_Group3_2026/
 (built from the `main` branch by `.github/workflows/deploy.yml`).
@@ -20,7 +20,7 @@ The model multiplies four terms, each scaled 0 to 1:
 | **Pressure** | LIST Tasmania land-use matrix for 2021 (0–10), averaged over each named karst system; DEA land cover is the tested alternative |
 | **Slope** | Multiplier from 0.5 (flat) to 1 (30° or steeper) |
 
-*KIVI (intrinsic vulnerability)* = susceptibility × connectivity. *Relative risk* = intrinsic vulnerability × pressure × slope. See `methods.md` for the method and `results.md` for the findings.
+*KIVI (intrinsic vulnerability)* = susceptibility × connectivity. *Relative risk* = intrinsic vulnerability × pressure × slope. A conservation priority map combines KIVI, grouped into Lower, Middle and Higher bands, with the CFEV Integrated Conservation Value (Stage 7b). See `methods.md` for the method and `results.md` for the findings.
 
 The method is built and tuned at **Mole Creek** (25 m grid), then applied across **Tasmania at 100 m** and compared. The Mole Creek study area is the Karst Atlas polygons plus a 3 km buffer (`notebooks/00_bounding_boxes.ipynb`), because pressure and routing need the land around the karst. Results are reported for the Mole Creek karst only.
 
@@ -29,13 +29,14 @@ The method is built and tuned at **Mole Creek** (25 m grid), then applied across
 - **Method moves the map most.** Adding the four ingredients instead of multiplying them keeps the Mole Creek order (rank correlation 0.98) and changes the state's (0.70). A six-input weighted sum gives a very different Mole Creek map (0.55). Slope direction changes Mole Creek (0.83) but barely the state (0.96).
 - **Scale and data matter less.** A 2 m DEM gives the same map as 25 m (0.99); the 100 m grid changes it more (0.89). Tasmanian land use against DEA land cover barely moves Mole Creek (0.98) and moves the state more (0.84).
 - **Exposure** shifts the map a little (0.91 at Mole Creek, 0.96 statewide) and improves the independent springs check (springs sit at about the 99th percentile of the karst score).
+- **Conservation priority.** The top class covers 13% of the karst, mostly in the south-west mountains and at Mole Creek. The KIVI bands and priority rules are provisional.
 - **No single ideal map.** Which map suits depends on the user and the question; the book states the choices and how far each one moves the result.
 
 The "rank correlation" is the Spearman correlation with the main map over the mapped karst cells (1 = same ordering).
 
-**Out of scope:** borehole data, AHP weighting, TGD/Karst Index Database cross-checks, and CFEV karst conservation value (tried as context in Stage 10, then dropped).
+**Out of scope:** borehole data, AHP weighting, TGD/Karst Index Database cross-checks.
 
-**Known limitations:** no contamination data; scores are partly judgement; 132 karst polygons are too small for a 100 m cell and are left without a connectivity score; LIST land use has six snapshots (2002 to 2021), so change over time is only partly covered, and the main map uses 2021. These are set out in the Conclusion.
+**Known limitations:** no contamination data; scores are partly judgement; 132 karst polygons are too small for a 100 m cell and are left without a connectivity score; LIST land use has six snapshots (2002 to 2021), so change over time is only partly covered, and the main map uses 2021. These are set out in the Discussion.
 
 ## Group members
 
@@ -70,7 +71,7 @@ The group chose the research question, the model design and scoring, which tests
 └── .github/workflows/deploy.yml   # builds and publishes the book
 ```
 
-**Notebooks** (`notebooks/`): `00` bounding boxes, `01` Mole Creek set-up, `02` karst susceptibility, `03` connectivity, `04` and `04_v2` intrinsic vulnerability (without and with exposure), `05` and `05b` land-use pressure (DEA and LIST), `06` relative risk at Mole Creek, `07` statewide run, `08` compare scales, `09` sensitivity, `10` springs check, `13` connectivity across resolution, `14` weighted-sum prototype, `15` interactive map, `16` which choices move the map. `notebooks/archive/` holds retired comparisons.
+**Notebooks** (`notebooks/`): `00` bounding boxes, `01` Mole Creek set-up, `02` karst susceptibility, `03` connectivity, `04` and `04_v2` intrinsic vulnerability (without and with exposure), `05` and `05b` land-use pressure (DEA and LIST), `06` relative risk at Mole Creek, `07` statewide run, `07b` conservation priority (KIVI with CFEV), `08` compare scales, `08b` compare KIVI across scales, `09` sensitivity, `10` springs check, `13` connectivity across resolution, `14` weighted-sum prototype, `15` interactive map, `16` which choices move the map. `notebooks/archive/` holds retired comparisons.
 
 **D8 routing notebooks** (`03alt3` for 25 m at Mole Creek, `03-100m-hydrological-connectivity` for the state, `03alt2` for 2 m at Mole Creek) run WhiteboxTools and write the count tables that Stages 3, 7 and 13 read. They are slow and are not part of the numbered run; their outputs are shared.
 
@@ -103,12 +104,11 @@ Sources (`Input_data/`):
 - **LIST land use** (LISTdata, DPIPWE) — land-use polygons for 2002, 2009–10, 2013, 2015, 2019 and 2021, scored with the matrix in `src/landuse_list.py`. The 2021 layer is the main pressure layer.
 - **DEA Level-3 Land Cover** (`ga_ls_landcover_class_cyear_3`) — the alternative pressure layer, fetched on demand through the DEA STAC catalogue (`https://explorer.dea.ga.gov.au/stac`) with `pystac_client` and `odc.stac`; no authentication needed.
 - **LIST CFEV Groundwater Dependent Ecosystems / springs** — independent check only. 115 points statewide.
-- **DEM** — LIST 25 m statewide (built per municipality), with a 2 m DEM for Mole Creek used as a check.
-- **LIST hydrolines** — watercourses (used in the six-input weighted-sum test).
+- **LIST CFEV Karst (Integrated Conservation Value)** — statewide karst polygons rated Moderate, High or Very High (`KT_ICV`), combined with KIVI in Stage 7b to give the conservation priority map.
+- **DEM** — LIST 25 m statewide (built per municipality), with a 2 m DEM for Mole Creek (Lands Tasmania, downloaded from the ELVIS platform) used as a check.
+- **LIST hydlines** — watercourses (used in the six-input weighted-sum test).
 - **Geology** — Mineral Resources Tasmania at 1:25,000, 1:250,000 and 1:500,000, kept for context.
 - **Tasmania state boundary** — ABS ASGS (`STE_2021_AUST_SHP_GDA2020/`).
-
-The unit disallows PyQGIS, so resampling uses `rioxarray` and `xarray`, and flow routing uses WhiteboxTools.
 
 ## Design decisions
 

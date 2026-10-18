@@ -47,15 +47,16 @@ flowchart LR
 ```
 
 ### Source datasets
-Australian Bureau of Statistics STE_2021_AUST_SHP_GDA2020    
-DEA Level 3 Land Cover  
-Geology at 1:25,000 (Mineral Resources Tasmania)  
-Lands Tasmania 2m DEM downloaded from the ELVIS platform  
-LIST CFEV Groundwater Statewide  
-LIST CFEV Karst Statewide  
-LIST DEM 25m   
-LIST Hydline  
-Tasmanian Digital Karst Atlas Version 3.1 GIS data set
+- Australian Bureau of Statistics STE_2021_AUST_SHP_GDA2020    
+- DEA Level 3 Land Cover  
+- Geology at 1:25,000 (Mineral Resources Tasmania)  
+- Lands Tasmania 2m DEM downloaded from the ELVIS platform  
+- LIST CFEV Groundwater Statewide  
+- LIST CFEV Karst Statewide  
+- LIST DEM 25m   
+- LIST Hydline  
+- LIST Land Use
+- Tasmanian Digital Karst Atlas Version 3.1 GIS data set
 
 **Study areas:** 1. Mole Creek 2. Tasmania including offshore islands  
 **CRS:** GDA2020 / MGA Zone 55 (EPSG:7855)
@@ -81,8 +82,6 @@ We also built our own modules which helped to keep processing consistent across 
 ## Building the model
 
 We built and tuned the method at Mole Creek on a 25 m grid, and then froze it and ran it across all of Tasmania at 100 m. Both use one coordinate system (GDA2020 / MGA55, EPSG:7855). The Mole Creek study area we used was the Karst Atlas polygons with Mole Creek in the name and the Meander - Western Creek polygon, plus a 3 km buffer. This was necessary to include the catchment for the karst polygons for
-
-We built and froze the method at Mole Creek first, so some choices (the equation, the scores) began as judgement calls, and the tests then checked them.
 
 ### Raster Preparation (notebooks 00-01)
 Bounding boxes for Tasmania and for the Mole Creek area were prepared by reading the source file into a geopandas dataframe, selecting the polygons required and making sure they were in EPSG:7855.  The Mole Creek bounding box was used to clip a Mole Creek DEM from the statewide merged and reprojected DEM which was used as the raster grid for the rasterization of the 25m polygons through the workflow. This kept the CRS, grid alignment and explicit NoData handling consistent across the project and between scales.
@@ -165,21 +164,16 @@ The main map uses **LIST land use**: it is Tasmania's own source and records wha
 
 *Land-use pressure at Mole Creek in 2021. Natural land is left clear, and each layer darkens from there up to its own maximum score, so darker means higher pressure within that layer.*
 
-:::{dropdown} Why average pressure across a whole catchment?
-Pressure on the sinkhole cell itself says little, because the water arriving
+**Pressure reaches the karst from the catchment.** Pressure on the sinkhole cell itself says little, because the water arriving
 there comes from the whole catchment upslope. Catchment-only polygons also
 have zero susceptibility, so a per-cell product would ignore their land use
 entirely, and 26.8% of high-pressure cells at Mole Creek would be missed this
 way. Each karst cell takes the mean pressure across its named system. We
 cluster polygons that sit close together, so placeholder names like "Several"
 do not merge unrelated systems.
-:::
 
-:::{dropdown} Why is bare ground scored low?
-It is a natural surface with no pollutant source on it. Fast runoff is already
+**Bare ground scores low.** It is a natural surface with no pollutant source on it. Fast runoff is already
 captured by connectivity, so scoring it again here would count it twice.
-:::
-
 
 ### 5. Slope: does runoff concentrate or soak in?
 
