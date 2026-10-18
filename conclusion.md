@@ -22,3 +22,11 @@ We built a Karst Intrinsic Vulnerability Index (KIVI) at Mole Creek (25 m), appl
 - **Keep the sinks.** Flow routing that retains sinks (Whitebox, RichDEM) may suit karst, where sinks can be real sinkholes.
 - **Fill the missing inputs.** Soil cover, depth to groundwater and sinkhole density would allow a literature-style index for Tasmania.
 - **Flag the small systems.** A confidence mark based on each system's cell count shows where the 100 m map is least reliable.
+
+## Are we there yet?
+
+- Our project focused on the feasibility of developing a scalable, Python-based workflow that could meet our objectives while allowing us to test the sensitivity of different inputs and modelling choices. We feel that we have developed a workflow that demonstrates this feasibility, although we would not claim that our choices of inputs, class boundaries and weightings are necessarily the most appropriate. The workflow was designed so that these can be adjusted relatively easily as our understanding of karst vulnerability improves and more accurate or up-to-date datasets become available.
+
+- Further work would include updating the Karst Atlas and ground-truthing the model at Mole Creek. This could involve obtaining more accurate DEMs and dye-tracing records to better understand both surface and subsurface drainage networks, and records of karst damage and known contamination. Access to historical and planned logging coupe data would also allow us to assess past impacts and identify potential future risks.
+
+- The complexity of calculating karst vulnerability and risk associated with different land uses were aspects of the project that we underestimated but feel that this is an important area for further research, particularly given the hidden nature of karst systems and the potential for land-use activities to create damage and contamination not immediately apparent at the surface. This reinforces the importance of continuing to investigate the Hidden Landscapes and Unseen Risks associated with karst geology.
