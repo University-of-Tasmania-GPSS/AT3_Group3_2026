@@ -41,7 +41,41 @@ We used LIST for the main map and DEA as the tested alternative. LIST is a Tasma
 
 DEA suits tracking change over time, and LIST suits a map of where pressure comes from. Running the model on each LIST snapshot is the next step, and it would show change over time with the better layer.
 
+### Independent checks
+- According to the metadata for the CFEV Groundwater Dependent Ecosystems (GDEs)layer, many of the springs mapped as point data are cave entrances making them a potential tool for checking the KIVI scores.
+
+- Springs and subsurface streams from the dataset were used as an independent hydrological plausibility check on the KIVI model, checking karst areas only to see whether the GDE's were more concentrated in higher vulnerability karst. 
+
+- The check found that at the 500m proximity threshold the 24 named karst systems with nearby GDE points had a mean KIVI score of 0.438, compared with an area-weighted karst baseline of 0.343 supporting the model’s capturing factors relevant to karst hydrology but it is a limited check. The springs are limited to a selection of known springs which may not be independent of the Karst Atlas data and only a small number of distinct systems is represented. The spatial information for each spring was generalised, but using the 500m proximity threshold would have helped even that out.
+
+- There is a more comprehensive list of known GDE’s, GDE points.shp, done by Rolan Eberhard (2004) that would potentially provide a stronger check.
+
+### Conservation priority matrix and map 
+- The method produced a statewide conservation priority map at a 100m resolution that included vulnerability as well as a priority matrix combining showing the combinations that informed our final classes. The analysis identified 4,094km2 where the CFEV and intrinsic vulnerability overlapped with only 6.3km2 unmatched. The largest provisional priority class was Priority 3 — Moderate, covering 47.30% of eligible area. Priority 1 — Highest covered 12.79%, and Priority 1 and 2 together accounted for 32.12%. The priority classes are provisional, with the vulnerability bands and priority rules being agreed values/rules.  
+
+- Higher vulnerability scores were more often spatially associated with very high conservation values in this dataset at 48% in the higher vulnerability band compared with 19.1% across the lower and moderate band. This may show some lack of independence between the two measures – the distinctiveness and representativeness parameters forming part of the ICV may overlap with Kcategory and Exposure in the Karst Atlas which form a major part of the KIVI. This could be tested by just using the naturalness score from the ICV to check whether the same skew occurs.  
+
+- Due to the provisional nature of the scores, the priority map is most useful as a way of identifying where high vulnerability and high conservation value coincide, notably Mole Creek, Junee-Florentine and Mt Anne-Upper Weld. 
+
 ## Limitations
+
+- KIVI is focused on groundwater vulnerability and does not include physical damage such as subsidence or damage to karst features other than through groundwater contamination. Land use risk can address this to a point by scoring categories like mining and production forest high.
+
+### Input data quality and currency
+- The Karst Atlas V3.1 data is from 2003 and its accompanying metadata says it has significant discrepancies in its polygon boundaries, while some more recently discovered karst areas are not included. The original Atlas was mapped at 1:100,000 and not all the polygons have been upgraded to 1:25,000.  
+
+- Resampling to 100m loses detail from the finer resolution layers so local variation is smoothed and parameter scores may change, particularly for small polygons. 132 small polygons could not receive a D8 connectivity score.  
+
+### Method and structure of index
+- Parameters chosen to contribute to the KIVI were chosen by judgement based on which available datasets seemed to fit with the literature best. Weights and score bands were also set by judgement, including land use data from the LIST used for the risk map. The ranking depends on these choices and would need substantial testing and validation before being relied on.  
+- Connectivity only captures upstream contributing area– it doesn’t represent underground drainage or sinkhole drainage, and one method would not be suitable in all karst areas.  
+
+### Validation and independence
+There was no testing against contamination or damage records so no validation of the index.
+
+### Scope and transferability
+The KIVI is specific for Tasmania as many of its inputs are state specific such as the Karst Atlas and the LIST inputs.
+The statewide index, risk map and conservation priority maps are potentially useful screening tools to look at before investigating an area in depth but should not be relied on for small scale accuracy.
 
 **Ground truth**
 - Nothing measures contamination, so there is no way to say which map is right. The only check is where springs are, and springs mark where water leaves the karst.
