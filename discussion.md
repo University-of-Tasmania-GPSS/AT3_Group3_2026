@@ -1,10 +1,15 @@
 # Discussion
 
-### What the index shows
+## What the index shows
 
-KIVI separates karst by how karstified and exposed it is and how much water drains into it. At Mole Creek this puts most of the karst in the High class, with the highest values where exposed, strongly karstified rock sits low in a large catchment. Statewide, most karst falls in the lower risk classes, and the top-ranked systems are mostly small (Flowery Gully, Doctors Rocks, Savage River Mine), with Gunns Plains the largest system in the top five. Mole Creek ranks 33rd on mean risk, so the test area is not the highest-risk karst in the state. It is a good test area because of its feature density, land-use variety and accessibility, but it is not a typical high-risk case. Because Mole Creek is mostly Atlas category A and B karst, how the index behaves in weakly karstified systems (such as Meander – Western Creek, category D) has been tested less.
+KIVI picks out karst where water arrives in quantity and meets rock that is strongly karstified and open to the surface.
 
-### Which scale to use
+- **At Mole Creek the highest values sit low in a large catchment.** That is where exposed, strongly karstified rock receives drainage from the most land, so the pattern follows the ground and the catchment.
+- **The statewide top of the ranking is mostly small systems.** Their means rest on a handful of cells, so the larger systems in the top group (Gunns Plains) give the more reliable signal.
+- **Mole Creek is a good test area and a mid-ranked one.** It has many karst features, varied land use and easy access, and it is not the highest-risk karst in the state, so it is not a typical high-risk case.
+- **The index is least tested in weakly karstified systems.** Mole Creek is mostly Atlas category A and B karst, so how the index behaves in category D systems such as Meander – Western Creek is less known.
+
+## Which scale to use
 
 We built the method at 25 m and applied it statewide at 100 m.
 
@@ -15,7 +20,7 @@ We built the method at 25 m and applied it statewide at 100 m.
 
 The 100 m map suits screening the state, and finer data is worth using where a decision depends on one site. This is the trade-off between local detail and statewide coverage described in the literature (Moreno-Gómez et al., 2019; Iván & Mádl-Szőnyi, 2017).
 
-### Which method to choose
+## Which method to choose
 
 We kept the product. A place has to be high on every ingredient to score high, which suits a question about where pressure meets vulnerable karst. EPIK and COP also multiply their factors (Doerfliger et al., 1999; Vías et al., 2006), and methods applied to the same karst give different maps (Ravbar & Goldscheider, 2009), so the structure is a choice that matters.
 
@@ -28,7 +33,7 @@ We kept the product. A place has to be high on every ingredient to score high, w
 
 The springs check is weak, and a weighted sum with well-chosen inputs and weights could do as well. The choice rests on the evidence we have and on how easily the map can be explained.
 
-### Which land-use data to use
+## Which land-use data to use
 
 We used LIST for the main map and DEA as the tested alternative. LIST is a Tasmanian product that separates plantations and irrigated pasture, which matter for pressure (Gillieson & Thurgate, 1999; Vilhar et al., 2022). DEA has the longer annual record (Geoscience Australia, n.d.).
 
@@ -41,7 +46,7 @@ We used LIST for the main map and DEA as the tested alternative. LIST is a Tasma
 
 DEA suits tracking change over time, and LIST suits a map of where pressure comes from. Running the model on each LIST snapshot is the next step, and it would show change over time with the better layer.
 
-### Independent checks
+## Independent checks
 - According to the metadata for the CFEV Groundwater Dependent Ecosystems (GDEs)layer, many of the springs mapped as point data are cave entrances making them a potential tool for checking the KIVI scores.
 
 - Springs and subsurface streams from the dataset were used as an independent hydrological plausibility check on the KIVI model, checking karst areas only to see whether the GDE's were more concentrated in higher vulnerability karst. 
@@ -50,7 +55,7 @@ DEA suits tracking change over time, and LIST suits a map of where pressure come
 
 - There is a more comprehensive list of known GDE’s, GDE points.shp, done by Rolan Eberhard (2004) that would potentially provide a stronger check.
 
-### Conservation priority matrix and map 
+## Conservation priority matrix and map 
 - The method produced a statewide conservation priority map at a 100m resolution that included vulnerability as well as a priority matrix combining showing the combinations that informed our final classes. The analysis identified 4,094km2 where the CFEV and intrinsic vulnerability overlapped with only 6.3km2 unmatched. The largest provisional priority class was Priority 3 — Moderate, covering 47.30% of eligible area. Priority 1 — Highest covered 12.79%, and Priority 1 and 2 together accounted for 32.12%. The priority classes are provisional, with the vulnerability bands and priority rules being agreed values/rules.  
 
 - Higher vulnerability scores were more often spatially associated with very high conservation values in this dataset at 48% in the higher vulnerability band compared with 19.1% across the lower and moderate band. This may show some lack of independence between the two measures – the distinctiveness and representativeness parameters forming part of the ICV may overlap with Kcategory and Exposure in the Karst Atlas which form a major part of the KIVI. This could be tested by just using the naturalness score from the ICV to check whether the same skew occurs.  
