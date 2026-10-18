@@ -17,7 +17,7 @@ Caves are also home to a variety of fauna, some dwell only in caves while others
 ```{figure} figures/Male_cave_spider.jpeg
 :alt: Endemic Tasmanian cave spider *Hickmania troglodytes*
 :width: 50%
-Endemic Tasmanian cave spider *Hickmania troglodytes*.
+Endemic Tasmanian cave spider *Hickmania troglodytes*
 ```
 
 ## Dissolving rock
@@ -54,7 +54,7 @@ In 1995, An Atlas of Tasmanian Karst was produced by Kevin Kiernan showing known
 The cover of the first version of An Atlas of Tasmanian Karst by Kevin Kiernan (1995).
 ```
 ## Conservation Value
-The Conservation of Freshwater Ecosystem Values (CFEV) project used reviewed and updated spatial data from the Karst Atlas Version 3 while assessing the conservation management priorities for all freshwater ecosystems in Tasmania which included karst. The result, completed in 2005, was the CFEV Karst – Integrated Conservation Value (ICV) spatial layer which combines measures of Naturalness, Representativeness and Distinctiveness to give a score of medium, high or very high conservation value and which can be viewed interactively on the LISTmap here: https://maps.thelist.tas.gov.au/listmap/app/list/map?bookmarkId=1324624
+The Conservation of Freshwater Ecosystem Values (CFEV) project used reviewed and updated spatial data from the Karst Atlas Version 3 while assessing the conservation management priorities for all freshwater ecosystems in Tasmania which included karst (DPIPWE, 2014). The result, completed in 2005, was the CFEV Karst – Integrated Conservation Value (ICV) spatial layer which combines measures of Naturalness, Representativeness and Distinctiveness to give a score of medium, high or very high conservation value and which can be viewed interactively on the LISTmap here: https://maps.thelist.tas.gov.au/listmap/app/list/map?bookmarkId=1324624
 
 ## Mapping, conservation value, but what about vulnerability?
 The CFEV work gives a measure of conservation value and conservation management priority, but not of intrinsic vulnerability, which we define as vulnerability to groundwater contamination and/or physical karst damage. It depends on characteristics of the landscape and the pathways connecting the surface to groundwater. Because these factors vary spatially, vulnerability is commonly represented as a spatial index, in which several characteristics are mapped, scored and combined to produce a relative measure of vulnerability. The Tasmanian Conservation of Freshwater Ecosystem Values (CFEV) framework provides measures of conservation value and management priority, but does not directly assess intrinsic karst vulnerability as defined here.

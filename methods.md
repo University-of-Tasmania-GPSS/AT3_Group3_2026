@@ -24,7 +24,7 @@ We used 3 parameters for the Karst Intrinsic Vulnerability Index (KIVI) :
 
 :::
 
-**2. Karst exposure** - Karst Atlas Kexposed, Kcovered or Kinterstr scored 3, 2 and 1 which directly relates to EPIK's protective cover parameter. Exposed has no or only thin layers of soil above the karst rock, covered has substantial but unlithified deposits above it and interstr(atal) has lithified rock above it. 
+**2. Karst exposure** - Karst Atlas Kexposed, Kcovered or Kinterstr scored 3, 2 and 1 which directly relates to EPIK's protective cover parameter. Exposed has no or only thin layers of soil above the karst rock, covered has substantial but unlithified deposits above it and interstr(atal) has lithified rock above it (Sharples, 2003). 
 
 
 **3. Connectivity** - relates to EPIK's infiltration conditions. EPIK's infiltration scores include a coefficient based on slope and vegetative cover however because we wanted to be able to add slope and vegetation as separate parameters we didn't include them here. Connectivity was calculated by counting the upstream cells directly connected to each karst polygon by following the Whitebox D8 point upstream, and changing that to a target cell ratio per polygon. These were classed into four powers-of-ten ranges and scored 0 to 3 after rescaling.
@@ -241,7 +241,15 @@ COP's vegetation split is dropped because pressure already scores land cover.
 
 ### Conservation priority
 
-The Conservation of Freshwater Ecosystem Values (CFEV) Integrated Conservation Value (ICV) layer rates karst as Moderate, High or Very High. We rasterise it onto the 100 m KIVI grid, give each cell the class that covers most of its area, and keep the cells that have both a KIVI score and an ICV class. KIVI is grouped into Lower (up to 0.1875), Middle (0.25 to 0.375) and Higher (0.5 and above), and each group is combined with the ICV class into four priority classes (Stage 7b, Results section 7). The group boundaries are provisional.
+The Conservation of Freshwater Ecosystem Values (CFEV) Integrated Conservation Value (ICV) layer rates karst as Moderate, High or Very High. We rasterise it onto the 100 m KIVI grid, give each cell the class that covers most of its area, and keep the cells that have both a KIVI score and an ICV class. KIVI is grouped into Lower (up to 0.1875), Middle (0.25 to 0.375) and Higher (0.5 and above), and each group is combined with the ICV classes to make a conservation-vulnerability priority matrix. These 9 cells are allocated into four conservation priority classes (Stage 7b, Results section 7). The group boundaries are provisional.
+
+### Conservation-vulnerability priority matrix
+| Intrinsic vulnerability | CFEV Moderate |	CFEV High | CFEV Very High |
+|---|---|---|---|
+| Higher (0.5–1.0) | Priority 3 — Moderate | Priority 2 — High | Priority 1 — Highest |
+| Middle (0.25–0.375) | Priority 3 — Moderate |	Priority 3 — Moderate |	Priority 2 — High |
+| Lower (0.041667–0.1875) | Priority 4 — Lower | Priority 4 — Lower	| Priority 3 — Moderate |
+
 
 ### Interactive map
 
